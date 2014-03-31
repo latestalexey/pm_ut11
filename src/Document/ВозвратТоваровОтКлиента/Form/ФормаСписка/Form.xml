@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Менеджер" id="100">
+			<DataPath>Менеджер</DataPath>
+			<Width>30</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ClearButton>true</ClearButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceListButton>true</ChoiceListButton>
+			<ContextMenu name="МенеджерКонтекстноеМеню" id="101"/>
+			<ExtendedTooltip name="МенеджерExtendedTooltip" id="114"/>
+			<Events>
+				<Event name="OnChange">МенеджерПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="СписокВозвратыТоваровОтКлиентов" id="1">
+			<Representation>List</Representation>
+			<SkipOnInput>false</SkipOnInput>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<DataPath>СписокВозвратыТоваровОтКлиентов</DataPath>
+			<RowPictureDataPath>СписокВозвратыТоваровОтКлиентов.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>false</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокВозвратыТоваровОтКлиентовКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокВозвратыТоваровОтКлиентовКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Popup name="ГруппаСоздать" id="24">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Создать</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа создать</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ГруппаСоздатьExtendedTooltip" id="115"/>
+						<ChildItems>
+							<Button name="Создать" id="25">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.СписокВозвратыТоваровОтКлиентов.StandardCommand.Create</CommandName>
+								<Parameter xsi:nil="true"/>
+								<Picture>
+									<xr:Ref>CommonPicture.ПустаяКартинка</xr:Ref>
+									<xr:LoadTransparent>false</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Возврат от клиента</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="СоздатьExtendedTooltip" id="116"/>
+							</Button>
+							<Button name="СоздатьВозвратОтКомиссионера" id="27">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВозвратОтКомиссионера</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВозвратОтКомиссионераExtendedTooltip" id="117"/>
+							</Button>
+							<Button name="СоздатьВозвратОтРозничногоПокупателя" id="28">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВозвратОтРозничногоПокупателя</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВозвратОтРозничногоПокупателяExtendedTooltip" id="118"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<ButtonGroup name="ГруппаКомандыСписка" id="86">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды списка</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Item.СписокВозвратыТоваровОтКлиентов</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыСпискаExtendedTooltip" id="119"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаГлобальныеКоманды" id="102">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+						<ExtendedTooltip name="ГруппаГлобальныеКомандыExtendedTooltip" id="120"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандыФормы" id="92">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыExtendedTooltip" id="121"/>
+					</ButtonGroup>
+					<Button name="СписокВозвратыТоваровОтКлиентовСправка" id="113">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СписокВозвратыТоваровОтКлиентовСправкаExtendedTooltip" id="122"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокВозвратыТоваровОтКлиентовExtendedTooltip" id="123"/>
+			<SearchStringAddition name="СписокВозвратыТоваровОтКлиентовSearchString" id="124">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокВозвратыТоваровОтКлиентовSearchStringContextMenu" id="125"/>
+				<ExtendedTooltip name="СписокВозвратыТоваровОтКлиентовSearchStringExtendedTooltip" id="126"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокВозвратыТоваровОтКлиентовViewStatus" id="127">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокВозвратыТоваровОтКлиентовViewStatusContextMenu" id="128"/>
+				<ExtendedTooltip name="СписокВозвратыТоваровОтКлиентовViewStatusExtendedTooltip" id="129"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокВозвратыТоваровОтКлиентовSearchControl" id="130">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокВозвратыТоваровОтКлиентовSearchControlContextMenu" id="131"/>
+				<ExtendedTooltip name="СписокВозвратыТоваровОтКлиентовSearchControlExtendedTooltip" id="132"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="СписокНомер" id="6">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Number</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер</v8:content>
+						</v8:item>
+					</Title>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокНомерКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СписокНомерExtendedTooltip" id="133"/>
+				</InputField>
+				<InputField name="СписокДата" id="4">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Date</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Width>14</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СписокДатаExtendedTooltip" id="134"/>
+				</InputField>
+				<InputField name="СписокСуммаДокумента" id="18">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.СуммаДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСуммаДокументаКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="СписокСуммаДокументаExtendedTooltip" id="135"/>
+				</InputField>
+				<InputField name="СписокВалюта" id="16">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Валюта</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Title>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокВалютаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СписокВалютаExtendedTooltip" id="136"/>
+				</InputField>
+				<InputField name="СписокПартнер" id="10">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Партнер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Партнер</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокПартнерКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="СписокПартнерExtendedTooltip" id="137"/>
+				</InputField>
+				<InputField name="СписокСделка" id="14">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Сделка</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сделка</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСделкаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокСделкаExtendedTooltip" id="138"/>
+				</InputField>
+				<InputField name="СписокКонтрагент" id="12">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Контрагент</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокКонтрагентКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="СписокКонтрагентExtendedTooltip" id="139"/>
+				</InputField>
+				<InputField name="СписокОрганизация" id="8">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Организация</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СписокОрганизацияExtendedTooltip" id="140"/>
+				</InputField>
+				<InputField name="СписокСклад" id="20">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Склад</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСкладКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокСкладExtendedTooltip" id="141"/>
+				</InputField>
+				<LabelField name="СписокСоглашение" id="107">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Соглашение</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>16</Width>
+					<ContextMenu name="СписокСоглашениеКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="СписокСоглашениеExtendedTooltip" id="142"/>
+				</LabelField>
+				<LabelField name="СписокДоговор" id="109">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Договор</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>16</Width>
+					<ContextMenu name="СписокДоговорКонтекстноеМеню" id="110"/>
+					<ExtendedTooltip name="СписокДоговорExtendedTooltip" id="143"/>
+				</LabelField>
+				<LabelField name="СписокХозяйственнаяОперация" id="22">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.ХозяйственнаяОперация</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Операция</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<ContextMenu name="СписокХозяйственнаяОперацияКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СписокХозяйственнаяОперацияExtendedTooltip" id="144"/>
+				</LabelField>
+				<LabelField name="СписокМенеджер" id="105">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Менеджер</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>16</Width>
+					<ContextMenu name="СписокМенеджерКонтекстноеМеню" id="106"/>
+					<ExtendedTooltip name="СписокМенеджерExtendedTooltip" id="145"/>
+				</LabelField>
+				<LabelField name="СписокКомментарий" id="103">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Комментарий</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СписокКомментарийКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="СписокКомментарийExtendedTooltip" id="146"/>
+				</LabelField>
+				<InputField name="СписокСсылка" id="111">
+					<DataPath>СписокВозвратыТоваровОтКлиентов.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="СписокСсылкаExtendedTooltip" id="147"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокВозвратыТоваровОтКлиентов" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список возвраты товаров от клиентов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.ВозвратТоваровОтКлиента</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокХозяйственныхОпераций" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список хозяйственных операций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:EnumRef.ХозяйственныеОперации</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="Менеджер" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+			<Save>
+				<Field>Менеджер</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ИспользоватьПодключаемоеОборудование" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать подключаемое оборудование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоддерживаемыеТипыПодключаемогоОбрудования" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддерживаемые типы подключаемого обрудования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьВозвратОтКомиссионера" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат от комиссионера</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать возврат от комиссионера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВозвратОтКомиссионера</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьКомиссиюПриПродажах</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьВозвратОтРозничногоПокупателя" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат от розничного покупателя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать возврат от розничного покупателя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВозвратОтРозничногоПокупателя</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьРозничныеПродажи</Item>
+			</FunctionalOptions>
+		</Command>
+	</Commands>
+</Form>

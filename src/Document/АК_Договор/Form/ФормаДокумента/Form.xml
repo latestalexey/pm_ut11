@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ДатаНомер" id="29">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата номер</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="ДатаНомерExtendedTooltip" id="34"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="35"/>
+				</InputField>
+				<InputField name="Дата" id="3">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ДатаExtendedTooltip" id="36"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Соглашение" id="5">
+			<DataPath>Объект.Соглашение</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="СоглашениеКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="СоглашениеExtendedTooltip" id="37"/>
+			<Events>
+				<Event name="OnChange">СоглашениеПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Контрагент" id="11">
+			<DataPath>Объект.Контрагент</DataPath>
+			<ContextMenu name="КонтрагентКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="КонтрагентExtendedTooltip" id="38"/>
+		</InputField>
+		<InputField name="ФизЛицо" id="30">
+			<DataPath>Объект.ФизЛицо</DataPath>
+			<ContextMenu name="ФизЛицоКонтекстноеМеню" id="31"/>
+			<ExtendedTooltip name="ФизЛицоExtendedTooltip" id="39"/>
+		</InputField>
+		<InputField name="БанковскийСчетКонтрагента" id="18">
+			<DataPath>Объект.БанковскийСчетКонтрагента</DataPath>
+			<ContextMenu name="БанковскийСчетКонтрагентаКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="БанковскийСчетКонтрагентаExtendedTooltip" id="40"/>
+		</InputField>
+		<InputField name="СтрокаАдресаСборки" id="32">
+			<ContextMenu name="СтрокаАдресаСборкиКонтекстноеМеню" id="33"/>
+			<ExtendedTooltip name="СтрокаАдресаСборкиExtendedTooltip" id="41"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="15">
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="42"/>
+			<ChildItems>
+				<CheckBoxField name="МоментОплаты" id="13">
+					<DataPath>Объект.МоментОплаты</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оплата с момента подписания накладной</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="МоментОплатыКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="МоментОплатыExtendedTooltip" id="43"/>
+				</CheckBoxField>
+				<CheckBoxField name="Самовывоз" id="16">
+					<DataPath>Объект.Самовывоз</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СамовывозКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СамовывозExtendedTooltip" id="44"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Спецификации" id="20">
+			<SkipOnInput>false</SkipOnInput>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Спецификации</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СпецификацииКонтекстноеМеню" id="21"/>
+			<AutoCommandBar name="СпецификацииКоманднаяПанель" id="22"/>
+			<ExtendedTooltip name="СпецификацииExtendedTooltip" id="45"/>
+			<SearchStringAddition name="СпецификацииSearchString" id="46">
+				<Source>
+					<lf:elementId>20</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СпецификацииSearchStringContextMenu" id="47"/>
+				<ExtendedTooltip name="СпецификацииSearchStringExtendedTooltip" id="48"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СпецификацииViewStatus" id="49">
+				<Source>
+					<lf:elementId>20</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СпецификацииViewStatusContextMenu" id="50"/>
+				<ExtendedTooltip name="СпецификацииViewStatusExtendedTooltip" id="51"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СпецификацииSearchControl" id="52">
+				<Source>
+					<lf:elementId>20</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СпецификацииSearchControlContextMenu" id="53"/>
+				<ExtendedTooltip name="СпецификацииSearchControlExtendedTooltip" id="54"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СпецификацииНомерСтроки" id="23">
+					<DataPath>Объект.Спецификации.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СпецификацииНомерСтрокиКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СпецификацииНомерСтрокиExtendedTooltip" id="55"/>
+				</LabelField>
+				<CheckBoxField name="СпецификацииПечатать" id="25">
+					<DataPath>Объект.Спецификации.Печатать</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СпецификацииПечататьКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="СпецификацииПечататьExtendedTooltip" id="56"/>
+				</CheckBoxField>
+				<InputField name="СпецификацииДокумент" id="27">
+					<DataPath>Объект.Спецификации.Документ</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СпецификацииДокументКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="СпецификацииДокументExtendedTooltip" id="57"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.АК_Договор</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:38b6e419-bc68-4ac0-914f-b6c392f085b9</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

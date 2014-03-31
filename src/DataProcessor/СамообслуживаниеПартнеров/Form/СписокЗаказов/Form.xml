@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Мои заказы</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<ReadOnly>true</ReadOnly>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>UndoPosting</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Create</ExcludedCommand>
+				<ExcludedCommand>ListSettings</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+				<ExcludedCommand>Post</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="СписокПечать" id="30">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.Печать</CommandName>
+						<Parameter xsi:nil="true"/>
+						<Picture>
+							<xr:Ref>StdPicture.Print</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СписокПечатьExtendedTooltip" id="35"/>
+					</Button>
+					<Button name="СписокСостояниеВыполнения" id="33">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СостояниеВыполнения</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СписокСостояниеВыполненияExtendedTooltip" id="36"/>
+					</Button>
+					<Button name="СписокСвязанныеДокументы" id="34">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СвязанныеДокументы</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СписокСвязанныеДокументыExtendedTooltip" id="37"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="38"/>
+			<SearchStringAddition name="СписокSearchString" id="39">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="40"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="41"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="42">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="43"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="44"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="45">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="46"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="47"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СписокНомер" id="4">
+					<DataPath>Список.Номер</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокНомерКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СписокНомерExtendedTooltip" id="48"/>
+				</LabelField>
+				<LabelField name="СписокДата" id="6">
+					<DataPath>Список.Дата</DataPath>
+					<Width>14</Width>
+					<ContextMenu name="СписокДатаКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СписокДатаExtendedTooltip" id="49"/>
+				</LabelField>
+				<PictureField name="СписокКартинкаСостояния" id="8">
+					<DataPath>2/24</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.УстановитьСтатусТиповогоСоглашенияСКлиентомНеСогласовано</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="СписокКартинкаСостоянияКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СписокКартинкаСостоянияExtendedTooltip" id="50"/>
+				</PictureField>
+				<LabelField name="СписокСостояние" id="10">
+					<DataPath>Список.Состояние</DataPath>
+					<Width>14</Width>
+					<ContextMenu name="СписокСостояниеКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="СписокСостояниеExtendedTooltip" id="51"/>
+				</LabelField>
+				<LabelField name="СписокВалюта" id="24">
+					<DataPath>Список.Валюта</DataPath>
+					<Width>6</Width>
+					<ContextMenu name="СписокВалютаКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="СписокВалютаExtendedTooltip" id="52"/>
+				</LabelField>
+				<LabelField name="СписокСуммаДокумента" id="12">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокСуммаДокументаКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="СписокСуммаДокументаExtendedTooltip" id="53"/>
+				</LabelField>
+				<LabelField name="СписокСуммаАвансаДоОбеспечения" id="14">
+					<DataPath>Список.СуммаАвансаДоОбеспечения</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокСуммаАвансаДоОбеспеченияКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокСуммаАвансаДоОбеспеченияExtendedTooltip" id="54"/>
+				</LabelField>
+				<LabelField name="СписокСуммаПредоплатыДоОтгрузки" id="16">
+					<DataPath>Список.СуммаПредоплатыДоОтгрузки</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокСуммаПредоплатыДоОтгрузкиКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СписокСуммаПредоплатыДоОтгрузкиExtendedTooltip" id="55"/>
+				</LabelField>
+				<LabelField name="СписокСуммаОплаты" id="18">
+					<DataPath>Список.СуммаОплаты</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокСуммаОплатыКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="СписокСуммаОплатыExtendedTooltip" id="56"/>
+				</LabelField>
+				<LabelField name="СписокСуммаПросроченнойОплаты" id="20">
+					<DataPath>Список.СуммаПросроченнойОплаты</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СписокСуммаПросроченнойОплатыКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокСуммаПросроченнойОплатыExtendedTooltip" id="57"/>
+				</LabelField>
+				<LabelField name="СписокДолгКлиента" id="22">
+					<DataPath>Список.ДолгКлиента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Долг</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<ContextMenu name="СписокДолгКлиентаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СписокДолгКлиентаExtendedTooltip" id="58"/>
+				</LabelField>
+				<LabelField name="СписокСклад" id="26">
+					<DataPath>Список.Склад</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокСкладКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СписокСкладExtendedTooltip" id="59"/>
+				</LabelField>
+				<LabelField name="СписокГрафикОплаты" id="28">
+					<DataPath>2/176</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокГрафикОплатыКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СписокГрафикОплатыExtendedTooltip" id="60"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<CheckBoxField name="НеПоказыватьЗакрытые" id="31">
+			<DataPath>НеПоказыватьЗакрытые</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="НеПоказыватьЗакрытыеКонтекстноеМеню" id="32"/>
+			<ExtendedTooltip name="НеПоказыватьЗакрытыеExtendedTooltip" id="61"/>
+			<Events>
+				<Event name="OnChange">НеПоказыватьЗакрытыеПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.СамообслуживаниеПартнеров</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Список" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>Список.Номер</Field>
+				<Field>Список.Дата</Field>
+				<Field>2/24</Field>
+				<Field>Список.Состояние</Field>
+				<Field>Список.СуммаДокумента</Field>
+				<Field>Список.СуммаАвансаДоОбеспечения</Field>
+				<Field>Список.СуммаПредоплатыДоОтгрузки</Field>
+				<Field>Список.СуммаОплаты</Field>
+				<Field>Список.СуммаПросроченнойОплаты</Field>
+				<Field>Список.ДолгКлиента</Field>
+				<Field>Список.Валюта</Field>
+				<Field>2/176</Field>
+				<Field>2/177</Field>
+				<Field>2/178</Field>
+				<Field>2/179</Field>
+				<Field>2/180</Field>
+				<Field>2/181</Field>
+				<Field>2/182</Field>
+				<Field>2/183</Field>
+				<Field>2/184</Field>
+				<Field>2/185</Field>
+				<Field>Список.ПометкаУдаления</Field>
+				<Field>2/187</Field>
+				<Field>Список.Проведен</Field>
+				<Field>Список.Просрочен</Field>
+				<Field>2/190</Field>
+				<Field>2/191</Field>
+				<Field>2/192</Field>
+				<Field>Список.Склад</Field>
+				<Field>2/194</Field>
+				<Field>Список.Ссылка</Field>
+				<Field>2/196</Field>
+				<Field>Список.СуммаОтгрузки</Field>
+				<Field>Список.ХозяйственнаяОперация</Field>
+				<Field>Список.DefaultPicture</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументЗаказКлиента.Ссылка КАК Ссылка,
+	ДокументЗаказКлиента.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументЗаказКлиента.Номер КАК Номер,
+	ДокументЗаказКлиента.Дата КАК Дата,
+	ДокументЗаказКлиента.Проведен КАК Проведен,
+	ДокументЗаказКлиента.Валюта КАК Валюта,
+	ДокументЗаказКлиента.СуммаДокумента КАК СуммаДокумента,
+	ДокументЗаказКлиента.Склад КАК Склад,
+	ДокументЗаказКлиента.СуммаАвансаДоОбеспечения КАК СуммаАвансаДоОбеспечения,
+	ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки КАК СуммаПредоплатыДоОтгрузки,
+	ДокументЗаказКлиента.ДатаОтгрузки КАК ДатаОтгрузки,
+	ДокументЗаказКлиента.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	ВЫБОР
+		КОГДА (НЕ ДокументЗаказКлиента.Проведен)
+			ТОГДА ""
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+			ТОГДА "Ожидается согласование"
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА "Закрыт"
+		КОГДА ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+				И ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаАвансаДоОбеспечения &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА "Ожидается аванс (до обеспечения)"
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И (ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				ИЛИ ДокументЗаказКлиента.ПорядокРасчетов = ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов))
+			ТОГДА "Готов к обеспечению"
+		КОГДА ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+				И (ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				ИЛИ ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению))
+				И ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА "Ожидается предоплата (до отгрузки)"
+		КОГДА (ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				ИЛИ ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению))
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И (ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				ИЛИ ДокументЗаказКлиента.ПорядокРасчетов = ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов))
+			ТОГДА "Ожидается отгрузка"
+		КОГДА ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента - ДокументЗаказКлиента.СуммаАвансаДоОбеспечения + ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt; 0
+			ТОГДА "Ожидается оплата (после отгрузки)"
+		КОГДА ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА "Готов к закрытию"
+	КОНЕЦ КАК Состояние,
+	ВЫБОР
+		КОГДА (НЕ ДокументЗаказКлиента.Проведен)
+			ТОГДА ЛОЖЬ
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЛОЖЬ
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.ДатаСогласования &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				И ДокументЗаказКлиента.ДатаСогласования &lt; &amp;ДатаАктуальности
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+				И ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаАвансаДоОбеспечения &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И (ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				ИЛИ ДокументЗаказКлиента.ПорядокРасчетов = ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов))
+				И ДокументЗаказКлиента.ДатаОтгрузки &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				И ДокументЗаказКлиента.ДатаОтгрузки &lt; &amp;ДатаАктуальности
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+				И ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению)
+				И ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению)
+				И (ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				ИЛИ ДокументЗаказКлиента.ПорядокРасчетов = ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов))
+				И ДокументЗаказКлиента.ДатаОтгрузки &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				И ДокументЗаказКлиента.ДатаОтгрузки &lt; &amp;ДатаАктуальности
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+				И ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ДокументЗаказКлиента.СуммаАвансаДоОбеспечения + ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt; 0
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК Просрочен,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+			ТОГДА ВЫРАЗИТЬ(ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаОплаты,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток, 0) &gt; 0
+				И ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаПросроченнойОплаты,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.ПорядокРасчетов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ПорядокРасчетов.ПоДоговорамКонтрагентов)
+			ТОГДА ДокументЗаказКлиента.СуммаДокумента + ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаОтгрузки,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК ДолгКлиента
+ИЗ
+	Документ.ЗаказКлиента КАК ДокументЗаказКлиента
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РасчетыСКлиентами.Остатки(, ВЫРАЗИТЬ(ЗаказКлиента КАК Документ.ЗаказКлиента).Партнер = &amp;Партнер ИЛИ ВЫРАЗИТЬ(ЗаказКлиента КАК Справочник.ДоговорыКонтрагентов).Партнер = &amp;Партнер) КАК РасчетыСКлиентамиОстатки
+		ПО ДокументЗаказКлиента.Ссылка = РасчетыСКлиентамиОстатки.ЗаказКлиента
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РасчетыСКлиентами.Остатки(КОНЕЦПЕРИОДА(&amp;ДатаАктуальности, ДЕНЬ), ВЫРАЗИТЬ(ЗаказКлиента КАК Документ.ЗаказКлиента).Партнер = &amp;Партнер ИЛИ ВЫРАЗИТЬ(ЗаказКлиента КАК Справочник.ДоговорыКонтрагентов).Партнер = &amp;Партнер) КАК РасчетыСКлиентамиОстаткиНаДатуАктуальности
+		ПО ДокументЗаказКлиента.Ссылка = РасчетыСКлиентамиОстаткиНаДатуАктуальности.ЗаказКлиента}
+ГДЕ
+	ДокументЗаказКлиента.Партнер = &amp;Партнер
+	И ДокументЗаказКлиента.Проведен</QueryText>
+				<MainTable>Document.ЗаказКлиента</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:string">Закрыт</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ЗакрытыйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Просрочен</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ПросроченныйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="НеПоказыватьЗакрытые" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не показывать закрытые</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Печать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Печать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Печать</Action>
+		</Command>
+		<Command name="СостояниеВыполнения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние выполнения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние выполнения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СостояниеВыполнения</Action>
+		</Command>
+		<Command name="СвязанныеДокументы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связанные документы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Связанные документы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СвязанныеДокументы</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,1222 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПеренестиВДокумент" id="23">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаполнитьДокумент</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаПеренестиВДокументExtendedTooltip" id="112"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаПравилоЗаполнения" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правило заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа правило заполнения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаПравилоЗаполненияExtendedTooltip" id="113"/>
+			<ChildItems>
+				<RadioButtonField name="ОбновитьДополнить" id="20">
+					<DataPath>ОбновитьДополнить</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Обновить состав плана</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Дополнить состав плана</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ОбновитьДополнитьКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ОбновитьДополнитьExtendedTooltip" id="114"/>
+				</RadioButtonField>
+				<Table name="ПравилоЗаполнения" id="41">
+					<Representation>Tree</Representation>
+					<SkipOnInput>false</SkipOnInput>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<InitialTreeView>ExpandAllLevels</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>ПравилоЗаполнения</DataPath>
+					<CommandSet>
+						<ExcludedCommand>HierarchicalList</ExcludedCommand>
+						<ExcludedCommand>Tree</ExcludedCommand>
+						<ExcludedCommand>List</ExcludedCommand>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<ContextMenu name="ПравилоЗаполненияКонтекстноеМеню" id="42">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="КонтекстноеМенюПравилоЗаполненияДобавитьНовыйИсточник" id="68">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.Add</CommandName>
+								<Parameter xsi:nil="true"/>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Добавить новый источник</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="КонтекстноеМенюПравилоЗаполненияДобавитьНовыйИсточникExtendedTooltip" id="115"/>
+							</Button>
+							<ButtonGroup name="КонтекстноеМенюГруппаСгруппировать" id="69">
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Контекстное меню группа сгруппировать</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="КонтекстноеМенюГруппаСгруппироватьExtendedTooltip" id="116"/>
+								<ChildItems>
+									<Button name="КонтекстноеМенюПравилоЗаполненияСгруппироватьИсточники" id="70">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.ДобавитьНовыйВариантПреобразования</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="КонтекстноеМенюПравилоЗаполненияСгруппироватьИсточникиExtendedTooltip" id="117"/>
+									</Button>
+									<Button name="КонтекстноеМенюПравилоЗаполненияРазгруппировать" id="71">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.Разгруппировать</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="КонтекстноеМенюПравилоЗаполненияРазгруппироватьExtendedTooltip" id="118"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<Button name="КонтекстноеМенюПравилоЗаполненияУдалить" id="72">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.Delete</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="КонтекстноеМенюПравилоЗаполненияУдалитьExtendedTooltip" id="119"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="ПравилоЗаполненияКоманднаяПанель" id="43">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<ButtonGroup name="ГруппаДобавить" id="73">
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа добавить</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ГруппаДобавитьExtendedTooltip" id="120"/>
+								<ChildItems>
+									<Button name="ПравилоЗаполненияДобавитьНовыйИсточник" id="74">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.Add</CommandName>
+										<Parameter xsi:nil="true"/>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить новый источник</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ПравилоЗаполненияДобавитьНовыйИсточникExtendedTooltip" id="121"/>
+									</Button>
+									<Button name="ПравилоЗаполненияДобавитьНовыйВариантПреобразования" id="75">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<OnlyInAllActions>false</OnlyInAllActions>
+										<CommandName>Form.Command.ДобавитьНовыйВариантПреобразования</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияДобавитьНовыйВариантПреобразованияExtendedTooltip" id="122"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<ButtonGroup name="ГруппаСгруппировать" id="76">
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа сгруппировать</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ГруппаСгруппироватьExtendedTooltip" id="123"/>
+								<ChildItems>
+									<Button name="ПравилоЗаполненияСгруппироватьИсточники" id="77">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.СгруппироватьИсточники</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияСгруппироватьИсточникиExtendedTooltip" id="124"/>
+									</Button>
+									<Button name="ПравилоЗаполненияРазгруппировать" id="78">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<OnlyInAllActions>false</OnlyInAllActions>
+										<CommandName>Form.Command.Разгруппировать</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияРазгруппироватьExtendedTooltip" id="125"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<ButtonGroup name="ГруппаИзменить" id="79">
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа изменить</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ГруппаИзменитьExtendedTooltip" id="126"/>
+								<ChildItems>
+									<Button name="ПравилоЗаполненияСкопировать" id="80">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<OnlyInAllActions>false</OnlyInAllActions>
+										<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.Copy</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияСкопироватьExtendedTooltip" id="127"/>
+									</Button>
+									<Button name="ПравилоЗаполненияИзменить" id="81">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<OnlyInAllActions>false</OnlyInAllActions>
+										<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.Change</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияИзменитьExtendedTooltip" id="128"/>
+									</Button>
+									<Button name="ПравилоЗаполненияУдалить" id="82">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.Delete</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияУдалитьExtendedTooltip" id="129"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<ButtonGroup name="ГруппаПереместить" id="83">
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа переместить</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ГруппаПереместитьExtendedTooltip" id="130"/>
+								<ChildItems>
+									<Button name="ПравилоЗаполненияПереместитьВверх" id="84">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.MoveUp</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияПереместитьВверхExtendedTooltip" id="131"/>
+									</Button>
+									<Button name="ПравилоЗаполненияПереместитьВниз" id="85">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Item.ПравилоЗаполнения.StandardCommand.MoveDown</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияПереместитьВнизExtendedTooltip" id="132"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+							<ButtonGroup name="ГруппаПометки" id="86">
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа пометки</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ГруппаПометкиExtendedTooltip" id="133"/>
+								<ChildItems>
+									<Button name="ПравилоЗаполненияУстановитьПометки" id="87">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<OnlyInAllActions>false</OnlyInAllActions>
+										<CommandName>Form.Command.УстановитьПометки</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияУстановитьПометкиExtendedTooltip" id="134"/>
+									</Button>
+									<Button name="ПравилоЗаполненияСнятьПометки" id="88">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<OnlyInAllActions>false</OnlyInAllActions>
+										<CommandName>Form.Command.СнятьПометки</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПравилоЗаполненияСнятьПометкиExtendedTooltip" id="135"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПравилоЗаполненияExtendedTooltip" id="136"/>
+					<SearchStringAddition name="ПравилоЗаполненияSearchString" id="137">
+						<Source>
+							<lf:elementId>41</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="ПравилоЗаполненияSearchStringContextMenu" id="138"/>
+						<ExtendedTooltip name="ПравилоЗаполненияSearchStringExtendedTooltip" id="139"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПравилоЗаполненияViewStatus" id="140">
+						<Source>
+							<lf:elementId>41</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="ПравилоЗаполненияViewStatusContextMenu" id="141"/>
+						<ExtendedTooltip name="ПравилоЗаполненияViewStatusExtendedTooltip" id="142"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПравилоЗаполненияSearchControl" id="143">
+						<Source>
+							<lf:elementId>41</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="ПравилоЗаполненияSearchControlContextMenu" id="144"/>
+						<ExtendedTooltip name="ПравилоЗаполненияSearchControlExtendedTooltip" id="145"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="DragCheck">ПравилоЗаполненияПроверкаПеретаскивания</Event>
+						<Event name="BeforeAddRow">ПравилоЗаполненияПередНачаломДобавления</Event>
+						<Event name="BeforeDeleteRow">ПравилоЗаполненияПередУдалением</Event>
+						<Event name="DragStart">ПравилоЗаполненияНачалоПеретаскивания</Event>
+						<Event name="Drag">ПравилоЗаполненияПеретаскивание</Event>
+						<Event name="OnStartEdit">ПравилоЗаполненияПриНачалеРедактирования</Event>
+					</Events>
+					<ChildItems>
+						<CheckBoxField name="ПравилоЗаполненияИспользование" id="89">
+							<DataPath>ПравилоЗаполнения.Использование</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПравилоЗаполненияИспользованиеКонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="ПравилоЗаполненияИспользованиеExtendedTooltip" id="146"/>
+						</CheckBoxField>
+						<PictureField name="ПравилоЗаполненияИсключать" id="91">
+							<DataPath>ПравилоЗаполнения.Исключать</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.ПлюсМинус</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="ПравилоЗаполненияИсключатьКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ПравилоЗаполненияИсключатьExtendedTooltip" id="147"/>
+						</PictureField>
+						<ColumnGroup name="ГруппаВариантПреобразованияИсточник" id="48">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вариант преобразования источник</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вариант преобразования источник</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаВариантПреобразованияИсточникExtendedTooltip" id="148"/>
+							<ChildItems>
+								<ColumnGroup name="ГруппаВариантПреобразования" id="49">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа вариант преобразования</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа вариант преобразования</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="ГруппаВариантПреобразованияExtendedTooltip" id="149"/>
+									<ChildItems>
+										<PictureField name="ПравилоЗаполненияТипЭлементаВариантПреобразования" id="93">
+											<DataPath>ПравилоЗаполнения.ТипЭлемента</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.ЭлементПапка</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</ValuesPicture>
+											<ContextMenu name="ПравилоЗаполненияТипЭлементаВариантПреобразованияКонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="ПравилоЗаполненияТипЭлементаВариантПреобразованияExtendedTooltip" id="150"/>
+										</PictureField>
+										<InputField name="ПравилоЗаполненияВариантПреобразования" id="95">
+											<DataPath>ПравилоЗаполнения.ВариантПреобразования</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПравилоЗаполненияВариантПреобразованияКонтекстноеМеню" id="96"/>
+											<ExtendedTooltip name="ПравилоЗаполненияВариантПреобразованияExtendedTooltip" id="151"/>
+											<Events>
+												<Event name="OnChange">ПравилоЗаполненияВариантПреобразованияПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаИсточник" id="54">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа источник</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа источник</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="ГруппаИсточникExtendedTooltip" id="152"/>
+									<ChildItems>
+										<PictureField name="ПравилоЗаполненияТипЭлементаИсточник" id="97">
+											<DataPath>ПравилоЗаполнения.ТипЭлемента</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<ValuesPicture>
+												<xr:Ref>CommonPicture.ЭлементПапка</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</ValuesPicture>
+											<ContextMenu name="ПравилоЗаполненияТипЭлементаИсточникКонтекстноеМеню" id="98"/>
+											<ExtendedTooltip name="ПравилоЗаполненияТипЭлементаИсточникExtendedTooltip" id="153"/>
+										</PictureField>
+										<InputField name="ПравилоЗаполненияИсточник" id="99">
+											<DataPath>ПравилоЗаполнения.Источник</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+											<ChoiceForm>Catalog.ИсточникиДанныхПланирования.Form.ФормаВыбораДополнительная</ChoiceForm>
+											<ContextMenu name="ПравилоЗаполненияИсточникКонтекстноеМеню" id="100"/>
+											<ExtendedTooltip name="ПравилоЗаполненияИсточникExtendedTooltip" id="154"/>
+											<Events>
+												<Event name="ChoiceProcessing">ПравилоЗаполненияИсточникОбработкаВыбора</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+							</ChildItems>
+						</ColumnGroup>
+						<LabelField name="ПравилоЗаполненияИсточники" id="101">
+							<DataPath>ПравилоЗаполнения.Источники</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПравилоЗаполненияИсточникиКонтекстноеМеню" id="102"/>
+							<ExtendedTooltip name="ПравилоЗаполненияИсточникиExtendedTooltip" id="155"/>
+						</LabelField>
+						<ColumnGroup name="ГруппаПериодДата" id="61">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа период дата</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа период дата</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ExtendedTooltip name="ГруппаПериодДатаExtendedTooltip" id="156"/>
+							<ChildItems>
+								<InputField name="ПравилоЗаполненияПериод" id="103">
+									<DataPath>ПравилоЗаполнения.Период</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилоЗаполненияПериодКонтекстноеМеню" id="104"/>
+									<ExtendedTooltip name="ПравилоЗаполненияПериодExtendedTooltip" id="157"/>
+								</InputField>
+								<InputField name="ПравилоЗаполненияДата" id="105">
+									<DataPath>ПравилоЗаполнения.Дата</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ПравилоЗаполненияДатаКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="ПравилоЗаполненияДатаExtendedTooltip" id="158"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<PictureField name="ПравилоЗаполненияНастройки" id="107">
+							<DataPath>ПравилоЗаполнения.ТипЭлемента</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<HeaderPicture>
+								<xr:Ref>StdPicture.ReportSettings</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</HeaderPicture>
+							<ValuesPicture>
+								<xr:Ref>StdPicture.ReportSettings</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="ПравилоЗаполненияНастройкиКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="ПравилоЗаполненияНастройкиExtendedTooltip" id="159"/>
+						</PictureField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПравилоРасчетаКоличества" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правило расчета количества</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа правило расчета количества</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="ГруппаПравилоРасчетаКоличестваExtendedTooltip" id="160"/>
+			<ChildItems>
+				<InputField name="ИзменитьРезультатНа" id="13">
+					<DataPath>ИзменитьРезультатНа</DataPath>
+					<ContextMenu name="ИзменитьРезультатНаКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ИзменитьРезультатНаExtendedTooltip" id="161"/>
+				</InputField>
+				<InputField name="ТочностьОкругления" id="10">
+					<DataPath>ТочностьОкругления</DataPath>
+					<Width>6</Width>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>0.001</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>0.01</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>0.1</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-2</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>1</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-3</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>10</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-4</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>100</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-5</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>1000</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">-6</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ТочностьОкругленияКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ТочностьОкругленияExtendedTooltip" id="162"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаОтборы" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отборы</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаОтборыExtendedTooltip" id="163"/>
+			<ChildItems>
+				<Table name="КомпоновщикНастроекПользовательскиеНастройки" id="109">
+					<Autofill>true</Autofill>
+					<DataPath>КомпоновщикНастроек.UserSettings</DataPath>
+					<CommandSet>
+						<ExcludedCommand>HierarchicalList</ExcludedCommand>
+						<ExcludedCommand>Tree</ExcludedCommand>
+						<ExcludedCommand>List</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<ViewMode>All</ViewMode>
+					<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиКонтекстноеМеню" id="110"/>
+					<AutoCommandBar name="КомпоновщикНастроекПользовательскиеНастройкиКоманднаяПанель" id="111"/>
+					<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиExtendedTooltip" id="164"/>
+					<SearchStringAddition name="КомпоновщикНастроекПользовательскиеНастройкиSearchString" id="165">
+						<Source>
+							<lf:elementId>109</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиSearchStringContextMenu" id="166"/>
+						<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиSearchStringExtendedTooltip" id="167"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="КомпоновщикНастроекПользовательскиеНастройкиViewStatus" id="168">
+						<Source>
+							<lf:elementId>109</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиViewStatusContextMenu" id="169"/>
+						<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиViewStatusExtendedTooltip" id="170"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="КомпоновщикНастроекПользовательскиеНастройкиSearchControl" id="171">
+						<Source>
+							<lf:elementId>109</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="КомпоновщикНастроекПользовательскиеНастройкиSearchControlContextMenu" id="172"/>
+						<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиSearchControlExtendedTooltip" id="173"/>
+					</SearchControlAddition>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="РаспределитьПоРабочимДням" id="17">
+			<DataPath>РаспределитьПоРабочимДням</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="РаспределитьПоРабочимДнямКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="РаспределитьПоРабочимДнямExtendedTooltip" id="174"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="КомпоновщикНастроек" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Компоновщик настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзменитьРезультатНа" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить результат на (%)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТочностьОкругления" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>округлить до</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределитьПоРабочимДням" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить по рабочим дням</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОбновитьДополнить" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить дополнить</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПравилоЗаполнения" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правило заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Использование" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВариантПреобразования" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант преобразования</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВариантыПреобразования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипЭлемента" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип элемента</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Источник" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Источник</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ИсточникиДанныхПланирования</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Источники" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Источники</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Исключать" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исключать</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Период" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>За период</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:StandardPeriod</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Дата" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>На дату</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:StandardBeginningDate</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВариантПериода" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вариант периода</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="АдресПользовательскихНастроек" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес пользовательских настроек</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДобавляетсяВариантПреобразования" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавляется вариант преобразования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДобавляетсяНоваяСтрока" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавляется новая строка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресПравилаЗаполнения" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес правила заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресПользовательскихНастроек" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияТипЭлементаВариантПреобразования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияВариантПреобразования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияТипЭлементаИсточник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияИсточник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияНастройки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилоЗаполнения.ТипЭлемента</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Visible</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияИспользование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияИсключать</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилоЗаполнения.ТипЭлемента</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Show</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияТипЭлементаИсточник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияИсточник</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияИсточники</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияНастройки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилоЗаполнения.ТипЭлемента</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Visible</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Enabled</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияТипЭлементаВариантПреобразования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияВариантПреобразования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияИсточники</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилоЗаполнения.ТипЭлемента</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Visible</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияПериод</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилоЗаполнения.ВариантПериода</dcsset:left>
+						<dcsset:comparisonType>InList</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Visible</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПравилоЗаполненияДата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПравилоЗаполнения.ВариантПериода</dcsset:left>
+						<dcsset:comparisonType>InList</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						<dcsset:right xsi:type="xs:decimal">2</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Visible</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьДокумент" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить документ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьДокумент</Action>
+		</Command>
+		<Command name="ДобавитьНовыйВариантПреобразования" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить новый вариант преобразования</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить новый вариант преобразования</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+F9</Shortcut>
+			<Action>ДобавитьНовыйВариантПреобразования</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="Разгруппировать" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разгруппировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разгруппировать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Разгруппировать</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="СгруппироватьИсточники" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сгруппировать источники</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сгруппировать источники</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СгруппироватьИсточники</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="СнятьПометки" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьПометки</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="УстановитьПометки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьПометки</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

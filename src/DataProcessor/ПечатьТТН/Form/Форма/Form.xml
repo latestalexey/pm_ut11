@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СписокТовары" id="1">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>СписокТовары</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокТоварыКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокТоварыКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокТоварыExtendedTooltip" id="9"/>
+			<SearchStringAddition name="СписокТоварыSearchString" id="10">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокТоварыSearchStringContextMenu" id="11"/>
+				<ExtendedTooltip name="СписокТоварыSearchStringExtendedTooltip" id="12"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокТоварыViewStatus" id="13">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокТоварыViewStatusContextMenu" id="14"/>
+				<ExtendedTooltip name="СписокТоварыViewStatusExtendedTooltip" id="15"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокТоварыSearchControl" id="16">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокТоварыSearchControlContextMenu" id="17"/>
+				<ExtendedTooltip name="СписокТоварыSearchControlExtendedTooltip" id="18"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<CheckBoxField name="СписокТоварыНеПечатать" id="6">
+					<DataPath>СписокТовары.НеПечатать</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СписокТоварыНеПечататьКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СписокТоварыНеПечататьExtendedTooltip" id="19"/>
+				</CheckBoxField>
+				<InputField name="СписокТоварыНоменклатура" id="4">
+					<DataPath>СписокТовары.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокТоварыНоменклатураКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СписокТоварыНоменклатураExtendedTooltip" id="20"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<Button name="Выполнить" id="8">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.ВыполнитьЗагрузку</CommandName>
+			<Parameter xsi:nil="true"/>
+			<ExtendedTooltip name="ВыполнитьExtendedTooltip" id="21"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ПечатьТТН</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="СписокТовары" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список товары</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НеПечатать" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не печатать</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьЗагрузку" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить загрузку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьЗагрузку</Action>
+		</Command>
+	</Commands>
+</Form>

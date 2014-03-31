@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>WriteAndClose</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Write</ExcludedCommand>
+	</CommandSet>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="ТипЗапасов" id="3">
+			<DataPath>Объект.ТипЗапасов</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleLocation>None</TitleLocation>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Собственный товар</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыЗапасов.EnumValue.Товар</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыЗапасов.EnumValue.КомиссионныйТовар</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ТипЗапасовКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="ТипЗапасовExtendedTooltip" id="78"/>
+		</RadioButtonField>
+		<InputField name="Организация" id="10">
+			<DataPath>Объект.Организация</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Width>28</Width>
+			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="79"/>
+		</InputField>
+		<InputField name="НалогообложениеНДС" id="15">
+			<DataPath>Объект.НалогообложениеНДС</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Width>28</Width>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаОблагаетсяНДС</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаНеОблагаетсяНДС</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаОблагаетсяЕНВД</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаНаЭкспорт</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>По налогообложению организации</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ТипыНалогообложенияНДС.EmptyRef</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="НалогообложениеНДСКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="НалогообложениеНДСExtendedTooltip" id="80"/>
+		</InputField>
+		<InputField name="Поставщик" id="43">
+			<DataPath>Объект.Поставщик</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Width>28</Width>
+			<ContextMenu name="ПоставщикКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="ПоставщикExtendedTooltip" id="81"/>
+		</InputField>
+		<InputField name="ГруппаФинансовогоУчета" id="69">
+			<DataPath>Объект.ГруппаФинансовогоУчета</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Width>29</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="ГруппаФинансовогоУчетаКонтекстноеМеню" id="70"/>
+			<ExtendedTooltip name="ГруппаФинансовогоУчетаExtendedTooltip" id="82"/>
+		</InputField>
+		<InputField name="Комитент" id="7">
+			<DataPath>Объект.Комитент</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Width>28</Width>
+			<Wrap>false</Wrap>
+			<OpenButton>true</OpenButton>
+			<ChooseType>false</ChooseType>
+			<ContextMenu name="КомитентКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="КомитентExtendedTooltip" id="83"/>
+		</InputField>
+		<InputField name="Контрагент" id="71">
+			<DataPath>Объект.Контрагент</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="КонтрагентКонтекстноеМеню" id="72"/>
+			<ExtendedTooltip name="КонтрагентExtendedTooltip" id="84"/>
+		</InputField>
+		<InputField name="Соглашение" id="21">
+			<DataPath>Объект.Соглашение</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соглашение</v8:content>
+				</v8:item>
+			</Title>
+			<Width>28</Width>
+			<ChooseType>false</ChooseType>
+			<ContextMenu name="СоглашениеКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="СоглашениеExtendedTooltip" id="85"/>
+		</InputField>
+		<InputField name="Договор" id="73">
+			<DataPath>Объект.Договор</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ДоговорКонтекстноеМеню" id="74"/>
+			<ExtendedTooltip name="ДоговорExtendedTooltip" id="86"/>
+		</InputField>
+		<InputField name="Валюта" id="49">
+			<DataPath>Объект.Валюта</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</Title>
+			<Width>5</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<OpenButton>false</OpenButton>
+			<ContextMenu name="ВалютаКонтекстноеМеню" id="50"/>
+			<ExtendedTooltip name="ВалютаExtendedTooltip" id="87"/>
+		</InputField>
+		<CheckBoxField name="РеализацияЗапасовДругойОрганизации" id="17">
+			<DataPath>Объект.РеализацияЗапасовДругойОрганизации</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="РеализацияЗапасовДругойОрганизацииКонтекстноеМеню" id="18"/>
+			<ExtendedTooltip name="РеализацияЗапасовДругойОрганизацииExtendedTooltip" id="88"/>
+		</CheckBoxField>
+		<InputField name="СпособПередачи" id="26">
+			<DataPath>Объект.СпособПередачиТоваров</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ передачи</v8:content>
+				</v8:item>
+			</Title>
+			<Width>28</Width>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СпособыПередачиТоваров.EnumValue.Продажа</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СпособыПередачиТоваров.EnumValue.ПередачаНаКомиссию</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="СпособПередачиКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="СпособПередачиExtendedTooltip" id="89"/>
+		</InputField>
+		<InputField name="ВидЗапасовВладельца" id="12">
+			<DataPath>Объект.ВидЗапасовВладельца</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<TitleLocation>None</TitleLocation>
+			<Width>41</Width>
+			<AutoMarkIncomplete>false</AutoMarkIncomplete>
+			<ContextMenu name="ВидЗапасовВладельцаКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="ВидЗапасовВладельцаExtendedTooltip" id="90"/>
+		</InputField>
+		<UsualGroup name="ГруппаПредназначение" id="66">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа предназначение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа предназначение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПредназначениеExtendedTooltip" id="91"/>
+			<ChildItems>
+				<LabelField name="Предназначение" id="53">
+					<DataPath>Объект.Предназначение</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<TitleLocation>None</TitleLocation>
+					<Width>28</Width>
+					<ContextMenu name="ПредназначениеКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="ПредназначениеExtendedTooltip" id="92"/>
+				</LabelField>
+				<UsualGroup name="ГруппаАналитика" id="63">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа аналитика</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа аналитика</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаАналитикаExtendedTooltip" id="93"/>
+					<ChildItems>
+						<Pages name="СтраницыАналитика" id="55">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы аналитика</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страницы аналитика</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="СтраницыАналитикаExtendedTooltip" id="94"/>
+							<ChildItems>
+								<Page name="СтраницаСделка" id="56">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница сделка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница сделка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаСделкаExtendedTooltip" id="95"/>
+									<ChildItems>
+										<InputField name="Сделка" id="34">
+											<DataPath>Объект.Сделка</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<Width>36</Width>
+											<ContextMenu name="СделкаКонтекстноеМеню" id="35"/>
+											<ExtendedTooltip name="СделкаExtendedTooltip" id="96"/>
+										</InputField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаМенеджер" id="57">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница менеджер</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница менеджер</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаМенеджерExtendedTooltip" id="97"/>
+									<ChildItems>
+										<InputField name="Менеджер" id="58">
+											<DataPath>Объект.Менеджер</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<ContextMenu name="МенеджерКонтекстноеМеню" id="59"/>
+											<ExtendedTooltip name="МенеджерExtendedTooltip" id="98"/>
+										</InputField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаПодразделение" id="60">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница подразделение</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница подразделение</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаПодразделениеExtendedTooltip" id="99"/>
+									<ChildItems>
+										<InputField name="Подразделение" id="45">
+											<DataPath>Объект.Подразделение</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<Width>30</Width>
+											<ContextMenu name="ПодразделениеКонтекстноеМеню" id="46"/>
+											<ExtendedTooltip name="ПодразделениеExtendedTooltip" id="100"/>
+										</InputField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаЗаказ" id="75">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница заказ</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница заказ</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаЗаказExtendedTooltip" id="101"/>
+									<ChildItems>
+										<InputField name="Назначение" id="76">
+											<DataPath>Объект.Назначение</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<TitleLocation>None</TitleLocation>
+											<ContextMenu name="НазначениеКонтекстноеМеню" id="77"/>
+											<ExtendedTooltip name="НазначениеExtendedTooltip" id="102"/>
+										</InputField>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаНеВедется" id="61">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница не ведется</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница не ведется</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаНеВедетсяExtendedTooltip" id="103"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация1" id="64">
+											<ContextMenu name="Декорация1КонтекстноеМеню" id="65"/>
+											<ExtendedTooltip name="Декорация1ExtendedTooltip" id="104"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<TitleLocation>Top</TitleLocation>
+			<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+			<Width>41</Width>
+			<Height>4</Height>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="105"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВидыЗапасов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Валюта</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТипЗапасов</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыЗапасов.КомиссионныйТовар</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Валюта</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>MarkIncomplete</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Комитент</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТипЗапасов</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыЗапасов.КомиссионныйТовар</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Комитент</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>MarkIncomplete</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>3:687d8e39-c3a4-4c95-b32d-36cecfb27801</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

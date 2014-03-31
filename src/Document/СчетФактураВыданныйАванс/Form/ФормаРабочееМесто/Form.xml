@@ -1,0 +1,1234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Учет НДС с полученных авансов</v8:content>
+		</v8:item>
+	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаExtendedTooltip" id="472"/>
+			<ChildItems>
+				<InputField name="КварталСтрока" id="48">
+					<DataPath>КварталСтрока</DataPath>
+					<Width>18</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ChoiceButton>true</ChoiceButton>
+					<SpinButton>true</SpinButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="КварталСтрокаКонтекстноеМеню" id="49"/>
+					<ExtendedTooltip name="КварталСтрокаExtendedTooltip" id="473"/>
+					<Events>
+						<Event name="StartChoice">КварталСтрокаНачалоВыбора</Event>
+						<Event name="Tuning">КварталСтрокаРегулирование</Event>
+						<Event name="Clearing">КварталСтрокаОчистка</Event>
+					</Events>
+				</InputField>
+				<InputField name="Организация" id="50">
+					<DataPath>Организация</DataPath>
+					<Width>25</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="474"/>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницыАвансыПолученные" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы авансы полученные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы авансы полученные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыАвансыПолученныеExtendedTooltip" id="475"/>
+			<ChildItems>
+				<Page name="ГруппаСписокСчетФактурВыданный" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счета-фактуры на аванс</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа список счет фактур выданный</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСписокСчетФактурВыданныйExtendedTooltip" id="476"/>
+					<ChildItems>
+						<Table name="СписокСчетФактураВыданный" id="3">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<DataPath>СписокСчетФактураВыданныйАванс</DataPath>
+							<RowPictureDataPath>СписокСчетФактураВыданныйАванс.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>SetDateInterval</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокСчетФактураВыданныйКонтекстноеМеню" id="4"/>
+							<AutoCommandBar name="СписокСчетФактураВыданныйКоманднаяПанель" id="5"/>
+							<ExtendedTooltip name="СписокСчетФактураВыданныйExtendedTooltip" id="477"/>
+							<SearchStringAddition name="СписокСчетФактураВыданныйSearchString" id="478">
+								<Source>
+									<lf:elementId>3</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокСчетФактураВыданныйSearchStringContextMenu" id="479"/>
+								<ExtendedTooltip name="СписокСчетФактураВыданныйSearchStringExtendedTooltip" id="480"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокСчетФактураВыданныйViewStatus" id="481">
+								<Source>
+									<lf:elementId>3</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокСчетФактураВыданныйViewStatusContextMenu" id="482"/>
+								<ExtendedTooltip name="СписокСчетФактураВыданныйViewStatusExtendedTooltip" id="483"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокСчетФактураВыданныйSearchControl" id="484">
+								<Source>
+									<lf:elementId>3</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокСчетФактураВыданныйSearchControlContextMenu" id="485"/>
+								<ExtendedTooltip name="СписокСчетФактураВыданныйSearchControlExtendedTooltip" id="486"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокСчетФактураВыданныйНомер" id="8">
+									<DataPath>СписокСчетФактураВыданныйАванс.Number</DataPath>
+									<Width>11</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СписокСчетФактураВыданныйНомерКонтекстноеМеню" id="9"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйНомерExtendedTooltip" id="487"/>
+								</LabelField>
+								<LabelField name="СписокСчетФактураВыданныйДата" id="6">
+									<DataPath>СписокСчетФактураВыданныйАванс.Date</DataPath>
+									<Width>14</Width>
+									<ContextMenu name="СписокСчетФактураВыданныйДатаКонтекстноеМеню" id="7"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйДатаExtendedTooltip" id="488"/>
+								</LabelField>
+								<LabelField name="СписокСчетФактураВыданныйСумма" id="10">
+									<DataPath>СписокСчетФактураВыданныйАванс.Сумма</DataPath>
+									<Width>9</Width>
+									<ContextMenu name="СписокСчетФактураВыданныйСуммаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйСуммаExtendedTooltip" id="489"/>
+								</LabelField>
+								<LabelField name="СписокСчетФактураВыданныйСуммаНДС" id="12">
+									<DataPath>СписокСчетФактураВыданныйАванс.СуммаНДС</DataPath>
+									<Width>9</Width>
+									<ContextMenu name="СписокСчетФактураВыданныйСуммаНДСКонтекстноеМеню" id="13"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйСуммаНДСExtendedTooltip" id="490"/>
+								</LabelField>
+								<LabelField name="СписокСчетФактураВыданныйДокументОснование" id="14">
+									<DataPath>СписокСчетФактураВыданныйАванс.ДокументОснование</DataPath>
+									<ContextMenu name="СписокСчетФактураВыданныйДокументОснованиеКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйДокументОснованиеExtendedTooltip" id="491"/>
+								</LabelField>
+								<LabelField name="СписокСчетФактураВыданныйКонтрагент" id="346">
+									<DataPath>СписокСчетФактураВыданныйАванс.Контрагент</DataPath>
+									<ContextMenu name="СписокСчетФактураВыданныйКонтрагентКонтекстноеМеню" id="347"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйКонтрагентExtendedTooltip" id="492"/>
+								</LabelField>
+								<LabelField name="СписокСчетФактураВыданныйКомментарий" id="16">
+									<DataPath>СписокСчетФактураВыданныйАванс.Комментарий</DataPath>
+									<ContextMenu name="СписокСчетФактураВыданныйКомментарийКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="СписокСчетФактураВыданныйКомментарийExtendedTooltip" id="493"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ФормированиеСчетовФактурНаАванс" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формирование счетов-фактур на аванс</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Формирование счетов фактур на аванс</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ФормированиеСчетовФактурНаАвансExtendedTooltip" id="494"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаЗаполнитьАвансы" id="404">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнить авансы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнить авансы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗаполнитьАвансыExtendedTooltip" id="495"/>
+							<ChildItems>
+								<InputField name="СтавкаНДС" id="443">
+									<DataPath>СтавкаНДС</DataPath>
+									<Width>12</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChooseType>false</ChooseType>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>18% / 118%</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.СтавкиНДС.EnumValue.НДС18_118</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>10% / 110%</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.СтавкиНДС.EnumValue.НДС10_110</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="444"/>
+									<ExtendedTooltip name="СтавкаНДСExtendedTooltip" id="496"/>
+								</InputField>
+								<InputField name="ПравилаОтборПолученныхАвансов" id="354">
+									<DataPath>ПравилаОтбораПолученныхАвансов</DataPath>
+									<Width>40</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Все полученные авансы</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ПорядокРегистрацииСчетовФактурНаАванс.EnumValue.НаВсеАвансы</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Исключить зачтенные в течение пяти календарных дней </v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ПорядокРегистрацииСчетовФактурНаАванс.EnumValue.КромеЗачтенныхВТечениеПятиДней</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Исключить зачтенные в течение месяца</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ПорядокРегистрацииСчетовФактурНаАванс.EnumValue.КромеЗачтенныхВТечениеМесяца</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Исключить зачтенные в течение налогового периода</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ПорядокРегистрацииСчетовФактурНаАванс.EnumValue.КромеЗачтенныхВТечениеНалоговогоПериода</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ПравилаОтборПолученныхАвансовКонтекстноеМеню" id="355"/>
+									<ExtendedTooltip name="ПравилаОтборПолученныхАвансовExtendedTooltip" id="497"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаГрупповоеФормированиеСчетовФактур" id="441">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Групповая обработка полученных авансов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа групповое формирование счетов фактур</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГрупповоеФормированиеСчетовФактурExtendedTooltip" id="498"/>
+							<ChildItems>
+								<Button name="ЗаполнитьПолученныеАвансы" id="235">
+									<Type>UsualButton</Type>
+									<SkipOnInput>false</SkipOnInput>
+									<Width>20</Width>
+									<CommandName>Form.Command.ЗаполнитьПолученныеАвансы</CommandName>
+									<Parameter xsi:nil="true"/>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заполнить</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="ЗаполнитьПолученныеАвансыExtendedTooltip" id="499"/>
+								</Button>
+								<Button name="ЗарегистрироватьСчетаФактурыВсе" id="264">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<SkipOnInput>false</SkipOnInput>
+									<CommandName>Form.Command.ГрупповоеФормированиеСчетовФактур</CommandName>
+									<Parameter xsi:nil="true"/>
+									<Picture>
+										<xr:Ref>CommonPicture.ОформитьПоРаспоряжению</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ЗарегистрироватьСчетаФактурыВсеExtendedTooltip" id="500"/>
+								</Button>
+								<Button name="УдалитьНеиспользуемыеСчетаФактуры" id="351">
+									<Type>UsualButton</Type>
+									<Representation>PictureAndText</Representation>
+									<CommandName>Form.Command.УдалитьНеиспользуемыеСчетаФактуры</CommandName>
+									<Parameter xsi:nil="true"/>
+									<Picture>
+										<xr:Ref>StdPicture.Delete</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="УдалитьНеиспользуемыеСчетаФактурыExtendedTooltip" id="501"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПолученныеАвансы" id="438">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Полученные авансы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа полученные авансы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаПолученныеАвансыExtendedTooltip" id="502"/>
+							<ChildItems>
+								<Table name="ПолученныеАвансы" id="208">
+									<Representation>List</Representation>
+									<TitleLocation>Auto</TitleLocation>
+									<SkipOnInput>false</SkipOnInput>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>ПолученныеАвансы</DataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ПолученныеАвансыКонтекстноеМеню" id="209">
+										<ChildItems>
+											<Button name="ПолученныеАвансыСформироватьСчетФактуру" id="408">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьСчетФактуру</CommandName>
+												<Parameter xsi:nil="true"/>
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Сформировать счет-фактуру</v8:content>
+													</v8:item>
+												</Title>
+												<ExtendedTooltip name="ПолученныеАвансыСформироватьСчетФактуруExtendedTooltip" id="503"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
+									<AutoCommandBar name="ПолученныеАвансыКоманднаяПанель" id="210">
+										<ChildItems>
+											<Popup name="ГруппаИзменитьСтавкуНДС" id="236">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Изменить ставку НДС выбранных авансов</v8:content>
+													</v8:item>
+												</Title>
+												<ToolTip>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Установить ставку НДС для выбранных строк</v8:content>
+													</v8:item>
+												</ToolTip>
+												<ExtendedTooltip name="ГруппаИзменитьСтавкуНДСExtendedTooltip" id="504"/>
+												<ChildItems>
+													<Button name="УстановитьСтавкуНДС10" id="238">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.УстановитьСтавкуНДС10_110</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="УстановитьСтавкуНДС10ExtendedTooltip" id="505"/>
+													</Button>
+													<Button name="УстановитьСтавкуНДС18" id="237">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.УстановитьСтавкуНДС18_118</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="УстановитьСтавкуНДС18ExtendedTooltip" id="506"/>
+													</Button>
+												</ChildItems>
+											</Popup>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ПолученныеАвансыExtendedTooltip" id="507"/>
+									<SearchStringAddition name="ПолученныеАвансыSearchString" id="508">
+										<Source>
+											<lf:elementId>208</lf:elementId>
+											<lf:additionId>0</lf:additionId>
+										</Source>
+										<ContextMenu name="ПолученныеАвансыSearchStringContextMenu" id="509"/>
+										<ExtendedTooltip name="ПолученныеАвансыSearchStringExtendedTooltip" id="510"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ПолученныеАвансыViewStatus" id="511">
+										<Source>
+											<lf:elementId>208</lf:elementId>
+											<lf:additionId>1</lf:additionId>
+										</Source>
+										<ContextMenu name="ПолученныеАвансыViewStatusContextMenu" id="512"/>
+										<ExtendedTooltip name="ПолученныеАвансыViewStatusExtendedTooltip" id="513"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ПолученныеАвансыSearchControl" id="514">
+										<Source>
+											<lf:elementId>208</lf:elementId>
+											<lf:additionId>2</lf:additionId>
+										</Source>
+										<ContextMenu name="ПолученныеАвансыSearchControlContextMenu" id="515"/>
+										<ExtendedTooltip name="ПолученныеАвансыSearchControlExtendedTooltip" id="516"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">ПолученныеАвансыВыбор</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ПолученныеАвансыДатаВыписки" id="457">
+											<DataPath>ПолученныеАвансы.ДатаВыписки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ПолученныеАвансыДатаВыпискиКонтекстноеМеню" id="458"/>
+											<ExtendedTooltip name="ПолученныеАвансыДатаВыпискиExtendedTooltip" id="517"/>
+										</InputField>
+										<ColumnGroup name="ПолученныеАвансыГруппаСФ" id="467">
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Полученные авансы группа СФ</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Полученные авансы группа СФ</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="ПолученныеАвансыГруппаСФExtendedTooltip" id="518"/>
+											<ChildItems>
+												<CheckBoxField name="ПолученныеАвансыСФсформирован" id="445">
+													<DataPath>ПолученныеАвансы.СФсформирован</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПолученныеАвансыСФсформированКонтекстноеМеню" id="446"/>
+													<ExtendedTooltip name="ПолученныеАвансыСФсформированExtendedTooltip" id="519"/>
+												</CheckBoxField>
+												<InputField name="ПолученныеАвансыСФСумма" id="468">
+													<DataPath>ПолученныеАвансы.СуммаСчетаФактуры</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>9</Width>
+													<ContextMenu name="ПолученныеАвансыСФСуммаКонтекстноеМеню" id="469"/>
+													<ExtendedTooltip name="ПолученныеАвансыСФСуммаExtendedTooltip" id="520"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<InputField name="ПолученныеАвансыКонтрагент" id="447">
+											<DataPath>ПолученныеАвансы.Контрагент</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПолученныеАвансыКонтрагентКонтекстноеМеню" id="448"/>
+											<ExtendedTooltip name="ПолученныеАвансыКонтрагентExtendedTooltip" id="521"/>
+										</InputField>
+										<InputField name="ПолученныеАвансыСумма" id="449">
+											<DataPath>ПолученныеАвансы.Сумма</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ПолученныеАвансыСуммаКонтекстноеМеню" id="450"/>
+											<ExtendedTooltip name="ПолученныеАвансыСуммаExtendedTooltip" id="522"/>
+											<Events>
+												<Event name="OnChange">ПолученныеАвансыСуммаАвансаПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПолученныеАвансыСтавкаНДС" id="451">
+											<DataPath>ПолученныеАвансы.СтавкаНДС</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ListChoiceMode>true</ListChoiceMode>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>18% / 118%</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xr:DesignTimeRef">Enum.СтавкиНДС.EnumValue.НДС18_118</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>10% / 110%</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xr:DesignTimeRef">Enum.СтавкиНДС.EnumValue.НДС10_110</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Без НДС</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xr:DesignTimeRef">Enum.СтавкиНДС.EnumValue.БезНДС</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="ПолученныеАвансыСтавкаНДСКонтекстноеМеню" id="452"/>
+											<ExtendedTooltip name="ПолученныеАвансыСтавкаНДСExtendedTooltip" id="523"/>
+											<Events>
+												<Event name="OnChange">ПолученныеАвансыСтавкаНДСПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПолученныеАвансыСуммаНДС" id="453">
+											<DataPath>ПолученныеАвансы.СуммаНДС</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ПолученныеАвансыСуммаНДСКонтекстноеМеню" id="454"/>
+											<ExtendedTooltip name="ПолученныеАвансыСуммаНДСExtendedTooltip" id="524"/>
+										</InputField>
+										<InputField name="ПолученныеАвансыДокументОснование" id="455">
+											<DataPath>ПолученныеАвансы.ДокументОснование</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПолученныеАвансыДокументОснованиеКонтекстноеМеню" id="456"/>
+											<ExtendedTooltip name="ПолученныеАвансыДокументОснованиеExtendedTooltip" id="525"/>
+										</InputField>
+										<InputField name="ПолученныеАвансыВалютаДокумента" id="459">
+											<DataPath>ПолученныеАвансы.ВалютаДокумента</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПолученныеАвансыВалютаДокументаКонтекстноеМеню" id="460"/>
+											<ExtendedTooltip name="ПолученныеАвансыВалютаДокументаExtendedTooltip" id="526"/>
+										</InputField>
+										<InputField name="ПолученныеАвансыВалютнаяСумма" id="461">
+											<DataPath>ПолученныеАвансы.ВалютнаяСумма</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ПолученныеАвансыВалютнаяСуммаКонтекстноеМеню" id="462"/>
+											<ExtendedTooltip name="ПолученныеАвансыВалютнаяСуммаExtendedTooltip" id="527"/>
+											<Events>
+												<Event name="OnChange">ПолученныеАвансыВалютнаяСуммаПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ПолученныеАвансыСчетФактура" id="465">
+											<DataPath>ПолученныеАвансы.СчетФактура</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПолученныеАвансыСчетФактураКонтекстноеМеню" id="466"/>
+											<ExtendedTooltip name="ПолученныеАвансыСчетФактураExtendedTooltip" id="528"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНеиспользуемыеСчетаФактуры" id="439">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Неиспользуемые счета фактуры</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа неиспользуемые счета фактуры</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаНеиспользуемыеСчетаФактурыExtendedTooltip" id="529"/>
+							<ChildItems>
+								<Table name="НеиспользуемыеСчетаФактуры" id="321">
+									<TitleLocation>Auto</TitleLocation>
+									<CommandBarLocation>None</CommandBarLocation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<UseAlternationRowColor>true</UseAlternationRowColor>
+									<EnableStartDrag>true</EnableStartDrag>
+									<DataPath>ТаблицаНеиспользуемыеСчетаФактуры</DataPath>
+									<RowPictureDataPath>ТаблицаНеиспользуемыеСчетаФактуры.DefaultPicture</RowPictureDataPath>
+									<CommandSet/>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<AutoRefresh>false</AutoRefresh>
+									<AutoRefreshPeriod>60</AutoRefreshPeriod>
+									<Period xsi:type="v8:StandardPeriod">
+										<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+										<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+										<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+									</Period>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<RestoreCurrentRow>false</RestoreCurrentRow>
+									<TopLevelParent xsi:nil="true"/>
+									<ShowRoot>true</ShowRoot>
+									<AllowRootChoice>false</AllowRootChoice>
+									<UpdateOnDataChange>Auto</UpdateOnDataChange>
+									<ContextMenu name="НеиспользуемыеСчетаФактурыКонтекстноеМеню" id="322"/>
+									<AutoCommandBar name="НеиспользуемыеСчетаФактурыКоманднаяПанель" id="323"/>
+									<ExtendedTooltip name="НеиспользуемыеСчетаФактурыExtendedTooltip" id="530"/>
+									<SearchStringAddition name="НеиспользуемыеСчетаФактурыSearchString" id="531">
+										<Source>
+											<lf:elementId>321</lf:elementId>
+											<lf:additionId>0</lf:additionId>
+										</Source>
+										<ContextMenu name="НеиспользуемыеСчетаФактурыSearchStringContextMenu" id="532"/>
+										<ExtendedTooltip name="НеиспользуемыеСчетаФактурыSearchStringExtendedTooltip" id="533"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="НеиспользуемыеСчетаФактурыViewStatus" id="534">
+										<Source>
+											<lf:elementId>321</lf:elementId>
+											<lf:additionId>1</lf:additionId>
+										</Source>
+										<ContextMenu name="НеиспользуемыеСчетаФактурыViewStatusContextMenu" id="535"/>
+										<ExtendedTooltip name="НеиспользуемыеСчетаФактурыViewStatusExtendedTooltip" id="536"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="НеиспользуемыеСчетаФактурыSearchControl" id="537">
+										<Source>
+											<lf:elementId>321</lf:elementId>
+											<lf:additionId>2</lf:additionId>
+										</Source>
+										<ContextMenu name="НеиспользуемыеСчетаФактурыSearchControlContextMenu" id="538"/>
+										<ExtendedTooltip name="НеиспользуемыеСчетаФактурыSearchControlExtendedTooltip" id="539"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">НеиспользуемыеСчетаФактурыВыбор</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="НеиспользуемыеСчетаФактурыДата" id="324">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.Date</DataPath>
+											<Width>14</Width>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыДатаКонтекстноеМеню" id="325"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыДатаExtendedTooltip" id="540"/>
+										</LabelField>
+										<LabelField name="НеиспользуемыеСчетаФактурыНомер" id="326">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.Number</DataPath>
+											<Width>11</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыНомерКонтекстноеМеню" id="327"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыНомерExtendedTooltip" id="541"/>
+										</LabelField>
+										<InputField name="НеиспользуемыеСчетаФактурыСчетФактура" id="470">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.СчетФактура</DataPath>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыСчетФактураКонтекстноеМеню" id="471"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыСчетФактураExtendedTooltip" id="542"/>
+										</InputField>
+										<LabelField name="НеиспользуемыеСчетаФактурыДокументОснование" id="328">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.ДокументОснование</DataPath>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыДокументОснованиеКонтекстноеМеню" id="329"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыДокументОснованиеExtendedTooltip" id="543"/>
+										</LabelField>
+										<LabelField name="НеиспользуемыеСчетаФактурыКонтрагент" id="332">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.Контрагент</DataPath>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыКонтрагентКонтекстноеМеню" id="333"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыКонтрагентExtendedTooltip" id="544"/>
+										</LabelField>
+										<LabelField name="НеиспользуемыеСчетаФактурыСумма" id="336">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.Сумма</DataPath>
+											<Width>9</Width>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыСуммаКонтекстноеМеню" id="337"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыСуммаExtendedTooltip" id="545"/>
+										</LabelField>
+										<LabelField name="НеиспользуемыеСчетаФактурыСуммаНДС" id="338">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.СуммаНДС</DataPath>
+											<Width>9</Width>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыСуммаНДСКонтекстноеМеню" id="339"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыСуммаНДСExtendedTooltip" id="546"/>
+										</LabelField>
+										<LabelField name="НеиспользуемыеСчетаФактурыКомментарий" id="330">
+											<DataPath>ТаблицаНеиспользуемыеСчетаФактуры.Комментарий</DataPath>
+											<ContextMenu name="НеиспользуемыеСчетаФактурыКомментарийКонтекстноеМеню" id="331"/>
+											<ExtendedTooltip name="НеиспользуемыеСчетаФактурыКомментарийExtendedTooltip" id="547"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокСчетФактураВыданныйАванс" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список счетов-фактур выданных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.СчетФактураВыданныйАванс</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field"/>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="КварталСтрока" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчетный период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ВалютаРеглУчета" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта регл учета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПравилаОтбораПолученныхАвансов" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила отбора полученных авансов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ПорядокРегистрацииСчетовФактурНаАванс</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>ПравилаОтбораПолученныхАвансов</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ТаблицаНеиспользуемыеСчетаФактуры" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неиспользуемые счета-фактуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументСчетФактураВыданныйАванс.Номер,
+	ДокументСчетФактураВыданныйАванс.Дата,
+	ДокументСчетФактураВыданныйАванс.Ссылка КАК СчетФактура,
+	ДокументСчетФактураВыданныйАванс.ДокументОснование,
+	ДокументСчетФактураВыданныйАванс.Контрагент,
+	ДокументСчетФактураВыданныйАванс.Сумма,
+	ДокументСчетФактураВыданныйАванс.СуммаНДС,
+	ДокументСчетФактураВыданныйАванс.Комментарий
+ИЗ
+	Документ.СчетФактураВыданныйАванс КАК ДокументСчетФактураВыданныйАванс
+ГДЕ
+	ДокументСчетФактураВыданныйАванс.Ссылка В (&amp;НеиспользуемыеСчетаФактуры)</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СтавкаНДС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ставка НДС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СтавкиНДС</v8:Type>
+			</Type>
+			<Save>
+				<Field>СтавкаНДС</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Период" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>Организация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="НеиспользуемыеСчетаФактуры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Неиспользуемые счета фактуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПолученныеАвансы" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полученные авансы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="СФсформирован" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СФ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Контрагент" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Сумма" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма аванса</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СтавкаНДС" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ставка НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.СтавкиНДС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СуммаНДС" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДокументОснование" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ основание</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.РасходныйКассовыйОрдер</v8:Type>
+						<v8:Type>cfg:DocumentRef.ПриходныйКассовыйОрдер</v8:Type>
+						<v8:Type>cfg:DocumentRef.ВозвратТоваровОтКлиента</v8:Type>
+						<v8:Type>cfg:DocumentRef.ОперацияПоПлатежнойКарте</v8:Type>
+						<v8:Type>cfg:DocumentRef.СписаниеБезналичныхДенежныхСредств</v8:Type>
+						<v8:Type>cfg:DocumentRef.ВводОстатков</v8:Type>
+						<v8:Type>cfg:DocumentRef.ВозвратТоваровМеждуОрганизациями</v8:Type>
+						<v8:Type>cfg:DocumentRef.ВзаимозачетЗадолженности</v8:Type>
+						<v8:Type>cfg:DocumentRef.ПоступлениеБезналичныхДенежныхСредств</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаВыписки" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата выписки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВалютаДокумента" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВалютнаяСумма" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валютная сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаСчетаФактуры" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СФ (сумма)</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СчетФактура" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счет фактура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.СчетФактураВыданныйАванс</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПолученныеАвансыСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПолученныеАвансыСуммаНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПолученныеАвансы.СФсформирован</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ТекстЗапрещеннойЯчейкиЦвет</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Указано в СФ</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьПолученныеАвансы" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить список счетов-фактур</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьПолученныеАвансы</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ГрупповоеФормированиеСчетовФактур" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сформировать счета-фактуры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Групповое формирование счетов фактур</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СформироватьСчетаФактуры</Action>
+		</Command>
+		<Command name="УстановитьСтавкуНДС10_110" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить ставку НДС "10% / 110%"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить ставку НДС 18 %</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСтавкуНДС10_110</Action>
+		</Command>
+		<Command name="УстановитьСтавкуНДС18_118" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить ставку НДС "18% / 118%"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить ставку НДС 18 %</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСтавкуНДС18_118</Action>
+		</Command>
+		<Command name="СоздатьСчетФактуру" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать счет фактуру</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать счет фактуру</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьСчетФактуру</Action>
+		</Command>
+		<Command name="УдалитьНеиспользуемыеСчетаФактуры" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить неиспользуемые счета-факутры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить неиспользуемые счета фактуры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьНеиспользуемыеСчетаФактуры</Action>
+		</Command>
+	</Commands>
+</Form>

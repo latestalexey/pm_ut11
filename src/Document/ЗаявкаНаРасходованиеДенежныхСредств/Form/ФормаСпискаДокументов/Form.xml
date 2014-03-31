@@ -1,0 +1,1207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ЗаявительОтбор" id="53">
+			<DataPath>Заявитель</DataPath>
+			<Width>30</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Wrap>false</Wrap>
+			<ClearButton>true</ClearButton>
+			<OpenButton>false</OpenButton>
+			<ChoiceListButton>true</ChoiceListButton>
+			<ContextMenu name="ЗаявительОтборКонтекстноеМеню" id="54"/>
+			<ExtendedTooltip name="ЗаявительОтборExtendedTooltip" id="128"/>
+			<Events>
+				<Event name="OnChange">ЗаявительОтборПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<SkipOnInput>false</SkipOnInput>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandAllLevels</InitialTreeView>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>false</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Popup name="ГруппаСоздатьКонтекстноеМеню" id="66">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Создать</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа создать</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ГруппаСоздатьКонтекстноеМенюExtendedTooltip" id="129"/>
+						<ChildItems>
+							<Button name="СоздатьКонтекстноеМеню" id="67">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+								<Parameter xsi:nil="true"/>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Выдача денежных средств поставщику</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="СоздатьКонтекстноеМенюExtendedTooltip" id="130"/>
+							</Button>
+							<Button name="СписокКонтекстноеМенюСоздатьВыдачаДенежныхСредствПодотчетнику" id="105">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВыдачаДенежныхСредствПодотчетнику</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКонтекстноеМенюСоздатьВыдачаДенежныхСредствПодотчетникуExtendedTooltip" id="131"/>
+							</Button>
+							<Button name="СписокКонтекстноеМенюСоздатьВозвратДенежныхСредствКлиенту" id="106">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВозвратДенежныхСредствКлиенту</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКонтекстноеМенюСоздатьВозвратДенежныхСредствКлиентуExtendedTooltip" id="132"/>
+							</Button>
+							<Button name="СписокКонтекстноеМенюСоздатьПрочиеРасходы" id="107">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПрочиеРасходы</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКонтекстноеМенюСоздатьПрочиеРасходыExtendedTooltip" id="133"/>
+							</Button>
+							<Button name="СписокКонтекстноеМенюСоздатьПеречислениеВБюджет" id="108">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПеречислениеВБюджет</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКонтекстноеМенюСоздатьПеречислениеВБюджетExtendedTooltip" id="134"/>
+							</Button>
+							<Button name="СписокКонтекстноеМенюСоздатьПрочаяВыдачаДенежныхСредств" id="109">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПрочаяВыдачаДенежныхСредств</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКонтекстноеМенюСоздатьПрочаяВыдачаДенежныхСредствExtendedTooltip" id="135"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<ButtonGroup name="ГруппаСписокКонтекстноеМеню" id="98">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа список контекстное меню</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа список контекстное меню</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Item.Список</CommandSource>
+						<ExtendedTooltip name="ГруппаСписокКонтекстноеМенюExtendedTooltip" id="136"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаФункцииКонтекстноеМеню" id="94">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Функции</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа функции контекстное меню</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ГруппаФункцииКонтекстноеМенюExtendedTooltip" id="137"/>
+						<ChildItems>
+							<Button name="КонтекстноеМенюСписокУстановитьСтатусНеСогласована" id="95">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусНеСогласована</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="КонтекстноеМенюСписокУстановитьСтатусНеСогласованаExtendedTooltip" id="138"/>
+							</Button>
+							<Button name="КонтекстноеМенюСписокУстановитьСтатусСогласована" id="100">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусСогласована</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="КонтекстноеМенюСписокУстановитьСтатусСогласованаExtendedTooltip" id="139"/>
+							</Button>
+							<Button name="КонтекстноеМенюСписокУстановитьСтатусУтверждена" id="96">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусУтверждена</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="КонтекстноеМенюСписокУстановитьСтатусУтвержденаExtendedTooltip" id="140"/>
+							</Button>
+							<Button name="КонтекстноеМенюСписокУстановитьСтатусОтклонена" id="97">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусОтклонена</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="КонтекстноеМенюСписокУстановитьСтатусОтклоненаExtendedTooltip" id="141"/>
+							</Button>
+						</ChildItems>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандыФормыКонтекстноеМеню" id="77">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыКонтекстноеМенюExtendedTooltip" id="142"/>
+					</ButtonGroup>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Popup name="ГруппаСоздать" id="19">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Создать</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа создать</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ГруппаСоздатьExtendedTooltip" id="143"/>
+						<ChildItems>
+							<Button name="Создать" id="20">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Item.Список.StandardCommand.Create</CommandName>
+								<Parameter xsi:nil="true"/>
+								<Picture>
+									<xr:Ref>CommonPicture.ПустаяКартинка</xr:Ref>
+									<xr:LoadTransparent>false</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Оплату поставщику</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="СоздатьExtendedTooltip" id="144"/>
+							</Button>
+							<Button name="СоздатьВозвратДенежныхСредствКлиенту" id="22">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.СоздатьВозвратДенежныхСредствКлиенту</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВозвратДенежныхСредствКлиентуExtendedTooltip" id="145"/>
+							</Button>
+							<Button name="СоздатьВыдачаДенежныхСредствПодотчетнику" id="21">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.СоздатьВыдачаДенежныхСредствПодотчетнику</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВыдачаДенежныхСредствПодотчетникуExtendedTooltip" id="146"/>
+							</Button>
+							<Button name="СоздатьПеречислениеВБюджет" id="89">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.СоздатьПеречислениеВБюджет</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьПеречислениеВБюджетExtendedTooltip" id="147"/>
+							</Button>
+							<Button name="СоздатьПеречислениеТаможне" id="122">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПеречислениеТаможне</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьПеречислениеТаможнеExtendedTooltip" id="148"/>
+							</Button>
+							<Button name="СоздатьКонвертацияВалюты" id="123">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьКонвертацияВалюты</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьКонвертацияВалютыExtendedTooltip" id="149"/>
+							</Button>
+							<Button name="СоздатьОплатаВДругуюОрганизацию" id="114">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьОплатаВДругуюОрганизацию</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьОплатаВДругуюОрганизациюExtendedTooltip" id="150"/>
+							</Button>
+							<Button name="СписокСоздатьВозвратВДругуюОрганизацию" id="117">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВозвратВДругуюОрганизацию</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокСоздатьВозвратВДругуюОрганизациюExtendedTooltip" id="151"/>
+							</Button>
+							<Button name="СоздатьВнутреннююПередачуДенежныхСредств" id="120">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВнутреннююПередачуДенежныхСредств</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВнутреннююПередачуДенежныхСредствExtendedTooltip" id="152"/>
+							</Button>
+							<Button name="СписокСоздатьВыплатаЗаработнойПлаты" id="124">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВыплатаЗаработнойПлаты</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокСоздатьВыплатаЗаработнойПлатыExtendedTooltip" id="153"/>
+							</Button>
+							<Button name="СоздатьПрочиеРасходы" id="104">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьПрочиеРасходы</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьПрочиеРасходыExtendedTooltip" id="154"/>
+							</Button>
+							<Button name="СоздатьПрочаяВыдачаДенежныхСредств" id="30">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.СоздатьПрочаяВыдачаДенежныхСредств</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьПрочаяВыдачаДенежныхСредствExtendedTooltip" id="155"/>
+							</Button>
+							<Button name="СоздатьОплатаПоКредиту" id="125">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьОплатаПоКредитам</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьОплатаПоКредитуExtendedTooltip" id="156"/>
+							</Button>
+							<Button name="СоздатьВыплатаПоДепозитам" id="126">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВыплатаПоДепозитам</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВыплатаПоДепозитамExtendedTooltip" id="157"/>
+							</Button>
+							<Button name="СоздатьВыплатаПоЗаймамВыданным" id="127">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СоздатьВыплатаПоЗаймамВыданным</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СоздатьВыплатаПоЗаймамВыданнымExtendedTooltip" id="158"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<ButtonGroup name="ГруппаСписок" id="86">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа список</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа список</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Item.Список</CommandSource>
+						<ExtendedTooltip name="ГруппаСписокExtendedTooltip" id="159"/>
+					</ButtonGroup>
+					<Popup name="ГруппаУстановитьСтатус" id="90">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Установить статус</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа установить статус</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>CommonPicture.ГруппаФункций</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ГруппаУстановитьСтатусExtendedTooltip" id="160"/>
+						<ChildItems>
+							<Button name="СписокУстановитьСтатусНеСогласована" id="91">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусНеСогласована</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокУстановитьСтатусНеСогласованаExtendedTooltip" id="161"/>
+							</Button>
+							<Button name="СписокУстановитьСтатусСогласована" id="99">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусСогласована</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокУстановитьСтатусСогласованаExtendedTooltip" id="162"/>
+							</Button>
+							<Button name="СписокУстановитьСтатусУтверждена" id="92">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусУтверждена</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокУстановитьСтатусУтвержденаExtendedTooltip" id="163"/>
+							</Button>
+							<Button name="СписокУстановитьСтатусОтклонена" id="93">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусОтклонена</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокУстановитьСтатусОтклоненаExtendedTooltip" id="164"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<ButtonGroup name="ГруппаГлобальныеКоманды" id="103">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+						<ExtendedTooltip name="ГруппаГлобальныеКомандыExtendedTooltip" id="165"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандыФормы" id="49">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыExtendedTooltip" id="166"/>
+					</ButtonGroup>
+					<Button name="СписокСправка" id="121">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СписокСправкаExtendedTooltip" id="167"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="168"/>
+			<SearchStringAddition name="СписокSearchString" id="169">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="170"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="171"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="172">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="173"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="174"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="175">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="176"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="177"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Номер" id="112">
+					<DataPath>Список.Number</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="113"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="178"/>
+				</LabelField>
+				<InputField name="Дата" id="4">
+					<DataPath>Список.Date</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата заявки</v8:content>
+						</v8:item>
+					</Title>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаExtendedTooltip" id="179"/>
+				</InputField>
+				<PictureField name="ЕстьФайлы" id="101">
+					<DataPath>Список.ЕстьФайлы</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Присоединенные файлы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HeaderPicture>
+						<xr:Ref>0:6cf76053-e5e5-4243-b8b7-216669400702</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+						<xr:TransparentPixel x="12" y="3"/>
+					</HeaderPicture>
+					<Width>1</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.Скрепка</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="ЕстьФайлыКонтекстноеМеню" id="102"/>
+					<ExtendedTooltip name="ЕстьФайлыExtendedTooltip" id="180"/>
+				</PictureField>
+				<InputField name="СуммаДокумента" id="13">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="СуммаДокументаExtendedTooltip" id="181"/>
+				</InputField>
+				<InputField name="Валюта" id="15">
+					<DataPath>Список.Валюта</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="ВалютаКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="ВалютаExtendedTooltip" id="182"/>
+				</InputField>
+				<LabelField name="Статус" id="78">
+					<DataPath>Список.Статус</DataPath>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СтатусКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="СтатусExtendedTooltip" id="183"/>
+				</LabelField>
+				<PictureField name="Приоритет" id="82">
+					<DataPath>Список.КартинкаПриоритета</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приоритет</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Первенство по значимости при обработке заявки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.Приоритеты</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="ПриоритетКонтекстноеМеню" id="83"/>
+					<ExtendedTooltip name="ПриоритетExtendedTooltip" id="184"/>
+				</PictureField>
+				<LabelField name="ДатаПлатежа" id="118">
+					<DataPath>Список.ДатаПлатежа</DataPath>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ДатаПлатежаКонтекстноеМеню" id="119"/>
+					<ExtendedTooltip name="ДатаПлатежаExtendedTooltip" id="185"/>
+				</LabelField>
+				<CheckBoxField name="ЗаявкаОплачена" id="43">
+					<DataPath>Список.ЗаявкаОплачена</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оплачена</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗаявкаОплаченаКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ЗаявкаОплаченаExtendedTooltip" id="186"/>
+				</CheckBoxField>
+				<LabelField name="ХозяйственнаяОперация" id="87">
+					<DataPath>Список.ХозяйственнаяОперация</DataPath>
+					<Width>30</Width>
+					<ContextMenu name="ХозяйственнаяОперацияКонтекстноеМеню" id="88"/>
+					<ExtendedTooltip name="ХозяйственнаяОперацияExtendedTooltip" id="187"/>
+				</LabelField>
+				<LabelField name="Получатель" id="84">
+					<DataPath>Список.Получатель</DataPath>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получатель платежа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>50</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ПолучательКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="ПолучательExtendedTooltip" id="188"/>
+				</LabelField>
+				<InputField name="Заявитель" id="62">
+					<DataPath>Список.Заявитель</DataPath>
+					<Width>50</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="ЗаявительКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ЗаявительExtendedTooltip" id="189"/>
+				</InputField>
+				<LabelField name="Ссылка" id="110">
+					<DataPath>Список.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="190"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаПодвал" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подвал</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подвал</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодвалExtendedTooltip" id="191"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Заявка.Ссылка,
+	Заявка.ПометкаУдаления,
+	Заявка.Номер,
+	Заявка.Дата,
+	Заявка.Проведен,
+	Заявка.Организация КАК Организация,
+	Заявка.Статус,
+	Заявка.ХозяйственнаяОперация,
+	Заявка.СуммаДокумента,
+	Заявка.Валюта,
+	Заявка.БанковскийСчет,
+	Заявка.Касса,
+	Заявка.ДатаПлатежа,
+	
+	ВЫБОР КОГДА Заявка.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыдачаДенежныхСредствПодотчетнику) ТОГДА
+		Заявка.ПодотчетноеЛицо
+	КОГДА Заявка.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ОплатаДенежныхСредствВДругуюОрганизацию)
+		ИЛИ Заявка.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВозвратДенежныхСредствВДругуюОрганизацию)
+		ИЛИ Заявка.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВнутренняяПередачаДенежныхСредств)
+	ТОГДА
+		Заявка.ОрганизацияПолучатель
+	ИНАЧЕ
+		Заявка.Контрагент
+	КОНЕЦ КАК Получатель,
+	
+	Заявка.Контрагент,
+	Заявка.Подразделение,
+	Заявка.КтоЗаявил КАК Заявитель,
+	Заявка.Представление,
+	Заявка.Приоритет,
+	ВЫБОР КОГДА Заявка.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Высокий) ТОГДА
+		0
+	КОГДА Заявка.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Средний) ТОГДА
+		1
+	КОГДА Заявка.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Низкий) ТОГДА
+		2	
+	КОНЕЦ КАК КартинкаПриоритета,
+	
+	ВЫБОР КОГДА ЕСТЬNULL(ДенежныеСредства.СуммаОстаток, 0) &gt;= 0
+		И Заявка.Проведен
+		И Заявка.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.Отклонена)
+	ТОГДА
+		Истина
+	ИНАЧЕ
+		Ложь
+	КОНЕЦ КАК ЗаявкаОплачена,
+	
+	ВЫБОР
+		КОГДА НаличиеПрисоединенныхФайлов.ЕстьФайлы ЕСТЬ NULL ТОГДА
+			1
+		КОГДА НаличиеПрисоединенныхФайлов.ЕстьФайлы ТОГДА
+			0
+		ИНАЧЕ
+			1
+	КОНЕЦ КАК ЕстьФайлы
+ИЗ
+	Документ.ЗаявкаНаРасходованиеДенежныхСредств КАК Заявка
+	
+	ЛЕВОЕ СОЕДИНЕНИЕ
+		РегистрНакопления.ДенежныеСредстваКВыплате.Остатки КАК ДенежныеСредства
+	ПО 
+		ДенежныеСредства.ЗаявкаНаРасходованиеДенежныхСредств = Заявка.Ссылка
+
+	ЛЕВОЕ СОЕДИНЕНИЕ
+		РегистрСведений.НаличиеПрисоединенныхФайлов КАК НаличиеПрисоединенныхФайлов
+	ПО
+		Заявка.Ссылка = НаличиеПрисоединенныхФайлов.ОбъектСФайлами
+		
+</QueryText>
+				<MainTable>Document.ЗаявкаНаРасходованиеДенежныхСредств</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Валюта</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Валюты.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтруктураПредприятия.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Заявитель</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Пользователи.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ДатаПлатежа</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="v8:StandardBeginningDate">
+								<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+								<v8:date>0001-01-01T00:00:00</v8:date>
+							</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ЗаявкаОплачена</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ДатаПлатежа</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>Date</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ДатаПлатежа</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>ЗаявкаОплачена</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ДатаПлатежа</dcsset:left>
+									<dcsset:comparisonType>Less</dcsset:comparisonType>
+									<dcsset:right xsi:type="v8:StandardBeginningDate">
+										<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+									</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ЗаявкаОплачена</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ПросроченныйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Выделение цветом просроченных оплат</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.Отклонена</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ЗакрытыйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Выделение цветом документов со статусом "Отклонено"</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:field>Организация</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+					</dcsset:item>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокХозяйственныхОпераций" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список хозяйственных операций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Заявитель" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+			<Save>
+				<Field>Заявитель</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ИспользоватьПодключаемоеОборудование" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать подключаемое оборудование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоддерживаемыеТипыПодключаемогоОбрудования" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддерживаемые типы подключаемого обрудования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьВыдачаДенежныхСредствПодотчетнику" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдачу подотчетнику</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать выдача денежных средств подотчетнику</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВыдачаДенежныхСредствПодотчетнику</Action>
+		</Command>
+		<Command name="СоздатьВозвратДенежныхСредствКлиенту" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат оплаты клиенту</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать возврат денежных средств клиенту</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВозвратДенежныхСредствКлиенту</Action>
+		</Command>
+		<Command name="СоздатьПрочаяВыдачаДенежныхСредств" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочую выдачу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прочая выдача денежных средств</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрочаяВыдачаДенежныхСредств</Action>
+		</Command>
+		<Command name="СоздатьПеречислениеВБюджет" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечисление налога</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перечисление в бюджет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПеречислениеВБюджет</Action>
+		</Command>
+		<Command name="УстановитьСтатусУтверждена" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Утверждена"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Утверждена"</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСтатусУтверждена</Action>
+		</Command>
+		<Command name="УстановитьСтатусОтклонена" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Отклонена"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Отклонена"</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСтатусОтклонена</Action>
+		</Command>
+		<Command name="УстановитьСтатусНеСогласована" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Не согласована"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Не согласована"</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСтатусНеСогласована</Action>
+		</Command>
+		<Command name="УстановитьСтатусСогласована" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Согласована"</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Согласована"</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьСтатусСогласована</Action>
+		</Command>
+		<Command name="СоздатьПрочиеРасходы" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие расходы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прочие расходы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрочиеРасходы</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьУчетПрочихДоходовРасходов</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьОплатаВДругуюОрганизацию" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплату в другую организацию</v8:content>
+				</v8:item>
+			</Title>
+			<Action>СоздатьОплатаВДругуюОрганизацию</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьПередачиТоваровМеждуОрганизациями</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьВозвратВДругуюОрганизацию" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат в другую организацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать возврат в другую организацию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВозвратВДругуюОрганизацию</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьПередачиТоваровМеждуОрганизациями</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьВнутреннююПередачуДенежныхСредств" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внутреннюю передачу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать внутреннюю передачу денежных средств</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВнутреннююПередачуДенежныхСредств</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьОбособленныеПодразделенияВыделенныеНаБаланс</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьПеречислениеТаможне" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таможенный платеж</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перечисление таможне</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПеречислениеТаможне</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьИмпортныеЗакупки</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьКонвертацияВалюты" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конвертацию валюты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать конвертация валюты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьКонвертацияВалюты</Action>
+		</Command>
+		<Command name="СоздатьВыплатаЗаработнойПлаты" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выплату заработной платы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать выплата заработной платы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВыплатаЗаработнойПлаты</Action>
+		</Command>
+		<Command name="СоздатьВыплатаПоДепозитам" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выплату по депозитам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать выплата по депозитам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЗаявкуПоКредитамДепозитам</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьДоговорыКредитовИДепозитов</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьВыплатаПоЗаймамВыданным" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выплату по выданным займам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать выплата по займам выданным</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЗаявкуПоКредитамДепозитам</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьДоговорыКредитовИДепозитов</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьОплатаПоКредитам" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплату по кредитам</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать оплата по кредитам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЗаявкуПоКредитамДепозитам</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьДоговорыКредитовИДепозитов</Item>
+			</FunctionalOptions>
+		</Command>
+	</Commands>
+</Form>

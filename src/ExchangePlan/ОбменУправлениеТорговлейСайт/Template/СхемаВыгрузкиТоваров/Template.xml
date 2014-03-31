@@ -1,0 +1,964 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ОсновнойНаборДанных</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Характеристика</dataPath>
+			<field>Характеристика</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Остаток</dataPath>
+			<field>Остаток</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладДляОстатков</dataPath>
+			<field>СкладДляОстатков</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Артикул</dataPath>
+			<field>Артикул</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаСоглашения</dataPath>
+			<field>ВалютаСоглашения</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидНоменклатуры</dataPath>
+			<field>ВидНоменклатуры</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЦены</dataPath>
+			<field>ВидЦены</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИспользоватьХарактеристики</dataPath>
+			<field>ИспользоватьХарактеристики</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Код</dataPath>
+			<field>Код</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаборУпаковок</dataPath>
+			<field>НаборУпаковок</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наименование</dataPath>
+			<field>Наименование</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НоменклатураСтавкаНДС</dataPath>
+			<field>НоменклатураСтавкаНДС</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПометкаУдаления</dataPath>
+			<field>ПометкаУдаления</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Родитель</dataPath>
+			<field>Родитель</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Соглашение</dataPath>
+			<field>Соглашение</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>ChoiceParameters</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameters">
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.ДоступноВнешнимПользователям</dcscor:choiceParameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.СегментПартнеров</dcscor:choiceParameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.СегментыПартнеров.ПустаяСсылка</dcscor:value>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item>
+					<dcscor:parameter>ChoiceFoldersAndItems</dcscor:parameter>
+					<dcscor:value xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d6p1:FoldersAndItemsUse">Items</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипНоменклатуры</dataPath>
+			<field>ТипНоменклатуры</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Упаковка</dataPath>
+			<field>Упаковка</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УпаковкаВес</dataPath>
+			<field>УпаковкаВес</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УпаковкаКоэффициент</dataPath>
+			<field>УпаковкаКоэффициент</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФайлКартинки</dataPath>
+			<field>ФайлКартинки</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХарактеристикаПометкаУдаления</dataPath>
+			<field>ХарактеристикаПометкаУдаления</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаВключаетНДС</dataPath>
+			<field>ЦенаВключаетНДС</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЭтоГруппа</dataPath>
+			<field>ЭтоГруппа</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Штрихкод</dataPath>
+			<field>Штрихкод</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СегментНоменклатуры</dataPath>
+			<field>СегментНоменклатуры</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СегментыНоменклатуры</v8:Type>
+			</valueType>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>ChoiceParameters</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameters">
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.СпособФормирования</dcscor:choiceParameter>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыФормированияСегментов.ПериодическиОбновлять</dcscor:value>
+							<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыФормированияСегментов.ФормироватьВручную</dcscor:value>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Производитель</dataPath>
+			<field>Производитель</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроизводительНаименование</dataPath>
+			<field>ПроизводительНаименование</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмеренияКод</dataPath>
+			<field>ЕдиницаИзмеренияКод</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмеренияМеждународноеСокращение</dataPath>
+			<field>ЕдиницаИзмеренияМеждународноеСокращение</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмеренияНаименованиеПолное</dataPath>
+			<field>ЕдиницаИзмеренияНаименованиеПолное</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НоменклатураСХарактеристиками.Номенклатура КАК Номенклатура,
+	НоменклатураСХарактеристиками.Характеристика КАК Характеристика,
+	ЕСТЬNULL(СвободныеОстаткиОстатки.ВНаличииОстаток, 0) КАК Остаток,
+	НоменклатураСХарактеристиками.ПометкаУдаления КАК ПометкаУдаления,
+	НоменклатураСХарактеристиками.Родитель КАК Родитель,
+	НоменклатураСХарактеристиками.ЭтоГруппа КАК ЭтоГруппа,
+	НоменклатураСХарактеристиками.Код КАК Код,
+	НоменклатураСХарактеристиками.Наименование КАК Наименование,
+	НоменклатураСХарактеристиками.Артикул КАК Артикул,
+	НоменклатураСХарактеристиками.Производитель КАК Производитель,
+	НоменклатураСХарактеристиками.ПроизводительНаименование КАК ПроизводительНаименование,
+	НоменклатураСХарактеристиками.ВидНоменклатуры КАК ВидНоменклатуры,
+	ВЫБОР
+		КОГДА НоменклатураСХарактеристиками.ВидНоменклатуры.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыВеденияДополнительныхДанныхПоНоменклатуре.НеИспользовать)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ИспользоватьХарактеристики,
+	НоменклатураСХарактеристиками.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	НоменклатураСХарактеристиками.НаборУпаковок КАК НаборУпаковок,
+	НоменклатураСХарактеристиками.СтавкаНДС КАК СтавкаНДС,
+	НоменклатураСХарактеристиками.ТипНоменклатуры КАК ТипНоменклатуры,
+	НоменклатураСХарактеристиками.ФайлКартинки КАК ФайлКартинки,
+	НоменклатураСХарактеристиками.ХарактеристикаПометкаУдаления КАК ХарактеристикаПометкаУдаления,
+	НоменклатураСХарактеристиками.ХарактеристикаНаименование КАК ХарактеристикаНаименование
+ПОМЕСТИТЬ ВремНоменклатураХарактеристики
+ИЗ
+	(ВЫБРАТЬ РАЗЛИЧНЫЕ
+		Сегменты.Номенклатура КАК Номенклатура,
+		Сегменты.Характеристика КАК Характеристика,
+		Сегменты.Номенклатура.ПометкаУдаления КАК ПометкаУдаления,
+		Сегменты.Номенклатура.Родитель КАК Родитель,
+		Сегменты.Номенклатура.ЭтоГруппа КАК ЭтоГруппа,
+		Сегменты.Номенклатура.Код КАК Код,
+		Сегменты.Номенклатура.Наименование КАК Наименование,
+		Сегменты.Номенклатура.Артикул КАК Артикул,
+		Сегменты.Номенклатура.Производитель КАК Производитель,
+		Сегменты.Номенклатура.Производитель.Наименование КАК ПроизводительНаименование,
+		Сегменты.Номенклатура.ВидНоменклатуры КАК ВидНоменклатуры,
+		Сегменты.Номенклатура.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+		Сегменты.Номенклатура.НаборУпаковок КАК НаборУпаковок,
+		Сегменты.Номенклатура.СтавкаНДС КАК СтавкаНДС,
+		Сегменты.Номенклатура.ТипНоменклатуры КАК ТипНоменклатуры,
+		Сегменты.Номенклатура.ФайлКартинки КАК ФайлКартинки,
+		Сегменты.Характеристика.ПометкаУдаления КАК ХарактеристикаПометкаУдаления,
+		Сегменты.Характеристика.Наименование КАК ХарактеристикаНаименование
+	ИЗ
+		РегистрСведений.НоменклатураСегмента КАК Сегменты
+	ГДЕ
+		&amp;ИспользуетсяОтборПоСегментуНоменклатуры
+	{ГДЕ
+		Сегменты.Сегмент.* КАК СегментНоменклатуры,
+		Сегменты.Номенклатура.* КАК Номенклатура}
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		Номенклатура.Ссылка,
+		ХарактеристикиНоменклатуры.Ссылка,
+		Номенклатура.ПометкаУдаления,
+		Номенклатура.Родитель,
+		Номенклатура.ЭтоГруппа,
+		Номенклатура.Код,
+		Номенклатура.Наименование,
+		Номенклатура.Артикул,
+		Номенклатура.Производитель,
+		Номенклатура.Производитель.Наименование,
+		Номенклатура.ВидНоменклатуры,
+		Номенклатура.ЕдиницаИзмерения,
+		Номенклатура.НаборУпаковок,
+		Номенклатура.СтавкаНДС,
+		Номенклатура.ТипНоменклатуры,
+		Номенклатура.ФайлКартинки,
+		ХарактеристикиНоменклатуры.ПометкаУдаления,
+		ХарактеристикиНоменклатуры.Наименование
+	ИЗ
+		Справочник.ХарактеристикиНоменклатуры КАК ХарактеристикиНоменклатуры
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Номенклатура КАК Номенклатура
+			ПО (НЕ &amp;ИспользуетсяОтборПоСегментуНоменклатуры)
+				И (&amp;ИспользоватьХарактеристики)
+				И (Номенклатура.ВидНоменклатуры.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыВеденияДополнительныхДанныхПоНоменклатуре.ИндивидуальныеДляНоменклатуры))
+				И ХарактеристикиНоменклатуры.Владелец = Номенклатура.Ссылка
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		Номенклатура.Ссылка,
+		ХарактеристикиНоменклатуры.Ссылка,
+		Номенклатура.ПометкаУдаления,
+		Номенклатура.Родитель,
+		Номенклатура.ЭтоГруппа,
+		Номенклатура.Код,
+		Номенклатура.Наименование,
+		Номенклатура.Артикул,
+		Номенклатура.Производитель,
+		Номенклатура.Производитель.Наименование,
+		Номенклатура.ВидНоменклатуры,
+		Номенклатура.ЕдиницаИзмерения,
+		Номенклатура.НаборУпаковок,
+		Номенклатура.СтавкаНДС,
+		Номенклатура.ТипНоменклатуры,
+		Номенклатура.ФайлКартинки,
+		ХарактеристикиНоменклатуры.ПометкаУдаления,
+		ХарактеристикиНоменклатуры.Наименование
+	ИЗ
+		Справочник.ХарактеристикиНоменклатуры КАК ХарактеристикиНоменклатуры
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Номенклатура КАК Номенклатура
+			ПО (НЕ &amp;ИспользуетсяОтборПоСегментуНоменклатуры)
+				И (&amp;ИспользоватьХарактеристики)
+				И (Номенклатура.ВидНоменклатуры.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыВеденияДополнительныхДанныхПоНоменклатуре.ОбщиеДляВидаНоменклатуры))
+				И ХарактеристикиНоменклатуры.Владелец = Номенклатура.ВидНоменклатуры
+	
+	ОБЪЕДИНИТЬ
+	
+	ВЫБРАТЬ
+		Номенклатура.Ссылка,
+		ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка),
+		Номенклатура.ПометкаУдаления,
+		Номенклатура.Родитель,
+		Номенклатура.ЭтоГруппа,
+		Номенклатура.Код,
+		Номенклатура.Наименование,
+		Номенклатура.Артикул,
+		Номенклатура.Производитель,
+		Номенклатура.Производитель.Наименование,
+		Номенклатура.ВидНоменклатуры,
+		Номенклатура.ЕдиницаИзмерения,
+		Номенклатура.НаборУпаковок,
+		Номенклатура.СтавкаНДС,
+		Номенклатура.ТипНоменклатуры,
+		Номенклатура.ФайлКартинки,
+		NULL,
+		NULL
+	ИЗ
+		Справочник.Номенклатура КАК Номенклатура
+	ГДЕ
+		НЕ &amp;ИспользуетсяОтборПоСегментуНоменклатуры
+		И НЕ Номенклатура.ЭтоГруппа) КАК НоменклатураСХарактеристиками
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.СвободныеОстатки.Остатки(, {(Номенклатура).* КАК Номенклатура, (Склад).* КАК СкладДляОстатков}) КАК СвободныеОстаткиОстатки
+		ПО НоменклатураСХарактеристиками.Номенклатура = СвободныеОстаткиОстатки.Номенклатура
+			И НоменклатураСХарактеристиками.Характеристика = СвободныеОстаткиОстатки.Характеристика
+{ГДЕ
+	(ЕСТЬNULL(СвободныеОстаткиОстатки.ВНаличииОстаток, 0)) КАК Остаток,
+	НоменклатураСХарактеристиками.Номенклатура.* КАК Номенклатура}
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Характеристика
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СоглашенияСКлиентами.Ссылка КАК Ссылка,
+	СоглашенияСКлиентами.НалогообложениеНДС КАК НалогообложениеНДС,
+	СоглашенияСКлиентами.ЦенаВключаетНДС КАК ЦенаВключаетНДС,
+	СоглашенияСКлиентами.ВидЦен КАК ВидЦен,
+	СоглашенияСКлиентами.Валюта КАК Валюта
+ПОМЕСТИТЬ ВремСоглашения
+ИЗ
+	Справочник.СоглашенияСКлиентами КАК СоглашенияСКлиентами
+ГДЕ
+	СоглашенияСКлиентами.Типовое
+	И СоглашенияСКлиентами.ДоступноВнешнимПользователям
+	И СоглашенияСКлиентами.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыСоглашенийСКлиентами.Действует)
+	И СоглашенияСКлиентами.СегментПартнеров = ЗНАЧЕНИЕ(Справочник.СегментыПартнеров.ПустаяСсылка)
+{ГДЕ
+	СоглашенияСКлиентами.Ссылка.* КАК Соглашение}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВремНоменклатураХарактеристики.Номенклатура КАК Номенклатура,
+	ВремНоменклатураХарактеристики.Характеристика КАК Характеристика,
+	ВремНоменклатураХарактеристики.Остаток КАК Остаток,
+	СоглашениеШапка.Ссылка КАК Соглашение,
+	СоглашениеТовары.Упаковка КАК Упаковка,
+	СоглашениеТовары.Упаковка.Коэффициент КАК КоэффициентУпаковкиСоглашения,
+	СоглашениеШапка.НалогообложениеНДС КАК НалогообложениеНДС,
+	СоглашениеШапка.ЦенаВключаетНДС КАК ЦенаВключаетНДС,
+	СоглашениеШапка.Валюта КАК ВалютаСоглашения,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(СоглашениеТовары.Цена, 0) &gt; 0
+			ТОГДА ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+		КОГДА СоглашениеТовары.ВидЦены &lt;&gt; ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+				И СоглашениеТовары.ВидЦены ЕСТЬ НЕ NULL 
+			ТОГДА СоглашениеТовары.ВидЦены
+		КОГДА (СоглашениеТовары.ВидЦены = ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+				ИЛИ СоглашениеТовары.ВидЦены ЕСТЬ NULL )
+				И СоглашениеЦеновыеГруппы.ВидЦен ЕСТЬ НЕ NULL 
+				И СоглашениеЦеновыеГруппы.ВидЦен &lt;&gt; ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+			ТОГДА СоглашениеЦеновыеГруппы.ВидЦен
+		КОГДА (СоглашениеТовары.ВидЦены = ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+				ИЛИ СоглашениеТовары.ВидЦены ЕСТЬ NULL )
+				И (СоглашениеЦеновыеГруппы.ВидЦен ЕСТЬ NULL 
+					ИЛИ СоглашениеЦеновыеГруппы.ВидЦен = ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка))
+				И СоглашениеШапка.ВидЦен &lt;&gt; ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+			ТОГДА СоглашениеШапка.ВидЦен
+	КОНЕЦ КАК ВидЦены,
+	ЕСТЬNULL(СоглашениеТовары.Цена, 0) КАК Цена,
+	ВремНоменклатураХарактеристики.ПометкаУдаления КАК ПометкаУдаления,
+	ВремНоменклатураХарактеристики.Родитель КАК Родитель,
+	ВремНоменклатураХарактеристики.ЭтоГруппа КАК ЭтоГруппа,
+	ВремНоменклатураХарактеристики.Код КАК Код,
+	ВремНоменклатураХарактеристики.Наименование КАК Наименование,
+	ВремНоменклатураХарактеристики.Артикул КАК Артикул,
+	ВремНоменклатураХарактеристики.Производитель КАК Производитель,
+	ВремНоменклатураХарактеристики.ПроизводительНаименование КАК ПроизводительНаименование,
+	ВремНоменклатураХарактеристики.ВидНоменклатуры КАК ВидНоменклатуры,
+	ВремНоменклатураХарактеристики.ИспользоватьХарактеристики КАК ИспользоватьХарактеристики,
+	ВремНоменклатураХарактеристики.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	ВремНоменклатураХарактеристики.НаборУпаковок КАК НаборУпаковок,
+	ВремНоменклатураХарактеристики.СтавкаНДС КАК НоменклатураСтавкаНДС,
+	ВремНоменклатураХарактеристики.ТипНоменклатуры КАК ТипНоменклатуры,
+	ВремНоменклатураХарактеристики.ФайлКартинки КАК ФайлКартинки,
+	ВремНоменклатураХарактеристики.ХарактеристикаПометкаУдаления КАК ХарактеристикаПометкаУдаления
+ПОМЕСТИТЬ ВремЦеныПоСоглашениям
+ИЗ
+	ВремНоменклатураХарактеристики КАК ВремНоменклатураХарактеристики
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВремСоглашения КАК СоглашениеШапка
+		ПО (ИСТИНА)
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.СоглашенияСКлиентами.Товары КАК СоглашениеТовары
+		ПО (СоглашениеШапка.Ссылка = СоглашениеТовары.Ссылка)
+			И ВремНоменклатураХарактеристики.Номенклатура = СоглашениеТовары.Номенклатура
+			И ВремНоменклатураХарактеристики.Характеристика = СоглашениеТовары.Характеристика
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.СоглашенияСКлиентами.ЦеновыеГруппы КАК СоглашениеЦеновыеГруппы
+		ПО (СоглашениеШапка.Ссылка = СоглашениеЦеновыеГруппы.Ссылка)
+			И ВремНоменклатураХарактеристики.Номенклатура.ЦеноваяГруппа = СоглашениеЦеновыеГруппы.ЦеноваяГруппа
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Характеристика,
+	ВидЦены
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	ВремЦеныПоСоглашениям.Соглашение КАК Соглашение,
+	ВремЦеныПоСоглашениям.ЦенаВключаетНДС КАК ЦенаВключаетНДС,
+	ВремЦеныПоСоглашениям.Номенклатура КАК Номенклатура,
+	ВремЦеныПоСоглашениям.ПометкаУдаления КАК ПометкаУдаления,
+	ВремЦеныПоСоглашениям.Родитель КАК Родитель,
+	ВремЦеныПоСоглашениям.ЭтоГруппа КАК ЭтоГруппа,
+	ВремЦеныПоСоглашениям.Код КАК Код,
+	ВремЦеныПоСоглашениям.Наименование КАК Наименование,
+	ВремЦеныПоСоглашениям.Артикул КАК Артикул,
+	ВремЦеныПоСоглашениям.Производитель КАК Производитель,
+	ВремЦеныПоСоглашениям.ПроизводительНаименование КАК ПроизводительНаименование,
+	ВремЦеныПоСоглашениям.ВидНоменклатуры КАК ВидНоменклатуры,
+	ВремЦеныПоСоглашениям.ИспользоватьХарактеристики КАК ИспользоватьХарактеристики,
+	ВремЦеныПоСоглашениям.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	ВремЦеныПоСоглашениям.НаборУпаковок КАК НаборУпаковок,
+	ВремЦеныПоСоглашениям.НоменклатураСтавкаНДС КАК НоменклатураСтавкаНДС,
+	ВремЦеныПоСоглашениям.ТипНоменклатуры КАК ТипНоменклатуры,
+	ВремЦеныПоСоглашениям.ФайлКартинки КАК ФайлКартинки,
+	ВремЦеныПоСоглашениям.Характеристика КАК Характеристика,
+	ВремЦеныПоСоглашениям.Остаток КАК Остаток,
+	ВремЦеныПоСоглашениям.ВидЦены КАК ВидЦены,
+	ВремЦеныПоСоглашениям.ВалютаСоглашения КАК ВалютаСоглашения,
+	ВремЦеныПоСоглашениям.ХарактеристикаПометкаУдаления КАК ХарактеристикаПометкаУдаления,
+	ВЫБОР
+		КОГДА ВремЦеныПоСоглашениям.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА ВремЦеныПоСоглашениям.Номенклатура.СтавкаНДС
+		КОГДА ВремЦеныПоСоглашениям.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.НДС0)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.СтавкиНДС.БезНДС)
+	КОНЕЦ КАК СтавкаНДС,
+	ВЫБОР
+		КОГДА ВремЦеныПоСоглашениям.Цена &gt; 0
+			ТОГДА ВремЦеныПоСоглашениям.Упаковка
+		КОГДА ВремЦеныПоСоглашениям.ВидЦены &lt;&gt; ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+				И ЕСТЬNULL(ЦеныНоменклатурыСрезПоследних.Цена, 0) &gt; 0
+			ТОГДА ЦеныНоменклатурыСрезПоследних.Упаковка
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.УпаковкиНоменклатуры.ПустаяСсылка)
+	КОНЕЦ КАК Упаковка,
+	ВЫБОР
+		КОГДА ВремЦеныПоСоглашениям.Цена &gt; 0
+			ТОГДА ВремЦеныПоСоглашениям.Цена
+		КОГДА ВремЦеныПоСоглашениям.ВидЦены &lt;&gt; ЗНАЧЕНИЕ(Справочник.ВидыЦен.ПустаяСсылка)
+				И ЕСТЬNULL(ЦеныНоменклатурыСрезПоследних.Цена, 0) &gt; 0
+			ТОГДА ЦеныНоменклатурыСрезПоследних.Цена
+		ИНАЧЕ 0
+	КОНЕЦ КАК Цена
+ПОМЕСТИТЬ ВремЦены
+ИЗ
+	ВремЦеныПоСоглашениям КАК ВремЦеныПоСоглашениям
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЦеныНоменклатуры.СрезПоследних(
+				,
+				(Номенклатура, Характеристика) В
+					(ВЫБРАТЬ
+						ВремНоменклатураХарактеристики.Номенклатура,
+						ВремНоменклатураХарактеристики.Характеристика
+					ИЗ
+						ВремНоменклатураХарактеристики КАК ВремНоменклатураХарактеристики)) КАК ЦеныНоменклатурыСрезПоследних
+		ПО ВремЦеныПоСоглашениям.ВидЦены = ЦеныНоменклатурыСрезПоследних.ВидЦены
+			И ВремЦеныПоСоглашениям.Номенклатура = ЦеныНоменклатурыСрезПоследних.Номенклатура
+			И ВремЦеныПоСоглашениям.Характеристика = ЦеныНоменклатурыСрезПоследних.Характеристика
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВремЦены.Номенклатура КАК Номенклатура,
+	ВремЦены.Характеристика КАК Характеристика,
+	МАКСИМУМ(ШтрихкодыНоменклатуры.Штрихкод) КАК Штрихкод
+ПОМЕСТИТЬ ВремШтрихкодыДляЦен
+ИЗ
+	ВремЦены КАК ВремЦены
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ШтрихкодыНоменклатуры КАК ШтрихкодыНоменклатуры
+		ПО ВремЦены.Номенклатура = ШтрихкодыНоменклатуры.Номенклатура
+			И ВремЦены.Характеристика = ШтрихкодыНоменклатуры.Характеристика
+
+СГРУППИРОВАТЬ ПО
+	ВремЦены.Номенклатура,
+	ВремЦены.Характеристика
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Характеристика
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Цены.Соглашение,
+	Цены.ЦенаВключаетНДС,
+	Цены.Номенклатура КАК Номенклатура,
+	Цены.ПометкаУдаления КАК ПометкаУдаления,
+	Цены.Родитель КАК Родитель,
+	Цены.ЭтоГруппа КАК ЭтоГруппа,
+	Цены.Код КАК Код,
+	Цены.Наименование КАК Наименование,
+	Цены.Артикул КАК Артикул,
+	Цены.Производитель КАК Производитель,
+	Цены.ПроизводительНаименование КАК ПроизводительНаименование,
+	Цены.ВидНоменклатуры КАК ВидНоменклатуры,
+	Цены.ИспользоватьХарактеристики КАК ИспользоватьХарактеристики,
+	Цены.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	Цены.ЕдиницаИзмерения.Код КАК ЕдиницаИзмеренияКод,
+	Цены.ЕдиницаИзмерения.НаименованиеПолное КАК ЕдиницаИзмеренияНаименованиеПолное,
+	Цены.ЕдиницаИзмерения.МеждународноеСокращение КАК ЕдиницаИзмеренияМеждународноеСокращение,
+	Цены.НаборУпаковок КАК НаборУпаковок,
+	Цены.НоменклатураСтавкаНДС КАК НоменклатураСтавкаНДС,
+	Цены.ТипНоменклатуры КАК ТипНоменклатуры,
+	Цены.ФайлКартинки КАК ФайлКартинки,
+	Цены.Характеристика КАК Характеристика,
+	Цены.ХарактеристикаПометкаУдаления КАК ХарактеристикаПометкаУдаления,
+	Цены.Остаток КАК Остаток,
+	Цены.ВидЦены КАК ВидЦены,
+	Цены.ВалютаСоглашения КАК ВалютаСоглашения,
+	Цены.СтавкаНДС КАК СтавкаНДС,
+	Цены.Упаковка КАК Упаковка,
+	Цены.Упаковка.Коэффициент КАК УпаковкаКоэффициент,
+	Цены.Упаковка.Вес КАК УпаковкаВес,
+	Цены.Цена КАК Цена,
+	ЕСТЬNULL(ВремШтрихкодыДляЦен.Штрихкод, "") КАК Штрихкод
+ИЗ
+	ВремЦены КАК Цены
+		ЛЕВОЕ СОЕДИНЕНИЕ ВремШтрихкодыДляЦен КАК ВремШтрихкодыДляЦен
+		ПО Цены.Номенклатура = ВремШтрихкодыДляЦен.Номенклатура
+			И Цены.Характеристика = ВремШтрихкодыДляЦен.Характеристика
+ГДЕ
+	Цены.Цена &gt; 0
+
+УПОРЯДОЧИТЬ ПО
+	Номенклатура,
+	Характеристика</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ИспользоватьХарактеристики</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Использовать характеристики</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ОрганизацияВладелецКаталога</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация владелец каталога</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ИспользуетсяОтборПоСегментуНоменклатуры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Используется отбор по сегменту номенклатуры</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Артикул</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВалютаСоглашения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидНоменклатуры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидЦены</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Родитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмерения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмеренияКод</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмеренияНаименованиеПолное</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЕдиницаИзмеренияМеждународноеСокращение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Код</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаборУпаковок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Наименование</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НоменклатураСтавкаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Остаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПометкаУдаления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Соглашение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтавкаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипНоменклатуры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Упаковка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УпаковкаВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>УпаковкаКоэффициент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФайлКартинки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Характеристика</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Цена</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаВключаетНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЭтоГруппа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ИспользоватьХарактеристики</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ХарактеристикаПометкаУдаления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Штрихкод</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СегментНоменклатуры</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>948a14e8-ecef-4d26-a0a2-496b46ceebc4</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>b2c79129-42a0-4915-af9b-c6892ff1904c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Соглашение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СоглашенияСКлиентами.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>290fceaf-6471-4bfe-8827-fb475709a28a</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Остаток</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>ea57a1ae-ea61-4ffb-98d1-770f20a31dea</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладДляОстатков</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>01c026e7-58ea-4354-af24-da2fda0633c3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>fbb967c1-2f89-40b1-ae39-9a6bf34a7b84</dcsset:userSettingID>
+				<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отбор</v8:content>
+					</v8:item>
+				</dcsset:userSettingPresentation>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ИспользоватьХарактеристики</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сортировка</v8:content>
+					</v8:item>
+				</dcsset:userSettingPresentation>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВидНоменклатуры</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Артикул</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВалютаСоглашения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ВидЦены</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Родитель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЕдиницаИзмерения</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЕдиницаИзмеренияКод</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЕдиницаИзмеренияМеждународноеСокращение</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЕдиницаИзмеренияНаименованиеПолное</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИспользоватьХарактеристики</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Код</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НаборУпаковок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Наименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Номенклатура</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НоменклатураСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Остаток</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПометкаУдаления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Производитель</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПроизводительНаименование</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Соглашение</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ТипНоменклатуры</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Упаковка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>УпаковкаВес</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>УпаковкаКоэффициент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФайлКартинки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Характеристика</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ХарактеристикаПометкаУдаления</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Цена</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЦенаВключаетНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Штрихкод</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЭтоГруппа</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

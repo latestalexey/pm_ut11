@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКомандаОК" id="11">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.КомандаОК</CommandName>
+				<Parameter xsi:nil="true"/>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Записать и закрыть</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаКомандаОКExtendedTooltip" id="25"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Группа" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаExtendedTooltip" id="26"/>
+			<ChildItems>
+				<Page name="СтатьиДвиженияДенежныхСредств" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статьи движения денежных средств</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статьи движения денежных средств</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтатьиДвиженияДенежныхСредствExtendedTooltip" id="27"/>
+					<ChildItems>
+						<UsualGroup name="ПоступлениеДС" id="12">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поступление денежных средств</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поступление ДС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ПоступлениеДСExtendedTooltip" id="28"/>
+							<ChildItems>
+								<InputField name="СтатьяДДС_ОплатаОтПокупателя" id="5">
+									<DataPath>СтатьяДДС_ОплатаОтПокупателя</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ПоступлениеОплатыОтКлиента</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ОплатаОтПокупателяКонтекстноеМеню" id="6"/>
+									<ExtendedTooltip name="СтатьяДДС_ОплатаОтПокупателяExtendedTooltip" id="29"/>
+								</InputField>
+								<InputField name="СтатьяДДС_ВозвратДСПоставщиком" id="2">
+									<DataPath>СтатьяДДС_ВозвратДСПоставщиком</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ВозвратДенежныхСредствОтПоставщика</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ВозвратДСПоставщикомКонтекстноеМеню" id="3"/>
+									<ExtendedTooltip name="СтатьяДДС_ВозвратДСПоставщикомExtendedTooltip" id="30"/>
+								</InputField>
+								<InputField name="СтатьяДДС_ПрочиеРасчетыСКонтрагентами" id="7">
+									<DataPath>СтатьяДДС_ПрочиеРасчетыСКонтрагентамиПоступление</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ПрочееПоступлениеДенежныхСредств</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиКонтекстноеМеню" id="8"/>
+									<ExtendedTooltip name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиExtendedTooltip" id="31"/>
+								</InputField>
+								<InputField name="СтатьяДДС_ПрочийПриходДенежныхСредств" id="9">
+									<DataPath>СтатьяДДС_ПрочийПриходДенежныхСредств</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ПрочееПоступлениеДенежныхСредств</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ПрочийПриходДенежныхСредствКонтекстноеМеню" id="10"/>
+									<ExtendedTooltip name="СтатьяДДС_ПрочийПриходДенежныхСредствExtendedTooltip" id="32"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="РасходДС" id="13">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расход денежных средств</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расход ДС</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="РасходДСExtendedTooltip" id="33"/>
+							<ChildItems>
+								<InputField name="СтатьяДДС_ОплатаПоставщику" id="14">
+									<DataPath>СтатьяДДС_ОплатаПоставщику</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ОплатаПоставщику</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ОплатаПоставщикуКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="СтатьяДДС_ОплатаПоставщикуExtendedTooltip" id="34"/>
+								</InputField>
+								<InputField name="СтатьяДДС_ВозвратДСПокупателю" id="16">
+									<DataPath>СтатьяДДС_ВозвратДСПокупателю</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ВозвратОплатыКлиенту</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ВозвратДСПокупателюКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="СтатьяДДС_ВозвратДСПокупателюExtendedTooltip" id="35"/>
+								</InputField>
+								<InputField name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиВыдача" id="18">
+									<DataPath>СтатьяДДС_ПрочиеРасчетыСКонтрагентамиВыдача</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ПрочаяВыдачаДенежныхСредств</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиВыдачаКонтекстноеМеню" id="19"/>
+									<ExtendedTooltip name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиВыдачаExtendedTooltip" id="36"/>
+								</InputField>
+								<InputField name="СтатьяДДС_ПрочийРасходДенежныхСредств" id="20">
+									<DataPath>СтатьяДДС_ПрочийРасходДенежныхСредств</DataPath>
+									<ChoiceParameters>
+										<app:item name="Отбор.ХозяйственнаяОперация">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ХозяйственныеОперации.EnumValue.ПрочаяВыдачаДенежныхСредств</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатьяДДС_ПрочийРасходДенежныхСредствКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="СтатьяДДС_ПрочийРасходДенежныхСредствExtendedTooltip" id="37"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ОтражениеПоступленияИРеализации" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражение поступления и реализации</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражение поступления и реализации</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОтражениеПоступленияИРеализацииExtendedTooltip" id="38"/>
+					<ChildItems>
+						<InputField name="СтатьяРасходов_ПоступлениеУслуг" id="23">
+							<DataPath>СтатьяРасходов_ПоступлениеУслуг</DataPath>
+							<ContextMenu name="СтатьяРасходов_ПоступлениеУслугКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СтатьяРасходов_ПоступлениеУслугExtendedTooltip" id="39"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЗначенияПоУмолчаниюНаУзле" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значения по умолчанию на узле</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ОплатаОтПокупателя" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплата от покупателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ВозвратДСПоставщиком" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат денежных средств поставщиком</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиПоступление" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие расчеты с контрагентами (поступление)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ПрочийПриходДенежныхСредств" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочий приход денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ОплатаПоставщику" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплата поставщику</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ВозвратДСПокупателю" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат денежных средств покупателю</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ПрочиеРасчетыСКонтрагентамиВыдача" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие расчеты с контрагентами (выдача)</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяДДС_ПрочийРасходДенежныхСредств" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочий расход денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РежимВыгрузкиПриНеобходимости" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим выгрузки при необходимости</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.РежимыВыгрузкиОбъектовОбмена</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатьяРасходов_ПоступлениеУслуг" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья расходов при поступлении услуг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ChartOfCharacteristicTypesRef.СтатьиРасходов</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="КомандаОК" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ОК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Команда ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Write</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>КомандаОК</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Управление полнотекстовым поиском</v8:content>
+		</v8:item>
+	</Title>
+	<Width>86</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<Customizable>false</Customizable>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="Закрыть" id="9">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ЗакрытьExtendedTooltip" id="36"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаУправлениеПолнотекстовымПоискомДанных" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Управление полнотекстовым поиском</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа управление полнотекстовым поиском данных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаУправлениеПолнотекстовымПоискомДанныхExtendedTooltip" id="37"/>
+			<ChildItems>
+				<CheckBoxField name="ИспользоватьПолнотекстовыйПоиск" id="12">
+					<DataPath>НаборКонстант.ИспользоватьПолнотекстовыйПоиск</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьПолнотекстовыйПоискКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ИспользоватьПолнотекстовыйПоискExtendedTooltip" id="38"/>
+					<Events>
+						<Event name="OnChange">НаборКонстантИспользоватьПолнотекстовыйПоискПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelField name="СтатусИндекса" id="3">
+					<DataPath>СтатусИндекса</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="СтатусИндексаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="СтатусИндексаExtendedTooltip" id="39"/>
+				</LabelField>
+				<LabelField name="ДатаАктуальностиИндекса" id="5">
+					<DataPath>ДатаАктуальностиИндекса</DataPath>
+					<ContextMenu name="ДатаАктуальностиИндексаКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ДатаАктуальностиИндексаExtendedTooltip" id="40"/>
+				</LabelField>
+				<Button name="ОбновитьИндекс" id="7">
+					<Type>UsualButton</Type>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>Form.Command.ОбновитьИндекс</CommandName>
+					<Parameter xsi:nil="true"/>
+					<TextColor>style:ButtonTextColor</TextColor>
+					<BackColor>style:ButtonBackColor</BackColor>
+					<BorderColor>style:BorderColor</BorderColor>
+					<ExtendedTooltip name="ОбновитьИндексExtendedTooltip" id="41"/>
+				</Button>
+				<Button name="ОчиститьИндекс" id="8">
+					<Type>UsualButton</Type>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>Form.Command.ОчиститьИндекс</CommandName>
+					<Parameter xsi:nil="true"/>
+					<TextColor>style:ButtonTextColor</TextColor>
+					<BackColor>style:ButtonBackColor</BackColor>
+					<BorderColor>style:BorderColor</BorderColor>
+					<ExtendedTooltip name="ОчиститьИндексExtendedTooltip" id="42"/>
+				</Button>
+				<UsualGroup name="Группа1" id="27">
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа1ExtendedTooltip" id="43"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаИспользоватьПолнотекстовыйПоискПриПодбореТоваров" id="28">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать полнотекстовый поиск при подборе товаров</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать полнотекстовый поиск при подборе товаров</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьПолнотекстовыйПоискПриПодбореТоваровExtendedTooltip" id="44"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьПолнотекстовыйПоискПриПодбореТоваров" id="14">
+									<DataPath>НаборКонстант.ИспользоватьПолнотекстовыйПоискПриПодбореТоваров</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьПолнотекстовыйПоискПриПодбореТоваровКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="ИспользоватьПолнотекстовыйПоискПриПодбореТоваровExtendedTooltip" id="45"/>
+									<Events>
+										<Event name="OnChange">НаборКонстантИспользоватьПолнотекстовыйПоискПриПодбореТоваровПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьПолнотекстовыйПоискПриПодбореТоваров" id="29">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Следует учитывать, что при включении этой возможности некоторые символы, введенные в строку поиска, будут трактоваться как служебные символы языка запросов полнотекстового поиска в данных.
+Информацию о списке таких служебных символов можно получить в справке (раздел "1С:Предприятие" - "Работа пользователя" - "Язык запросов полнотекстового поиска в данных").</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользоватьПолнотекстовыйПоискПриПодбореТоваровКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьПолнотекстовыйПоискПриПодбореТоваровExtendedTooltip" id="46"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаУправлениеАвтоматическимИзвлечениемТекстов" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоматическое извлечение текстов</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа управление автоматическим извлечением текстов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаУправлениеАвтоматическимИзвлечениемТекстовExtendedTooltip" id="47"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаПредупреждениеОПоддержкеИзвлеченияТекстов" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа предупреждение о поддержке извлечения текстов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа предупреждение о поддержке извлечения текстов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПредупреждениеОПоддержкеИзвлеченияТекстовExtendedTooltip" id="48"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация1" id="32">
+							<Width>2</Width>
+							<Height>1</Height>
+							<Picture>
+								<xr:Ref>CommonPicture.Информация02</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="Декорация1ExtendedTooltip" id="49"/>
+						</PictureDecoration>
+						<LabelDecoration name="Декорация2" id="34">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В Веб-клиенте извлечение текстов не поддерживается.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="Декорация2ExtendedTooltip" id="50"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИзвлекатьТекстыФайловНаСервере" id="23">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа извлекать тексты файлов на сервере</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа извлекать тексты файлов на сервере</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИзвлекатьТекстыФайловНаСервереExtendedTooltip" id="51"/>
+					<ChildItems>
+						<CheckBoxField name="ИзвлекатьТекстыФайловНаСервере" id="10">
+							<DataPath>НаборКонстант.ИзвлекатьТекстыФайловНаСервере</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИзвлекатьТекстыФайловНаСервереКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ИзвлекатьТекстыФайловНаСервереExtendedTooltip" id="52"/>
+							<Events>
+								<Event name="OnChange">ИзвлекатьТекстыФайловНаСервереПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИзвлекатьТекстыФайловНаСервере" id="24">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сканировать тексты в добавленных файлах для использования во время поиска.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИзвлекатьТекстыФайловНаСервереКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ПояснениеИзвлекатьТекстыФайловНаСервереExtendedTooltip" id="53"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИнтервалВремениВыполнения" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа интервал времени выполнения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа интервал времени выполнения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИнтервалВремениВыполненияExtendedTooltip" id="54"/>
+					<ChildItems>
+						<InputField name="ИнтервалВремениВыполнения" id="18">
+							<DataPath>ИнтервалВремениВыполнения</DataPath>
+							<SpinButton>true</SpinButton>
+							<ContextMenu name="ИнтервалВремениВыполненияКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ИнтервалВремениВыполненияExtendedTooltip" id="55"/>
+							<Events>
+								<Event name="OnChange">ИнтервалВремениВыполненияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="НадписьСекунды" id="21">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>сек.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьСекундыКонтекстноеМеню" id="22"/>
+							<ExtendedTooltip name="НадписьСекундыExtendedTooltip" id="56"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<Button name="ЗапуститьСейчас" id="26">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗапуститьСейчас</CommandName>
+					<Parameter xsi:nil="true"/>
+					<ExtendedTooltip name="ЗапуститьСейчасExtendedTooltip" id="57"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.УправлениеПолнотекстовымПоискомИИзвлечениемТекстов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СтатусИндекса" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус индекса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаАктуальностиИндекса" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата актуальности индекса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндексАктуален" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс актуален</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндексРазрешен" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс разрешен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НаборКонстант" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор констант</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>НаборКонстант.ДатаУведомленияОНовыхЗадачах</Field>
+				<Field>НаборКонстант.НастройкаПроксиСервера</Field>
+				<Field>НаборКонстант.ИспользоватьВерсионированиеОбъектов</Field>
+				<Field>НаборКонстант.ИзвлекатьТекстыФайловНаСервере</Field>
+				<Field>НаборКонстант.ИспользоватьПолнотекстовыйПоиск</Field>
+				<Field>НаборКонстант.ИспользоватьБизнесПроцессыИЗадачи</Field>
+				<Field>НаборКонстант.ИспользоватьПолнотекстовыйПоискПриПодбореТоваров</Field>
+				<Field>НаборКонстант.ИзменятьЗаданияЗаднимЧислом</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ИнтервалВремениВыполнения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Интервал времени выполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>5</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрогнозируемоеВремяНачалаИзвлечения" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прогнозируемое время начала извлечения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Статус" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СтатусИндекса</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИндексАктуален</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Font</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ОбновитьИндекс" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить индекс</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить индекс</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>true</xr:Common>
+				<xr:Value name="Role.РедактированиеРеквизитовОбъектов">false</xr:Value>
+			</Use>
+			<Action>ОбновитьИндексВыполнить</Action>
+		</Command>
+		<Command name="ОчиститьИндекс" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить индекс</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Очистить индекс</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>true</xr:Common>
+				<xr:Value name="Role.РедактированиеРеквизитовОбъектов">false</xr:Value>
+			</Use>
+			<Action>ОчиститьИндексВыполнить</Action>
+		</Command>
+		<Command name="ЗапуститьСейчас" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запустить извлечение текстов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запустить сейчас</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗапуститьСейчас</Action>
+		</Command>
+	</Commands>
+</Form>

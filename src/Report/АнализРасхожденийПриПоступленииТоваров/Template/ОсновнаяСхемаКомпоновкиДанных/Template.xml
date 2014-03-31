@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Упаковка</dataPath>
+			<field>Упаковка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Характеристика</dataPath>
+			<field>Характеристика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоступлениеТоваровУслуг</dataPath>
+			<field>ПоступлениеТоваровУслуг</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтавкаНДС</dataPath>
+			<field>СтавкаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоУпаковок</dataPath>
+			<field>КоличествоУпаковок</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасхожденияПоКоличеству</dataPath>
+			<field>РасхожденияПоКоличеству</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасхожденияПоСумме</dataPath>
+			<field>РасхожденияПоСумме</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасхожденияПоСуммеНДС</dataPath>
+			<field>РасхожденияПоСуммеНДС</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоФакту</dataPath>
+			<field>ПоФакту</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерГТД</dataPath>
+			<field>НомерГТД</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерСтроки</dataPath>
+			<field>НомерСтроки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасхожденияПоСуммеСНДС</dataPath>
+			<field>РасхожденияПоСуммеСНДС</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСНДС</dataPath>
+			<field>СуммаСНДС</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПоступлениеТоваровУслугТовары.Ссылка КАК Ссылка,
+	ПоступлениеТоваровУслугТовары.Номенклатура КАК Номенклатура,
+	ПоступлениеТоваровУслугТовары.Характеристика КАК Характеристика,
+	ПоступлениеТоваровУслугТовары.Упаковка КАК Упаковка,
+	ВЫБОР
+		КОГДА ПоступлениеТоваровУслугТовары.СуммаРучнойСкидки = 0
+			ТОГДА ПоступлениеТоваровУслугТовары.Цена
+		ИНАЧЕ (100 - ПоступлениеТоваровУслугТовары.ПроцентРучнойСкидки) * ПоступлениеТоваровУслугТовары.Цена / 100
+	КОНЕЦ КАК Цена,
+	ПоступлениеТоваровУслугТовары.СтавкаНДС КАК СтавкаНДС,
+	ПоступлениеТоваровУслугТовары.СуммаНДС КАК СуммаНДС,
+	ПоступлениеТоваровУслугТовары.Сумма КАК Сумма,
+	ВЫБОР
+		КОГДА ПоступлениеТоваровУслугТовары.Ссылка.ЦенаВключаетНДС
+			ТОГДА ПоступлениеТоваровУслугТовары.Сумма
+		ИНАЧЕ ПоступлениеТоваровУслугТовары.Сумма + ПоступлениеТоваровУслугТовары.СуммаНДС
+	КОНЕЦ КАК СуммаСНДС,
+	ПоступлениеТоваровУслугТовары.Количество КАК Количество,
+	ПоступлениеТоваровУслугТовары.КоличествоУпаковок КАК КоличествоУпаковок,
+	ПоступлениеТоваровУслугТовары.НомерГТД КАК НомерГТД,
+	ПоступлениеТоваровУслугТовары.НомерСтроки КАК НомерСтроки,
+	ПоступлениеТоваровУслугТовары.Ссылка.Валюта КАК Валюта
+ПОМЕСТИТЬ ТоварыФакт
+ИЗ
+	Документ.ПоступлениеТоваровУслуг.Товары КАК ПоступлениеТоваровУслугТовары
+ГДЕ
+	ПоступлениеТоваровУслугТовары.Ссылка В(&amp;ПоступлениеТоваровУслуг)
+	И ПоступлениеТоваровУслугТовары.Номенклатура.ТипНоменклатуры В (ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар),ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.МногооборотнаяТара))
+	И ПоступлениеТоваровУслугТовары.Ссылка.ЕстьРасхождения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ИСТИНА КАК ПоФакту,
+	ПоступлениеТоваровУслугТовары.Ссылка КАК ПоступлениеТоваровУслуг,
+	ПоступлениеТоваровУслугТовары.Номенклатура КАК Номенклатура,
+	ПоступлениеТоваровУслугТовары.Характеристика КАК Характеристика,
+	ПоступлениеТоваровУслугТовары.Упаковка КАК Упаковка,
+	ПоступлениеТоваровУслугТовары.Цена КАК Цена,
+	ПоступлениеТоваровУслугТовары.СтавкаНДС КАК СтавкаНДС,
+	ПоступлениеТоваровУслугТовары.СуммаНДС КАК СуммаНДС,
+	NULL КАК СуммаНДСПоДаннымПоставщика,
+	ПоступлениеТоваровУслугТовары.Сумма КАК Сумма,
+	NULL КАК СуммаПоДаннымПоставщика,
+	ПоступлениеТоваровУслугТовары.СуммаСНДС КАК СуммаСНДС,
+	NULL КАК СуммаСНДСПоДаннымПоставщика,
+	ПоступлениеТоваровУслугТовары.Количество КАК КоличествоПоФакту,
+	NULL КАК КоличествоПоДаннымПоставщика,
+	ПоступлениеТоваровУслугТовары.КоличествоУпаковок КАК КоличествоУпаковокПоФакту,
+	NULL КАК КоличествоУпаковокПоДаннымПоставщика,
+	ПоступлениеТоваровУслугТовары.НомерГТД КАК НомерГТД,
+	ПоступлениеТоваровУслугТовары.НомерСтроки КАК НомерСтроки,
+	ПоступлениеТоваровУслугТовары.Валюта КАК Валюта
+ПОМЕСТИТЬ Товары
+ИЗ
+	ТоварыФакт КАК ПоступлениеТоваровУслугТовары
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЛОЖЬ,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Ссылка,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Номенклатура,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Характеристика,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Упаковка,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Цена,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.СтавкаНДС,
+	NULL,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.СуммаНДС,
+	NULL,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Сумма,
+	NULL,
+	ВЫБОР
+		КОГДА ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Ссылка.ЦенаВключаетНДС
+			ТОГДА ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Сумма
+		ИНАЧЕ ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Сумма + ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.СуммаНДС
+	КОНЕЦ,
+	NULL,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Количество,
+	NULL,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.КоличествоУпаковок,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.НомерГТД,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.НомерСтроки,
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Ссылка.Валюта КАК Валюта
+ИЗ
+	Документ.ПоступлениеТоваровУслуг.ТоварыПоДаннымПоставщика КАК ПоступлениеТоваровУслугТоварыПоДаннымПоставщика
+ГДЕ
+	ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Ссылка В(&amp;ПоступлениеТоваровУслуг)
+	И ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Номенклатура.ТипНоменклатуры В (ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар),ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.МногооборотнаяТара))
+	И ПоступлениеТоваровУслугТоварыПоДаннымПоставщика.Ссылка.ЕстьРасхождения
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Товары.НомерСтроки КАК НомерСтроки,
+	Товары.НомерГТД КАК НомерГТД,
+	Товары.ПоФакту КАК ПоФакту,
+	Товары.ПоступлениеТоваровУслуг КАК ПоступлениеТоваровУслуг,
+	Товары.Номенклатура КАК Номенклатура,
+	Товары.Номенклатура.Качество КАК Качество,
+	Товары.Характеристика КАК Характеристика,
+	Товары.Упаковка КАК Упаковка,
+	Товары.Цена КАК Цена,
+	Товары.СтавкаНДС КАК СтавкаНДС,
+	ЕСТЬNULL(Товары.КоличествоПоФакту, Товары.КоличествоПоДаннымПоставщика) КАК Количество,
+	ЕСТЬNULL(Товары.КоличествоУпаковокПоФакту, Товары.КоличествоУпаковокПоДаннымПоставщика) КАК КоличествоУпаковок,
+	ЕСТЬNULL(Товары.СуммаНДС, Товары.СуммаНДСПоДаннымПоставщика) КАК СуммаНДС,
+	ЕСТЬNULL(Товары.Сумма, Товары.СуммаПоДаннымПоставщика) КАК Сумма,
+	ЕСТЬNULL(Товары.СуммаСНДС, Товары.СуммаСНДСПоДаннымПоставщика) КАК СуммаСНДС,
+	СУММА(ЕСТЬNULL(Товары.КоличествоПоФакту, 0) - ЕСТЬNULL(Товары.КоличествоПоДаннымПоставщика, 0)) КАК РасхожденияПоКоличеству,
+	СУММА(ЕСТЬNULL(Товары.СуммаНДС, 0) - ЕСТЬNULL(Товары.СуммаНДСПоДаннымПоставщика, 0)) КАК РасхожденияПоСуммеНДС,
+	СУММА(ЕСТЬNULL(Товары.Сумма, 0) - ЕСТЬNULL(Товары.СуммаПоДаннымПоставщика, 0)) КАК РасхожденияПоСумме,
+	СУММА(ЕСТЬNULL(Товары.СуммаСНДС, 0) - ЕСТЬNULL(Товары.СуммаСНДСПоДаннымПоставщика, 0)) КАК РасхожденияПоСуммеСНДС,
+	Товары.Валюта КАК Валюта
+ИЗ
+	Товары КАК Товары
+
+СГРУППИРОВАТЬ ПО
+	Товары.НомерСтроки,
+	Товары.НомерГТД,
+	Товары.ПоФакту,
+	Товары.ПоступлениеТоваровУслуг,
+	Товары.Номенклатура,
+	Товары.Характеристика,
+	Товары.Упаковка,
+	Товары.Цена,
+	Товары.СтавкаНДС,
+	Товары.Номенклатура.Качество,
+	Товары.Валюта,
+	ЕСТЬNULL(Товары.КоличествоПоФакту, Товары.КоличествоПоДаннымПоставщика),
+	ЕСТЬNULL(Товары.КоличествоУпаковокПоФакту, Товары.КоличествоУпаковокПоДаннымПоставщика),
+	ЕСТЬNULL(Товары.СуммаНДС, Товары.СуммаНДСПоДаннымПоставщика),
+	ЕСТЬNULL(Товары.Сумма, Товары.СуммаПоДаннымПоставщика),
+	ЕСТЬNULL(Товары.СуммаСНДС, Товары.СуммаСНДСПоДаннымПоставщика)</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>СУММА(РасхожденияПоКоличеству)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>СУММА(РасхожденияПоСумме)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДС</dataPath>
+		<expression>СУММА(РасхожденияПоСуммеНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасхожденияПоКоличеству</dataPath>
+		<expression>Сумма(РасхожденияПоКоличеству)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасхожденияПоСумме</dataPath>
+		<expression>Сумма(РасхожденияПоСумме)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасхожденияПоСуммеНДС</dataPath>
+		<expression>Сумма(РасхожденияПоСуммеНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасхожденияПоСуммеСНДС</dataPath>
+		<expression>Сумма(РасхожденияПоСуммеСНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаСНДС</dataPath>
+		<expression>СУММА(РасхожденияПоСуммеСНДС)</expression>
+	</totalField>
+	<parameter>
+		<name>ПоступлениеТоваровУслуг</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Поступление товаров услуг</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расхождения</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Количество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Сумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаНДС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма НДС</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаСНДС</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма с НДС</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПоФакту</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>TextColor</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:SteelBlue</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>GroupFieldsPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">Together</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>AttributePlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">SpecialPosition</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>TitleOutput</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Title</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ расхождений при поступлении товаров</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>FilterOutput</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Валюта</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РасхожденияПоСумме</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РасхожденияПоСуммеНДС</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РасхожденияПоСуммеСНДС</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>Количество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>Сумма</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>СуммаНДС</dcsset:field>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:field>СуммаСНДС</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>TextColor</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>FilterOutput</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Номенклатура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Характеристика</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РасхожденияПоКоличеству</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РасхожденияПоСумме</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">РасхожденияПоСуммеНДС</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Характеристика</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Ед. изм.</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Together</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Расхождения</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Количество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Сумма</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаНДС</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сумма НДС</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаСНДС</dcsset:field>
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сумма С НДС</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Количество</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Сумма</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СуммаНДС</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>СуммаСНДС</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>Font</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>FilterOutput</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>ПоФакту</dcsset:field>
+								<dcsset:orderType>Desc</dcsset:orderType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>НомерСтроки</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ПоФакту</dcsset:field>
+									<dcsset:lwsTitle>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Источник данных</v8:content>
+										</v8:item>
+									</dcsset:lwsTitle>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>НомерСтроки</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Together</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Упаковка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Качество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>НомерГТД</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СтавкаНДС</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Цена</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>КоличествоУпаковок</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Расхождения</v8:content>
+									</v8:item>
+								</dcsset:lwsTitle>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Количество</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Сумма</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СуммаНДС</dcsset:field>
+									<dcsset:lwsTitle>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма НДС</v8:content>
+										</v8:item>
+									</dcsset:lwsTitle>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СуммаСНДС</dcsset:field>
+									<dcsset:lwsTitle>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма с НДС</v8:content>
+										</v8:item>
+									</dcsset:lwsTitle>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection>
+									<dcsset:item>
+										<dcsset:field>ПоФакту</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+								<dcsset:filter>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ПоФакту</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									</dcsset:item>
+								</dcsset:filter>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Text</dcscor:parameter>
+										<dcscor:value xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Фактические данные</v8:content>
+											</v8:item>
+										</dcscor:value>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:selection>
+									<dcsset:item>
+										<dcsset:field>ПоФакту</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+								<dcsset:filter>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ПоФакту</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+									</dcsset:item>
+								</dcsset:filter>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Text</dcscor:parameter>
+										<dcscor:value xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Данные поставщика</v8:content>
+											</v8:item>
+										</dcscor:value>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>TotalsPlacement</dcscor:parameter>
+								<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>GroupPlacement</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">None</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

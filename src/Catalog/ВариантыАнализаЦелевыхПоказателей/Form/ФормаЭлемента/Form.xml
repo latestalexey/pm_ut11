@@ -1,0 +1,867 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименование" id="101">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеExtendedTooltip" id="104"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="105"/>
+				</InputField>
+				<Button name="ЗаполнитьНаименованиеПоШаблону" id="100">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗаполнитьНаименованиеПоШаблону</CommandName>
+					<Parameter xsi:nil="true"/>
+					<ExtendedTooltip name="ЗаполнитьНаименованиеПоШаблонуExtendedTooltip" id="106"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Владелец" id="90">
+			<DataPath>Объект.Owner</DataPath>
+			<UserVisible>
+				<xr:Common>false</xr:Common>
+			</UserVisible>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ВладелецКонтекстноеМеню" id="91"/>
+			<ExtendedTooltip name="ВладелецExtendedTooltip" id="107"/>
+		</InputField>
+		<InputField name="ТипАнализа" id="25">
+			<DataPath>Объект.ТипАнализа</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<BackColor>style:ЦветФонаВыделения</BackColor>
+			<ContextMenu name="ТипАнализаКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="ТипАнализаExtendedTooltip" id="108"/>
+			<Events>
+				<Event name="OnChange">ТипАнализаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="Группа1" id="54">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="109"/>
+			<ChildItems>
+				<InputField name="ПериодАнализа" id="50">
+					<DataPath>ПериодАнализа</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПериодАнализаКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ПериодАнализаExtendedTooltip" id="110"/>
+				</InputField>
+				<InputField name="ПериодСравнения" id="52">
+					<DataPath>ПериодСравнения</DataPath>
+					<ContextMenu name="ПериодСравненияКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ПериодСравненияExtendedTooltip" id="111"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ОбъектАнализа" id="13">
+			<DataPath>ОбъектАнализа</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ClearButton>false</ClearButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<TextEdit>false</TextEdit>
+			<ContextMenu name="ОбъектАнализаКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ОбъектАнализаExtendedTooltip" id="112"/>
+			<Events>
+				<Event name="OnChange">ОбъектАнализаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ПериодичностьКонтроля" id="19">
+			<DataPath>Объект.ПериодичностьКонтроля</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодичностьКонтроляКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ПериодичностьКонтроляExtendedTooltip" id="113"/>
+			<Events>
+				<Event name="OnChange">ПериодичностьКонтроляПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаПрогнозирование" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прогнозирование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа прогнозирование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаПрогнозированиеExtendedTooltip" id="114"/>
+			<ChildItems>
+				<LabelDecoration name="НадписьОДоступностиПрогнозирования" id="66">
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступно для типов анализа "Динамика изменений" и "Сравнение с прошлым периодом".</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьОДоступностиПрогнозированияКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="НадписьОДоступностиПрогнозированияExtendedTooltip" id="115"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаПрогнозированиеЭлементыУправления" id="68">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прогнозирование (элементы управления)</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа прогнозирование элементы управления</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПрогнозированиеЭлементыУправленияExtendedTooltip" id="116"/>
+					<ChildItems>
+						<CheckBoxField name="РассчитыватьПрогноз" id="9">
+							<DataPath>Объект.РассчитыватьПрогноз</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РассчитыватьПрогнозКонтекстноеМеню" id="10"/>
+							<ExtendedTooltip name="РассчитыватьПрогнозExtendedTooltip" id="117"/>
+							<Events>
+								<Event name="OnChange">РассчитыватьПрогнозПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаГлубинаАнализаПрогноза" id="56">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Глубина анализа</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа глубина анализа прогноза</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГлубинаАнализаПрогнозаExtendedTooltip" id="118"/>
+							<ChildItems>
+								<InputField name="ГлубинаАнализаПрогноза" id="57">
+									<DataPath>Объект.ГлубинаАнализаПрогноза</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Глубина</v8:content>
+										</v8:item>
+									</Title>
+									<Width>5</Width>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="ГлубинаАнализаПрогнозаКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ГлубинаАнализаПрогнозаExtendedTooltip" id="119"/>
+									<Events>
+										<Event name="OnChange">ГлубинаАнализаПрогнозаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="НадписьГлубинаАнализаПрогноза" id="59">
+									<ContextMenu name="НадписьГлубинаАнализаПрогнозаКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="НадписьГлубинаАнализаПрогнозаExtendedTooltip" id="120"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаГоризонтПрогноза" id="61">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Горизонт прогноза</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа горизонт прогноза</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГоризонтПрогнозаExtendedTooltip" id="121"/>
+							<ChildItems>
+								<InputField name="ГоризонтПрогноза" id="62">
+									<DataPath>Объект.ГоризонтПрогноза</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Горизонт</v8:content>
+										</v8:item>
+									</Title>
+									<Width>5</Width>
+									<SpinButton>true</SpinButton>
+									<ContextMenu name="ГоризонтПрогнозаКонтекстноеМеню" id="63"/>
+									<ExtendedTooltip name="ГоризонтПрогнозаExtendedTooltip" id="122"/>
+									<Events>
+										<Event name="OnChange">ГоризонтПрогнозаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="НадписьГоризонтПрогноза" id="64">
+									<ContextMenu name="НадписьГоризонтПрогнозаКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="НадписьГоризонтПрогнозаExtendedTooltip" id="123"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ТипДиаграммы" id="27">
+			<DataPath>Объект.ТипДиаграммы</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="ТипДиаграммыКонтекстноеМеню" id="28"/>
+			<ExtendedTooltip name="ТипДиаграммыExtendedTooltip" id="124"/>
+		</InputField>
+		<InputField name="ЗначениеАнализа" id="88">
+			<DataPath>ЗначениеАнализа</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение</v8:content>
+				</v8:item>
+			</Title>
+			<ClearButton>false</ClearButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<TextEdit>false</TextEdit>
+			<ContextMenu name="ЗначениеАнализаКонтекстноеМеню" id="89"/>
+			<ExtendedTooltip name="ЗначениеАнализаExtendedTooltip" id="125"/>
+			<Events>
+				<Event name="OnChange">ЗначениеАнализаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="МетодРасчетаЗначений" id="98">
+			<DataPath>Объект.МетодРасчетаЗначений</DataPath>
+			<ContextMenu name="МетодРасчетаЗначенийКонтекстноеМеню" id="99"/>
+			<ExtendedTooltip name="МетодРасчетаЗначенийExtendedTooltip" id="126"/>
+			<Events>
+				<Event name="OnChange">МетодРасчетаЗначенийПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="КратностьЗначений" id="23">
+			<DataPath>Объект.КратностьЗначений</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КратностьЗначенийКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="КратностьЗначенийExtendedTooltip" id="127"/>
+		</InputField>
+		<UsualGroup name="ГруппаТочностьРасчетаДробнойЧасти" id="72">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точность расчета дробной части</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа точность расчета дробной части</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаТочностьРасчетаДробнойЧастиExtendedTooltip" id="128"/>
+			<ChildItems>
+				<InputField name="ТочностьРасчетаДробнойЧасти" id="29">
+					<DataPath>Объект.ТочностьРасчетаДробнойЧасти</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дробная часть</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>7</Width>
+					<ChoiceButton>false</ChoiceButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChooseType>false</ChooseType>
+					<TextEdit>false</TextEdit>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>0</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>1</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>2</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>3</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">3</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ChoiceListButton>true</ChoiceListButton>
+					<DropListWidth>3</DropListWidth>
+					<ContextMenu name="ТочностьРасчетаДробнойЧастиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТочностьРасчетаДробнойЧастиExtendedTooltip" id="129"/>
+					<Events>
+						<Event name="OnChange">ТочностьРасчетаДробнойЧастиПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelDecoration name="НадписьЗнаковПослеЗапятой" id="73">
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>знаков после запятой</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="НадписьЗнаковПослеЗапятойКонтекстноеМеню" id="74"/>
+					<ExtendedTooltip name="НадписьЗнаковПослеЗапятойExtendedTooltip" id="130"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПериодАктуальностиРасчета" id="71">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период актуальности расчета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа период актуальности расчета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПериодАктуальностиРасчетаExtendedTooltip" id="131"/>
+			<ChildItems>
+				<InputField name="ПериодАктуальностиРасчета" id="17">
+					<DataPath>Объект.ПериодАктуальностиРасчета</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ПериодАктуальностиРасчетаКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ПериодАктуальностиРасчетаExtendedTooltip" id="132"/>
+				</InputField>
+				<InputField name="ВидПериодаАктуальностиРасчета" id="69">
+					<DataPath>Объект.ВидПериодаАктуальностиРасчета</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>13</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ВидПериодаАктуальностиРасчетаКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="ВидПериодаАктуальностиРасчетаExtendedTooltip" id="133"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Ответственный" id="15">
+			<DataPath>Объект.Ответственный</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="134"/>
+			<Events>
+				<Event name="OnChange">ОтветственныйПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаДополнительныеНастройки" id="83">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные настройки варианты расчета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеНастройкиExtendedTooltip" id="135"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНадписи" id="102">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа надписи</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа надписи</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНадписиExtendedTooltip" id="136"/>
+					<ChildItems>
+						<LabelDecoration name="НадписьНастройкиДоступности" id="77">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки доступности:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьНастройкиДоступностиКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="НадписьНастройкиДоступностиExtendedTooltip" id="137"/>
+						</LabelDecoration>
+						<LabelDecoration name="НадписьОтборы" id="85">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отборы:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьОтборыКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="НадписьОтборыExtendedTooltip" id="138"/>
+						</LabelDecoration>
+						<LabelDecoration name="НадписьОтчетыДляРасшифровки" id="95">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отчеты для расшифровки:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьОтчетыДляРасшифровкиКонтекстноеМеню" id="96"/>
+							<ExtendedTooltip name="НадписьОтчетыДляРасшифровкиExtendedTooltip" id="139"/>
+						</LabelDecoration>
+						<LabelDecoration name="НадписьНастройкиОформления" id="81">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки оформления:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НадписьНастройкиОформленияКонтекстноеМеню" id="82"/>
+							<ExtendedTooltip name="НадписьНастройкиОформленияExtendedTooltip" id="140"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппыКоманды" id="103">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группы команды</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группы команды</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппыКомандыExtendedTooltip" id="141"/>
+					<ChildItems>
+						<Button name="НастроитьДоступность" id="76">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.НастроитьДоступность</CommandName>
+							<Parameter xsi:nil="true"/>
+							<ExtendedTooltip name="НастроитьДоступностьExtendedTooltip" id="142"/>
+						</Button>
+						<Button name="НастроитьОтборыИУпорядочивание" id="87">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.НастроитьОтборы</CommandName>
+							<Parameter xsi:nil="true"/>
+							<ExtendedTooltip name="НастроитьОтборыИУпорядочиваниеExtendedTooltip" id="143"/>
+						</Button>
+						<Button name="НастроитьОтчеты" id="80">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.НастроитьОтчеты</CommandName>
+							<Parameter xsi:nil="true"/>
+							<ExtendedTooltip name="НастроитьОтчетыExtendedTooltip" id="144"/>
+						</Button>
+						<Button name="НастроитьОформление" id="97">
+							<Type>Hyperlink</Type>
+							<CommandName>Form.Command.НастроитьОформление</CommandName>
+							<Parameter xsi:nil="true"/>
+							<ExtendedTooltip name="НастроитьОформлениеExtendedTooltip" id="145"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВариантыАнализаЦелевыхПоказателей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПериодАнализа" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период анализа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ПериодСравнения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период сравнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="КомпоновщикНастроек" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Компоновщик настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ОбъектАнализа" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект анализа</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ЗначениеАнализа" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение анализа</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ХранилищеНастроекКомпоновкиДанных" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Хранилище настроек компоновки данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ХранилищеСхемыКомпоновкиДанных" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Хранилище схемы компоновки данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ХранилищеНастроекОформления" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Хранилище настроек оформления</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="СоответствиеТиповСравненияИТиповДиаграмм" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соответствие типов сравнения и типов диаграмм</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ТипАнализа" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип анализа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыАнализаПоказателей</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТипДиаграммы" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип диаграммы</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыДиаграммПоказателей</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПериодСравненияДоступен" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Период сравнения доступен</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОформлениеПокомпонентногоСравненияДоступно" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оформление покомпонентного сравнения доступно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПрогнозированиеДоступно" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прогнозирование доступно</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОбъектАнализаДоступен" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект анализа доступен</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОформлениеПокомпонентногоСравненияДоступно" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформление покомпонентного сравнения доступно</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ХранилищеПользовательскихНастроекКомпоновкиДанных" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Хранилище настроек компоновки данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ВариантОтображенияПоУмолчанию" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант отображения по умолчанию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.ВариантыОтображенияВариантовАнализа</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НарастающийИтогДоступен" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нарастающий итог доступен</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="НастроитьДоступность" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить доступность</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить доступность</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастроитьДоступность</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="НастроитьОтчеты" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить отчеты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить отчеты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастроитьОтчеты</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="НастроитьОтборы" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастроитьОтборы</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="НастроитьОформление" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить оформление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить оформление</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастроитьОформление</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ЗаполнитьНаименованиеПоШаблону" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить наименование по шаблону</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить наименование по шаблону</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполнитьПоШаблону</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьНаименованиеПоШаблону</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

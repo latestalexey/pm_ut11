@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>ФормаДляПоставщиков</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="48">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="178"/>
+			<ChildItems>
+				<Button name="СоздатьДокумент" id="47">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.СоздатьДокумент</CommandName>
+					<Parameter xsi:nil="true"/>
+					<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ExtendedTooltip name="СоздатьДокументExtendedTooltip" id="179"/>
+				</Button>
+				<Button name="ЗаполнитьПунктыЗагрузки" id="53">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗаполнитьПунктыЗагрузки</CommandName>
+					<Parameter xsi:nil="true"/>
+					<ExtendedTooltip name="ЗаполнитьПунктыЗагрузкиExtendedTooltip" id="180"/>
+				</Button>
+				<Button name="ЗаполнитьПоДокументу" id="54">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ЗаполнитьПоДокументу</CommandName>
+					<Parameter xsi:nil="true"/>
+					<ExtendedTooltip name="ЗаполнитьПоДокументуExtendedTooltip" id="181"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ПараметрыЗаполнения" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры заполнения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ПараметрыЗаполненияExtendedTooltip" id="182"/>
+			<ChildItems>
+				<InputField name="Организация" id="27">
+					<DataPath>Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="183"/>
+				</InputField>
+				<InputField name="Партнер" id="29">
+					<DataPath>Партнер</DataPath>
+					<ContextMenu name="ПартнерКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ПартнерExtendedTooltip" id="184"/>
+				</InputField>
+				<InputField name="Соглашение" id="32">
+					<DataPath>Соглашение</DataPath>
+					<ContextMenu name="СоглашениеКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СоглашениеExtendedTooltip" id="185"/>
+				</InputField>
+				<UsualGroup name="Поиск" id="60">
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ПоискExtendedTooltip" id="186"/>
+					<ChildItems>
+						<InputField name="НомерЗаказаПоставщика" id="66">
+							<DataPath>НомерЗаказа</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номер заказа</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НомерЗаказаПоставщикаКонтекстноеМеню" id="67"/>
+							<ExtendedTooltip name="НомерЗаказаПоставщикаExtendedTooltip" id="187"/>
+							<Events>
+								<Event name="OnChange">НомерЗаказаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="КонтрагентСсылка" id="108">
+							<DataPath>Поставщик</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контрагент</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="КонтрагентСсылкаКонтекстноеМеню" id="109"/>
+							<ExtendedTooltip name="КонтрагентСсылкаExtendedTooltip" id="188"/>
+							<Events>
+								<Event name="OnChange">ПартнерСтрокаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПунктНазначения" id="70">
+							<DataPath>ПунктНазначения</DataPath>
+							<ChoiceParameterLinks>
+								<xr:Link>
+									<xr:Name>Отбор.Владелец</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Партнер</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+							</ChoiceParameterLinks>
+							<ContextMenu name="ПунктНазначенияКонтекстноеМеню" id="71"/>
+							<ExtendedTooltip name="ПунктНазначенияExtendedTooltip" id="189"/>
+							<Events>
+								<Event name="OnChange">ПунктНазначенияПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="ТипФормирования" id="49">
+					<DataPath>Объект.ТипФормирования</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ТипФормированияКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ТипФормированияExtendedTooltip" id="190"/>
+					<Events>
+						<Event name="OnChange">ТипФормированияПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ДинамическийСписокПоискЗаказовНаДоставку" id="136">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>ДинамическийСписокПоискЗаказовНаДоставку</DataPath>
+			<RowPictureDataPath>ДинамическийСписокПоискЗаказовНаДоставку.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуКонтекстноеМеню" id="137"/>
+			<AutoCommandBar name="ДинамическийСписокПоискЗаказовНаДоставкуКоманднаяПанель" id="138">
+				<ChildItems>
+					<Button name="ДобавитьЗаказ" id="174">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьЗаказ</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ДобавитьЗаказExtendedTooltip" id="191"/>
+					</Button>
+					<Button name="УдалитьЗаказ" id="175">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УдалитьЗаказ</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="УдалитьЗаказExtendedTooltip" id="192"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуExtendedTooltip" id="193"/>
+			<SearchStringAddition name="ДинамическийСписокПоискЗаказовНаДоставкуSearchString" id="194">
+				<Source>
+					<lf:elementId>136</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуSearchStringContextMenu" id="195"/>
+				<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуSearchStringExtendedTooltip" id="196"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДинамическийСписокПоискЗаказовНаДоставкуViewStatus" id="197">
+				<Source>
+					<lf:elementId>136</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуViewStatusContextMenu" id="198"/>
+				<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуViewStatusExtendedTooltip" id="199"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДинамическийСписокПоискЗаказовНаДоставкуSearchControl" id="200">
+				<Source>
+					<lf:elementId>136</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуSearchControlContextMenu" id="201"/>
+				<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуSearchControlExtendedTooltip" id="202"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">ДинамическийСписокПоискЗаказовНаДоставкуПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуНомер" id="139">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.Number</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуНомерКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуНомерExtendedTooltip" id="203"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуСсылка" id="141">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.Ref</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуСсылкаКонтекстноеМеню" id="142"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуСсылкаExtendedTooltip" id="204"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуАК_ПунктНазначения" id="143">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.АК_ПунктНазначения</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуАК_ПунктНазначенияКонтекстноеМеню" id="144"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуАК_ПунктНазначенияExtendedTooltip" id="205"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуКонтрагент" id="145">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.Контрагент</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуКонтрагентКонтекстноеМеню" id="146"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуКонтрагентExtendedTooltip" id="206"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуНоменклатура" id="147">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.Номенклатура</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуНоменклатураКонтекстноеМеню" id="148"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуНоменклатураExtendedTooltip" id="207"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуПартнер" id="149">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.Партнер</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуПартнерКонтекстноеМеню" id="150"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуПартнерExtendedTooltip" id="208"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуСсылка1" id="151">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.Ссылка1</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуСсылка1КонтекстноеМеню" id="152"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуСсылка1ExtendedTooltip" id="209"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаДоставкуСтандартнаяКартинка" id="153">
+					<DataPath>ДинамическийСписокПоискЗаказовНаДоставку.DefaultPicture</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаДоставкуСтандартнаяКартинкаКонтекстноеМеню" id="154"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаДоставкуСтандартнаяКартинкаExtendedTooltip" id="210"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<Table name="ДинамическийСписокПоискЗаказовНаМонтаж" id="155">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж</DataPath>
+			<RowPictureDataPath>ДинамическийСписокПоискЗаказовНаМонтаж.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажКонтекстноеМеню" id="156"/>
+			<AutoCommandBar name="ДинамическийСписокПоискЗаказовНаМонтажКоманднаяПанель" id="157">
+				<ChildItems>
+					<Button name="ДобавитьЗаказ1" id="176">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДобавитьЗаказ</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ДобавитьЗаказ1ExtendedTooltip" id="211"/>
+					</Button>
+					<Button name="УдалитьЗаказ1" id="177">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УдалитьЗаказ</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="УдалитьЗаказ1ExtendedTooltip" id="212"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажExtendedTooltip" id="213"/>
+			<SearchStringAddition name="ДинамическийСписокПоискЗаказовНаМонтажSearchString" id="214">
+				<Source>
+					<lf:elementId>155</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажSearchStringContextMenu" id="215"/>
+				<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажSearchStringExtendedTooltip" id="216"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДинамическийСписокПоискЗаказовНаМонтажViewStatus" id="217">
+				<Source>
+					<lf:elementId>155</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажViewStatusContextMenu" id="218"/>
+				<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажViewStatusExtendedTooltip" id="219"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДинамическийСписокПоискЗаказовНаМонтажSearchControl" id="220">
+				<Source>
+					<lf:elementId>155</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажSearchControlContextMenu" id="221"/>
+				<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажSearchControlExtendedTooltip" id="222"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">ДинамическийСписокПоискЗаказовНаМонтажПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажНомер" id="158">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.Number</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажНомерКонтекстноеМеню" id="159"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажНомерExtendedTooltip" id="223"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажСсылка" id="160">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.Ref</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажСсылкаКонтекстноеМеню" id="161"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажСсылкаExtendedTooltip" id="224"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажАК_ПунктНазначения" id="162">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.АК_ПунктНазначения</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажАК_ПунктНазначенияКонтекстноеМеню" id="163"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажАК_ПунктНазначенияExtendedTooltip" id="225"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажКонтрагент" id="164">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.Контрагент</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажКонтрагентКонтекстноеМеню" id="165"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажКонтрагентExtendedTooltip" id="226"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажНоменклатура" id="166">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.Номенклатура</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажНоменклатураКонтекстноеМеню" id="167"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажНоменклатураExtendedTooltip" id="227"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажПартнер" id="168">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.Партнер</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажПартнерКонтекстноеМеню" id="169"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажПартнерExtendedTooltip" id="228"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажСсылка1" id="170">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.Ссылка1</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажСсылка1КонтекстноеМеню" id="171"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажСсылка1ExtendedTooltip" id="229"/>
+				</LabelField>
+				<LabelField name="ДинамическийСписокПоискЗаказовНаМонтажСтандартнаяКартинка" id="172">
+					<DataPath>ДинамическийСписокПоискЗаказовНаМонтаж.DefaultPicture</DataPath>
+					<ContextMenu name="ДинамическийСписокПоискЗаказовНаМонтажСтандартнаяКартинкаКонтекстноеМеню" id="173"/>
+					<ExtendedTooltip name="ДинамическийСписокПоискЗаказовНаМонтажСтандартнаяКартинкаExtendedTooltip" id="230"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<Table name="ДополнительныеУслуги" id="1">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ДополнительныеУслуги</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДополнительныеУслугиКонтекстноеМеню" id="2">
+				<ChildItems>
+					<Button name="ДополнительныеУслугиКонтекстноеМенюВыделить" id="43">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Выделить</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ДополнительныеУслугиКонтекстноеМенюВыделитьExtendedTooltip" id="231"/>
+					</Button>
+					<Button name="ДополнительныеУслугиКонтекстноеМенюВыделитьВсе" id="45">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыделитьВсе</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ДополнительныеУслугиКонтекстноеМенюВыделитьВсеExtendedTooltip" id="232"/>
+					</Button>
+					<Button name="ДополнительныеУслугиКонтекстноеМенюОтменить" id="44">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.Отменить</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ДополнительныеУслугиКонтекстноеМенюОтменитьExtendedTooltip" id="233"/>
+					</Button>
+					<Button name="ДополнительныеУслугиКонтекстноеМенюОтменитьВыделениеВсе" id="46">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтменитьВыделениеВсе</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ДополнительныеУслугиКонтекстноеМенюОтменитьВыделениеВсеExtendedTooltip" id="234"/>
+					</Button>
+					<Button name="ДополнительныеУслугиКонтекстноеМенюУстановитьПунктПогрузки" id="51">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьПунктПогрузки</CommandName>
+						<Parameter xsi:nil="true"/>
+						<Picture>
+							<xr:Ref>StdPicture.CreateInitialImage</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ДополнительныеУслугиКонтекстноеМенюУстановитьПунктПогрузкиExtendedTooltip" id="235"/>
+					</Button>
+					<Button name="ДополнительныеУслугиКонтекстноеМенюУстановитьПунктРазгрузки" id="52">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьПунктРазгрузки</CommandName>
+						<Parameter xsi:nil="true"/>
+						<Picture>
+							<xr:Ref>CommonPicture.ВыгрузитьДополнительныйОтчетИлиОбработку</xr:Ref>
+							<xr:LoadTransparent>false</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ДополнительныеУслугиКонтекстноеМенюУстановитьПунктРазгрузкиExtendedTooltip" id="236"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
+			<AutoCommandBar name="ДополнительныеУслугиКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДополнительныеУслугиExtendedTooltip" id="237"/>
+			<SearchStringAddition name="ДополнительныеУслугиSearchString" id="238">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="ДополнительныеУслугиSearchStringContextMenu" id="239"/>
+				<ExtendedTooltip name="ДополнительныеУслугиSearchStringExtendedTooltip" id="240"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДополнительныеУслугиViewStatus" id="241">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="ДополнительныеУслугиViewStatusContextMenu" id="242"/>
+				<ExtendedTooltip name="ДополнительныеУслугиViewStatusExtendedTooltip" id="243"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДополнительныеУслугиSearchControl" id="244">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="ДополнительныеУслугиSearchControlContextMenu" id="245"/>
+				<ExtendedTooltip name="ДополнительныеУслугиSearchControlExtendedTooltip" id="246"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ДополнительныеУслугиВыбор</Event>
+				<Event name="OnActivateRow">ДополнительныеУслугиПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ДополнительныеУслугиНомерМашины" id="55">
+					<DataPath>Объект.ДополнительныеУслуги.НомерМашины</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДополнительныеУслугиНомерМашиныКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ДополнительныеУслугиНомерМашиныExtendedTooltip" id="247"/>
+				</InputField>
+				<CheckBoxField name="ДополнительныеУслугиВыбрана" id="24">
+					<DataPath>Объект.ДополнительныеУслуги.Выбрана</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДополнительныеУслугиВыбранаКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ДополнительныеУслугиВыбранаExtendedTooltip" id="248"/>
+				</CheckBoxField>
+				<InputField name="ДополнительныеУслугиНоменклатура" id="6">
+					<DataPath>Объект.ДополнительныеУслуги.Номенклатура</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<BackColor>#C0C0C0</BackColor>
+					<ContextMenu name="ДополнительныеУслугиНоменклатураКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ДополнительныеУслугиНоменклатураExtendedTooltip" id="249"/>
+				</InputField>
+				<InputField name="ДополнительныеУслугиХарактеристика" id="8">
+					<DataPath>Объект.ДополнительныеУслуги.Характеристика</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<BackColor>#C0C0C0</BackColor>
+					<ContextMenu name="ДополнительныеУслугиХарактеристикаКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ДополнительныеУслугиХарактеристикаExtendedTooltip" id="250"/>
+				</InputField>
+				<InputField name="ДополнительныеУслугиЗаказПоставщика" id="22">
+					<DataPath>Объект.ДополнительныеУслуги.ЗаказПоставщика</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ Поставщика</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<BackColor>#C0C0C0</BackColor>
+					<ContextMenu name="ДополнительныеУслугиЗаказПоставщикаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДополнительныеУслугиЗаказПоставщикаExtendedTooltip" id="251"/>
+				</InputField>
+				<InputField name="ДополнительныеУслугиКоличество" id="14">
+					<DataPath>Объект.ДополнительныеУслуги.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДополнительныеУслугиКоличествоКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ДополнительныеУслугиКоличествоExtendedTooltip" id="252"/>
+				</InputField>
+				<InputField name="ДополнительныеУслугиПримечание" id="16">
+					<DataPath>Объект.ДополнительныеУслуги.Примечание</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДополнительныеУслугиПримечаниеКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДополнительныеУслугиПримечаниеExtendedTooltip" id="253"/>
+				</InputField>
+				<InputField name="ДополнительныеУслугиПунктПогрузки" id="18">
+					<DataPath>Объект.ДополнительныеУслуги.ПунктПогрузки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДополнительныеУслугиПунктПогрузкиКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ДополнительныеУслугиПунктПогрузкиExtendedTooltip" id="254"/>
+				</InputField>
+				<InputField name="ДополнительныеУслугиПунктДоставки" id="20">
+					<DataPath>Объект.ДополнительныеУслуги.ПунктДоставки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДополнительныеУслугиПунктДоставкиКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ДополнительныеУслугиПунктДоставкиExtendedTooltip" id="255"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ФормированиеЗаказовНаДоставкуИлиМонтажДляПоставщиков</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Columns>
+				<AdditionalColumns table="Объект.ДополнительныеУслуги"/>
+			</Columns>
+		</Attribute>
+		<Attribute name="Организация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Партнер" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Партнер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Партнеры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Соглашение" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Соглашение</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СоглашенияСКлиентами</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекЗаказ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тек заказ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказКлиента</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокРеализаций" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список реализаций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НомераМашин" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номера машин</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДинамическийСписокПоискЗаказовНаДоставку" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамический список поиск заказов на доставку</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ЗаказПоставщику.Ссылка,
+	ЗаказПоставщику.Номер,
+	ЗаказПоставщику.Партнер,
+	ЗаказПоставщику.Контрагент,
+	ЗаказПоставщику.АК_ПунктНазначения,
+	ЗаказПоставщикуТовары.Номенклатура,
+	ЗаказПоставщикуТовары.Ссылка КАК Ссылка1,
+	ЗаказПоставщику.Дата,
+	ЗаказПоставщику.ПометкаУдаления,
+	ЗаказПоставщику.Проведен
+ИЗ
+	Документ.ЗаказПоставщику.Товары КАК ЗаказПоставщикуТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказПоставщику КАК ЗаказПоставщику
+		ПО ЗаказПоставщикуТовары.Ссылка = ЗаказПоставщику.Ссылка
+ГДЕ
+	ЗаказПоставщикуТовары.Номенклатура = ЗНАЧЕНИЕ(Справочник.Номенклатура.АК_Доставка)
+	И ЗаказПоставщику.ПометкаУдаления = ЛОЖЬ
+	И ЗаказПоставщику.Проведен = ИСТИНА</QueryText>
+				<MainTable>Document.ЗаказПоставщику</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="НомерЗаказа" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер заказа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Актуальность" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Актуальность</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаАктуальности" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата актуальности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Поставщик" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поставщик</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПунктНазначения" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пункт назначения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.АК_ПунктыНазначения</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДинамическийСписокПоискЗаказовНаМонтаж" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Динамический список поиск заказов на монтаж</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ЗаказПоставщику.Ссылка,
+	ЗаказПоставщику.Номер,
+	ЗаказПоставщику.Партнер,
+	ЗаказПоставщику.Контрагент,
+	ЗаказПоставщику.АК_ПунктНазначения,
+	ЗаказПоставщикуТовары.Номенклатура,
+	ЗаказПоставщикуТовары.Ссылка КАК Ссылка1,
+	ЗаказПоставщику.Дата,
+	ЗаказПоставщику.ПометкаУдаления,
+	ЗаказПоставщику.Проведен
+ИЗ
+	Документ.ЗаказПоставщику.Товары КАК ЗаказПоставщикуТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказПоставщику КАК ЗаказПоставщику
+		ПО ЗаказПоставщикуТовары.Ссылка = ЗаказПоставщику.Ссылка
+ГДЕ
+	ЗаказПоставщикуТовары.Номенклатура = ЗНАЧЕНИЕ(Справочник.Номенклатура.АК_Монтаж)
+	И ЗаказПоставщику.ПометкаУдаления = ЛОЖЬ
+	И ЗаказПоставщику.Проведен = ИСТИНА</QueryText>
+				<MainTable>Document.ЗаказПоставщику</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+		<Command name="Выделить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пометки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьПризнакРассмотреноДляВзамодействия</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Выделить</Action>
+		</Command>
+		<Command name="Отменить" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить выделения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Ошибка32</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>Отменить</Action>
+		</Command>
+		<Command name="ВыделитьВсе" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ExecuteTask</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыделитьВсе</Action>
+		</Command>
+		<Command name="ОтменитьВыделениеВсе" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить выделение все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить выделение все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Close</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтменитьВыделениеВсе</Action>
+		</Command>
+		<Command name="СоздатьДокумент" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать документ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьДокумент</Action>
+		</Command>
+		<Command name="УстановитьПунктПогрузки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пункт погрузки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пункт погрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьПунктПогрузки</Action>
+		</Command>
+		<Command name="УстановитьПунктРазгрузки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пункт разгрузки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить пункт разгрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УстановитьПунктРазгрузки</Action>
+		</Command>
+		<Command name="ЗаполнитьПунктыЗагрузки" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить пункты загрузки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить пункты загрузки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПунктыЗагрузки</Action>
+		</Command>
+		<Command name="ЗаполнитьПоДокументу" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по документу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по документу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПоДокументу</Action>
+		</Command>
+		<Command name="Найти" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Найти</Action>
+		</Command>
+		<Command name="ВыполнитьПоиск" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить поиск</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить поиск</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьПоиск</Action>
+		</Command>
+		<Command name="ОтменитьПоиск" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить поиск</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить поиск</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтменитьПоиск</Action>
+		</Command>
+		<Command name="ДобавитьЗаказ" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить заказ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить номенклатуру заказа клиента в список на доставку</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьЗаказ</Action>
+		</Command>
+		<Command name="УдалитьЗаказ" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить заказ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить заказ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьЗаказ</Action>
+		</Command>
+	</Commands>
+</Form>

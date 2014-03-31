@@ -1,0 +1,59 @@
+var SIZER = 20;
+var X_STEP = 150;
+var Y_STEP = 20;
+
+function UpdateHandlers() {
+
+	$('.taskitem').draggable({
+		grid: [X_STEP, Y_STEP],
+		handle: ".taskitem",
+		drag: function(event, ui) {
+			outParams($(this));
+		}
+	});
+	$('.sizer').draggable({
+		grid: [X_STEP, Y_STEP],
+		axis: "y",
+		drag: function(event, ui) {
+			var pos = $(this).position();
+			$(this).parent().css({
+				height: pos.top + SIZER
+			});
+			outParams($(this).parent());
+		}
+	});
+}
+
+
+
+$(function() {
+
+	$('.taskitem').draggable({
+		grid: [X_STEP, Y_STEP],
+		handle: ".taskitem",
+		drag: function(event, ui) {
+			outParams($(this));
+		}
+	});
+	$('.sizer').draggable({
+		grid: [X_STEP, Y_STEP],
+		axis: "y",
+		drag: function(event, ui) {
+			var pos = $(this).position();
+			$(this).parent().css({
+				height: pos.top + SIZER
+			});
+			outParams($(this).parent());
+		}
+	});
+})
+
+function outParams(p) {
+	var str = 'id: ';
+	str += p.attr('id');
+	str += '; top:' + p.position().top;
+	str += '; left:' + p.position().left;
+	str += '; height:' + p.height();
+
+	$('.out').text(str);
+}

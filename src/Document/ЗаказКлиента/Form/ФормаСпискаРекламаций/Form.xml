@@ -1,0 +1,2239 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаБыстрыеОтборы" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Быстрые отборы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаБыстрыеОтборыExtendedTooltip" id="186"/>
+			<ChildItems>
+				<InputField name="ОтборСостояние" id="43">
+					<DataPath>Состояние</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущее состояние</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Top</TitleLocation>
+					<Width>30</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ClearButton>true</ClearButton>
+					<OpenButton>false</OpenButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<QuickChoice>true</QuickChoice>
+					<ChooseType>false</ChooseType>
+					<ChoiceListHeight>20</ChoiceListHeight>
+					<ContextMenu name="ОтборСостояниеКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ОтборСостояниеExtendedTooltip" id="187"/>
+					<Events>
+						<Event name="OnChange">ОтборСостояниеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ОтборСрокВыполнения" id="91">
+					<DataPath>Актуальность</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<Width>22</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<TextEdit>false</TextEdit>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Все</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Все</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Просроченные</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Просроченные</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Не просроченные</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Не просроченные</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Истекающие на дату...</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Истекающие на дату</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ChoiceListButton>true</ChoiceListButton>
+					<ContextMenu name="ОтборСрокВыполненияКонтекстноеМеню" id="92"/>
+					<ExtendedTooltip name="ОтборСрокВыполненияExtendedTooltip" id="188"/>
+					<Events>
+						<Event name="OnChange">ОтборСрокВыполненияПриИзменении</Event>
+						<Event name="Clearing">ОтборСрокВыполненияОчистка</Event>
+						<Event name="ChoiceProcessing">ОтборСрокВыполненияОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ОтборПриоритет" id="47">
+					<DataPath>Приоритет</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ClearButton>true</ClearButton>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Все</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Приоритеты.EmptyRef</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Низкий</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Приоритеты.EnumValue.Низкий</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Средний</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Приоритеты.EnumValue.Средний</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Высокий</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.Приоритеты.EnumValue.Высокий</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ОтборПриоритетКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ОтборПриоритетExtendedTooltip" id="189"/>
+					<Events>
+						<Event name="OnChange">ОтборПриоритетПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Менеджер" id="123">
+					<DataPath>Менеджер</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<Width>30</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<OpenButton>false</OpenButton>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="124"/>
+					<ExtendedTooltip name="МенеджерExtendedTooltip" id="190"/>
+					<Events>
+						<Event name="OnChange">МенеджерПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<TitleLocation>Auto</TitleLocation>
+			<TitleHeight>2</TitleHeight>
+			<SkipOnInput>false</SkipOnInput>
+			<DefaultItem>true</DefaultItem>
+			<HeaderHeight>2</HeaderHeight>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>false</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<ButtonGroup name="ГруппаКомандыСписка" id="131">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды списка</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Item.Список</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыСпискаExtendedTooltip" id="191"/>
+					</ButtonGroup>
+					<Popup name="ГруппаУстановитьСтатус" id="51">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Установить статус</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Функции</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ГруппаУстановитьСтатусExtendedTooltip" id="192"/>
+						<ChildItems>
+							<Button name="УстановитьСтатусНеСогласован" id="55">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусНеСогласован</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="УстановитьСтатусНеСогласованExtendedTooltip" id="193"/>
+							</Button>
+							<Button name="УстановитьСтатусСогласован" id="72">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусСогласован</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="УстановитьСтатусСогласованExtendedTooltip" id="194"/>
+							</Button>
+							<Button name="УстановитьСтатусКОбеспечению" id="53">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусКОбеспечению</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="УстановитьСтатусКОбеспечениюExtendedTooltip" id="195"/>
+							</Button>
+							<Button name="УстановитьСтатусКОтгрузке" id="54">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусКОтгрузке</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="УстановитьСтатусКОтгрузкеExtendedTooltip" id="196"/>
+							</Button>
+							<Button name="УстановитьСтатусЗакрытПолностьюОтработанныхЗаказов" id="99">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусЗакрытПолностьюОтработанныхЗаказов</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="УстановитьСтатусЗакрытПолностьюОтработанныхЗаказовExtendedTooltip" id="197"/>
+							</Button>
+							<Button name="УстановитьСтатусЗакрытСОтменойНеотработанныхСтрок" id="100">
+								<Type>CommandBarButton</Type>
+								<SkipOnInput>false</SkipOnInput>
+								<CommandName>Form.Command.УстановитьСтатусЗакрытСОтменойНеотработанныхСтрок</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="УстановитьСтатусЗакрытСОтменойНеотработанныхСтрокExtendedTooltip" id="198"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<Popup name="ГруппаОтчеты" id="79">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Отчеты</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа отчеты</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ГруппаОтчетыExtendedTooltip" id="199"/>
+						<ChildItems>
+							<Button name="СписокОтчетАнализЦенПоставщиковАнализЦенПоставщиковПоДокументу" id="135">
+								<Type>CommandBarButton</Type>
+								<CommandName>Report.АнализЦенПоставщиков.Command.АнализЦенПоставщиковПоДокументу</CommandName>
+								<Parameter xsi:nil="true"/>
+								<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+								<ExtendedTooltip name="СписокОтчетАнализЦенПоставщиковАнализЦенПоставщиковПоДокументуExtendedTooltip" id="200"/>
+							</Button>
+							<Button name="СписокОтчетРезультатыСогласованияПродажиРезультатыСогласованияПродажиПоДокументу" id="136">
+								<Type>CommandBarButton</Type>
+								<CommandName>Report.РезультатыСогласованияПродажи.Command.РезультатыСогласованияЗаказаКлиента</CommandName>
+								<Parameter xsi:nil="true"/>
+								<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+								<ExtendedTooltip name="СписокОтчетРезультатыСогласованияПродажиРезультатыСогласованияПродажиПоДокументуExtendedTooltip" id="201"/>
+							</Button>
+							<Button name="СписокОтчетСостояниеВыполненияЗаказовКлиентовСостояниеВыполненияЗаказаКлиента" id="134">
+								<Type>CommandBarButton</Type>
+								<CommandName>Report.СостояниеВыполненияЗаказовКлиентов.Command.СостояниеВыполненияЗаказаКлиента</CommandName>
+								<Parameter xsi:nil="true"/>
+								<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+								<ExtendedTooltip name="СписокОтчетСостояниеВыполненияЗаказовКлиентовСостояниеВыполненияЗаказаКлиентаExtendedTooltip" id="202"/>
+							</Button>
+							<Button name="СписокОтчетСостояниеРасчетовСКлиентамиСостояниеРасчетовСКлиентом" id="141">
+								<Type>CommandBarButton</Type>
+								<CommandName>Report.СостояниеРасчетовСКлиентами.Command.СостояниеРасчетовСКлиентом</CommandName>
+								<Parameter xsi:nil="true"/>
+								<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+								<ExtendedTooltip name="СписокОтчетСостояниеРасчетовСКлиентамиСостояниеРасчетовСКлиентомExtendedTooltip" id="203"/>
+							</Button>
+							<Button name="СписокОтчетКарточкаРасчетовСКлиентамиКарточкаРасчетовСКлиентом" id="137">
+								<Type>CommandBarButton</Type>
+								<CommandName>Report.КарточкаРасчетовСКлиентами.Command.КарточкаРасчетовСКлиентом</CommandName>
+								<Parameter xsi:nil="true"/>
+								<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+								<ExtendedTooltip name="СписокОтчетКарточкаРасчетовСКлиентамиКарточкаРасчетовСКлиентомExtendedTooltip" id="204"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<ButtonGroup name="ГруппаГлобальныеКоманды" id="138">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+						<ExtendedTooltip name="ГруппаГлобальныеКомандыExtendedTooltip" id="205"/>
+					</ButtonGroup>
+					<ButtonGroup name="ГруппаКомандыФормы" id="129">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыExtendedTooltip" id="206"/>
+					</ButtonGroup>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="207"/>
+			<SearchStringAddition name="СписокSearchString" id="208">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="209"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="210"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="211">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="212"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="213"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="214">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="215"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="216"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<PictureField name="СписокПриоритет" id="45">
+					<DataPath>Список.КартинкаПриоритета</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приоритет</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<Width>1</Width>
+					<Height>1</Height>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.Приоритеты</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</ValuesPicture>
+					<Border width="1">
+						<v8ui:style xsi:type="v8ui:ControlBorderType">WithoutBorder</v8ui:style>
+					</Border>
+					<ContextMenu name="СписокПриоритетКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="СписокПриоритетExtendedTooltip" id="217"/>
+				</PictureField>
+				<CheckBoxField name="Рекламация" id="159">
+					<DataPath>Список.Рекламация</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РК</v8:content>
+						</v8:item>
+					</Title>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РекламацияКонтекстноеМеню" id="160"/>
+					<ExtendedTooltip name="РекламацияExtendedTooltip" id="218"/>
+				</CheckBoxField>
+				<LabelField name="АК_ПризнакРекламацияЗаСчетПоставщика" id="173">
+					<DataPath>Список.АК_ПризнакРекламацияЗаСчетПоставщика</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content> </v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<Width>5</Width>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БЛ='Пакс Мед'; БИ=Поставщик</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="АК_ПризнакРекламацияЗаСчетПоставщикаКонтекстноеМеню" id="174"/>
+					<ExtendedTooltip name="АК_ПризнакРекламацияЗаСчетПоставщикаExtendedTooltip" id="219"/>
+				</LabelField>
+				<LabelField name="ЗаказПоставщикуПервичныйНомер" id="165">
+					<DataPath>Список.ЗаказПоставщикуПервичныйНомер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ первичного ЗП</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ЗаказПоставщикуПервичныйНомерКонтекстноеМеню" id="166"/>
+					<ExtendedTooltip name="ЗаказПоставщикуПервичныйНомерExtendedTooltip" id="220"/>
+				</LabelField>
+				<InputField name="СписокНомер" id="6">
+					<DataPath>Список.Номер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер</v8:content>
+						</v8:item>
+					</Title>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокНомерКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СписокНомерExtendedTooltip" id="221"/>
+				</InputField>
+				<InputField name="СписокДата" id="4">
+					<DataPath>Список.Дата</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Width>14</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СписокДатаExtendedTooltip" id="222"/>
+				</InputField>
+				<LabelField name="ЗаказПоставщикуРазмещениеНомер" id="167">
+					<DataPath>Список.ЗаказПоставщикуРазмещениеНомер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ ЗП</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ЗаказПоставщикуРазмещениеНомерКонтекстноеМеню" id="168"/>
+					<ExtendedTooltip name="ЗаказПоставщикуРазмещениеНомерExtendedTooltip" id="223"/>
+				</LabelField>
+				<InputField name="СписокПартнер" id="8">
+					<DataPath>Список.Партнер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Партнер</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокПартнерКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СписокПартнерExtendedTooltip" id="224"/>
+				</InputField>
+				<LabelField name="СписокМенеджер" id="169">
+					<DataPath>Список.Менеджер</DataPath>
+					<ContextMenu name="СписокМенеджерКонтекстноеМеню" id="170"/>
+					<ExtendedTooltip name="СписокМенеджерExtendedTooltip" id="225"/>
+				</LabelField>
+				<InputField name="СписокСостояние" id="32">
+					<DataPath>Список.Состояние</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущее состояние</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСостояниеКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СписокСостояниеExtendedTooltip" id="226"/>
+				</InputField>
+				<LabelField name="СписокСтатус" id="103">
+					<DataPath>Список.Статус</DataPath>
+					<Width>12</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокСтатусКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="СписокСтатусExtendedTooltip" id="227"/>
+				</LabelField>
+				<ColumnGroup name="СтатусыВыполнения" id="158">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статусы выполнения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>20</Width>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="СтатусыВыполненияExtendedTooltip" id="228"/>
+					<ChildItems>
+						<InputField name="СтатусЗаказКлиента" id="148">
+							<DataPath>Список.СтатусЗаказКлиента</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</Title>
+							<Width>2</Width>
+							<ContextMenu name="СтатусЗаказКлиентаКонтекстноеМеню" id="149"/>
+							<ExtendedTooltip name="СтатусЗаказКлиентаExtendedTooltip" id="229"/>
+						</InputField>
+						<InputField name="СтатусЗаказПоставщику" id="150">
+							<DataPath>Список.СтатусЗаказПостащику</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<ContextMenu name="СтатусЗаказПоставщикуКонтекстноеМеню" id="151"/>
+							<ExtendedTooltip name="СтатусЗаказПоставщикуExtendedTooltip" id="230"/>
+						</InputField>
+						<InputField name="СтатусПоступлениеОтПоставщика" id="152">
+							<DataPath>Список.СтатусПоступлениеОтПостащика</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<ContextMenu name="СтатусПоступлениеОтПоставщикаКонтекстноеМеню" id="153"/>
+							<ExtendedTooltip name="СтатусПоступлениеОтПоставщикаExtendedTooltip" id="231"/>
+						</InputField>
+						<InputField name="СтатусДоставка" id="154">
+							<DataPath>Список.СтатусДоставка</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<ContextMenu name="СтатусДоставкаКонтекстноеМеню" id="155"/>
+							<ExtendedTooltip name="СтатусДоставкаExtendedTooltip" id="232"/>
+						</InputField>
+						<InputField name="СтатусМонтаж" id="156">
+							<DataPath>Список.СтатусМонтаж</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<ContextMenu name="СтатусМонтажКонтекстноеМеню" id="157"/>
+							<ExtendedTooltip name="СтатусМонтажExtendedTooltip" id="233"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="ДатаПоставкиЗаказчику" id="180">
+					<DataPath>Список.ДатаПоставкиЗаказчику</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата
+поставки заказчику</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаПоставкиЗаказчикуКонтекстноеМеню" id="181"/>
+					<ExtendedTooltip name="ДатаПоставкиЗаказчикуExtendedTooltip" id="234"/>
+				</LabelField>
+				<InputField name="СписокСуммаДокумента" id="24">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокСуммаДокументаКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="СписокСуммаДокументаExtendedTooltip" id="235"/>
+				</InputField>
+				<LabelField name="ДатаРазмещенияУПоставщика" id="182">
+					<DataPath>Список.ДатаРазмещенияУПоставщика</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата
+размещения у поставщика</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаРазмещенияУПоставщикаКонтекстноеМеню" id="183"/>
+					<ExtendedTooltip name="ДатаРазмещенияУПоставщикаExtendedTooltip" id="236"/>
+				</LabelField>
+				<LabelField name="ДатаПланируемойОтгрузки" id="184">
+					<DataPath>1/677</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата
+планируемой отгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<TitleHeight>2</TitleHeight>
+					<ContextMenu name="ДатаПланируемойОтгрузкиКонтекстноеМеню" id="185"/>
+					<ExtendedTooltip name="ДатаПланируемойОтгрузкиExtendedTooltip" id="237"/>
+				</LabelField>
+				<LabelField name="СуммаРасходов" id="171">
+					<DataPath>Список.СуммаРасходов</DataPath>
+					<ContextMenu name="СуммаРасходовКонтекстноеМеню" id="172"/>
+					<ExtendedTooltip name="СуммаРасходовExtendedTooltip" id="238"/>
+				</LabelField>
+				<LabelField name="СостояниеВерсииЭД" id="146">
+					<DataPath>Список.СостояниеВерсииЭД</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СостояниеВерсииЭДКонтекстноеМеню" id="147"/>
+					<ExtendedTooltip name="СостояниеВерсииЭДExtendedTooltip" id="239"/>
+				</LabelField>
+				<LabelField name="СписокСуммаАвансаДоОбеспечения" id="83">
+					<DataPath>Список.СуммаАвансаДоОбеспечения</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокСуммаАвансаДоОбеспеченияКонтекстноеМеню" id="84"/>
+					<ExtendedTooltip name="СписокСуммаАвансаДоОбеспеченияExtendedTooltip" id="240"/>
+				</LabelField>
+				<LabelField name="СписокСуммаПредоплатыДоОтгрузки" id="85">
+					<DataPath>Список.СуммаПредоплатыДоОтгрузки</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокСуммаПредоплатыДоОтгрузкиКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="СписокСуммаПредоплатыДоОтгрузкиExtendedTooltip" id="241"/>
+				</LabelField>
+				<LabelField name="СписокСуммаОплаты" id="107">
+					<DataPath>Список.СуммаОплаты</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма оплаты</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокСуммаОплатыКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="СписокСуммаОплатыExtendedTooltip" id="242"/>
+				</LabelField>
+				<LabelField name="СписокПроцентОплаты" id="113">
+					<DataPath>Список.ПроцентОплаты</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>% оплаты</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокПроцентОплатыКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="СписокПроцентОплатыExtendedTooltip" id="243"/>
+				</LabelField>
+				<LabelField name="СписокСуммаОтгрузки" id="109">
+					<DataPath>Список.СуммаОтгрузки</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма отгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокСуммаОтгрузкиКонтекстноеМеню" id="110"/>
+					<ExtendedTooltip name="СписокСуммаОтгрузкиExtendedTooltip" id="244"/>
+				</LabelField>
+				<LabelField name="СписокПроцентОтгрузки" id="115">
+					<DataPath>Список.ПроцентОтгрузки</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>% отгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокПроцентОтгрузкиКонтекстноеМеню" id="116"/>
+					<ExtendedTooltip name="СписокПроцентОтгрузкиExtendedTooltip" id="245"/>
+				</LabelField>
+				<LabelField name="СписокСуммаПросроченнойОплаты" id="111">
+					<DataPath>Список.СуммаПросроченнойОплаты</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма просроченной оплаты</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокСуммаПросроченнойОплатыКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="СписокСуммаПросроченнойОплатыExtendedTooltip" id="246"/>
+				</LabelField>
+				<LabelField name="СписокНашДолг" id="117">
+					<DataPath>Список.НашДолг</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наш долг</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокНашДолгКонтекстноеМеню" id="118"/>
+					<ExtendedTooltip name="СписокНашДолгExtendedTooltip" id="247"/>
+				</LabelField>
+				<LabelField name="СписокДолгКлиента" id="119">
+					<DataPath>Список.ДолгКлиента</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Долг клиента</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокДолгКлиентаКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="СписокДолгКлиентаExtendedTooltip" id="248"/>
+				</LabelField>
+				<LabelField name="СписокПроцентДолга" id="144">
+					<DataPath>Список.ПроцентДолга</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>% долга</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокПроцентДолгаКонтекстноеМеню" id="145"/>
+					<ExtendedTooltip name="СписокПроцентДолгаExtendedTooltip" id="249"/>
+				</LabelField>
+				<LabelField name="СписокДатаПервойОтгрузки" id="89">
+					<DataPath>1/472</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Width>8</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокДатаПервойОтгрузкиКонтекстноеМеню" id="90"/>
+					<ExtendedTooltip name="СписокДатаПервойОтгрузкиExtendedTooltip" id="250"/>
+				</LabelField>
+				<InputField name="СписокВалюта" id="16">
+					<DataPath>Список.Валюта</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Title>
+					<Width>6</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокВалютаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СписокВалютаExtendedTooltip" id="251"/>
+				</InputField>
+				<LabelField name="СписокХозяйственнаяОперация" id="132">
+					<DataPath>Список.ХозяйственнаяОперация</DataPath>
+					<Visible>false</Visible>
+					<Width>16</Width>
+					<ContextMenu name="СписокХозяйственнаяОперацияКонтекстноеМеню" id="133"/>
+					<ExtendedTooltip name="СписокХозяйственнаяОперацияExtendedTooltip" id="252"/>
+				</LabelField>
+				<InputField name="СписокСделка" id="49">
+					<DataPath>Список.Сделка</DataPath>
+					<Visible>false</Visible>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСделкаКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="СписокСделкаExtendedTooltip" id="253"/>
+				</InputField>
+				<InputField name="СписокКонтрагент" id="12">
+					<DataPath>Список.Контрагент</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокКонтрагентКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="СписокКонтрагентExtendedTooltip" id="254"/>
+				</InputField>
+				<InputField name="СписокОрганизация" id="14">
+					<DataPath>Список.Организация</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокОрганизацияExtendedTooltip" id="255"/>
+				</InputField>
+				<InputField name="СписокГрафикОплаты" id="28">
+					<DataPath>Список.ГрафикОплаты</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокГрафикОплатыКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СписокГрафикОплатыExtendedTooltip" id="256"/>
+				</InputField>
+				<InputField name="СписокСклад" id="30">
+					<DataPath>Список.Склад</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСкладКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="СписокСкладExtendedTooltip" id="257"/>
+				</InputField>
+				<LabelField name="ДокументОснование" id="161">
+					<DataPath>Список.ДокументОснование</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ-основание</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="162"/>
+					<ExtendedTooltip name="ДокументОснованиеExtendedTooltip" id="258"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="142">
+					<DataPath>Список.Ссылка</DataPath>
+					<Visible>false</Visible>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="143"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="259"/>
+				</LabelField>
+				<LabelField name="СписокКомментарий" id="176">
+					<DataPath>Список.Комментарий</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="СписокКомментарийКонтекстноеМеню" id="177"/>
+					<ExtendedTooltip name="СписокКомментарийExtendedTooltip" id="260"/>
+				</LabelField>
+				<LabelField name="СписокПримечание" id="178">
+					<DataPath>Список.Примечание</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="СписокПримечаниеКонтекстноеМеню" id="179"/>
+					<ExtendedTooltip name="СписокПримечаниеExtendedTooltip" id="261"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="ГруппаКомментарий" id="175">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий и примечание</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа комментарий</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ExtendedTooltip name="ГруппаКомментарийExtendedTooltip" id="262"/>
+			<ChildItems>
+				<InputField name="ПодвалКомментарий" id="139">
+					<DataPath>Items.Список.CurrentData.Комментарий</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<VerticalStretch>true</VerticalStretch>
+					<MultiLine>true</MultiLine>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ПодвалКомментарийКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="ПодвалКомментарийExtendedTooltip" id="263"/>
+				</InputField>
+				<InputField name="ПодвалПримечание" id="163">
+					<DataPath>Items.Список.CurrentData.Примечание</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<VerticalStretch>true</VerticalStretch>
+					<MultiLine>true</MultiLine>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="ПодвалПримечаниеКонтекстноеМеню" id="164"/>
+					<ExtendedTooltip name="ПодвалПримечаниеExtendedTooltip" id="264"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.DefaultPicture</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументЗаказКлиента.Ссылка КАК Ссылка,
+	ДокументЗаказКлиента.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументЗаказКлиента.Номер КАК Номер,
+	ДокументЗаказКлиента.Дата КАК Дата,
+	ДокументЗаказКлиента.Проведен КАК Проведен,
+	ДокументЗаказКлиента.Приоритет КАК Приоритет,
+	ДокументЗаказКлиента.Партнер КАК Партнер,
+	ДокументЗаказКлиента.Контрагент КАК Контрагент,
+	ДокументЗаказКлиента.Организация КАК Организация,
+	ДокументЗаказКлиента.Соглашение КАК Соглашение,
+	ДокументЗаказКлиента.Сделка КАК Сделка,
+	ДокументЗаказКлиента.Валюта КАК Валюта,
+	ДокументЗаказКлиента.СуммаДокумента КАК СуммаДокумента,
+	ДокументЗаказКлиента.ГрафикОплаты КАК ГрафикОплаты,
+	ДокументЗаказКлиента.ЖелаемаяДатаОтгрузки КАК ЖелаемаяДатаОтгрузки,
+	ДокументЗаказКлиента.Склад КАК Склад,
+	ДокументЗаказКлиента.Статус КАК Статус,
+	ДокументЗаказКлиента.Менеджер КАК Менеджер,
+	ПОДСТРОКА(ДокументЗаказКлиента.ДополнительнаяИнформация, 0, 1000) КАК ДополнительнаяИнформация,
+	ДокументЗаказКлиента.СуммаАвансаДоОбеспечения КАК СуммаАвансаДоОбеспечения,
+	ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки КАК СуммаПредоплатыДоОтгрузки,
+	ДокументЗаказКлиента.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	ПОДСТРОКА(ДокументЗаказКлиента.Комментарий, 0, 1000) КАК Комментарий,
+	ВЫБОР
+		КОГДА (НЕ ДокументЗаказКлиента.Проведен)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ПустаяСсылка)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяСогласование)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.Закрыт)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаАвансаДоОбеспечения &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяАвансДоОбеспечения)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ГотовКОбеспечению)
+		КОГДА (ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				ИЛИ ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению))
+				И ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяПредоплатаДоОтгрузки)
+		КОГДА (ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				ИЛИ ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению))
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &lt; 0
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ГотовКОтгрузке)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &lt; 0
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяОтгрузка)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ДокументЗаказКлиента.СуммаАвансаДоОбеспечения + ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &gt;= 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt; 0
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяОплатаПослеОтгрузки)
+		КОГДА ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ГотовКЗакрытию)
+	КОНЕЦ КАК Состояние,
+	ВЫБОР
+		КОГДА (НЕ ДокументЗаказКлиента.Проведен)
+			ТОГДА ЛОЖЬ
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЛОЖЬ
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.ДатаСогласования &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				И ДокументЗаказКлиента.ДатаСогласования &lt; &amp;ДатаАктуальности
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаАвансаДоОбеспечения &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению)
+				И ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению)
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОтгрузкеОстаток, 0) &lt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ДокументЗаказКлиента.СуммаАвансаДоОбеспечения + ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &gt;= 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt; 0
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК Просрочен,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Высокий)
+			ТОГДА 0
+		КОГДА ДокументЗаказКлиента.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Средний)
+			ТОГДА 1
+		КОГДА ДокументЗаказКлиента.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Низкий)
+			ТОГДА 2
+		ИНАЧЕ 1
+	КОНЕЦ КАК КартинкаПриоритета,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.ХозяйственнаяОперация &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПередачаНаКомиссию)
+				И ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаОплаты,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.ХозяйственнаяОперация &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПередачаНаКомиссию)
+				И ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫРАЗИТЬ((ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0)) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПроцентОплаты,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток, 0) &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаПросроченнойОплаты,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ДокументЗаказКлиента.СуммаДокумента + ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0)
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаОтгрузки,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫРАЗИТЬ((ДокументЗаказКлиента.СуммаДокумента + ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0)) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПроцентОтгрузки,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &lt; 0
+			ТОГДА ВЫРАЗИТЬ(-ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК НашДолг,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ КАК ДолгКлиента,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &gt; 0
+						ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+					ИНАЧЕ ВЫРАЗИТЬ(ЕСТЬNULL(-РасчетыСКлиентамиОстатки.СуммаОстаток, 0) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПроцентДолга,
+	СостоянияЭД.СостояниеВерсииЭД,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказКлиента,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноКонечныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноПриход, 0) = 0
+			ТОГДА ""
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноПриход, 0) = АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноКонечныйОстаток
+			ТОГДА "Не выполнен"
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноКонечныйОстаток, 0) = 0
+			ТОГДА "Выполнен"
+		ИНАЧЕ "Выполнен частично"
+	КОНЕЦ КАК СтатусЗаказКлиента,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаКонечныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаПриход, 0) = 0
+			ТОГДА ""
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаПриход, 0) = АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаКонечныйОстаток
+			ТОГДА "Не заказан у поставщика"
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаКонечныйОстаток, 0) = 0
+			ТОГДА "Заказан у поставщика"
+		ИНАЧЕ "Заказан у поставщика частично"
+	КОНЕЦ КАК СтатусЗаказПостащику,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаКонечныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаПриход, 0) = 0
+			ТОГДА ""
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаПриход, 0) = АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаКонечныйОстаток
+			ТОГДА "Не получен от поставщика"
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаКонечныйОстаток, 0) = 0
+			ТОГДА "Получен от поставщика"
+		ИНАЧЕ "Получен от поставщика частично"
+	КОНЕЦ КАК СтатусПоступлениеОтПостащика,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаКонечныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаПриход, 0) = 0
+			ТОГДА ""
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаПриход, 0) = АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаКонечныйОстаток
+			ТОГДА "Не заказана доставка"
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаКонечныйОстаток, 0) = 0
+			ТОГДА "Заказана доставка"
+		ИНАЧЕ "Заказана доставка частично"
+	КОНЕЦ КАК СтатусДоставка,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажКонечныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажПриход, 0) = 0
+			ТОГДА ""
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажПриход, 0) = АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажКонечныйОстаток
+			ТОГДА "Не заказан монтаж"
+		КОГДА ЕСТЬNULL(АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажКонечныйОстаток, 0) = 0
+			ТОГДА "Заказан монтаж"
+		ИНАЧЕ "Заказан монтаж частично"
+	КОНЕЦ КАК СтатусМонтаж,
+	ДокументЗаказКлиента.АК_ПризнакРекламация КАК Рекламация,
+	ДокументЗаказКлиента.ДокументОснование,
+	МАКСИМУМ(ЗаказПоставщикуТоварыРекламация.Ссылка.Номер) КАК ЗаказПоставщикуРазмещениеНомер,
+	МАКСИМУМ(ЗаказПоставщикуТоварыДокументОснование.Ссылка.Номер) КАК ЗаказПоставщикуПервичныйНомер,
+	ПОДСТРОКА(ДокументЗаказКлиента.АК_Примечание, 0, 1000) КАК Примечание,
+	ДокументЗаказКлиента.АК_СуммаРасходов КАК СуммаРасходов,
+	ДокументЗаказКлиента.АК_ПризнакРекламацияЗаСчетПоставщика,
+	ДокументЗаказКлиента.АК_ДатаПоставкиЗаказчику КАК ДатаПоставкиЗаказчику,
+	ДокументЗаказКлиента.АК_ДатаРазмещенияУПоставщика КАК ДатаРазмещенияУПоставщика
+	ИЗ
+	Документ.ЗаказКлиента КАК ДокументЗаказКлиента
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияЭД КАК СостоянияЭД
+		ПО (СостоянияЭД.СсылкаНаОбъект = ДокументЗаказКлиента.Ссылка)
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РасчетыСКлиентами.Остатки КАК РасчетыСКлиентамиОстатки
+		ПО ДокументЗаказКлиента.Ссылка = РасчетыСКлиентамиОстатки.ЗаказКлиента
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РасчетыСКлиентами.Остатки(КОНЕЦПЕРИОДА(&amp;ДатаАктуальности, ДЕНЬ), ) КАК РасчетыСКлиентамиОстаткиНаДатуАктуальности
+		ПО ДокументЗаказКлиента.Ссылка = РасчетыСКлиентамиОстаткиНаДатуАктуальности.ЗаказКлиента}
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.АК_ЗаказыКлиентовРазмещение.ОстаткиИОбороты(, , , , Номенклатура.ВидНоменклатуры.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар)) КАК АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты
+		ПО ДокументЗаказКлиента.Ссылка = АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказКлиента
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказПоставщику.Товары КАК ЗаказПоставщикуТоварыДокументОснование
+		ПО ДокументЗаказКлиента.ДокументОснование = ЗаказПоставщикуТоварыДокументОснование.АК_ЗаказКлиента
+			И (ЗаказПоставщикуТоварыДокументОснование.Ссылка.Проведен)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказПоставщику.Товары КАК ЗаказПоставщикуТоварыРекламация
+		ПО ДокументЗаказКлиента.Ссылка = ЗаказПоставщикуТоварыРекламация.АК_ЗаказКлиента
+			И (ЗаказПоставщикуТоварыРекламация.Ссылка.Проведен)
+ГДЕ
+	ДокументЗаказКлиента.АК_ПризнакРекламация = &amp;Рекламация
+
+СГРУППИРОВАТЬ ПО
+	ДокументЗаказКлиента.Ссылка,
+	ДокументЗаказКлиента.ПометкаУдаления,
+	ДокументЗаказКлиента.Номер,
+	ДокументЗаказКлиента.Дата,
+	ДокументЗаказКлиента.Проведен,
+	ДокументЗаказКлиента.Приоритет,
+	ДокументЗаказКлиента.Партнер,
+	ДокументЗаказКлиента.Контрагент,
+	ДокументЗаказКлиента.Организация,
+	ДокументЗаказКлиента.Соглашение,
+	ДокументЗаказКлиента.Сделка,
+	ДокументЗаказКлиента.Валюта,
+	ДокументЗаказКлиента.СуммаДокумента,
+	ДокументЗаказКлиента.ГрафикОплаты,
+	ДокументЗаказКлиента.ЖелаемаяДатаОтгрузки,
+	ДокументЗаказКлиента.Склад,
+	ДокументЗаказКлиента.Статус,
+	ДокументЗаказКлиента.Менеджер,
+	ПОДСТРОКА(ДокументЗаказКлиента.ДополнительнаяИнформация, 0, 1000),
+	ДокументЗаказКлиента.СуммаАвансаДоОбеспечения,
+	ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки,
+	ДокументЗаказКлиента.ХозяйственнаяОперация,
+	ПОДСТРОКА(ДокументЗаказКлиента.Комментарий, 0, 1000),
+	СостоянияЭД.СостояниеВерсииЭД,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказКлиента,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.ЗаказаноКонечныйОстаток,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказаноУПоставщикаКонечныйОстаток,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеПолученоОтПоставщикаКонечныйОстаток,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанаДоставкаКонечныйОстаток,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажПриход,
+	АК_ЗаказыКлиентовРазмещениеОстаткиИОбороты.НеЗаказанМонтажКонечныйОстаток,
+	ДокументЗаказКлиента.АК_ПризнакРекламация,
+	ДокументЗаказКлиента.ДокументОснование,
+	ВЫБОР
+		КОГДА (НЕ ДокументЗаказКлиента.Проведен)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ПустаяСсылка)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяСогласование)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.Закрыт)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаАвансаДоОбеспечения &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяАвансДоОбеспечения)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ГотовКОбеспечению)
+		КОГДА (ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				ИЛИ ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению))
+				И ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяПредоплатаДоОтгрузки)
+		КОГДА (ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				ИЛИ ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению))
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &lt; 0
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ГотовКОтгрузке)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &lt; 0
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяОтгрузка)
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ДокументЗаказКлиента.СуммаАвансаДоОбеспечения + ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &gt;= 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt; 0
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ОжидаетсяОплатаПослеОтгрузки)
+		КОГДА ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.СостоянияЗаказовКлиентов.ГотовКЗакрытию)
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА (НЕ ДокументЗаказКлиента.Проведен)
+			ТОГДА ЛОЖЬ
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Закрыт)
+			ТОГДА ЛОЖЬ
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.ДатаСогласования &lt;&gt; ДАТАВРЕМЯ(1, 1, 1)
+				И ДокументЗаказКлиента.ДатаСогласования &lt; &amp;ДатаАктуальности
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаАвансаДоОбеспечения &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению)
+				И ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &lt; ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОбеспечению)
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt;= ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки + ДокументЗаказКлиента.СуммаАвансаДоОбеспечения
+				И ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОтгрузкеОстаток, 0) &lt; 0
+			ТОГДА ИСТИНА
+		КОГДА ДокументЗаказКлиента.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.КОтгрузке)
+				И ДокументЗаказКлиента.СуммаДокумента - ДокументЗаказКлиента.СуммаАвансаДоОбеспечения + ДокументЗаказКлиента.СуммаПредоплатыДоОтгрузки &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0) &gt;= 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) &gt; 0
+				И РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток &gt; 0
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.ХозяйственнаяОперация &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПередачаНаКомиссию)
+				И ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.ХозяйственнаяОперация &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПередачаНаКомиссию)
+				И ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫРАЗИТЬ((ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОплатеОстаток, 0)) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток, 0) &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстаткиНаДатуАктуальности.КОплатеОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ДокументЗаказКлиента.СуммаДокумента + ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0)
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.Согласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫРАЗИТЬ((ДокументЗаказКлиента.СуммаДокумента + ЕСТЬNULL(РасчетыСКлиентамиОстатки.КОтгрузкеОстаток, 0)) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &lt; 0
+			ТОГДА ВЫРАЗИТЬ(-ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+				И ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &gt; 0
+			ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) КАК ЧИСЛО(15, 2))
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА ДокументЗаказКлиента.Проведен
+				И ДокументЗаказКлиента.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовКлиентов.НеСогласован)
+				И ДокументЗаказКлиента.СуммаДокумента &gt; 0
+			ТОГДА ВЫБОР
+					КОГДА ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) &gt; 0
+						ТОГДА ВЫРАЗИТЬ(ЕСТЬNULL(РасчетыСКлиентамиОстатки.СуммаОстаток, 0) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+					ИНАЧЕ ВЫРАЗИТЬ(ЕСТЬNULL(-РасчетыСКлиентамиОстатки.СуммаОстаток, 0) * 100 / ДокументЗаказКлиента.СуммаДокумента КАК ЧИСЛО(15, 0))
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ,
+	ПОДСТРОКА(ДокументЗаказКлиента.АК_Примечание, 0, 1000),
+	ДокументЗаказКлиента.АК_СуммаРасходов,
+	ДокументЗаказКлиента.АК_ПризнакРекламацияЗаСчетПоставщика</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Приоритет</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Приоритеты.Высокий</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПометкаУдаления</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияЗаказовКлиентов.Закрыт</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>BackColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ВысокийПриоритетДокумента</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:FormTextColor</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>MarkNegatives</dcscor:parameter>
+									<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+									<dcsset:userSettingID>8abd341d-0b30-411a-8df6-90600f7b2565</dcsset:userSettingID>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Выделение цветом высокого приоритета</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Приоритет</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Приоритеты.Низкий</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПометкаУдаления</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияЗаказовКлиентов.Закрыт</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>BackColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:НизкийПриоритетДокумента</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:BorderColor</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Выделение цветом низкого приоритета</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Состояние</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияЗаказовКлиентов.Закрыт</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ЗакрытыйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Выделение цветом состояния "Закрыт"</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Состояние</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Просрочен</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ПросроченныйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:presentation xsi:type="xs:string">Выделение цветом просроченного заказа</dcsset:presentation>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Состояние" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияЗаказовКлиентов</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>Состояние</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Менеджер" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+			<Save>
+				<Field>Менеджер</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Приоритет" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приоритет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.Приоритеты</v8:Type>
+			</Type>
+			<Save>
+				<Field>Приоритет</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПричинаОтменыЗаказовКлиентов" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отмены заказов клиентов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПричиныОтменыЗаказовКлиентов</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПричинаОтменыЗаказовКлиентов</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Актуальность" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок выполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>Актуальность</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ДатаАктуальности" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата актуальности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ДатаАктуальности</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="СтруктураБыстрогоОтбора" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура быстрого отбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОтборПриоритет</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Приоритет</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Приоритеты.Высокий</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>BackColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ВысокийПриоритетДокумента</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ОтборПриоритет</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Приоритет</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Приоритеты.Низкий</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>BackColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:НизкийПриоритетДокумента</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="УстановитьСтатусНеСогласован" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не согласован</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Не согласован" для всех выделенных в списке заказов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьСтатусЗаказаНеСогласован</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСтатусНеСогласован</Action>
+		</Command>
+		<Command name="УстановитьСтатусКОбеспечению" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К обеспечению</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "К обеспечению" для всех выделенных в списке заказов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьСтатусЗаказаКОбеспечениюПодтвержден</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСтатусКОбеспечению</Action>
+		</Command>
+		<Command name="УстановитьСтатусКОтгрузке" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К отгрузке</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "К отгрузке" для всех выделенных в списке заказов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьСтатусЗаказаКОтгрузкеКПоступлению</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСтатусКОтгрузке</Action>
+		</Command>
+		<Command name="УстановитьСтатусЗакрытСОтменойНеотработанныхСтрок" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыт (с отменой неотработанных строк)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Закрыт" для всех выделенных в списке заказов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьСтатусЗаказаЗакрытСОтменойСтрок</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСтатусЗакрытСОтменойНеотработанныхСтрок</Action>
+		</Command>
+		<Command name="УстановитьСтатусСогласован" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласован</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Согласован" для всех выделенных в списке заказов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьСтатусЗаказаСогласован</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСтатусСогласован</Action>
+		</Command>
+		<Command name="УстановитьСтатусЗакрытПолностьюОтработанныхЗаказов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыт (у полностью отработанных заказов)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить статус "Закрыт" для всех выделенных в списке заказов.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УстановитьСтатусЗаказаЗакрыт</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьСтатусЗакрытПолностьюОтработанныхЗаказов</Action>
+		</Command>
+		<Command name="СоздатьРеализациюТоваровУслуг" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализация товаров и услуг</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать реализацию товаров услуг</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьРеализациюТоваровУслуг</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Состояние">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Parameter>
+		<Parameter name="Просрочен">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>AccumulationRegister.ЗаказыКлиентов.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>AccumulationRegister.ТоварыКОтгрузке.StandardCommand.OpenByRecorder</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>1:9c42b369-95e1-464f-84b0-16ed24e3a733</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>true</xr:Common>
+					<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+		<CommandBar>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>CommonCommand.ИсторияИзменений</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ОперацияПоПлатежнойКарте.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>5</Index>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>Document.ПриходныйКассовыйОрдер.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>4</Index>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>DataProcessor.ПечатьЗаданияНаОтборРазмещениеТоваров.Command.ПечатьЗаданияНаРазмещениеТоваров</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>2</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>2:50305208-96e1-49c6-bfc4-ae30e28f0586</Command>
+				<Type>Auto</Type>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>BusinessProcess.СогласованиеПродажи.Command.СоздатьНовоеСогласованиеЗаказаКлиента</Command>
+				<Type>Auto</Type>
+				<Index>7</Index>
+			</Item>
+			<Item>
+				<Command>CommonCommand.ДополнительныеСведенияКоманднаяПанель</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>BusinessProcess.Задание.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormCommandBarCreateBasedOn</CommandGroup>
+			</Item>
+			<Item>
+				<Command>Document.ЗаказКлиента.Command.ПечатьСчетНаОплату</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>1</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ЗаказКлиента.Command.ПечатьЗаказКлиента</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>3</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ВозвратТоваровОтКлиента.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>9</Index>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<Index>1</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ПоступлениеБезналичныхДенежныхСредств.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>2</Index>
+			</Item>
+			<Item>
+				<Command>Document.РасходныйОрдерНаТовары.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>3</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.РеализацияТоваровУслуг.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>6</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.СчетНаОплатуКлиенту.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>8</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>DataProcessor.ПомощникЗачетаОплат.Command.ЗачетОплаты</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Form.Command.СоздатьРеализациюТоваровУслуг</Command>
+				<Type>Added</Type>
+				<CommandGroup>FormCommandBarCreateBasedOn</CommandGroup>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+			</Item>
+			<Item>
+				<Command>DataProcessor.ЭлектронныеДокументы.Command.СформироватьПодписатьОтправитьЭД</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.ЭД</CommandGroup>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

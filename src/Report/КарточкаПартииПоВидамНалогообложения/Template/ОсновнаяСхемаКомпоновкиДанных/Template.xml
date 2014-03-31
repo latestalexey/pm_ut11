@@ -1,0 +1,1458 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистратор</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБезНДС</dataPath>
+			<field>СуммаБезНДС</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧО=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НДС</dataPath>
+			<field>НДС</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧО=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Налоговый период</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='к "квартал" гггг "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаУчетаНоменклатуры</dataPath>
+			<field>АналитикаУчетаНоменклатуры</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаУчетаПартий</dataPath>
+			<field>АналитикаУчетаПартий</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЗапасов</dataPath>
+			<field>ВидЗапасов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПоступления</dataPath>
+			<field>ДокументПоступления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаРасходов</dataPath>
+			<field>АналитикаРасходов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПоступленияРасходов</dataPath>
+			<field>ДокументПоступленияРасходов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяРасходов</dataPath>
+			<field>СтатьяРасходов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Налогообложение</dataPath>
+			<field>Налогообложение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтражениеВУчетеНДС</dataPath>
+			<field>ОтражениеВУчетеНДС</field>
+			<orderExpression>
+				<dcscom:expression>ПорядокСортировки</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>true</dcscom:autoOrder>
+			</orderExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПорядокСортировки</dataPath>
+			<field>ПорядокСортировки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Движение</dataPath>
+			<field>Движение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид движения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПартии</dataPath>
+			<field>ДокументПартии</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>ФормированиеПартийТоваровОрганизаций</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Регистратор</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаУчетаНоменклатуры</dataPath>
+				<field>АналитикаУчетаНоменклатуры</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаУчетаПартий</dataPath>
+				<field>АналитикаУчетаПартий</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидЗапасов</dataPath>
+				<field>ВидЗапасов</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПоступления</dataPath>
+				<field>ДокументПоступления</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииТоваровОрганизаций.Период, КВАРТАЛ) КАК Период,
+	ПартииТоваровОрганизаций.ДокументПоступления КАК ДокументПартии,
+	ПартииТоваровОрганизаций.Организация КАК Организация,
+	"Приход" КАК Движение,
+	АналитикаПартий.НалогообложениеНДС КАК Налогообложение,
+	ПартииТоваровОрганизаций.Регистратор КАК Регистратор,
+	ПартииТоваровОрганизаций.СтоимостьРеглПриход КАК СуммаБезНДС,
+	ПартииТоваровОрганизаций.НДСРеглПриход КАК НДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Принято к вычету в книге покупок"
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Включено в стоимость"
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Отнесено на ставку НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 1
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 3
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 5
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииТоваровОрганизаций.Обороты(, , Регистратор, ДокументПоступления В (&amp;ДокументПартии)) КАК ПартииТоваровОрганизаций
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииТоваровОрганизаций.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииТоваровОрганизаций.Регистратор В (&amp;ДокументПартии)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>РасходПартийТоварыОрганизаций</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Регистратор</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииТоваровОрганизаций.Период, КВАРТАЛ) КАК Период,
+	ПартииТоваровОрганизаций.ДокументПоступления КАК ДокументПартии,
+	ПартииТоваровОрганизаций.Организация КАК Организация,
+	"Расход" КАК Движение,
+	АналитикаПартий.НалогообложениеНДС КАК Налогообложение,
+	ПартииТоваровОрганизаций.Регистратор КАК Регистратор,
+	-ПартииТоваровОрганизаций.СтоимостьРегл КАК СуммаБезНДС,
+	-ПартииТоваровОрганизаций.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Восстановлено в книге продаж"
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Исключено из стоимости"
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Исключено из ставки НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 2
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 4
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 6
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииТоваровОрганизаций КАК ПартииТоваровОрганизаций
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииТоваровОрганизаций.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииТоваровОрганизаций.ДокументПоступления В (&amp;ДокументПартии)
+	И ПартииТоваровОрганизаций.Активность
+	И ПартииТоваровОрганизаций.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ПартииТоваровОрганизаций.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И ПартииТоваровОрганизаций.НалогообложениеНДС &lt;&gt; АналитикаПартий.НалогообложениеНДС</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>РасходПартийЗатратНаВыпуск</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииЗатратНаВыпуск.Период, КВАРТАЛ) КАК Период,
+	ПартииЗатратНаВыпуск.ДокументПоступления КАК ДокументПартии,
+	ПартииЗатратНаВыпуск.Организация КАК Организация,
+	"Расход" КАК Движение,
+	АналитикаПартий.НалогообложениеНДС КАК Налогообложение,
+	ПартииЗатратНаВыпуск.Регистратор КАК Регистратор,
+	-ПартииЗатратНаВыпуск.СтоимостьРегл КАК СуммаБезНДС,
+	-ПартииЗатратНаВыпуск.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Восстановлено в книге продаж"
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Исключено из стоимости"
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Исключено из ставки НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 2
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 4
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 6
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииЗатратНаВыпуск КАК ПартииЗатратНаВыпуск
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииЗатратНаВыпуск.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииЗатратНаВыпуск.ДокументПоступления В (&amp;ДокументПартии)
+	И ПартииЗатратНаВыпуск.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И АналитикаПартий.НалогообложениеНДС &lt;&gt; ПартииЗатратНаВыпуск.НалогообложениеНДС
+	И ПартииЗатратНаВыпуск.Активность
+	И ПартииЗатратНаВыпуск.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ФормированиеПартийПрочихРасходов</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаРасходов</dataPath>
+				<field>АналитикаРасходов</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаУчетаПартий</dataPath>
+				<field>АналитикаУчетаПартий</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПоступленияРасходов</dataPath>
+				<field>ДокументПоступленияРасходов</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяРасходов</dataPath>
+				<field>СтатьяРасходов</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииПрочихРасходов.Период, КВАРТАЛ) КАК Период,
+	ПартииПрочихРасходов.ДокументПоступленияРасходов КАК ДокументПартии,
+	ПартииПрочихРасходов.Организация КАК Организация,
+	"Приход" КАК Движение,
+	АналитикаПартий.НалогообложениеНДС КАК Налогообложение,
+	ПартииПрочихРасходов.Регистратор КАК Регистратор,
+	ПартииПрочихРасходов.СтоимостьРеглПриход КАК СуммаБезНДС,
+	ПартииПрочихРасходов.НДСРеглПриход КАК НДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Принято к вычету в книге покупок"
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Включено в стоимость"
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Отнесено на ставку НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 1
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 3
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 5
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииПрочихРасходов.Обороты(, , Регистратор, ДокументПоступленияРасходов В (&amp;ДокументПартии)) КАК ПартииПрочихРасходов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииПрочихРасходов.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииПрочихРасходов.Регистратор В (&amp;ДокументПартии)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>РасходПартийПрочихРасходов</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииПрочихРасходов.Период, КВАРТАЛ) КАК Период,
+	ПартииПрочихРасходов.ДокументПоступленияРасходов КАК ДокументПартии,
+	ПартииПрочихРасходов.Организация КАК Организация,
+	"Расход" КАК Движение,
+	АналитикаПартий.НалогообложениеНДС КАК Налогообложение,
+	ПартииПрочихРасходов.Регистратор КАК Регистратор,
+	-ПартииПрочихРасходов.СтоимостьРегл КАК СуммаБезНДС,
+	-ПартииПрочихРасходов.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Восстановлено в книге продаж"
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Исключено из стоимости"
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Исключено из ставки НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 2
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 4
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 6
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииПрочихРасходов КАК ПартииПрочихРасходов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииПрочихРасходов.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииПрочихРасходов.ДокументПоступленияРасходов В (&amp;ДокументПартии)
+	И ПартииПрочихРасходов.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И ПартииПрочихРасходов.НалогообложениеНДС &lt;&gt; АналитикаПартий.НалогообложениеНДС
+	И ПартииПрочихРасходов.Активность
+	И ПартииПрочихРасходов.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>РасходПартийРасходовНаСебестоимость</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииРасходовНаСебестоимостьТоваров.Период, КВАРТАЛ) КАК Период,
+	ПартииРасходовНаСебестоимостьТоваров.ДокументПоступленияРасходов КАК ДокументПартии,
+	ПартииРасходовНаСебестоимостьТоваров.Организация КАК Организация,
+	"Расход" КАК Движение,
+	АналитикаПартий.НалогообложениеНДС КАК Налогообложение,
+	ПартииРасходовНаСебестоимостьТоваров.Регистратор КАК Регистратор,
+	-ПартииРасходовНаСебестоимостьТоваров.СтоимостьРегл КАК СуммаБезНДС,
+	-ПартииРасходовНаСебестоимостьТоваров.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Восстановлено в книге продаж"
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Исключено из стоимости"
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Исключено из ставки НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 2
+		КОГДА АналитикаПартий.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 4
+		КОГДА АналитикаПартий.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 6
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииРасходовНаСебестоимостьТоваров КАК ПартииРасходовНаСебестоимостьТоваров
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииРасходовНаСебестоимостьТоваров.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииРасходовНаСебестоимостьТоваров.ДокументПоступленияРасходов В (&amp;ДокументПартии)
+	И ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И АналитикаПартий.НалогообложениеНДС &lt;&gt; ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС
+	И ПартииРасходовНаСебестоимостьТоваров.Активность
+	И ПартииРасходовНаСебестоимостьТоваров.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПриходПартийТоваровОрганизаций</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииТоваровОрганизаций.Период, КВАРТАЛ) КАК Период,
+	ПартииТоваровОрганизаций.ДокументПоступления КАК ДокументПартии,
+	ПартииТоваровОрганизаций.Организация КАК Организация,
+	"Приход" КАК Движение,
+	ПартииТоваровОрганизаций.НалогообложениеНДС КАК Налогообложение,
+	ПартииТоваровОрганизаций.Регистратор КАК Регистратор,
+	ПартииТоваровОрганизаций.СтоимостьРегл КАК СуммаБезНДС,
+	ПартииТоваровОрганизаций.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА ПартииТоваровОрганизаций.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Принято к вычету в книге покупок"
+		КОГДА ПартииТоваровОрганизаций.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Включено в стоимость"
+		КОГДА ПартииТоваровОрганизаций.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Отнесено на ставку НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА ПартииТоваровОрганизаций.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 1
+		КОГДА ПартииТоваровОрганизаций.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 3
+		КОГДА ПартииТоваровОрганизаций.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 5
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииТоваровОрганизаций КАК ПартииТоваровОрганизаций
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииТоваровОрганизаций.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииТоваровОрганизаций.ДокументПоступления В (&amp;ДокументПартии)
+	И ПартииТоваровОрганизаций.Активность
+	И ПартииТоваровОрганизаций.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ПартииТоваровОрганизаций.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И ПартииТоваровОрганизаций.НалогообложениеНДС &lt;&gt; АналитикаПартий.НалогообложениеНДС</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПриходПартийЗатратНаВыпуск</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииЗатратНаВыпуск.Период, КВАРТАЛ) КАК Период,
+	ПартииЗатратНаВыпуск.ДокументПоступления КАК ДокументПартии,
+	ПартииЗатратНаВыпуск.Организация КАК Организация,
+	"Приход" КАК Движение,
+	ПартииЗатратНаВыпуск.НалогообложениеНДС КАК Налогообложение,
+	ПартииЗатратНаВыпуск.Регистратор КАК Регистратор,
+	ПартииЗатратНаВыпуск.СтоимостьРегл КАК СуммаБезНДС,
+	ПартииЗатратНаВыпуск.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА ПартииЗатратНаВыпуск.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Принято к вычету в книге покупок"
+		КОГДА ПартииЗатратНаВыпуск.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Включено в стоимость"
+		КОГДА ПартииЗатратНаВыпуск.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Отнесено на ставку НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА ПартииЗатратНаВыпуск.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 1
+		КОГДА ПартииЗатратНаВыпуск.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 3
+		КОГДА ПартииЗатратНаВыпуск.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 5
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииЗатратНаВыпуск КАК ПартииЗатратНаВыпуск
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииЗатратНаВыпуск.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииЗатратНаВыпуск.ДокументПоступления В (&amp;ДокументПартии)
+	И ПартииЗатратНаВыпуск.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И АналитикаПартий.НалогообложениеНДС &lt;&gt; ПартииЗатратНаВыпуск.НалогообложениеНДС
+	И ПартииЗатратНаВыпуск.Активность
+	И ПартииЗатратНаВыпуск.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПриходПартийПрочихРасходов</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииПрочихРасходов.Период, КВАРТАЛ) КАК Период,
+	ПартииПрочихРасходов.ДокументПоступленияРасходов КАК ДокументПартии,
+	ПартииПрочихРасходов.Организация КАК Организация,
+	"Приход" КАК Движение,
+	ПартииПрочихРасходов.НалогообложениеНДС КАК Налогообложение,
+	ПартииПрочихРасходов.Регистратор КАК Регистратор,
+	ПартииПрочихРасходов.СтоимостьРегл КАК СуммаБезНДС,
+	ПартииПрочихРасходов.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА ПартииПрочихРасходов.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Принято к вычету в книге покупок"
+		КОГДА ПартииПрочихРасходов.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Включено в стоимость"
+		КОГДА ПартииПрочихРасходов.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Отнесено на ставку НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА ПартииПрочихРасходов.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 1
+		КОГДА ПартииПрочихРасходов.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 3
+		КОГДА ПартииПрочихРасходов.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 5
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииПрочихРасходов КАК ПартииПрочихРасходов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииПрочихРасходов.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииПрочихРасходов.ДокументПоступленияРасходов В (&amp;ДокументПартии)
+	И ПартииПрочихРасходов.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И ПартииПрочихРасходов.НалогообложениеНДС &lt;&gt; АналитикаПартий.НалогообложениеНДС
+	И ПартииПрочихРасходов.Активность
+	И ПартииПрочихРасходов.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПриходПартийРасходовНаСебестоимость</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС</dataPath>
+				<field>НДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<dcscom:periodNumber>2</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<dcscom:periodNumber>1</dcscom:periodNumber>
+					<dcscom:periodType>Main</dcscom:periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаБезНДС</dataPath>
+				<field>СуммаБезНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Налогообложение</dataPath>
+				<field>Налогообложение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтражениеВУчетеНДС</dataPath>
+				<field>ОтражениеВУчетеНДС</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПорядокСортировки</dataPath>
+				<field>ПорядокСортировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Движение</dataPath>
+				<field>Движение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПартии</dataPath>
+				<field>ДокументПартии</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НАЧАЛОПЕРИОДА(ПартииРасходовНаСебестоимостьТоваров.Период, КВАРТАЛ) КАК Период,
+	ПартииРасходовНаСебестоимостьТоваров.ДокументПоступленияРасходов КАК ДокументПартии,
+	ПартииРасходовНаСебестоимостьТоваров.Организация КАК Организация,
+	"Приход" КАК Движение,
+	ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС КАК Налогообложение,
+	ПартииРасходовНаСебестоимостьТоваров.Регистратор КАК Регистратор,
+	ПартииРасходовНаСебестоимостьТоваров.СтоимостьРегл КАК СуммаБезНДС,
+	ПартииРасходовНаСебестоимостьТоваров.НДСРегл КАК НДС,
+	ВЫБОР
+		КОГДА ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА "Принято к вычету в книге покупок"
+		КОГДА ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА "Включено в стоимость"
+		КОГДА ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА "Отнесено на ставку НДС 0% (экспорт)"
+	КОНЕЦ КАК ОтражениеВУчетеНДС,
+	ВЫБОР
+		КОГДА ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяНДС)
+			ТОГДА 1
+		КОГДА ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС В (ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНеОблагаетсяНДС), ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаОблагаетсяЕНВД))
+			ТОГДА 3
+		КОГДА ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС = ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт)
+			ТОГДА 5
+	КОНЕЦ КАК ПорядокСортировки
+ИЗ
+	РегистрНакопления.ПартииРасходовНаСебестоимостьТоваров КАК ПартииРасходовНаСебестоимостьТоваров
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаПартий КАК АналитикаПартий
+		ПО ПартииРасходовНаСебестоимостьТоваров.АналитикаУчетаПартий = АналитикаПартий.КлючАналитики
+ГДЕ
+	ПартииРасходовНаСебестоимостьТоваров.ДокументПоступленияРасходов В (&amp;ДокументПартии)
+	И ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыНалогообложенияНДС.ПустаяСсылка)
+	И АналитикаПартий.НалогообложениеНДС &lt;&gt; ПартииРасходовНаСебестоимостьТоваров.НалогообложениеНДС
+	И ПартииРасходовНаСебестоимостьТоваров.Активность
+	И ПартииРасходовНаСебестоимостьТоваров.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)</query>
+		</item>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаБезНДС</dataPath>
+		<expression>Сумма(СуммаБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НДС</dataPath>
+		<expression>Сумма(НДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Движение</dataPath>
+		<expression>Движение</expression>
+		<group>Регистратор</group>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДокументПартии</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Документ партии</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровОтКлиента</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ТаможеннаяДекларацияИмпорт</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВводОстатков</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПеремещениеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КорректировкаРеализации</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПересортицаТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеУслугПрочихАктивов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОприходованиеИзлишковТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровМеждуОрганизациями</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.СборкаТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПрочееОприходованиеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПорчаТоваров</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>КарточкаПартии</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Карточка партии</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>2d5523c9-1315-44dd-ac4f-5779223f20b1</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДокументПартии</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>5b53280c-19c9-487f-b158-868688e7a535</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>TotalsPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Title</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карточка движения партии по видам налогообложения НДС</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>DataParametersOutput</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Период</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументПартии</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ОтражениеВУчетеНДС</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаБезНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TitleOutput</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Title</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сводные данные</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Налогообложение</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>cdd14e71-59c4-4bab-87c0-b20c241b5695</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>66e1da02-97f1-459b-b4b4-5569270a2ab0</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>5c27ecf3-3040-4af4-9425-99f1d455fa05</dcsset:userSettingID>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b348bc65-e62f-4b01-8ece-9d5957de1beb</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>9786ae40-ccd8-412f-9e52-57ca17aa448d</dcsset:userSettingID>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументПартии</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Организация</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Период</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item>
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Регистратор</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Регистратор</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Движение</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаБезНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TitleOutput</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Title</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Детальные записи</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

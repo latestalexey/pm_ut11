@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ChildItemsWidth>LeftWidest</ChildItemsWidth>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаполнить" id="167">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Заполнить</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаЗаполнитьExtendedTooltip" id="206"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Основные" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ОсновныеExtendedTooltip" id="207"/>
+			<ChildItems>
+				<Page name="СтраницаКалендаря" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Календарь событий</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница календаря</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="СтраницаКалендаряExtendedTooltip" id="208"/>
+					<ChildItems>
+						<HTMLDocumentField name="ПолеХТМЛ" id="1">
+							<DataPath>ПолеХТМЛ</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="ПолеХТМЛКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ПолеХТМЛExtendedTooltip" id="209"/>
+							<Events>
+								<Event name="DocumentComplete">ПолеХТМЛДокументСформирован</Event>
+								<Event name="OnClick">РезультатПриНажатии</Event>
+							</Events>
+						</HTMLDocumentField>
+						<UsualGroup name="ГруппаКалендарь" id="7">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа календарь</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа календарь</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКалендарьExtendedTooltip" id="210"/>
+							<ChildItems>
+								<CalendarField name="Календарь" id="5">
+									<DataPath>КалендарьНаФорме</DataPath>
+									<ContextMenu name="КалендарьКонтекстноеМеню" id="6"/>
+									<ExtendedTooltip name="КалендарьExtendedTooltip" id="211"/>
+									<Events>
+										<Event name="OnChange">КалендарьПриИзменении</Event>
+									</Events>
+								</CalendarField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаявкиНаДоставкуСтраница" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявки на доставку</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявки на доставку страница</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаявкиНаДоставкуСтраницаExtendedTooltip" id="212"/>
+					<ChildItems>
+						<Table name="ЗаказНаДоставку" id="168">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ЗаказНаДоставку</DataPath>
+							<RowPictureDataPath>ЗаказНаДоставку.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ЗаказНаДоставкуКонтекстноеМеню" id="169"/>
+							<AutoCommandBar name="ЗаказНаДоставкуКоманднаяПанель" id="170"/>
+							<ExtendedTooltip name="ЗаказНаДоставкуExtendedTooltip" id="213"/>
+							<SearchStringAddition name="ЗаказНаДоставкуSearchString" id="214">
+								<Source>
+									<lf:elementId>168</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ЗаказНаДоставкуSearchStringContextMenu" id="215"/>
+								<ExtendedTooltip name="ЗаказНаДоставкуSearchStringExtendedTooltip" id="216"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЗаказНаДоставкуViewStatus" id="217">
+								<Source>
+									<lf:elementId>168</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ЗаказНаДоставкуViewStatusContextMenu" id="218"/>
+								<ExtendedTooltip name="ЗаказНаДоставкуViewStatusExtendedTooltip" id="219"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЗаказНаДоставкуSearchControl" id="220">
+								<Source>
+									<lf:elementId>168</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ЗаказНаДоставкуSearchControlContextMenu" id="221"/>
+								<ExtendedTooltip name="ЗаказНаДоставкуSearchControlExtendedTooltip" id="222"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ЗаказНаДоставкуСсылка" id="175">
+									<DataPath>ЗаказНаДоставку.Ref</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="ЗаказНаДоставкуСсылкаКонтекстноеМеню" id="176"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуСсылкаExtendedTooltip" id="223"/>
+								</LabelField>
+								<LabelField name="ЗаказНаДоставкуДата" id="171">
+									<DataPath>ЗаказНаДоставку.Date</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуДатаКонтекстноеМеню" id="172"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуДатаExtendedTooltip" id="224"/>
+								</LabelField>
+								<LabelField name="ЗаказНаДоставкуНомер" id="173">
+									<DataPath>ЗаказНаДоставку.Number</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуНомерКонтекстноеМеню" id="174"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуНомерExtendedTooltip" id="225"/>
+								</LabelField>
+								<LabelField name="ЗаказНаДоставкуПартнер" id="187">
+									<DataPath>ЗаказНаДоставку.Партнер</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуПартнерКонтекстноеМеню" id="188"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуПартнерExtendedTooltip" id="226"/>
+								</LabelField>
+								<LabelField name="ЗаказНаДоставкуАК_ЗаказчикУслуги" id="179">
+									<DataPath>ЗаказНаДоставку.АК_ЗаказчикУслуги</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуАК_ЗаказчикУслугиКонтекстноеМеню" id="180"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуАК_ЗаказчикУслугиExtendedTooltip" id="227"/>
+								</LabelField>
+								<LabelField name="ЗаказНаДоставкуАК_Транспорт" id="183">
+									<DataPath>ЗаказНаДоставку.АК_Транспорт</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуАК_ТранспортКонтекстноеМеню" id="184"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуАК_ТранспортExtendedTooltip" id="228"/>
+								</LabelField>
+								<CheckBoxField name="ЗаказНаДоставкуАК_УслугаВыполнена" id="185">
+									<DataPath>ЗаказНаДоставку.АК_УслугаВыполнена</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ЗаказНаДоставкуАК_УслугаВыполненаКонтекстноеМеню" id="186"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуАК_УслугаВыполненаExtendedTooltip" id="229"/>
+								</CheckBoxField>
+								<LabelField name="ЗаказНаДоставкуАК_КонтактноеЛицоПоУслуге" id="181">
+									<DataPath>ЗаказНаДоставку.АК_КонтактноеЛицоПоУслуге</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуАК_КонтактноеЛицоПоУслугеКонтекстноеМеню" id="182"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуАК_КонтактноеЛицоПоУслугеExtendedTooltip" id="230"/>
+								</LabelField>
+								<LabelField name="ЗаказНаДоставкуАК_ДатаВремяИсполненияУслуги" id="177">
+									<DataPath>ЗаказНаДоставку.АК_ДатаВремяИсполненияУслуги</DataPath>
+									<ContextMenu name="ЗаказНаДоставкуАК_ДатаВремяИсполненияУслугиКонтекстноеМеню" id="178"/>
+									<ExtendedTooltip name="ЗаказНаДоставкуАК_ДатаВремяИсполненияУслугиExtendedTooltip" id="231"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаявкаНаМонтажСтраница" id="93">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявка на монтаж</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявка на монтаж страница</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаявкаНаМонтажСтраницаExtendedTooltip" id="232"/>
+					<ChildItems>
+						<Table name="ЗаказНаМонтаж" id="189">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ЗаказНаМонтаж</DataPath>
+							<RowPictureDataPath>ЗаказНаМонтаж.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ЗаказНаМонтажКонтекстноеМеню" id="190"/>
+							<AutoCommandBar name="ЗаказНаМонтажКоманднаяПанель" id="191"/>
+							<ExtendedTooltip name="ЗаказНаМонтажExtendedTooltip" id="233"/>
+							<SearchStringAddition name="ЗаказНаМонтажSearchString" id="234">
+								<Source>
+									<lf:elementId>189</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ЗаказНаМонтажSearchStringContextMenu" id="235"/>
+								<ExtendedTooltip name="ЗаказНаМонтажSearchStringExtendedTooltip" id="236"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ЗаказНаМонтажViewStatus" id="237">
+								<Source>
+									<lf:elementId>189</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ЗаказНаМонтажViewStatusContextMenu" id="238"/>
+								<ExtendedTooltip name="ЗаказНаМонтажViewStatusExtendedTooltip" id="239"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ЗаказНаМонтажSearchControl" id="240">
+								<Source>
+									<lf:elementId>189</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ЗаказНаМонтажSearchControlContextMenu" id="241"/>
+								<ExtendedTooltip name="ЗаказНаМонтажSearchControlExtendedTooltip" id="242"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ЗаказНаМонтажСсылка" id="192">
+									<DataPath>ЗаказНаМонтаж.Ref</DataPath>
+									<ContextMenu name="ЗаказНаМонтажСсылкаКонтекстноеМеню" id="193"/>
+									<ExtendedTooltip name="ЗаказНаМонтажСсылкаExtendedTooltip" id="243"/>
+								</LabelField>
+								<LabelField name="ЗаказНаМонтажДата" id="194">
+									<DataPath>ЗаказНаМонтаж.Date</DataPath>
+									<ContextMenu name="ЗаказНаМонтажДатаКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="ЗаказНаМонтажДатаExtendedTooltip" id="244"/>
+								</LabelField>
+								<LabelField name="ЗаказНаМонтажНомер" id="196">
+									<DataPath>ЗаказНаМонтаж.Number</DataPath>
+									<ContextMenu name="ЗаказНаМонтажНомерКонтекстноеМеню" id="197"/>
+									<ExtendedTooltip name="ЗаказНаМонтажНомерExtendedTooltip" id="245"/>
+								</LabelField>
+								<LabelField name="ЗаказНаМонтажПартнер" id="198">
+									<DataPath>ЗаказНаМонтаж.Партнер</DataPath>
+									<ContextMenu name="ЗаказНаМонтажПартнерКонтекстноеМеню" id="199"/>
+									<ExtendedTooltip name="ЗаказНаМонтажПартнерExtendedTooltip" id="246"/>
+								</LabelField>
+								<LabelField name="ЗаказНаМонтажАК_ЗаказчикУслуги" id="200">
+									<DataPath>ЗаказНаМонтаж.АК_ЗаказчикУслуги</DataPath>
+									<ContextMenu name="ЗаказНаМонтажАК_ЗаказчикУслугиКонтекстноеМеню" id="201"/>
+									<ExtendedTooltip name="ЗаказНаМонтажАК_ЗаказчикУслугиExtendedTooltip" id="247"/>
+								</LabelField>
+								<CheckBoxField name="ЗаказНаМонтажАК_УслугаВыполнена" id="202">
+									<DataPath>ЗаказНаМонтаж.АК_УслугаВыполнена</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ЗаказНаМонтажАК_УслугаВыполненаКонтекстноеМеню" id="203"/>
+									<ExtendedTooltip name="ЗаказНаМонтажАК_УслугаВыполненаExtendedTooltip" id="248"/>
+								</CheckBoxField>
+								<LabelField name="ЗаказНаМонтажАК_ДатаВремяИсполненияУслуги" id="204">
+									<DataPath>ЗаказНаМонтаж.АК_ДатаВремяИсполненияУслуги</DataPath>
+									<ContextMenu name="ЗаказНаМонтажАК_ДатаВремяИсполненияУслугиКонтекстноеМеню" id="205"/>
+									<ExtendedTooltip name="ЗаказНаМонтажАК_ДатаВремяИсполненияУслугиExtendedTooltip" id="249"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.РабочееМестоДоставкиМонтажа</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПолеХТМЛ" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поле ХТМЛ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СтрокаСостояния" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строка состояния</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КалендарьНаФорме" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Календарь на форме</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТаблицаДляЗаполнения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица для заполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="id" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Id</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="left" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Left</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="top" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Top</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="width" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Width</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="height" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Height</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="tekst" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Tekst</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="href" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Href</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Cvet" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Cvet</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ТекущаяЗадача" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая задача</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="НоваяДатаНачала" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новая дата начала</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НоваяДатаОкончания" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новая дата окончания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПутьКФайлу" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путь к файлу</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаказНаДоставку" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на доставку</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументЗаказПоставщику.Ссылка,
+	ДокументЗаказПоставщику.ВерсияДанных,
+	ДокументЗаказПоставщику.ПометкаУдаления,
+	ДокументЗаказПоставщику.Номер,
+	ДокументЗаказПоставщику.Дата,
+	ДокументЗаказПоставщику.Проведен,
+	ДокументЗаказПоставщику.Партнер,
+	ДокументЗаказПоставщику.Контрагент,
+	ДокументЗаказПоставщику.Организация,
+	ДокументЗаказПоставщику.Соглашение,
+	ДокументЗаказПоставщику.Склад,
+	ДокументЗаказПоставщику.Валюта,
+	ДокументЗаказПоставщику.Менеджер,
+	ДокументЗаказПоставщику.ЦенаВключаетНДС,
+	ДокументЗаказПоставщику.Статус,
+	ДокументЗаказПоставщику.СуммаДокумента,
+	ДокументЗаказПоставщику.Приоритет,
+	ДокументЗаказПоставщику.ДополнительнаяИнформация,
+	ДокументЗаказПоставщику.ЖелаемаяДатаПоступления,
+	ДокументЗаказПоставщику.МаксимальныйКодСтроки,
+	ДокументЗаказПоставщику.Согласован,
+	ДокументЗаказПоставщику.ФормаОплаты,
+	ДокументЗаказПоставщику.Касса,
+	ДокументЗаказПоставщику.БанковскийСчет,
+	ДокументЗаказПоставщику.СуммаАвансаДоПодтверждения,
+	ДокументЗаказПоставщику.СуммаПредоплатыДоПоступления,
+	ДокументЗаказПоставщику.ДатаПервогоПоступления,
+	ДокументЗаказПоставщику.ДатаСогласования,
+	ДокументЗаказПоставщику.НалогообложениеНДС,
+	ДокументЗаказПоставщику.ХозяйственнаяОперация,
+	ДокументЗаказПоставщику.Комментарий,
+	ДокументЗаказПоставщику.ТребуетсяДоверенность,
+	ДокументЗаказПоставщику.НомерПоДаннымПоставщика,
+	ДокументЗаказПоставщику.ДатаПоДаннымПоставщика,
+	ДокументЗаказПоставщику.Сделка,
+	ДокументЗаказПоставщику.Подразделение,
+	ДокументЗаказПоставщику.АК_ПунктНазначения,
+	ДокументЗаказПоставщику.АК_КонтактноеЛицоПартнера,
+	ДокументЗаказПоставщику.АК_ПризнакРекламация,
+	ДокументЗаказПоставщику.АК_ПризнакРекламацияЗаСчетПоставщика,
+	ДокументЗаказПоставщику.УдалитьЗакупкаПодДеятельностьОблагаемуюЕНВД,
+	ДокументЗаказПоставщику.ГруппаФинансовогоУчета,
+	ДокументЗаказПоставщику.РегистрироватьЦеныПоставщика,
+	ДокументЗаказПоставщику.Договор,
+	ДокументЗаказПоставщику.Автор,
+	ДокументЗаказПоставщику.ДокументОснование,
+	ДокументЗаказПоставщику.ПоступлениеОднойДатой,
+	ДокументЗаказПоставщику.ДатаПоступления,
+	ДокументЗаказПоставщику.ПорядокРасчетов,
+	ДокументЗаказПоставщику.АдресДоставки,
+	ДокументЗаказПоставщику.КонтактноеЛицо,
+	ДокументЗаказПоставщику.ВернутьМногооборотнуюТару,
+	ДокументЗаказПоставщику.СрокВозвратаМногооборотнойТары,
+	ДокументЗаказПоставщику.СостояниеЗаполненияМногооборотнойТары,
+	ДокументЗаказПоставщику.ЗакупкаПодДеятельность,
+	ДокументЗаказПоставщику.АК_ТипУслуги,
+	ДокументЗаказПоставщику.АК_ЗаказчикУслуги,
+	ДокументЗаказПоставщику.АК_КонтактноеЛицоПоУслуге,
+	ДокументЗаказПоставщику.АК_ДатаВремяИсполненияУслуги,
+	ДокументЗаказПоставщику.АК_УслугаВыполнена,
+	ДокументЗаказПоставщику.АК_Транспорт,
+	ДокументЗаказПоставщику.Товары.(
+		Ссылка,
+		НомерСтроки,
+		НоменклатураПоставщика,
+		Номенклатура,
+		Характеристика,
+		Упаковка,
+		КоличествоУпаковок,
+		Количество,
+		ДатаПоступления,
+		УсловиеЦеныПоставщика,
+		Цена,
+		Сумма,
+		ПроцентРучнойСкидки,
+		СуммаРучнойСкидки,
+		СтавкаНДС,
+		СуммаНДС,
+		СуммаСНДС,
+		КодСтроки,
+		Отменено,
+		СтатьяРасходов,
+		АналитикаРасходов,
+		ПричинаОтмены,
+		АК_ТекстовоеОписание,
+		АК_ДопКомплектация,
+		АК_ПризнакНестандарт,
+		АК_НестандартОписание,
+		АК_ПризнакЭскиз,
+		АК_ЭскизФайл,
+		АК_ИнформацияДляОтделаЗакупки,
+		АК_Сделка,
+		АК_ЗаказКлиента,
+		АК_ЗаказКлиентаКодСтроки,
+		АК_ДатаОтгрузки,
+		Склад,
+		Назначение
+	),
+	ДокументЗаказПоставщику.ЭтапыГрафикаОплаты.(
+		Ссылка,
+		НомерСтроки,
+		ВариантОплаты,
+		ДатаПлатежа,
+		ПроцентПлатежа,
+		СуммаПлатежа
+	),
+	ДокументЗаказПоставщику.ДополнительныеРеквизиты.(
+		Ссылка,
+		НомерСтроки,
+		Свойство,
+		Значение,
+		ТекстоваяСтрока
+	),
+	ДокументЗаказПоставщику.ДополнительныеУслуги.(
+		Ссылка,
+		НомерСтроки,
+		Номенклатура,
+		Характеристика,
+		Количество,
+		Примечание,
+		ПунктПогрузки,
+		ПунктДоставки,
+		ЗаказКлиента
+	),
+	ДокументЗаказПоставщику.МоментВремени
+ИЗ
+	Документ.ЗаказПоставщику КАК ДокументЗаказПоставщику</QueryText>
+				<MainTable>Document.ЗаказПоставщику</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">АК_ТипУслуги</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.АК_ТипУслуги.Доставка</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ЗаказНаМонтаж" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ на доставку</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументЗаказПоставщику.Ссылка,
+	ДокументЗаказПоставщику.ВерсияДанных,
+	ДокументЗаказПоставщику.ПометкаУдаления,
+	ДокументЗаказПоставщику.Номер,
+	ДокументЗаказПоставщику.Дата,
+	ДокументЗаказПоставщику.Проведен,
+	ДокументЗаказПоставщику.Партнер,
+	ДокументЗаказПоставщику.Контрагент,
+	ДокументЗаказПоставщику.Организация,
+	ДокументЗаказПоставщику.Соглашение,
+	ДокументЗаказПоставщику.Склад,
+	ДокументЗаказПоставщику.Валюта,
+	ДокументЗаказПоставщику.Менеджер,
+	ДокументЗаказПоставщику.ЦенаВключаетНДС,
+	ДокументЗаказПоставщику.Статус,
+	ДокументЗаказПоставщику.СуммаДокумента,
+	ДокументЗаказПоставщику.Приоритет,
+	ДокументЗаказПоставщику.ДополнительнаяИнформация,
+	ДокументЗаказПоставщику.ЖелаемаяДатаПоступления,
+	ДокументЗаказПоставщику.МаксимальныйКодСтроки,
+	ДокументЗаказПоставщику.Согласован,
+	ДокументЗаказПоставщику.ФормаОплаты,
+	ДокументЗаказПоставщику.Касса,
+	ДокументЗаказПоставщику.БанковскийСчет,
+	ДокументЗаказПоставщику.СуммаАвансаДоПодтверждения,
+	ДокументЗаказПоставщику.СуммаПредоплатыДоПоступления,
+	ДокументЗаказПоставщику.ДатаПервогоПоступления,
+	ДокументЗаказПоставщику.ДатаСогласования,
+	ДокументЗаказПоставщику.НалогообложениеНДС,
+	ДокументЗаказПоставщику.ХозяйственнаяОперация,
+	ДокументЗаказПоставщику.Комментарий,
+	ДокументЗаказПоставщику.ТребуетсяДоверенность,
+	ДокументЗаказПоставщику.НомерПоДаннымПоставщика,
+	ДокументЗаказПоставщику.ДатаПоДаннымПоставщика,
+	ДокументЗаказПоставщику.Сделка,
+	ДокументЗаказПоставщику.Подразделение,
+	ДокументЗаказПоставщику.АК_ПунктНазначения,
+	ДокументЗаказПоставщику.АК_КонтактноеЛицоПартнера,
+	ДокументЗаказПоставщику.АК_ПризнакРекламация,
+	ДокументЗаказПоставщику.АК_ПризнакРекламацияЗаСчетПоставщика,
+	ДокументЗаказПоставщику.УдалитьЗакупкаПодДеятельностьОблагаемуюЕНВД,
+	ДокументЗаказПоставщику.ГруппаФинансовогоУчета,
+	ДокументЗаказПоставщику.РегистрироватьЦеныПоставщика,
+	ДокументЗаказПоставщику.Договор,
+	ДокументЗаказПоставщику.Автор,
+	ДокументЗаказПоставщику.ДокументОснование,
+	ДокументЗаказПоставщику.ПоступлениеОднойДатой,
+	ДокументЗаказПоставщику.ДатаПоступления,
+	ДокументЗаказПоставщику.ПорядокРасчетов,
+	ДокументЗаказПоставщику.АдресДоставки,
+	ДокументЗаказПоставщику.КонтактноеЛицо,
+	ДокументЗаказПоставщику.ВернутьМногооборотнуюТару,
+	ДокументЗаказПоставщику.СрокВозвратаМногооборотнойТары,
+	ДокументЗаказПоставщику.СостояниеЗаполненияМногооборотнойТары,
+	ДокументЗаказПоставщику.ЗакупкаПодДеятельность,
+	ДокументЗаказПоставщику.АК_ТипУслуги,
+	ДокументЗаказПоставщику.АК_ЗаказчикУслуги,
+	ДокументЗаказПоставщику.АК_КонтактноеЛицоПоУслуге,
+	ДокументЗаказПоставщику.АК_ДатаВремяИсполненияУслуги,
+	ДокументЗаказПоставщику.АК_УслугаВыполнена,
+	ДокументЗаказПоставщику.АК_Транспорт,
+	ДокументЗаказПоставщику.Товары.(
+		Ссылка,
+		НомерСтроки,
+		НоменклатураПоставщика,
+		Номенклатура,
+		Характеристика,
+		Упаковка,
+		КоличествоУпаковок,
+		Количество,
+		ДатаПоступления,
+		УсловиеЦеныПоставщика,
+		Цена,
+		Сумма,
+		ПроцентРучнойСкидки,
+		СуммаРучнойСкидки,
+		СтавкаНДС,
+		СуммаНДС,
+		СуммаСНДС,
+		КодСтроки,
+		Отменено,
+		СтатьяРасходов,
+		АналитикаРасходов,
+		ПричинаОтмены,
+		АК_ТекстовоеОписание,
+		АК_ДопКомплектация,
+		АК_ПризнакНестандарт,
+		АК_НестандартОписание,
+		АК_ПризнакЭскиз,
+		АК_ЭскизФайл,
+		АК_ИнформацияДляОтделаЗакупки,
+		АК_Сделка,
+		АК_ЗаказКлиента,
+		АК_ЗаказКлиентаКодСтроки,
+		АК_ДатаОтгрузки,
+		Склад,
+		Назначение
+	),
+	ДокументЗаказПоставщику.ЭтапыГрафикаОплаты.(
+		Ссылка,
+		НомерСтроки,
+		ВариантОплаты,
+		ДатаПлатежа,
+		ПроцентПлатежа,
+		СуммаПлатежа
+	),
+	ДокументЗаказПоставщику.ДополнительныеРеквизиты.(
+		Ссылка,
+		НомерСтроки,
+		Свойство,
+		Значение,
+		ТекстоваяСтрока
+	),
+	ДокументЗаказПоставщику.ДополнительныеУслуги.(
+		Ссылка,
+		НомерСтроки,
+		Номенклатура,
+		Характеристика,
+		Количество,
+		Примечание,
+		ПунктПогрузки,
+		ПунктДоставки,
+		ЗаказКлиента
+	),
+	ДокументЗаказПоставщику.МоментВремени
+ИЗ
+	Документ.ЗаказПоставщику КАК ДокументЗаказПоставщику</QueryText>
+				<MainTable>Document.ЗаказПоставщику</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">АК_ТипУслуги</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.АК_ТипУслуги.Монтаж</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Заполнить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Заполнить</Action>
+		</Command>
+	</Commands>
+</Form>

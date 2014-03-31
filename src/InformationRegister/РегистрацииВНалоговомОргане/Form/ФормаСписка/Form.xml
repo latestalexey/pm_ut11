@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПередЗагрузкойДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ОрганизацияОтбор" id="34">
+			<DataPath>Организация</DataPath>
+			<Width>30</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Wrap>false</Wrap>
+			<ContextMenu name="ОрганизацияОтборКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="ОрганизацияОтборExtendedTooltip" id="46"/>
+			<Events>
+				<Event name="OnChange">ОрганизацияОтборПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаГоризонтальная" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа горизонтальная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа горизонтальная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаГоризонтальнаяExtendedTooltip" id="47"/>
+			<ChildItems>
+				<Table name="СписокРегистрации" id="1">
+					<TitleLocation>Top</TitleLocation>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>СписокРегистрации</DataPath>
+					<RowPictureDataPath>СписокРегистрации.DefaultPicture</RowPictureDataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Регистрация в налоговых органах</v8:content>
+						</v8:item>
+					</Title>
+					<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<ContextMenu name="СписокРегистрацииКонтекстноеМеню" id="2">
+						<ChildItems>
+							<Button name="СписокРегистрацииКонтекстноеМенюНазначитьОсновнуюРегистрациюОрганизации" id="41">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.НазначитьОсновнуюРегистрациюОрганизации</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокРегистрацииКонтекстноеМенюНазначитьОсновнуюРегистрациюОрганизацииExtendedTooltip" id="48"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="СписокРегистрацииКоманднаяПанель" id="3">
+						<ChildItems>
+							<Button name="СписокРегистрацииНазначитьОсновнуюРегистрациюОрганизации" id="40">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.НазначитьОсновнуюРегистрациюОрганизации</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокРегистрацииНазначитьОсновнуюРегистрациюОрганизацииExtendedTooltip" id="49"/>
+							</Button>
+							<Button name="СписокРегистрацииКнопкаИзменитьФорму" id="42">
+								<Type>CommandBarButton</Type>
+								<OnlyInAllActions>false</OnlyInAllActions>
+								<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокРегистрацииКнопкаИзменитьФормуExtendedTooltip" id="50"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокРегистрацииExtendedTooltip" id="51"/>
+					<SearchStringAddition name="СписокРегистрацииSearchString" id="52">
+						<Source>
+							<lf:elementId>1</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="СписокРегистрацииSearchStringContextMenu" id="53"/>
+						<ExtendedTooltip name="СписокРегистрацииSearchStringExtendedTooltip" id="54"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокРегистрацииViewStatus" id="55">
+						<Source>
+							<lf:elementId>1</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="СписокРегистрацииViewStatusContextMenu" id="56"/>
+						<ExtendedTooltip name="СписокРегистрацииViewStatusExtendedTooltip" id="57"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокРегистрацииSearchControl" id="58">
+						<Source>
+							<lf:elementId>1</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="СписокРегистрацииSearchControlContextMenu" id="59"/>
+						<ExtendedTooltip name="СписокРегистрацииSearchControlExtendedTooltip" id="60"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="DragCheck">СписокРегистрацииПроверкаПеретаскивания</Event>
+						<Event name="OnActivateRow">СписокРегистрацииПриАктивизацииСтроки</Event>
+						<Event name="Drag">СписокРегистрацииПеретаскивание</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="СписокРегистрацииНаименование" id="4">
+							<DataPath>СписокРегистрации.Description</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Налоговый орган</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СписокРегистрацииНаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="СписокРегистрацииНаименованиеExtendedTooltip" id="61"/>
+						</LabelField>
+						<LabelField name="СписокРегистрацииНаименованиеИФНС" id="14">
+							<DataPath>СписокРегистрации.НаименованиеИФНС</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРегистрацииНаименованиеИФНСКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="СписокРегистрацииНаименованиеИФНСExtendedTooltip" id="62"/>
+						</LabelField>
+						<LabelField name="СписокРегистрацииНаименованиеОбособленногоПодразделения" id="16">
+							<DataPath>СписокРегистрации.НаименованиеОбособленногоПодразделения</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРегистрацииНаименованиеОбособленногоПодразделенияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="СписокРегистрацииНаименованиеОбособленногоПодразделенияExtendedTooltip" id="63"/>
+						</LabelField>
+						<LabelField name="СписокРегистрацииКПП" id="12">
+							<DataPath>СписокРегистрации.КПП</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРегистрацииКППКонтекстноеМеню" id="13"/>
+							<ExtendedTooltip name="СписокРегистрацииКППExtendedTooltip" id="64"/>
+						</LabelField>
+						<LabelField name="СписокРегистрацииЦифровойИндексОбособленногоПодразделения" id="18">
+							<DataPath>СписокРегистрации.ЦифровойИндексОбособленногоПодразделения</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокРегистрацииЦифровойИндексОбособленногоПодразделенияКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="СписокРегистрацииЦифровойИндексОбособленногоПодразделенияExtendedTooltip" id="65"/>
+						</LabelField>
+						<LabelField name="СписокРегистрацииКоличествоПодразделений" id="10">
+							<DataPath>СписокРегистрации.КоличествоПодразделений</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подразделения</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СписокРегистрацииКоличествоПодразделенийКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="СписокРегистрацииКоличествоПодразделенийExtendedTooltip" id="66"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+				<Table name="СписокПодразделения" id="22">
+					<Representation>Tree</Representation>
+					<TitleLocation>Top</TitleLocation>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<InitialTreeView>ExpandAllLevels</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>СписокПодразделения</DataPath>
+					<RowPictureDataPath>СписокПодразделения.DefaultPicture</RowPictureDataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Структура предприятия</v8:content>
+						</v8:item>
+					</Title>
+					<TitleFont ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<ContextMenu name="СписокПодразделенияКонтекстноеМеню" id="23">
+						<ChildItems>
+							<Button name="СписокПодразделенияКонтекстноеМенюНазначитьРегистрациюПодразделения" id="44">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.НазначитьРегистрациюПодразделения</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокПодразделенияКонтекстноеМенюНазначитьРегистрациюПодразделенияExtendedTooltip" id="67"/>
+							</Button>
+							<Button name="СписокПодразделенияКонтекстноеМенюОтменитьРегистрациюПодразделения" id="45">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОтменитьРегистрациюПодразделения</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокПодразделенияКонтекстноеМенюОтменитьРегистрациюПодразделенияExtendedTooltip" id="68"/>
+							</Button>
+						</ChildItems>
+					</ContextMenu>
+					<AutoCommandBar name="СписокПодразделенияКоманднаяПанель" id="24">
+						<ChildItems>
+							<Button name="СписокПодразделенияКнопкаИзменитьФорму" id="43">
+								<Type>CommandBarButton</Type>
+								<OnlyInAllActions>false</OnlyInAllActions>
+								<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокПодразделенияКнопкаИзменитьФормуExtendedTooltip" id="69"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="СписокПодразделенияExtendedTooltip" id="70"/>
+					<SearchStringAddition name="СписокПодразделенияSearchString" id="71">
+						<Source>
+							<lf:elementId>22</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="СписокПодразделенияSearchStringContextMenu" id="72"/>
+						<ExtendedTooltip name="СписокПодразделенияSearchStringExtendedTooltip" id="73"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="СписокПодразделенияViewStatus" id="74">
+						<Source>
+							<lf:elementId>22</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="СписокПодразделенияViewStatusContextMenu" id="75"/>
+						<ExtendedTooltip name="СписокПодразделенияViewStatusExtendedTooltip" id="76"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="СписокПодразделенияSearchControl" id="77">
+						<Source>
+							<lf:elementId>22</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="СписокПодразделенияSearchControlContextMenu" id="78"/>
+						<ExtendedTooltip name="СписокПодразделенияSearchControlExtendedTooltip" id="79"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Drag">СписокПодразделенияПеретаскивание</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="СписокПодразделенияНаименование" id="25">
+							<DataPath>СписокПодразделения.Description</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подразделение</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СписокПодразделенияНаименованиеКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="СписокПодразделенияНаименованиеExtendedTooltip" id="80"/>
+						</LabelField>
+						<LabelField name="СписокПодразделенияКод" id="27">
+							<DataPath>СписокПодразделения.Code</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ContextMenu name="СписокПодразделенияКодКонтекстноеМеню" id="28"/>
+							<ExtendedTooltip name="СписокПодразделенияКодExtendedTooltip" id="81"/>
+						</LabelField>
+						<LabelField name="СписокПодразделенияРегистрацияВНалоговомОрганеНаименование" id="38">
+							<DataPath>СписокПодразделения.РегистрацияВНалоговомОрганеDescription</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Налоговый орган</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СписокПодразделенияРегистрацияВНалоговомОрганеНаименованиеКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="СписокПодразделенияРегистрацияВНалоговомОрганеНаименованиеExtendedTooltip" id="82"/>
+						</LabelField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.РегистрацииВНалоговомОргане</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокРегистрации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список регистрации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокРегистрации.Description</Field>
+				<Field>СписокРегистрации.Owner</Field>
+				<Field>СписокРегистрации.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникРегистрацииВНалоговомОргане.Ссылка,
+	СправочникРегистрацииВНалоговомОргане.Владелец,
+	СправочникРегистрацииВНалоговомОргане.Наименование,
+	СправочникРегистрацииВНалоговомОргане.НаименованиеИФНС,
+	СправочникРегистрацииВНалоговомОргане.КПП,
+	СправочникРегистрацииВНалоговомОргане.НаименованиеОбособленногоПодразделения,
+	СправочникРегистрацииВНалоговомОргане.ЦифровойИндексОбособленногоПодразделения,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ РегистрРегистрацииВНалоговомОргане.Подразделение) КАК КоличествоПодразделений
+ИЗ
+	Справочник.РегистрацииВНалоговомОргане КАК СправочникРегистрацииВНалоговомОргане
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РегистрацииВНалоговомОргане КАК РегистрРегистрацииВНалоговомОргане
+		ПО СправочникРегистрацииВНалоговомОргане.Ссылка = РегистрРегистрацииВНалоговомОргане.РегистрацияВНалоговомОргане
+
+СГРУППИРОВАТЬ ПО
+	СправочникРегистрацииВНалоговомОргане.Владелец,
+	СправочникРегистрацииВНалоговомОргане.Наименование,
+	СправочникРегистрацииВНалоговомОргане.НаименованиеИФНС,
+	СправочникРегистрацииВНалоговомОргане.КПП,
+	СправочникРегистрацииВНалоговомОргане.НаименованиеОбособленногоПодразделения,
+	СправочникРегистрацииВНалоговомОргане.ЦифровойИндексОбособленногоПодразделения,
+	СправочникРегистрацииВНалоговомОргане.Ссылка</QueryText>
+				<MainTable>Catalog.РегистрацииВНалоговомОргане</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокПодразделения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список подразделения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписокПодразделения.РегистрацияВНалоговомОргане</Field>
+				<Field>СписокПодразделения.РегистрацияВНалоговомОрганеDescription</Field>
+				<Field>СписокПодразделения.Организация</Field>
+				<Field>СписокПодразделения.Ref</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникСтруктураПредприятия.Ссылка,
+	СправочникСтруктураПредприятия.ВерсияДанных,
+	СправочникСтруктураПредприятия.ПометкаУдаления,
+	СправочникСтруктураПредприятия.Предопределенный,
+	СправочникСтруктураПредприятия.Родитель,
+	СправочникСтруктураПредприятия.Код,
+	СправочникСтруктураПредприятия.Наименование,
+	СправочникСтруктураПредприятия.ТекущийРуководитель,
+	СправочникСтруктураПредприятия.ВариантОбособленногоУчетаТоваров,
+	РегистрРегистрацииВНалоговомОргане.Организация,
+	РегистрРегистрацииВНалоговомОргане.РегистрацияВНалоговомОргане,
+	РегистрРегистрацииВНалоговомОргане.РегистрацияВНалоговомОргане.Наименование
+ИЗ
+	Справочник.СтруктураПредприятия КАК СправочникСтруктураПредприятия
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.РегистрацииВНалоговомОргане КАК РегистрРегистрацииВНалоговомОргане
+		ПО СправочникСтруктураПредприятия.Ссылка = РегистрРегистрацииВНалоговомОргане.Подразделение
+			И (РегистрРегистрацииВНалоговомОргане.Организация = &amp;Организация)</QueryText>
+				<MainTable>Catalog.СтруктураПредприятия</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Организация" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<Save>
+				<Field>Организация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ТекущаяСтрокаРегистрации" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая строка регистрации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.РегистрацииВНалоговомОргане</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОсновнаяРегистрацияОрганизации" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основная регистрация организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.РегистрацииВНалоговомОргане</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокПодразделения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ТекущаяСтрокаРегистрации</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СписокПодразделения.РегистрацияВНалоговомОргане</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ТекущаяСтрокаРегистрации</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>BackColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветФонаВыделения</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Font</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокРегистрации</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ОсновнаяРегистрацияОрганизации</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СписокРегистрации.Ссылка</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">ОсновнаяРегистрацияОрганизации</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>BackColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветФонаВыделения</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Font</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СписокРегистрацииКоличествоПодразделений</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">СписокРегистрации.КоличествоПодразделений</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">не привязаны</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="НазначитьОсновнуюРегистрациюОрганизации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить основной</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить основную регистрацию организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НазначитьОсновнуюРегистрациюОрганизации</Action>
+		</Command>
+		<Command name="НазначитьРегистрациюПодразделения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить регистрацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначить регистрацию подразделения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НазначитьРегистрациюПодразделения</Action>
+		</Command>
+		<Command name="ОтменитьРегистрациюПодразделения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить регистрацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить регистрацию подразделения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтменитьРегистрациюПодразделения</Action>
+		</Command>
+	</Commands>
+</Form>

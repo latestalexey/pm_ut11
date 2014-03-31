@@ -1,0 +1,1278 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Данные</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидСделки</dataPath>
+			<field>ВидСделки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоСделок</dataPath>
+			<field>КоличествоСделок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество сделок</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ответственный</dataPath>
+			<field>Ответственный</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Партнер</dataPath>
+			<field>Партнер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПотенциальнаяСуммаПродажи</dataPath>
+			<field>ПотенциальнаяСуммаПродажи</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сделка</dataPath>
+			<field>Сделка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сделка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СоглашениеСКлиентом</dataPath>
+			<field>СоглашениеСКлиентом</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СделкиСКлиентами.Статус КАК Статус,
+	СделкиСКлиентами.Ссылка КАК Сделка,
+	СделкиСКлиентами.ВидСделки КАК ВидСделки,
+	СделкиСКлиентами.Партнер КАК Партнер,
+	СделкиСКлиентами.Ответственный КАК Ответственный,
+	СделкиСКлиентами.СоглашениеСКлиентом КАК СоглашениеСКлиентом,
+	1 КАК КоличествоСделок,
+	СделкиСКлиентами.ПотенциальнаяСуммаПродажи КАК ПотенциальнаяСуммаПродажи
+{ВЫБРАТЬ
+	Статус.*,
+	Сделка.*,
+	ВидСделки.*,
+	Партнер.*,
+	Ответственный.*,
+	СоглашениеСКлиентом.*,
+	КоличествоСделок,
+	ПотенциальнаяСуммаПродажи}
+ИЗ
+	Справочник.СделкиСКлиентами КАК СделкиСКлиентами
+ГДЕ
+	(НЕ СделкиСКлиентами.ПометкаУдаления)
+{ГДЕ
+	(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+	(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+			ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+	(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента)),
+	СделкиСКлиентами.Ответственный.*,
+	СделкиСКлиентами.СоглашениеСКлиентом.*,
+	СделкиСКлиентами.ВидСделки.*,
+	СделкиСКлиентами.Статус.*,
+	СделкиСКлиентами.Партнер.*}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СреднееПоМенеджерам</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоМенеджерамСреднееКоличествоСделок</dataPath>
+			<field>ПоМенеджерамСреднееКоличествоСделок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Среднее количество сделок</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоМенеджерамСредняяПотенциальнаяСуммаПродажи</dataPath>
+			<field>ПоМенеджерамСредняяПотенциальнаяСуммаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Средняя потенциальная сумма продажи</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	СтатусыСделок.Ссылка КАК Статус,
+	СделкиСКлиентами.Ответственный
+ПОМЕСТИТЬ СтатусыМенеджеры
+ИЗ
+	Справочник.СделкиСКлиентами КАК СделкиСКлиентами,
+	Перечисление.СтатусыСделок КАК СтатусыСделок
+{ГДЕ
+	(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+	(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+			ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+	(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СтатусыМенеджеры.Статус,
+	СтатусыМенеджеры.Ответственный,
+	ЕСТЬNULL(СУММА(СделкиСКлиентами.ПотенциальнаяСуммаПродажи), 0) КАК ПотенциальнаяСуммаПродажи,
+	КОЛИЧЕСТВО(СделкиСКлиентами.КоличествоСделок) КАК КоличествоСделок
+ПОМЕСТИТЬ ПоМенеджерам
+ИЗ
+	СтатусыМенеджеры КАК СтатусыМенеджеры
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СделкиСКлиентами.Статус КАК Статус,
+			СделкиСКлиентами.Ответственный КАК Ответственный,
+			СделкиСКлиентами.ПотенциальнаяСуммаПродажи КАК ПотенциальнаяСуммаПродажи,
+			1 КАК КоличествоСделок
+		ИЗ
+			Справочник.СделкиСКлиентами КАК СделкиСКлиентами
+		{ГДЕ
+			(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+			(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+					ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+			(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}) КАК СделкиСКлиентами
+		ПО СтатусыМенеджеры.Статус = СделкиСКлиентами.Статус
+			И СтатусыМенеджеры.Ответственный = СделкиСКлиентами.Ответственный
+
+СГРУППИРОВАТЬ ПО
+	СтатусыМенеджеры.Статус,
+	СтатусыМенеджеры.Ответственный
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоМенеджерам.Статус,
+	СРЕДНЕЕ(ПоМенеджерам.КоличествоСделок) КАК ПоМенеджерамСреднееКоличествоСделок,
+	СРЕДНЕЕ(ПоМенеджерам.ПотенциальнаяСуммаПродажи) КАК ПоМенеджерамСредняяПотенциальнаяСуммаПродажи
+ИЗ
+	ПоМенеджерам КАК ПоМенеджерам
+
+СГРУППИРОВАТЬ ПО
+	ПоМенеджерам.Статус</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СреднееПоКлиентам</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоКлиентамСреднееКоличествоСделок</dataPath>
+			<field>ПоКлиентамСреднееКоличествоСделок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Среднее количество сделок</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоКлиентамСредняяПотенциальнаяСуммаПродажи</dataPath>
+			<field>ПоКлиентамСредняяПотенциальнаяСуммаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Средняя потенциальная сумма продажи</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	СтатусыСделок.Ссылка КАК Статус,
+	СделкиСКлиентами.Партнер
+ПОМЕСТИТЬ СтатусыКлиенты
+ИЗ
+	Справочник.СделкиСКлиентами КАК СделкиСКлиентами,
+	Перечисление.СтатусыСделок КАК СтатусыСделок
+{ГДЕ
+	(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+	(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+			ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+	(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СтатусыКлиенты.Статус,
+	СтатусыКлиенты.Партнер,
+	ЕСТЬNULL(СУММА(СделкиСКлиентами.ПотенциальнаяСуммаПродажи), 0) КАК ПотенциальнаяСуммаПродажи,
+	КОЛИЧЕСТВО(СделкиСКлиентами.КоличествоСделок) КАК КоличествоСделок
+ПОМЕСТИТЬ ПоКлиентам
+ИЗ
+	СтатусыКлиенты КАК СтатусыКлиенты
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СделкиСКлиентами.Статус КАК Статус,
+			СделкиСКлиентами.Партнер КАК Партнер,
+			СделкиСКлиентами.ПотенциальнаяСуммаПродажи КАК ПотенциальнаяСуммаПродажи,
+			1 КАК КоличествоСделок
+		ИЗ
+			Справочник.СделкиСКлиентами КАК СделкиСКлиентами
+		{ГДЕ
+			(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+			(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+					ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+			(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}) КАК СделкиСКлиентами
+		ПО СтатусыКлиенты.Статус = СделкиСКлиентами.Статус
+			И СтатусыКлиенты.Партнер = СделкиСКлиентами.Партнер
+
+СГРУППИРОВАТЬ ПО
+	СтатусыКлиенты.Статус,
+	СтатусыКлиенты.Партнер
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоКлиентам.Статус,
+	СРЕДНЕЕ(ПоКлиентам.КоличествоСделок) КАК ПоКлиентамСреднееКоличествоСделок,
+	СРЕДНЕЕ(ПоКлиентам.ПотенциальнаяСуммаПродажи) КАК ПоКлиентамСредняяПотенциальнаяСуммаПродажи
+ИЗ
+	ПоКлиентам КАК ПоКлиентам
+
+СГРУППИРОВАТЬ ПО
+	ПоКлиентам.Статус</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СреднееПоВидамСделок</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоВидамСделокСреднееКоличествоСделок</dataPath>
+			<field>ПоВидамСделокСреднееКоличествоСделок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Среднее количество сделок</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоВидамСделокСредняяПотенциальнаяСуммаПродажи</dataPath>
+			<field>ПоВидамСделокСредняяПотенциальнаяСуммаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Средняя потенциальная сумма продажи</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	СтатусыСделок.Ссылка КАК Статус,
+	СделкиСКлиентами.ВидСделки
+ПОМЕСТИТЬ СтатусыВиды
+ИЗ
+	Справочник.СделкиСКлиентами КАК СделкиСКлиентами,
+	Перечисление.СтатусыСделок КАК СтатусыСделок
+{ГДЕ
+	(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+	(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+			ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+	(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СтатусыВиды.Статус,
+	СтатусыВиды.ВидСделки,
+	ЕСТЬNULL(СУММА(СделкиСКлиентами.ПотенциальнаяСуммаПродажи), 0) КАК ПотенциальнаяСуммаПродажи,
+	КОЛИЧЕСТВО(СделкиСКлиентами.КоличествоСделок) КАК КоличествоСделок
+ПОМЕСТИТЬ ПоВидамСделок
+ИЗ
+	СтатусыВиды КАК СтатусыВиды
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СделкиСКлиентами.Статус КАК Статус,
+			СделкиСКлиентами.ВидСделки КАК ВидСделки,
+			СделкиСКлиентами.ПотенциальнаяСуммаПродажи КАК ПотенциальнаяСуммаПродажи,
+			1 КАК КоличествоСделок
+		ИЗ
+			Справочник.СделкиСКлиентами КАК СделкиСКлиентами
+		{ГДЕ
+			(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+			(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+					ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+			(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}) КАК СделкиСКлиентами
+		ПО СтатусыВиды.Статус = СделкиСКлиентами.Статус
+			И СтатусыВиды.ВидСделки = СделкиСКлиентами.ВидСделки
+
+СГРУППИРОВАТЬ ПО
+	СтатусыВиды.Статус,
+	СтатусыВиды.ВидСделки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоВидамСделок.Статус,
+	СРЕДНЕЕ(ПоВидамСделок.КоличествоСделок) КАК ПоВидамСделокСреднееКоличествоСделок,
+	СРЕДНЕЕ(ПоВидамСделок.ПотенциальнаяСуммаПродажи) КАК ПоВидамСделокСредняяПотенциальнаяСуммаПродажи
+ИЗ
+	ПоВидамСделок КАК ПоВидамСделок
+
+СГРУППИРОВАТЬ ПО
+	ПоВидамСделок.Статус</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СреднееПоСоглашениям</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоСоглашениямСреднееКоличествоСделок</dataPath>
+			<field>ПоСоглашениямСреднееКоличествоСделок</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Среднее количество сделок</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоСоглашениямСредняяПотенциальнаяСуммаПродажи</dataPath>
+			<field>ПоСоглашениямСредняяПотенциальнаяСуммаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Средняя потенциальная сумма продажи</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Format</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	СтатусыСделок.Ссылка КАК Статус,
+	СделкиСКлиентами.СоглашениеСКлиентом
+ПОМЕСТИТЬ СтатусыСоглашения
+ИЗ
+	Справочник.СделкиСКлиентами КАК СделкиСКлиентами,
+	Перечисление.СтатусыСделок КАК СтатусыСделок
+{ГДЕ
+	(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+	(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+			ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+	(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СтатусыСоглашения.Статус,
+	СтатусыСоглашения.СоглашениеСКлиентом,
+	ЕСТЬNULL(СУММА(СделкиСКлиентами.ПотенциальнаяСуммаПродажи), 0) КАК ПотенциальнаяСуммаПродажи,
+	КОЛИЧЕСТВО(СделкиСКлиентами.КоличествоСделок) КАК КоличествоСделок
+ПОМЕСТИТЬ ПоСоглашениям
+ИЗ
+	СтатусыСоглашения КАК СтатусыСоглашения
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			СделкиСКлиентами.Статус КАК Статус,
+			СделкиСКлиентами.СоглашениеСКлиентом КАК СоглашениеСКлиентом,
+			СделкиСКлиентами.ПотенциальнаяСуммаПродажи КАК ПотенциальнаяСуммаПродажи,
+			1 КАК КоличествоСделок
+		ИЗ
+			Справочник.СделкиСКлиентами КАК СделкиСКлиентами
+		{ГДЕ
+			(СделкиСКлиентами.ДатаНачала &lt;= &amp;ОкончаниеПериода),
+			(СделкиСКлиентами.ДатаОкончания &gt;= &amp;НачалоПериода
+					ИЛИ СделкиСКлиентами.ДатаОкончания = ДАТАВРЕМЯ(1, 1, 1)),
+			(СделкиСКлиентами.Партнер В (&amp;ПартнерыСегмента))}) КАК СделкиСКлиентами
+		ПО СтатусыСоглашения.Статус = СделкиСКлиентами.Статус
+			И СтатусыСоглашения.СоглашениеСКлиентом = СделкиСКлиентами.СоглашениеСКлиентом
+
+СГРУППИРОВАТЬ ПО
+	СтатусыСоглашения.Статус,
+	СтатусыСоглашения.СоглашениеСКлиентом
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоСоглашениям.Статус,
+	СРЕДНЕЕ(ПоСоглашениям.КоличествоСделок) КАК ПоСоглашениямСреднееКоличествоСделок,
+	СРЕДНЕЕ(ПоСоглашениям.ПотенциальнаяСуммаПродажи) КАК ПоСоглашениямСредняяПотенциальнаяСуммаПродажи
+ИЗ
+	ПоСоглашениям КАК ПоСоглашениям
+
+СГРУППИРОВАТЬ ПО
+	ПоСоглашениям.Статус</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>Данные</sourceDataSet>
+		<destinationDataSet>СреднееПоМенеджерам</destinationDataSet>
+		<sourceExpression>Статус</sourceExpression>
+		<destinationExpression>Статус</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Данные</sourceDataSet>
+		<destinationDataSet>СреднееПоКлиентам</destinationDataSet>
+		<sourceExpression>Статус</sourceExpression>
+		<destinationExpression>Статус</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Данные</sourceDataSet>
+		<destinationDataSet>СреднееПоВидамСделок</destinationDataSet>
+		<sourceExpression>Статус</sourceExpression>
+		<destinationExpression>Статус</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Данные</sourceDataSet>
+		<destinationDataSet>СреднееПоСоглашениям</destinationDataSet>
+		<sourceExpression>Статус</sourceExpression>
+		<destinationExpression>Статус</destinationExpression>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>ПоМенеджерамОтклонениеКоличества</dataPath>
+		<expression>КоличествоСделок - ПоМенеджерамСреднееКоличествоСделок</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По менеджерам отклонение количества</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоМенеджерамОтклонениеПотенциала</dataPath>
+		<expression>ПотенциальнаяСуммаПродажи - ПоМенеджерамСредняяПотенциальнаяСуммаПродажи</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По менеджерам отклонение потенциала</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоКлиентамОтклонениеКоличества</dataPath>
+		<expression>КоличествоСделок - ПоКлиентамСреднееКоличествоСделок</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По клиентам отклонение количества</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоКлиентамОтклонениеПотенциала</dataPath>
+		<expression>ПотенциальнаяСуммаПродажи - ПоКлиентамСредняяПотенциальнаяСуммаПродажи</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По клиентам отклонение потенциала</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоВидамСделокОтклонениеКоличества</dataPath>
+		<expression>КоличествоСделок - ПоВидамСделокСреднееКоличествоСделок</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По видам сделок отклонение количества</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоВидамСделокОтклонениеПотенциала</dataPath>
+		<expression>ПотенциальнаяСуммаПродажи - ПоВидамСделокСредняяПотенциальнаяСуммаПродажи</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По видам сделок отклонение потенциала</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоСоглашениямОтклонениеКоличества</dataPath>
+		<expression>КоличествоСделок - ПоСоглашениямСреднееКоличествоСделок</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По соглашениям отклонение количества</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПоСоглашениямОтклонениеПотенциала</dataPath>
+		<expression>ПотенциальнаяСуммаПродажи - ПоСоглашениямСредняяПотенциальнаяСуммаПродажи</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По соглашениям отклонение потенциала</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Format</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>ПоМенеджерамОтклонениеКоличества</dataPath>
+		<expression>ЕстьNULL(Сумма(КоличествоСделок),0) - Вычислить("Максимум(ПоМенеджерамСреднееКоличествоСделок)", "Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоМенеджерамОтклонениеПотенциала</dataPath>
+		<expression>ЕстьNULL(Сумма(ПотенциальнаяСуммаПродажи),0) - Вычислить("Максимум(ПоМенеджерамСредняяПотенциальнаяСуммаПродажи)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоКлиентамОтклонениеКоличества</dataPath>
+		<expression>ЕстьNULL(Сумма(КоличествоСделок),0) - Вычислить("Максимум(ПоКлиентамСреднееКоличествоСделок)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоКлиентамОтклонениеПотенциала</dataPath>
+		<expression>ЕстьNULL(Сумма(ПотенциальнаяСуммаПродажи),0) - Вычислить("Максимум(ПоКлиентамСредняяПотенциальнаяСуммаПродажи)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоКлиентамСреднееКоличествоСделок</dataPath>
+		<expression>Максимум(ПоКлиентамСреднееКоличествоСделок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоКлиентамСредняяПотенциальнаяСуммаПродажи</dataPath>
+		<expression>Максимум(ПоКлиентамСредняяПотенциальнаяСуммаПродажи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоВидамСделокОтклонениеКоличества</dataPath>
+		<expression>ЕстьNULL(Сумма(КоличествоСделок),0) - Вычислить("Максимум(ПоВидамСделокСреднееКоличествоСделок)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоВидамСделокОтклонениеПотенциала</dataPath>
+		<expression>ЕстьNULL(Сумма(ПотенциальнаяСуммаПродажи),0) - Вычислить("Максимум(ПоВидамСделокСредняяПотенциальнаяСуммаПродажи)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоВидамСделокСреднееКоличествоСделок</dataPath>
+		<expression>Максимум(ПоВидамСделокСреднееКоличествоСделок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоВидамСделокСредняяПотенциальнаяСуммаПродажи</dataPath>
+		<expression>Максимум(ПоВидамСделокСредняяПотенциальнаяСуммаПродажи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоСоглашениямОтклонениеКоличества</dataPath>
+		<expression>ЕстьNULL(Сумма(КоличествоСделок),0) - Вычислить("Максимум(ПоСоглашениямСреднееКоличествоСделок)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоСоглашениямОтклонениеПотенциала</dataPath>
+		<expression>ЕстьNULL(Сумма(ПотенциальнаяСуммаПродажи),0) - Вычислить("Максимум(ПоСоглашениямСредняяПотенциальнаяСуммаПродажи)","Статус")</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоСоглашениямСреднееКоличествоСделок</dataPath>
+		<expression>Максимум(ПоСоглашениямСреднееКоличествоСделок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоСоглашениямСредняяПотенциальнаяСуммаПродажи</dataPath>
+		<expression>Максимум(ПоСоглашениямСредняяПотенциальнаяСуммаПродажи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоМенеджерамСреднееКоличествоСделок</dataPath>
+		<expression>Максимум(ПоМенеджерамСреднееКоличествоСделок)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоМенеджерамСредняяПотенциальнаяСуммаПродажи</dataPath>
+		<expression>Максимум(ПоМенеджерамСредняяПотенциальнаяСуммаПродажи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоСделок</dataPath>
+		<expression>ЕстьNULL(Сумма(КоличествоСделок),0)</expression>
+		<group>ВидСделки</group>
+		<group>Ответственный</group>
+		<group>Партнер</group>
+		<group>СоглашениеСКлиентом</group>
+		<group>Статус</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПотенциальнаяСуммаПродажи</dataPath>
+		<expression>ЕстьNULL(Сумма(ПотенциальнаяСуммаПродажи),0)</expression>
+		<group>ВидСделки</group>
+		<group>Ответственный</group>
+		<group>Партнер</group>
+		<group>Статус</group>
+	</totalField>
+	<parameter>
+		<name>СегментПартнеров</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сегмент партнеров</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СегментыПартнеров</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.СегментыПартнеров.ПустаяСсылка</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ОкончаниеПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Окончание периода</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ПартнерыСегмента</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Партнеры сегмента</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Партнеры</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Менеджеры</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Эффективность сделок с клиентами (по менеджерам)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоСделок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоМенеджерамОтклонениеКоличества</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПотенциальнаяСуммаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоМенеджерамОтклонениеПотенциала</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СегментПартнеров</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.СегментыПартнеров.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>05ef010b-ed8d-4d69-a698-a673035215b2</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>a21e231b-88b9-49ff-9a07-18d25c645972</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Статус</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Статус</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоМенеджерамСреднееКоличествоСделок</dcsset:field>
+						<dcsset:title>Количество сделок</dcsset:title>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоМенеджерамСредняяПотенциальнаяСуммаПродажи</dcsset:field>
+						<dcsset:title>Потенциальная сумма продажи</dcsset:title>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:name>Статус</dcsset:name>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Ответственный</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Клиенты</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Эффективность сделок с клиентами (по клиентам)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоСделок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоКлиентамОтклонениеКоличества</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПотенциальнаяСуммаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоКлиентамОтклонениеПотенциала</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СегментПартнеров</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.СегментыПартнеров.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>c27790b5-bebe-4bd5-93c1-983240c37afa</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>5c3309b1-bbe4-40c3-b5da-eec6317a0849</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Статус</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Статус</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоКлиентамСреднееКоличествоСделок</dcsset:field>
+						<dcsset:title>Количество сделок</dcsset:title>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоКлиентамСредняяПотенциальнаяСуммаПродажи</dcsset:field>
+						<dcsset:title>Потенциальная сумма продажи</dcsset:title>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:name>Статус</dcsset:name>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Партнер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ВидыСделок</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Эффективность сделок с клиентами (по видам сделок)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоСделок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоВидамСделокОтклонениеКоличества</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПотенциальнаяСуммаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоВидамСделокОтклонениеПотенциала</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СегментПартнеров</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.СегментыПартнеров.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>3a96bb74-ad87-44a2-a8d1-5528e9847d52</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>6fd65fee-be3e-4fa6-979e-49fdfd66cf08</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Статус</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Статус</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоВидамСделокСреднееКоличествоСделок</dcsset:field>
+						<dcsset:title>Количество сделок</dcsset:title>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоВидамСделокСредняяПотенциальнаяСуммаПродажи</dcsset:field>
+						<dcsset:title>Потенциальная сумма продажи</dcsset:title>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:name>Статус</dcsset:name>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ВидСделки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>СоглашенияСКлиентами</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Эффективность сделок с клиентами (по соглашениям с клиентами)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоСделок</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоСоглашениямОтклонениеКоличества</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПотенциальнаяСуммаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоСоглашениямОтклонениеПотенциала</dcsset:field>
+					<dcsset:title>Отклонение</dcsset:title>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СегментПартнеров</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.СегментыПартнеров.ПустаяСсылка</dcscor:value>
+					<dcsset:userSettingID>1169ad51-ca1e-475d-bef3-ac27010eb1d0</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>78635838-c276-4702-8977-d88a71314bd0</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Статус</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Статус</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоСоглашениямСреднееКоличествоСделок</dcsset:field>
+						<dcsset:title>Количество сделок</dcsset:title>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПоСоглашениямСредняяПотенциальнаяСуммаПродажи</dcsset:field>
+						<dcsset:title>Потенциальная сумма продажи</dcsset:title>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:name>Статус</dcsset:name>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статус</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СоглашениеСКлиентом</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

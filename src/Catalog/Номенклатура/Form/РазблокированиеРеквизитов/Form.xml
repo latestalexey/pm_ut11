@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="РазрешитьРедактирование" id="6">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.РазрешитьРедактирование</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="РазрешитьРедактированиеExtendedTooltip" id="41"/>
+			</Button>
+			<Button name="Закрыть" id="7">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ЗакрытьExtendedTooltip" id="42"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ДекорацияВидНоменклатуры" id="4">
+			<SkipOnInput>false</SkipOnInput>
+			<TextColor>web:FireBrick</TextColor>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты не рекомендуется изменять, если номенклатура уже выбрана в документах.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ДекорацияВидНоменклатурыКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ДекорацияВидНоменклатурыExtendedTooltip" id="43"/>
+		</LabelDecoration>
+		<UsualGroup name="ГруппаВидНоменклатуры" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вид номенклатуры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВидНоменклатурыExtendedTooltip" id="44"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеВидНоменклатуры" id="1">
+					<DataPath>РазрешитьРедактированиеВидНоменклатуры</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрешить редактирование вида номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеВидНоменклатурыКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеВидНоменклатурыExtendedTooltip" id="45"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВестиУчетПоГТД" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вести учет по ГТД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вести учет по ГТД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаВестиУчетПоГТДExtendedTooltip" id="46"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеВестиУчетПоГТД" id="9">
+					<DataPath>РазрешитьРедактированиеВестиУчетПоГТД</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеВестиУчетПоГТДКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеВестиУчетПоГТДExtendedTooltip" id="47"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПодакцизныйТовар" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подакцизный товар</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа подакцизный товар</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПодакцизныйТоварExtendedTooltip" id="48"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеПодакцизныйТовар" id="33">
+					<DataPath>РазрешитьРедактированиеПодакцизныйТовар</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеПодакцизныйТоварКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеПодакцизныйТоварExtendedTooltip" id="49"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСтавкаНДС" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ставка НДС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вести учет по ГТД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСтавкаНДСExtendedTooltip" id="50"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеСтавкаНДС" id="21">
+					<DataPath>РазрешитьРедактированиеСтавкаНДС</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрешить редактирование ставки НДС</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеСтавкаНДСКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеСтавкаНДСExtendedTooltip" id="51"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЦеноваяГруппа" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ценовая группа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа вести учет по ГТД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЦеноваяГруппаExtendedTooltip" id="52"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеЦеноваяГруппа" id="16">
+					<DataPath>РазрешитьРедактированиеЦеноваяГруппа</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разрешить редактирование ценовой группы</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеЦеноваяГруппаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеЦеноваяГруппаExtendedTooltip" id="53"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаНаборУпаковок" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор упаковок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа набор упаковок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаборУпаковокExtendedTooltip" id="54"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеНаборУпаковок" id="39">
+					<DataPath>РазрешитьРедактированиеНаборУпаковок</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеНаборУпаковокКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеНаборУпаковокExtendedTooltip" id="55"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаЕдиницаИзмерения" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единица измерения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа единица измерения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаЕдиницаИзмеренияExtendedTooltip" id="56"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеЕдиницаИзмерения" id="27">
+					<DataPath>РазрешитьРедактированиеЕдиницаИзмерения</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеЕдиницаИзмеренияКонтекстноеМеню" id="28"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеЕдиницаИзмеренияExtendedTooltip" id="57"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаКачество" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единица измерения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа качество</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКачествоExtendedTooltip" id="58"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеКачество" id="30">
+					<DataPath>РазрешитьРедактированиеКачество</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеКачествоКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеКачествоExtendedTooltip" id="59"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРедактированиеТоварнаяКатегория" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа редактирование товарная категория</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа редактирование товарная категория</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРедактированиеТоварнаяКатегорияExtendedTooltip" id="60"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешитьРедактированиеТоварнаяКатегория" id="36">
+					<DataPath>РазрешитьРедактированиеТоварнаяКатегория</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешитьРедактированиеТоварнаяКатегорияКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="РазрешитьРедактированиеТоварнаяКатегорияExtendedTooltip" id="61"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="РазрешитьРедактированиеВидНоменклатуры" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование вид номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеВестиУчетПоГТД" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование флага "Вести учет по ГТД"</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеСтавкаНДС" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование вид номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеЦеноваяГруппа" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование ценовая группа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьЦеновыеГруппы</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеНаборУпаковок" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование набора упаковок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеЕдиницаИзмерения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование единицы измерения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьЦеновыеГруппы</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеКачество" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование качества</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьКачествоТоваров</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеПодакцизныйТовар" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование флага "Подакцизный товар"</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РазрешитьРедактированиеТоварнаяКатегория" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование товарной категории</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="РазрешитьРедактирование" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разрешить редактирование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РазрешитьРедактирование</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЭлементов</dataPath>
+			<field>КоличествоЭлементов</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерГТД</dataPath>
+			<field>НомерГТД</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтранаПроисхождения</dataPath>
+			<field>СтранаПроисхождения</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтранаПроисхожденияКод</dataPath>
+			<field>СтранаПроисхожденияКод</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетФактура</dataPath>
+			<field>СчетФактура</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НалогообложениеНДС</dataPath>
+			<field>НалогообложениеНДС</field>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СчетФактура.ДокументОснование КАК ДокументОснование,
+	СчетФактура.Ссылка КАК СчетФактура
+ПОМЕСТИТЬ ОснованияСчетовФактур
+ИЗ
+	Документ.СчетФактураПолученный.ДокументыОснования КАК СчетФактура
+ГДЕ
+	СчетФактура.Ссылка В(&amp;СписокСФ)
+
+ИНДЕКСИРОВАТЬ ПО
+	ДокументОснование
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТоварыОрганизаций.Регистратор КАК СчетФактура,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения КАК СтранаПроисхождения,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения.Код КАК СтранаПроисхожденияКод,
+	ТоварыОрганизаций.НомерГТД.Код КАК НомерГТД,
+	ТоварыОрганизаций.Номенклатура,
+	ТоварыОрганизаций.ВидЗапасов.Поставщик КАК Поставщик,
+	ТоварыОрганизаций.ВидЗапасов.НалогообложениеНДС КАК НалогообложениеНДС,
+	СУММА(1) КАК КоличествоЭлементов
+ИЗ
+	РегистрНакопления.ТоварыОрганизаций КАК ТоварыОрганизаций
+ГДЕ
+	ТоварыОрганизаций.Регистратор В(&amp;СписокСФ)
+	И ТоварыОрганизаций.Организация = &amp;Организация
+
+СГРУППИРОВАТЬ ПО
+	ТоварыОрганизаций.Регистратор,
+	ТоварыОрганизаций.НомерГТД,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения,
+	ТоварыОрганизаций.НомерГТД.Код,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения.Код,
+	ТоварыОрганизаций.ВидЗапасов.Поставщик,
+	ТоварыОрганизаций.Номенклатура,
+	ТоварыОрганизаций.ВидЗапасов.НалогообложениеНДС
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТоварыОрганизацийКПередаче.Регистратор,
+	ТоварыОрганизацийКПередаче.НомерГТД.СтранаПроисхождения,
+	ТоварыОрганизацийКПередаче.НомерГТД.СтранаПроисхождения.Код,
+	ТоварыОрганизацийКПередаче.НомерГТД.Код,
+	ТоварыОрганизацийКПередаче.Номенклатура,
+	ТоварыОрганизацийКПередаче.ВидЗапасовПродавца.Поставщик,
+	ТоварыОрганизацийКПередаче.ВидЗапасовПродавца.НалогообложениеНДС,
+	СУММА(1)
+ИЗ
+	РегистрНакопления.ТоварыОрганизацийКПередаче КАК ТоварыОрганизацийКПередаче
+ГДЕ
+	ТоварыОрганизацийКПередаче.ОрганизацияВладелец = &amp;Организация
+
+СГРУППИРОВАТЬ ПО
+	ТоварыОрганизацийКПередаче.Регистратор,
+	ТоварыОрганизацийКПередаче.НомерГТД,
+	ТоварыОрганизацийКПередаче.НомерГТД.СтранаПроисхождения,
+	ТоварыОрганизацийКПередаче.НомерГТД.Код,
+	ТоварыОрганизацийКПередаче.НомерГТД.СтранаПроисхождения.Код,
+	ТоварыОрганизацийКПередаче.ВидЗапасовПродавца.Поставщик,
+	ТоварыОрганизацийКПередаче.Номенклатура,
+	ТоварыОрганизацийКПередаче.ВидЗапасовПродавца.НалогообложениеНДС
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОснованияСчетовФактур.СчетФактура,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения.Код,
+	ТоварыОрганизаций.НомерГТД.Код,
+	ТоварыОрганизаций.Номенклатура,
+	ТоварыОрганизаций.ВидЗапасов.Поставщик,
+	ТоварыОрганизаций.ВидЗапасов.НалогообложениеНДС,
+	СУММА(1)
+ИЗ
+	ОснованияСчетовФактур КАК ОснованияСчетовФактур
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыОрганизаций КАК ТоварыОрганизаций
+		ПО (ТоварыОрганизаций.Регистратор = ОснованияСчетовФактур.ДокументОснование)
+			И (ТоварыОрганизаций.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход))
+
+СГРУППИРОВАТЬ ПО
+	ОснованияСчетовФактур.СчетФактура,
+	ТоварыОрганизаций.НомерГТД,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения,
+	ТоварыОрганизаций.НомерГТД.Код,
+	ТоварыОрганизаций.НомерГТД.СтранаПроисхождения.Код,
+	ТоварыОрганизаций.ВидЗапасов.Поставщик,
+	ТоварыОрганизаций.Номенклатура,
+	ТоварыОрганизаций.ВидЗапасов.НалогообложениеНДС</query>
+	</dataSet>
+	<parameter>
+		<name>СписокСФ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список СФ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровОтКлиента</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ТаможеннаяДекларацияИмпорт</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровПоставщику</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КорректировкаОбособленногоУчетаЗапасов</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВводОстатков</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КорректировкаРегистров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПеремещениеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КорректировкаРеализации</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПересортицаТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.КорректировкаПоступления</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ОтчетОРозничныхПродажах</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ВозвратТоваровМеждуОрганизациями</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.СборкаТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПередачаТоваровМеждуОрганизациями</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.СчетФактураПолученный</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПрочееОприходованиеТоваров</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ПорчаТоваров</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЭлементов</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>08c15409-1b80-4bd3-aaad-83b758a55ca5</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>7d296e9e-96f9-48c2-9551-616adc26149c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НалогообложениеНДС</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>f423123c-657e-4804-848b-bb9b06d6caeb</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

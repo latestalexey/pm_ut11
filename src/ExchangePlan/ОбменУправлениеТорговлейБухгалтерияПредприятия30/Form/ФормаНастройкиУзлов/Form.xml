@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Укажите, какие данные требуется синхронизировать между программами.</v8:content>
+		</v8:item>
+	</Title>
+	<Width>90</Width>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаЗаписатьИЗакрыть" id="29">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ЗаписатьИЗакрыть</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаЗаписатьИЗакрытьExtendedTooltip" id="76"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ОбщиеДанныеУзлов" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общие данные настройки информационных баз</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общие данные узлов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ОбщиеДанныеУзловExtendedTooltip" id="77"/>
+			<ChildItems>
+				<InputField name="ДатаНачалаВыгрузкиДокументов" id="20">
+					<DataPath>ДатаНачалаВыгрузкиДокументов</DataPath>
+					<ContextMenu name="ДатаНачалаВыгрузкиДокументовКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ДатаНачалаВыгрузкиДокументовExtendedTooltip" id="78"/>
+				</InputField>
+				<Table name="Организации" id="1">
+					<Representation>List</Representation>
+					<TitleLocation>Top</TitleLocation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<RowSelectionMode>Row</RowSelectionMode>
+					<Header>false</Header>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<DataPath>Организации</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Синхронизация по организациям</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSet>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>Change</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ОрганизацииКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="ОрганизацииКоманднаяПанель" id="3">
+						<ChildItems>
+							<Button name="ОрганизацииВключитьВсеОрганизации" id="8">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ВключитьВсеОрганизации</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="ОрганизацииВключитьВсеОрганизацииExtendedTooltip" id="79"/>
+							</Button>
+							<Button name="ОрганизацииОтключитьВсеОрганизации" id="9">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОтключитьВсеОрганизации</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="ОрганизацииОтключитьВсеОрганизацииExtendedTooltip" id="80"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ОрганизацииExtendedTooltip" id="81"/>
+					<SearchStringAddition name="ОрганизацииSearchString" id="82">
+						<Source>
+							<lf:elementId>1</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="ОрганизацииSearchStringContextMenu" id="83"/>
+						<ExtendedTooltip name="ОрганизацииSearchStringExtendedTooltip" id="84"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ОрганизацииViewStatus" id="85">
+						<Source>
+							<lf:elementId>1</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="ОрганизацииViewStatusContextMenu" id="86"/>
+						<ExtendedTooltip name="ОрганизацииViewStatusExtendedTooltip" id="87"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ОрганизацииSearchControl" id="88">
+						<Source>
+							<lf:elementId>1</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="ОрганизацииSearchControlContextMenu" id="89"/>
+						<ExtendedTooltip name="ОрганизацииSearchControlExtendedTooltip" id="90"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<CheckBoxField name="ОрганизацииИспользовать" id="4">
+							<DataPath>Организации.Использовать</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОрганизацииИспользоватьКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ОрганизацииИспользоватьExtendedTooltip" id="91"/>
+						</CheckBoxField>
+						<InputField name="ОрганизацииПредставление" id="6">
+							<DataPath>Организации.Представление</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОрганизацииПредставлениеКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="ОрганизацииПредставлениеExtendedTooltip" id="92"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<InputField name="РежимВыгрузкиПриНеобходимости" id="72">
+					<DataPath>РежимВыгрузкиПриНеобходимости</DataPath>
+					<Visible>false</Visible>
+					<Enabled>false</Enabled>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Режим выгрузки справочников и документов</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="РежимВыгрузкиПриНеобходимостиКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="РежимВыгрузкиПриНеобходимостиExtendedTooltip" id="93"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ДанныеУзлов" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные узлов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Данные узлов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ДанныеУзловExtendedTooltip" id="94"/>
+			<ChildItems>
+				<UsualGroup name="ДанныеЭтойБазы" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки для обмена этой инф. базы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Данные этой базы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>StrongSeparation</Representation>
+					<ExtendedTooltip name="ДанныеЭтойБазыExtendedTooltip" id="95"/>
+					<ChildItems>
+						<Table name="ВидыЦенНоменклатуры" id="56">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<RowSelectionMode>Row</RowSelectionMode>
+							<Header>false</Header>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ВидыЦенНоменклатуры</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Передавать в другую программу данные по ценам номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<CommandSet>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ВидыЦенНоменклатурыКонтекстноеМеню" id="57"/>
+							<AutoCommandBar name="ВидыЦенНоменклатурыКоманднаяПанель" id="58">
+								<ChildItems>
+									<Button name="СкладыВключитьВсеВидыЦенНоменклатуры" id="63">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВключитьВсеВидыЦенНоменклатуры</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="СкладыВключитьВсеВидыЦенНоменклатурыExtendedTooltip" id="96"/>
+									</Button>
+									<Button name="СкладыОтключитьВсеВидыЦенНоменклатуры" id="64">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ОтключитьВсеВидыЦенНоменклатуры</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="СкладыОтключитьВсеВидыЦенНоменклатурыExtendedTooltip" id="97"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ВидыЦенНоменклатурыExtendedTooltip" id="98"/>
+							<SearchStringAddition name="ВидыЦенНоменклатурыSearchString" id="99">
+								<Source>
+									<lf:elementId>56</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ВидыЦенНоменклатурыSearchStringContextMenu" id="100"/>
+								<ExtendedTooltip name="ВидыЦенНоменклатурыSearchStringExtendedTooltip" id="101"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВидыЦенНоменклатурыViewStatus" id="102">
+								<Source>
+									<lf:elementId>56</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ВидыЦенНоменклатурыViewStatusContextMenu" id="103"/>
+								<ExtendedTooltip name="ВидыЦенНоменклатурыViewStatusExtendedTooltip" id="104"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВидыЦенНоменклатурыSearchControl" id="105">
+								<Source>
+									<lf:elementId>56</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ВидыЦенНоменклатурыSearchControlContextMenu" id="106"/>
+								<ExtendedTooltip name="ВидыЦенНоменклатурыSearchControlExtendedTooltip" id="107"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<CheckBoxField name="ВидыЦенНоменклатурыИспользовать" id="59">
+									<DataPath>ВидыЦенНоменклатуры.Использовать</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВидыЦенНоменклатурыИспользоватьКонтекстноеМеню" id="60"/>
+									<ExtendedTooltip name="ВидыЦенНоменклатурыИспользоватьExtendedTooltip" id="108"/>
+								</CheckBoxField>
+								<InputField name="ВидыЦенНоменклатурыПредставление" id="61">
+									<DataPath>ВидыЦенНоменклатуры.Представление</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВидыЦенНоменклатурыПредставлениеКонтекстноеМеню" id="62"/>
+									<ExtendedTooltip name="ВидыЦенНоменклатурыПредставлениеExtendedTooltip" id="109"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<UsualGroup name="ГруппаПравилаСозданияДоговоровКонтрагентов" id="67">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Правила формирования договоров</v8:content>
+								</v8:item>
+							</Title>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ГруппаПравилаСозданияДоговоровКонтрагентовExtendedTooltip" id="110"/>
+							<ChildItems>
+								<InputField name="ПравилаСозданияДоговоровКонтрагентов" id="65">
+									<DataPath>ПравилаСозданияДоговоровКонтрагентов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выберите правила, по которым необходимо формировать договоры контрагентов при загрузке в конфигурацию «Бухгалтерия предприятия» документов, оформленных без указания договора</v8:content>
+										</v8:item>
+									</Title>
+									<ListChoiceMode>true</ListChoiceMode>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Договоры контрагентов формируются без привязки к партнерам, сделкам, соглашениям или заказам</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">БезРазделения</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Разным партнерам соответствуют разные договоры контрагентов</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ПоПартнерам</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Разным сделкам соответствуют разные договоры контрагентов</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ПоСделкам</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Разным соглашениям соответствуют разные договоры контрагентов</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ПоСоглашениям</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Разным заказам соответствуют разные договоры контрагентов</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ПоЗаказам</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ПравилаСозданияДоговоровКонтрагентовКонтекстноеМеню" id="66"/>
+									<ExtendedTooltip name="ПравилаСозданияДоговоровКонтрагентовExtendedTooltip" id="111"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ДанныеКорреспондента" id="68">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Настройки обмена базы корреспондента</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Representation>StrongSeparation</Representation>
+					<ExtendedTooltip name="ДанныеКорреспондентаExtendedTooltip" id="112"/>
+					<ChildItems>
+						<CheckBoxField name="ВыгружатьПартнеров" id="74">
+							<DataPath>ВыгружатьПартнеров</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Выгружать, из инф. базы "Бухгалтерия Предприятия", для каждого контрагента отдельного партнера</v8:content>
+								</v8:item>
+							</Title>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВыгружатьПартнеровКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="ВыгружатьПартнеровExtendedTooltip" id="113"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Организации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Использовать" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Представление" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="УникальныйИдентификаторСсылки" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уникальный идентификатор ссылки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДатаНачалаВыгрузкиДокументов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала выгрузки документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="РежимВыгрузкиПриНеобходимости" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.РежимыВыгрузкиОбъектовОбмена</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ВидыЦенНоменклатуры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды цен номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="Использовать" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Представление" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="УникальныйИдентификаторСсылки" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Уникальный идентификатор ссылки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Реквизиты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьОтборПоОрганизациям" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор по организациям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ОписаниеКонтекста" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Описание контекста</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыгружатьЦеныНоменклатуры" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать отбор по видам цен номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ПравилаСозданияДоговоровКонтрагентов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Правила создания договоров контрагентов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>13</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ВыгружатьПартнеров" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгружать партнеров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВключитьВсеОрганизации" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить все организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить все организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВключитьВсеОрганизации</Action>
+		</Command>
+		<Command name="ОтключитьВсеОрганизации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить все организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить все организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтключитьВсеОрганизации</Action>
+		</Command>
+		<Command name="ЗаписатьИЗакрыть" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать и закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаписатьИЗакрыть</Action>
+		</Command>
+		<Command name="ВключитьВсеВидыЦенНоменклатуры" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить все виды цен номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Включить все виды цен номенклатуры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВключитьВсеВидыЦенНоменклатуры</Action>
+		</Command>
+		<Command name="ОтключитьВсеВидыЦенНоменклатуры" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить все виды цен номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отключить все виды цен номенклатуры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтключитьВсеВидыЦенНоменклатуры</Action>
+		</Command>
+	</Commands>
+</Form>

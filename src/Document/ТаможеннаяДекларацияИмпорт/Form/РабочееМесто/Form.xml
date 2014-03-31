@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Страницы" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="СтраницыExtendedTooltip" id="94"/>
+			<Events>
+				<Event name="OnCurrentPageChange">СтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="СтраницаДокументов" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Таможенные декларации на импорт</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список таможенных деклараций на импорт</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДокументовExtendedTooltip" id="95"/>
+					<ChildItems>
+						<Table name="Список" id="1">
+							<Representation>List</Representation>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandTopLevel</InitialTreeView>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<ButtonGroup name="КнопкиФорма" id="48">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Кнопки форма</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Кнопки форма</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>Form</CommandSource>
+										<ExtendedTooltip name="КнопкиФормаExtendedTooltip" id="96"/>
+									</ButtonGroup>
+									<ButtonGroup name="КнопкиГлобальныеКоманды" id="47">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Кнопки глобальные команды</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Кнопки глобальные команды</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+										<ExtendedTooltip name="КнопкиГлобальныеКомандыExtendedTooltip" id="97"/>
+									</ButtonGroup>
+									<Button name="СписокСправка" id="49">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="СписокСправкаExtendedTooltip" id="98"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокExtendedTooltip" id="99"/>
+							<SearchStringAddition name="СписокSearchString" id="100">
+								<Source>
+									<lf:elementId>1</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокSearchStringContextMenu" id="101"/>
+								<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="102"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокViewStatus" id="103">
+								<Source>
+									<lf:elementId>1</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокViewStatusContextMenu" id="104"/>
+								<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="105"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокSearchControl" id="106">
+								<Source>
+									<lf:elementId>1</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокSearchControlContextMenu" id="107"/>
+								<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="108"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="Номер" id="6">
+									<DataPath>Список.Number</DataPath>
+									<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
+									<ExtendedTooltip name="НомерExtendedTooltip" id="109"/>
+								</LabelField>
+								<LabelField name="Дата" id="4">
+									<DataPath>Список.Date</DataPath>
+									<DefaultItem>true</DefaultItem>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДатаExtendedTooltip" id="110"/>
+								</LabelField>
+								<LabelField name="Статус" id="28">
+									<DataPath>Список.Статус</DataPath>
+									<ContextMenu name="СтатусКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="СтатусExtendedTooltip" id="111"/>
+								</LabelField>
+								<LabelField name="СуммаДокумента" id="8">
+									<DataPath>Список.СуммаДокумента</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="9"/>
+									<ExtendedTooltip name="СуммаДокументаExtendedTooltip" id="112"/>
+								</LabelField>
+								<InputField name="Валюта" id="10">
+									<DataPath>Список.Валюта</DataPath>
+									<ContextMenu name="ВалютаКонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="ВалютаExtendedTooltip" id="113"/>
+								</InputField>
+								<LabelField name="ХозяйственнаяОперация" id="22">
+									<DataPath>Список.ХозяйственнаяОперация</DataPath>
+									<ContextMenu name="ХозяйственнаяОперацияКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ХозяйственнаяОперацияExtendedTooltip" id="114"/>
+								</LabelField>
+								<InputField name="Партнер" id="12">
+									<DataPath>Список.Партнер</DataPath>
+									<ContextMenu name="ПартнерКонтекстноеМеню" id="13"/>
+									<ExtendedTooltip name="ПартнерExtendedTooltip" id="115"/>
+								</InputField>
+								<LabelField name="Организация" id="18">
+									<DataPath>Список.Организация</DataPath>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="19"/>
+									<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="116"/>
+								</LabelField>
+								<LabelField name="Поставщик" id="34">
+									<DataPath>Список.Поставщик</DataPath>
+									<ContextMenu name="ПоставщикКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ПоставщикExtendedTooltip" id="117"/>
+								</LabelField>
+								<ColumnGroup name="ГруппаПоступлениеТоваров" id="38">
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Поступление товаров, по которому оформлена таможенная декларация</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>InCell</Group>
+									<ExtendedTooltip name="ГруппаПоступлениеТоваровExtendedTooltip" id="118"/>
+									<ChildItems>
+										<LabelField name="ПоступлениеТоваровНомер" id="39">
+											<DataPath>Список.ПоступлениеТоваров.Number</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Поступление товаров</v8:content>
+												</v8:item>
+											</Title>
+											<Width>1</Width>
+											<ContextMenu name="ПоступлениеТоваровНомерКонтекстноеМеню" id="40"/>
+											<ExtendedTooltip name="ПоступлениеТоваровНомерExtendedTooltip" id="119"/>
+										</LabelField>
+										<LabelField name="ПоступлениеТоваровДата" id="41">
+											<DataPath>Список.ПоступлениеТоваров.Date</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Width>1</Width>
+											<ContextMenu name="ПоступлениеТоваровДатаКонтекстноеМеню" id="42"/>
+											<ExtendedTooltip name="ПоступлениеТоваровДатаExtendedTooltip" id="120"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<LabelField name="Менеджер" id="30">
+									<DataPath>Список.Менеджер</DataPath>
+									<ContextMenu name="МенеджерКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="МенеджерExtendedTooltip" id="121"/>
+								</LabelField>
+								<LabelField name="Комментарий" id="32">
+									<DataPath>Список.Комментарий</DataPath>
+									<Height>1</Height>
+									<ContextMenu name="КомментарийКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="КомментарийExtendedTooltip" id="122"/>
+								</LabelField>
+								<LabelField name="Ссылка" id="20">
+									<DataPath>Список.Ref</DataPath>
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<ContextMenu name="СсылкаКонтекстноеМеню" id="21"/>
+									<ExtendedTooltip name="СсылкаExtendedTooltip" id="123"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаКОформлению" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>К оформлению</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остатки товаров организаций к оформлению деклараций</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаКОформлениюExtendedTooltip" id="124"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПериод" id="67">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа период</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа период</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПериодExtendedTooltip" id="125"/>
+							<ChildItems>
+								<InputField name="ПериодВариант" id="68">
+									<DataPath>Период.Variant</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>За период</v8:content>
+										</v8:item>
+									</Title>
+									<Width>28</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ClearButton>true</ClearButton>
+									<ContextMenu name="ПериодВариантКонтекстноеМеню" id="69"/>
+									<ExtendedTooltip name="ПериодВариантExtendedTooltip" id="126"/>
+									<Events>
+										<Event name="OnChange">ПериодВариантПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ПериодДатаНачала" id="70">
+									<DataPath>Период.StartDate</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>с</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПериодДатаНачалаКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="ПериодДатаНачалаExtendedTooltip" id="127"/>
+								</InputField>
+								<InputField name="ПериодДатаОкончания" id="72">
+									<DataPath>Период.EndDate</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>по</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПериодДатаОкончанияКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ПериодДатаОкончанияExtendedTooltip" id="128"/>
+									<Events>
+										<Event name="OnChange">ПериодДатаОкончанияПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаТаблицОформления" id="91">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаТаблицОформленияExtendedTooltip" id="129"/>
+							<ChildItems>
+								<Table name="КОформлению" id="50">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<SelectionMode>SingleRow</SelectionMode>
+									<UseAlternationRowColor>true</UseAlternationRowColor>
+									<EnableStartDrag>true</EnableStartDrag>
+									<DataPath>КОформлению</DataPath>
+									<RowPictureDataPath>КОформлению.DefaultPicture</RowPictureDataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<AutoRefresh>false</AutoRefresh>
+									<AutoRefreshPeriod>60</AutoRefreshPeriod>
+									<Period xsi:type="v8:StandardPeriod">
+										<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+										<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+										<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+									</Period>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<RestoreCurrentRow>false</RestoreCurrentRow>
+									<TopLevelParent xsi:nil="true"/>
+									<ShowRoot>true</ShowRoot>
+									<AllowRootChoice>false</AllowRootChoice>
+									<UpdateOnDataChange>Auto</UpdateOnDataChange>
+									<ContextMenu name="КОформлениюКонтекстноеМеню" id="51"/>
+									<AutoCommandBar name="КОформлениюКоманднаяПанель" id="52">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="КОформлениюСоздатьТаможеннуюДекларацию" id="74">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьТаможеннуюДекларацию</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="КОформлениюСоздатьТаможеннуюДекларациюExtendedTooltip" id="130"/>
+											</Button>
+											<ButtonGroup name="КнопкиКОформлению" id="75">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Кнопки к оформлению</v8:content>
+													</v8:item>
+												</Title>
+												<ToolTip>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Кнопки к оформлению</v8:content>
+													</v8:item>
+												</ToolTip>
+												<CommandSource>Item.КОформлению</CommandSource>
+												<ExtendedTooltip name="КнопкиКОформлениюExtendedTooltip" id="131"/>
+											</ButtonGroup>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="КОформлениюExtendedTooltip" id="132"/>
+									<SearchStringAddition name="КОформлениюSearchString" id="133">
+										<Source>
+											<lf:elementId>50</lf:elementId>
+											<lf:additionId>0</lf:additionId>
+										</Source>
+										<ContextMenu name="КОформлениюSearchStringContextMenu" id="134"/>
+										<ExtendedTooltip name="КОформлениюSearchStringExtendedTooltip" id="135"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КОформлениюViewStatus" id="136">
+										<Source>
+											<lf:elementId>50</lf:elementId>
+											<lf:additionId>1</lf:additionId>
+										</Source>
+										<ContextMenu name="КОформлениюViewStatusContextMenu" id="137"/>
+										<ExtendedTooltip name="КОформлениюViewStatusExtendedTooltip" id="138"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КОформлениюSearchControl" id="139">
+										<Source>
+											<lf:elementId>50</lf:elementId>
+											<lf:additionId>2</lf:additionId>
+										</Source>
+										<ContextMenu name="КОформлениюSearchControlContextMenu" id="140"/>
+										<ExtendedTooltip name="КОформлениюSearchControlExtendedTooltip" id="141"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="Selection">КОформлениюВыбор</Event>
+										<Event name="OnActivateRow">КОформлениюПриАктивизацииСтроки</Event>
+									</Events>
+									<ChildItems>
+										<LabelField name="КОформлениюПоставщик" id="61">
+											<DataPath>КОформлению.Поставщик</DataPath>
+											<ContextMenu name="КОформлениюПоставщикКонтекстноеМеню" id="62"/>
+											<ExtendedTooltip name="КОформлениюПоставщикExtendedTooltip" id="142"/>
+										</LabelField>
+										<LabelField name="КОформлениюОрганизация" id="59">
+											<DataPath>КОформлению.Организация</DataPath>
+											<ContextMenu name="КОформлениюОрганизацияКонтекстноеМеню" id="60"/>
+											<ExtendedTooltip name="КОформлениюОрганизацияExtendedTooltip" id="143"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+								<Table name="КОформлениюНоменклатура" id="76">
+									<Representation>List</Representation>
+									<ChangeRowSet>false</ChangeRowSet>
+									<SelectionMode>SingleRow</SelectionMode>
+									<UseAlternationRowColor>true</UseAlternationRowColor>
+									<EnableStartDrag>true</EnableStartDrag>
+									<DataPath>КОформлениюНоменклатура</DataPath>
+									<RowPictureDataPath>КОформлениюНоменклатура.DefaultPicture</RowPictureDataPath>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<AutoRefresh>false</AutoRefresh>
+									<AutoRefreshPeriod>60</AutoRefreshPeriod>
+									<Period xsi:type="v8:StandardPeriod">
+										<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+										<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+										<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+									</Period>
+									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+									<RestoreCurrentRow>false</RestoreCurrentRow>
+									<TopLevelParent xsi:nil="true"/>
+									<ShowRoot>true</ShowRoot>
+									<AllowRootChoice>false</AllowRootChoice>
+									<UpdateOnDataChange>Auto</UpdateOnDataChange>
+									<ContextMenu name="КОформлениюНоменклатураКонтекстноеМеню" id="77"/>
+									<AutoCommandBar name="КОформлениюНоменклатураКоманднаяПанель" id="78"/>
+									<ExtendedTooltip name="КОформлениюНоменклатураExtendedTooltip" id="144"/>
+									<SearchStringAddition name="КОформлениюНоменклатураSearchString" id="145">
+										<Source>
+											<lf:elementId>76</lf:elementId>
+											<lf:additionId>0</lf:additionId>
+										</Source>
+										<ContextMenu name="КОформлениюНоменклатураSearchStringContextMenu" id="146"/>
+										<ExtendedTooltip name="КОформлениюНоменклатураSearchStringExtendedTooltip" id="147"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="КОформлениюНоменклатураViewStatus" id="148">
+										<Source>
+											<lf:elementId>76</lf:elementId>
+											<lf:additionId>1</lf:additionId>
+										</Source>
+										<ContextMenu name="КОформлениюНоменклатураViewStatusContextMenu" id="149"/>
+										<ExtendedTooltip name="КОформлениюНоменклатураViewStatusExtendedTooltip" id="150"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="КОформлениюНоменклатураSearchControl" id="151">
+										<Source>
+											<lf:elementId>76</lf:elementId>
+											<lf:additionId>2</lf:additionId>
+										</Source>
+										<ContextMenu name="КОформлениюНоменклатураSearchControlContextMenu" id="152"/>
+										<ExtendedTooltip name="КОформлениюНоменклатураSearchControlExtendedTooltip" id="153"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="КОформлениюНоменклатураНоменклатура" id="83">
+											<DataPath>КОформлениюНоменклатура.Номенклатура</DataPath>
+											<Width>1</Width>
+											<ContextMenu name="КОформлениюНоменклатураНоменклатураКонтекстноеМеню" id="84"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураНоменклатураExtendedTooltip" id="154"/>
+										</LabelField>
+										<LabelField name="КОформлениюНоменклатураХарактеристика" id="85">
+											<DataPath>КОформлениюНоменклатура.Характеристика</DataPath>
+											<Width>1</Width>
+											<ContextMenu name="КОформлениюНоменклатураХарактеристикаКонтекстноеМеню" id="86"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураХарактеристикаExtendedTooltip" id="155"/>
+										</LabelField>
+										<LabelField name="КОформлениюНоменклатураКоличествоОстаток" id="81">
+											<DataPath>КОформлениюНоменклатура.КоличествоBalance</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Остаток к оформлению</v8:content>
+												</v8:item>
+											</Title>
+											<Width>1</Width>
+											<Format>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ЧДЦ=3</v8:content>
+												</v8:item>
+											</Format>
+											<ContextMenu name="КОформлениюНоменклатураКоличествоОстатокКонтекстноеМеню" id="82"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураКоличествоОстатокExtendedTooltip" id="156"/>
+										</LabelField>
+										<LabelField name="КОформлениюНоменклатураНоменклатураЕдиницаИзмерения" id="87">
+											<DataPath>КОформлениюНоменклатура.Номенклатура.ЕдиницаИзмерения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед. изм.</v8:content>
+												</v8:item>
+											</Title>
+											<Width>1</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="КОформлениюНоменклатураНоменклатураЕдиницаИзмеренияКонтекстноеМеню" id="88"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураНоменклатураЕдиницаИзмеренияExtendedTooltip" id="157"/>
+										</LabelField>
+										<LabelField name="КОформлениюНоменклатураСклад" id="89">
+											<DataPath>КОформлениюНоменклатура.Склад</DataPath>
+											<Width>1</Width>
+											<ContextMenu name="КОформлениюНоменклатураСкладКонтекстноеМеню" id="90"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураСкладExtendedTooltip" id="158"/>
+										</LabelField>
+										<LabelField name="КОформлениюНоменклатураВидЗапасов" id="79">
+											<DataPath>КОформлениюНоменклатура.ВидЗапасов</DataPath>
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<Width>1</Width>
+											<ContextMenu name="КОформлениюНоменклатураВидЗапасовКонтекстноеМеню" id="80"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураВидЗапасовExtendedTooltip" id="159"/>
+										</LabelField>
+										<LabelField name="КОформлениюНоменклатураВидЗапасовСделка" id="92">
+											<DataPath>КОформлениюНоменклатура.ВидЗапасов.Сделка</DataPath>
+											<ContextMenu name="КОформлениюНоменклатураВидЗапасовСделкаКонтекстноеМеню" id="93"/>
+											<ExtendedTooltip name="КОформлениюНоменклатураВидЗапасовСделкаExtendedTooltip" id="160"/>
+										</LabelField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Document.ТаможеннаяДекларацияИмпорт</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="КОформлению" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К оформлению</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>2/3</Field>
+				<Field>2/4</Field>
+				<Field>2/5</Field>
+				<Field>2/6</Field>
+				<Field>2/7</Field>
+				<Field>2/8</Field>
+				<Field>2/9</Field>
+				<Field>2/14</Field>
+				<Field>2/15</Field>
+				<Field>2/16</Field>
+				<Field>КОформлению.Организация</Field>
+				<Field>КОформлению.Поставщик</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+    НаДату.Поставщик, НаДату.Организация
+ИЗ
+    РегистрНакопления.ТоварыОрганизацийКОформлению.Остатки(&amp;Граница, ) КАК НаДату
+    ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыОрганизацийКОформлению.Остатки(, ) КАК НаСейчас
+    ПО НаДату.Номенклатура = НаСейчас.Номенклатура
+        И НаДату.Характеристика = НаСейчас.Характеристика
+        И НаДату.Поставщик = НаСейчас.Поставщик
+        И НаДату.Склад = НаСейчас.Склад
+        И НаДату.Организация = НаСейчас.Организация
+        И НаДату.ВидЗапасов = НаСейчас.ВидЗапасов
+ГДЕ
+    НаСейчас.КоличествоОстаток &gt; 0</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Период" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+			<Save>
+				<Field>Период</Field>
+				<Field>Период.Variant</Field>
+				<Field>Период.StartDate</Field>
+				<Field>Период.EndDate</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="КОформлениюНоменклатура" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>К оформлению номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>КОформлениюНоменклатура.Организация</Field>
+				<Field>КОформлениюНоменклатура.Поставщик</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+    НаДату.Номенклатура, НаДату.Характеристика, НаДату.ВидЗапасов, НаСейчас.КоличествоОстаток,
+    НаДату.Поставщик, НаДату.Организация, НаДату.Склад
+ИЗ
+    РегистрНакопления.ТоварыОрганизацийКОформлению.Остатки(&amp;Граница, ) КАК НаДату
+    ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыОрганизацийКОформлению.Остатки(, ) КАК НаСейчас
+    ПО НаДату.Номенклатура = НаСейчас.Номенклатура
+        И НаДату.Характеристика = НаСейчас.Характеристика
+        И НаДату.Поставщик = НаСейчас.Поставщик
+        И НаДату.Склад = НаСейчас.Склад
+        И НаДату.Организация = НаСейчас.Организация
+        И НаДату.ВидЗапасов = НаСейчас.ВидЗапасов
+ГДЕ
+    НаСейчас.КоличествоОстаток &gt; 0</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьТаможеннуюДекларацию" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать декларацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать таможенную декларацию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ОформитьПоРаспоряжению</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьТаможеннуюДекларацию</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+</Form>

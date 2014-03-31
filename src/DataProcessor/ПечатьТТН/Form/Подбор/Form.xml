@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Group>Horizontal</Group>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаОк" id="28">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<Width>10</Width>
+				<CommandName>Form.Command.Ок</CommandName>
+				<Parameter xsi:nil="true"/>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Печать</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаОкExtendedTooltip" id="33"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="СписокНоменклатуры" id="12">
+			<Representation>List</Representation>
+			<TitleLocation>Top</TitleLocation>
+			<ReadOnly>true</ReadOnly>
+			<Width>150</Width>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>СписокНоменклатуры</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокНоменклатурыКонтекстноеМеню" id="13"/>
+			<AutoCommandBar name="СписокНоменклатурыКоманднаяПанель" id="14">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокНоменклатурыExtendedTooltip" id="34"/>
+			<SearchStringAddition name="СписокНоменклатурыSearchString" id="35">
+				<Source>
+					<lf:elementId>12</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокНоменклатурыSearchStringContextMenu" id="36"/>
+				<ExtendedTooltip name="СписокНоменклатурыSearchStringExtendedTooltip" id="37"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокНоменклатурыViewStatus" id="38">
+				<Source>
+					<lf:elementId>12</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокНоменклатурыViewStatusContextMenu" id="39"/>
+				<ExtendedTooltip name="СписокНоменклатурыViewStatusExtendedTooltip" id="40"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокНоменклатурыSearchControl" id="41">
+				<Source>
+					<lf:elementId>12</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокНоменклатурыSearchControlContextMenu" id="42"/>
+				<ExtendedTooltip name="СписокНоменклатурыSearchControlExtendedTooltip" id="43"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокНоменклатурыВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="СписокНоменклатурыНомерСтроки" id="19">
+					<DataPath>СписокНоменклатуры.НомерСтроки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>1</Width>
+					<ContextMenu name="СписокНоменклатурыНомерСтрокиКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="СписокНоменклатурыНомерСтрокиExtendedTooltip" id="44"/>
+				</InputField>
+				<InputField name="СписокНоменклатурыНоменклатураАртикул" id="29">
+					<DataPath>СписокНоменклатуры.Номенклатура.Артикул</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>15</Width>
+					<ContextMenu name="СписокНоменклатурыНоменклатураАртикулКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="СписокНоменклатурыНоменклатураАртикулExtendedTooltip" id="45"/>
+				</InputField>
+				<InputField name="СписокНоменклатурыНоменклатура" id="15">
+					<DataPath>СписокНоменклатуры.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокНоменклатурыНоменклатураКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="СписокНоменклатурыНоменклатураExtendedTooltip" id="46"/>
+				</InputField>
+				<InputField name="СписокНоменклатурыХарактеристика" id="21">
+					<DataPath>СписокНоменклатуры.Характеристика</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокНоменклатурыХарактеристикаКонтекстноеМеню" id="22"/>
+					<ExtendedTooltip name="СписокНоменклатурыХарактеристикаExtendedTooltip" id="47"/>
+				</InputField>
+				<InputField name="СписокНоменклатурыКоличество" id="17">
+					<DataPath>СписокНоменклатуры.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокНоменклатурыКоличествоКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СписокНоменклатурыКоличествоExtendedTooltip" id="48"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Разделители" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content> </v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Разделители</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ExtendedTooltip name="РазделителиExtendedTooltip" id="49"/>
+			<ChildItems>
+				<Button name="ПереместитьВправоВсе" id="26">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПереместитьВправоВсе</CommandName>
+					<Parameter xsi:nil="true"/>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&gt;&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПереместитьВправоВсеExtendedTooltip" id="50"/>
+				</Button>
+				<Button name="ПереместитьВправо" id="25">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПереместитьВправо</CommandName>
+					<Parameter xsi:nil="true"/>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПереместитьВправоExtendedTooltip" id="51"/>
+				</Button>
+				<Button name="ПереместитьВлево" id="24">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПереместитьВлево</CommandName>
+					<Parameter xsi:nil="true"/>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПереместитьВлевоExtendedTooltip" id="52"/>
+				</Button>
+				<Button name="ПереместитьВлевоВсе" id="27">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПереместитьВлевоВсе</CommandName>
+					<Parameter xsi:nil="true"/>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;&lt;</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПереместитьВлевоВсеExtendedTooltip" id="53"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ВыбраннаяНоменклатура" id="1">
+			<Representation>List</Representation>
+			<TitleLocation>Top</TitleLocation>
+			<ReadOnly>true</ReadOnly>
+			<Width>150</Width>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ВыбраннаяНоменклатура</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ВыбраннаяНоменклатураКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ВыбраннаяНоменклатураКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ВыбраннаяНоменклатураExtendedTooltip" id="54"/>
+			<SearchStringAddition name="ВыбраннаяНоменклатураSearchString" id="55">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="ВыбраннаяНоменклатураSearchStringContextMenu" id="56"/>
+				<ExtendedTooltip name="ВыбраннаяНоменклатураSearchStringExtendedTooltip" id="57"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ВыбраннаяНоменклатураViewStatus" id="58">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="ВыбраннаяНоменклатураViewStatusContextMenu" id="59"/>
+				<ExtendedTooltip name="ВыбраннаяНоменклатураViewStatusExtendedTooltip" id="60"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ВыбраннаяНоменклатураSearchControl" id="61">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="ВыбраннаяНоменклатураSearchControlContextMenu" id="62"/>
+				<ExtendedTooltip name="ВыбраннаяНоменклатураSearchControlExtendedTooltip" id="63"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ВыбраннаяНоменклатураВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ВыбраннаяНоменклатураНомерСтроки" id="8">
+					<DataPath>ВыбраннаяНоменклатура.НомерСтроки</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>1</Width>
+					<ContextMenu name="ВыбраннаяНоменклатураНомерСтрокиКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ВыбраннаяНоменклатураНомерСтрокиExtendedTooltip" id="64"/>
+				</InputField>
+				<InputField name="ВыбраннаяНоменклатураНоменклатураАртикул" id="31">
+					<DataPath>ВыбраннаяНоменклатура.Номенклатура.Артикул</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>15</Width>
+					<ContextMenu name="ВыбраннаяНоменклатураНоменклатураАртикулКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="ВыбраннаяНоменклатураНоменклатураАртикулExtendedTooltip" id="65"/>
+				</InputField>
+				<InputField name="ВыбраннаяНоменклатураНоменклатура" id="4">
+					<DataPath>ВыбраннаяНоменклатура.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВыбраннаяНоменклатураНоменклатураКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ВыбраннаяНоменклатураНоменклатураExtendedTooltip" id="66"/>
+				</InputField>
+				<InputField name="ВыбраннаяНоменклатураХарактеристика" id="10">
+					<DataPath>ВыбраннаяНоменклатура.Характеристика</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВыбраннаяНоменклатураХарактеристикаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ВыбраннаяНоменклатураХарактеристикаExtendedTooltip" id="67"/>
+				</InputField>
+				<InputField name="ВыбраннаяНоменклатураКоличество" id="6">
+					<DataPath>ВыбраннаяНоменклатура.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВыбраннаяНоменклатураКоличествоКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ВыбраннаяНоменклатураКоличествоExtendedTooltip" id="68"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ПечатьТТН</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ВыбраннаяНоменклатура" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбранная номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Количество" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Характеристика" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СписокНоменклатуры" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Номенклатура" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Количество" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>12</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер строки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Характеристика" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Документ" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МассивСтрок" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Массив строк</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПереместитьВправо" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить вправо</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить вправо</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПереместитьВправо</Action>
+		</Command>
+		<Command name="ПереместитьВлево" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить влево</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить влево</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПереместитьВлево</Action>
+		</Command>
+		<Command name="ПереместитьВправоВсе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить вправо все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить вправо все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПереместитьВправоВсе</Action>
+		</Command>
+		<Command name="ПереместитьВлевоВсе" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить влево все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить влево все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПереместитьВлевоВсе</Action>
+		</Command>
+		<Command name="Ок" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Ок</Action>
+		</Command>
+	</Commands>
+</Form>

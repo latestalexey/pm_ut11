@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПередЗагрузкойДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтбор" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа отбор</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтборExtendedTooltip" id="51"/>
+			<ChildItems>
+				<InputField name="Менеджер" id="9">
+					<DataPath>Менеджер</DataPath>
+					<Width>30</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ClearButton>true</ClearButton>
+					<OpenButton>false</OpenButton>
+					<ChoiceListButton>true</ChoiceListButton>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="МенеджерExtendedTooltip" id="52"/>
+					<Events>
+						<Event name="OnChange">МенеджерПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="СписокКорректировкиПоступлений" id="11">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>СписокКорректировкиПоступлений</DataPath>
+			<RowPictureDataPath>СписокКорректировкиПоступлений.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>Create</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКорректировкиПоступленийКонтекстноеМеню" id="12"/>
+			<AutoCommandBar name="СписокКорректировкиПоступленийКоманднаяПанель" id="13">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<Popup name="СписокКорректировкиПоступленийГруппаСоздать" id="40">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Создать</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки поступлений группа создать</v8:content>
+							</v8:item>
+						</ToolTip>
+						<Picture>
+							<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СписокКорректировкиПоступленийГруппаСоздатьExtendedTooltip" id="53"/>
+						<ChildItems>
+							<Button name="СписокКорректировкиПоступленийСоздатьНаОснованииПоступленияТоваровУслуг" id="41">
+								<Type>CommandBarButton</Type>
+								<UserVisible>
+									<xr:Common>false</xr:Common>
+									<xr:Value name="Role.ДобавлениеИзменениеПоступленийТоваровУслугВозвратовПоставщикам">true</xr:Value>
+									<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+								</UserVisible>
+								<CommandName>Form.Command.СоздатьНаОснованииПоступленияТоваровУслуг</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКорректировкиПоступленийСоздатьНаОснованииПоступленияТоваровУслугExtendedTooltip" id="54"/>
+							</Button>
+							<Button name="СписокКорректировкиПоступленийСоздатьНаОснованииПоступленияУслугПрочихАктивов" id="42">
+								<Type>CommandBarButton</Type>
+								<UserVisible>
+									<xr:Common>false</xr:Common>
+									<xr:Value name="Role.ДобавлениеИзменениеПоступленийУслугПрочихАктивов">true</xr:Value>
+									<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+								</UserVisible>
+								<CommandName>Form.Command.СоздатьНаОснованииПоступленияУслугПрочихАктивов</CommandName>
+								<Parameter xsi:nil="true"/>
+								<ExtendedTooltip name="СписокКорректировкиПоступленийСоздатьНаОснованииПоступленияУслугПрочихАктивовExtendedTooltip" id="55"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<ButtonGroup name="СписокКорректировкиПоступленийГруппаКомандыСписка" id="43">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки поступлений группа команды списка</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки поступлений группа команды списка</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Item.СписокКорректировкиПоступлений</CommandSource>
+						<ExtendedTooltip name="СписокКорректировкиПоступленийГруппаКомандыСпискаExtendedTooltip" id="56"/>
+					</ButtonGroup>
+					<ButtonGroup name="СписокКорректировкиПоступленийГруппаГлобальныеКоманды" id="44">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки поступлений группа глобальные команды</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки реализации группа список</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+						<ExtendedTooltip name="СписокКорректировкиПоступленийГруппаГлобальныеКомандыExtendedTooltip" id="57"/>
+					</ButtonGroup>
+					<ButtonGroup name="СписокКорректировкиПоступленийГруппаКомандыФормы" id="45">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки поступлений группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Список корректировки реализации группа список</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="СписокКорректировкиПоступленийГруппаКомандыФормыExtendedTooltip" id="58"/>
+					</ButtonGroup>
+					<Button name="СписокКорректировкиПоступленийСправка" id="46">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СписокКорректировкиПоступленийСправкаExtendedTooltip" id="59"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокКорректировкиПоступленийExtendedTooltip" id="60"/>
+			<SearchStringAddition name="СписокКорректировкиПоступленийSearchString" id="61">
+				<Source>
+					<lf:elementId>11</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокКорректировкиПоступленийSearchStringContextMenu" id="62"/>
+				<ExtendedTooltip name="СписокКорректировкиПоступленийSearchStringExtendedTooltip" id="63"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокКорректировкиПоступленийViewStatus" id="64">
+				<Source>
+					<lf:elementId>11</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокКорректировкиПоступленийViewStatusContextMenu" id="65"/>
+				<ExtendedTooltip name="СписокКорректировкиПоступленийViewStatusExtendedTooltip" id="66"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокКорректировкиПоступленийSearchControl" id="67">
+				<Source>
+					<lf:elementId>11</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокКорректировкиПоступленийSearchControlContextMenu" id="68"/>
+				<ExtendedTooltip name="СписокКорректировкиПоступленийSearchControlExtendedTooltip" id="69"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СписокКорректировкиПоступленийНомер" id="14">
+					<DataPath>СписокКорректировкиПоступлений.Number</DataPath>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокКорректировкиПоступленийНомерКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийНомерExtendedTooltip" id="70"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийДата" id="16">
+					<DataPath>СписокКорректировкиПоступлений.Date</DataPath>
+					<Width>14</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокКорректировкиПоступленийДатаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийДатаExtendedTooltip" id="71"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийСуммаДокумента" id="18">
+					<DataPath>СписокКорректировкиПоступлений.СуммаДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<ContextMenu name="СписокКорректировкиПоступленийСуммаДокументаКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийСуммаДокументаExtendedTooltip" id="72"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийВалюта" id="20">
+					<DataPath>СписокКорректировкиПоступлений.Валюта</DataPath>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="СписокКорректировкиПоступленийВалютаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийВалютаExtendedTooltip" id="73"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийХозяйственнаяОперация" id="49">
+					<DataPath>СписокКорректировкиПоступлений.ХозяйственнаяОперация</DataPath>
+					<ContextMenu name="СписокКорректировкиПоступленийХозяйственнаяОперацияКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийХозяйственнаяОперацияExtendedTooltip" id="74"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийПартнер" id="22">
+					<DataPath>СписокКорректировкиПоступлений.Партнер</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокКорректировкиПоступленийПартнерКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийПартнерExtendedTooltip" id="75"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийКонтрагент" id="24">
+					<DataPath>СписокКорректировкиПоступлений.Контрагент</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокКорректировкиПоступленийКонтрагентКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийКонтрагентExtendedTooltip" id="76"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийОрганизация" id="26">
+					<DataPath>СписокКорректировкиПоступлений.Организация</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокКорректировкиПоступленийОрганизацияКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийОрганизацияExtendedTooltip" id="77"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийСклад" id="28">
+					<DataPath>СписокКорректировкиПоступлений.Склад</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокКорректировкиПоступленийСкладКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийСкладExtendedTooltip" id="78"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийСоглашение" id="30">
+					<DataPath>СписокКорректировкиПоступлений.Соглашение</DataPath>
+					<ContextMenu name="СписокКорректировкиПоступленийСоглашениеКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийСоглашениеExtendedTooltip" id="79"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийДоговор" id="32">
+					<DataPath>СписокКорректировкиПоступлений.Договор</DataPath>
+					<ContextMenu name="СписокКорректировкиПоступленийДоговорКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийДоговорExtendedTooltip" id="80"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийМенеджер" id="34">
+					<DataPath>СписокКорректировкиПоступлений.Менеджер</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>16</Width>
+					<ContextMenu name="СписокКорректировкиПоступленийМенеджерКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийМенеджерExtendedTooltip" id="81"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийКомментарий" id="36">
+					<DataPath>СписокКорректировкиПоступлений.Комментарий</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СписокКорректировкиПоступленийКомментарийКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийКомментарийExtendedTooltip" id="82"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийСсылка" id="38">
+					<DataPath>СписокКорректировкиПоступлений.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СписокКорректировкиПоступленийСсылкаКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийСсылкаExtendedTooltip" id="83"/>
+				</LabelField>
+				<LabelField name="СписокКорректировкиПоступленийСостояниеВерсииЭД" id="47">
+					<DataPath>СписокКорректировкиПоступлений.СостояниеВерсииЭД</DataPath>
+					<ContextMenu name="СписокКорректировкиПоступленийСостояниеВерсииЭДКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="СписокКорректировкиПоступленийСостояниеВерсииЭДExtendedTooltip" id="84"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СписокКорректировкиПоступлений" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список корректировки поступлений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументКорректировкаПоступления.Ссылка,
+	ДокументКорректировкаПоступления.ВерсияДанных,
+	ДокументКорректировкаПоступления.ПометкаУдаления,
+	ДокументКорректировкаПоступления.Номер,
+	ДокументКорректировкаПоступления.Дата,
+	ДокументКорректировкаПоступления.Проведен,
+	ДокументКорректировкаПоступления.ДокументОснование,
+	ДокументКорректировкаПоступления.Партнер,
+	ДокументКорректировкаПоступления.Контрагент,
+	ДокументКорректировкаПоступления.Соглашение,
+	ДокументКорректировкаПоступления.Организация,
+	ДокументКорректировкаПоступления.Договор,
+	ДокументКорректировкаПоступления.Склад,
+	ДокументКорректировкаПоступления.Подразделение,
+	ДокументКорректировкаПоступления.Сделка,
+	ДокументКорректировкаПоступления.Валюта,
+	ДокументКорректировкаПоступления.ВалютаВзаиморасчетов,
+	ДокументКорректировкаПоступления.Менеджер,
+	ДокументКорректировкаПоступления.СуммаДокумента,
+	ДокументКорректировкаПоступления.ДатаПлатежа,
+	ДокументКорректировкаПоступления.ФормаОплаты,
+	ДокументКорректировкаПоступления.ЦенаВключаетНДС,
+	ДокументКорректировкаПоступления.НалогообложениеНДС,
+	ДокументКорректировкаПоступления.ПоступлениеПоЗаказам,
+	ДокументКорректировкаПоступления.СтатьяДоходов,
+	ДокументКорректировкаПоступления.АналитикаДоходов,
+	ДокументКорректировкаПоступления.СтатьяРасходов,
+	ДокументКорректировкаПоступления.АналитикаРасходов,
+	ДокументКорректировкаПоступления.Согласован,
+	ДокументКорректировкаПоступления.НомерВходящегоДокумента,
+	ДокументКорректировкаПоступления.ДатаВходящегоДокумента,
+	ДокументКорректировкаПоступления.Комментарий,
+	ДокументКорректировкаПоступления.ХозяйственнаяОперация,
+	СостоянияЭД.СостояниеВерсииЭД
+ИЗ
+	Документ.КорректировкаПоступления КАК ДокументКорректировкаПоступления
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияЭД КАК СостоянияЭД
+		ПО ДокументКорректировкаПоступления.Ссылка = СостоянияЭД.СсылкаНаОбъект</QueryText>
+				<MainTable>Document.КорректировкаПоступления</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Менеджер" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+			<Save>
+				<Field>Менеджер</Field>
+			</Save>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьНаОснованииПоступленияТоваровУслуг" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Корректировку поступления товаров и услуг</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать на основании реализации товаров услуг</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.ДобавлениеИзменениеКорректировокПоступлений">true</xr:Value>
+				<xr:Value name="Role.ДобавлениеИзменениеПоступленийТоваровУслугВозвратовПоставщикам">true</xr:Value>
+				<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+			</Use>
+			<Action>СоздатьНаОснованииПоступленияТоваровУслуг</Action>
+		</Command>
+		<Command name="СоздатьНаОснованииПоступленияУслугПрочихАктивов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Корректировку поступления услуг и прочих активов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать на основании поступления услуг прочих активов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.ДобавлениеИзменениеКорректировокПоступлений">true</xr:Value>
+				<xr:Value name="Role.ДобавлениеИзменениеПоступленийУслугПрочихАктивов">true</xr:Value>
+				<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+			</Use>
+			<Action>СоздатьНаОснованииПоступленияУслугПрочихАктивов</Action>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>DataProcessor.ЭлектронныеДокументы.Command.ОткрытьАктуальныйЭД</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.ЭД</CommandGroup>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>DataProcessor.ЭлектронныеДокументы.Command.ПерезаполнитьДокумент</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.ЭД</CommandGroup>
+				<Index>1</Index>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

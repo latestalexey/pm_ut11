@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНастройкиВеденияУчета" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки ведения учета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа настройки ведения учета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНастройкиВеденияУчетаExtendedTooltip" id="97"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>36</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="98"/>
+				</InputField>
+				<InputField name="ТипПолитики" id="72">
+					<DataPath>Объект.ТипПолитики</DataPath>
+					<Width>36</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<ContextMenu name="ТипПолитикиКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="ТипПолитикиExtendedTooltip" id="99"/>
+					<Events>
+						<Event name="OnChange">ТипПолитикиПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Описание" id="88">
+			<DataPath>Объект.Описание</DataPath>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="89"/>
+			<ExtendedTooltip name="ОписаниеExtendedTooltip" id="100"/>
+		</InputField>
+		<UsualGroup name="ГруппаУказаниеСерий" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Указывать серии</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаУказаниеСерийExtendedTooltip" id="101"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаУказаниеСерийПриПримекеОтгрузке" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа указание серий при примеке отгрузке</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа указание серий при примеке отгрузке</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаУказаниеСерийПриПримекеОтгрузкеExtendedTooltip" id="102"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаУказаниеСерийПриПоступлении" id="30">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа указание серий при поступлении</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа указание серий при поступлении</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУказаниеСерийПриПоступленииExtendedTooltip" id="103"/>
+							<ChildItems>
+								<CheckBoxField name="УказыватьПриПриемке" id="3">
+									<DataPath>Объект.УказыватьПриПриемке</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>при приемке</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="УказыватьПриПриемкеКонтекстноеМеню" id="4"/>
+									<ExtendedTooltip name="УказыватьПриПриемкеExtendedTooltip" id="104"/>
+									<Events>
+										<Event name="OnChange">УказыватьПриПриемкеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаНастройкиУказанияСерийПриПоступленииКолонка" id="34">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки указания серий при поступлении колонка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройки указания серий при поступлении колонка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройкиУказанияСерийПриПоступленииКолонкаExtendedTooltip" id="105"/>
+									<ChildItems>
+										<LabelDecoration name="Декорация1" id="35">
+											<ContextMenu name="Декорация1КонтекстноеМеню" id="36"/>
+											<ExtendedTooltip name="Декорация1ExtendedTooltip" id="106"/>
+										</LabelDecoration>
+										<UsualGroup name="ГруппаНастройкиУказанияСерийПриПоступлении" id="31">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа настройки указания серий при поступлении</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа настройки указания серий при поступлении</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНастройкиУказанияСерийПриПоступленииExtendedTooltip" id="107"/>
+											<ChildItems>
+												<CheckBoxField name="УказыватьПриПриемкеОтПоставщика" id="32">
+													<DataPath>Объект.УказыватьПриПриемкеОтПоставщика</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>от поставщика</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриПриемкеОтПоставщикаКонтекстноеМеню" id="33"/>
+													<ExtendedTooltip name="УказыватьПриПриемкеОтПоставщикаExtendedTooltip" id="108"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриПриемкеПоВозвратуОтКлиента" id="37">
+													<DataPath>Объект.УказыватьПриПриемкеПоВозвратуОтКлиента</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>по возврату от клиента</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриПриемкеПоВозвратуОтКлиентаКонтекстноеМеню" id="38"/>
+													<ExtendedTooltip name="УказыватьПриПриемкеПоВозвратуОтКлиентаExtendedTooltip" id="109"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриПриемкеПоПеремещению" id="41">
+													<DataPath>Объект.УказыватьПриПриемкеПоПеремещению</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>по перемещению</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриПриемкеПоПеремещениюКонтекстноеМеню" id="42"/>
+													<ExtendedTooltip name="УказыватьПриПриемкеПоПеремещениюExtendedTooltip" id="110"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриПриемкеСобранныхКомплектов" id="39">
+													<DataPath>Объект.УказыватьПриПриемкеСобранныхКомплектов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>собранных комплектов</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриПриемкеСобранныхКомплектовКонтекстноеМеню" id="40"/>
+													<ExtendedTooltip name="УказыватьПриПриемкеСобранныхКомплектовExtendedTooltip" id="111"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриПриемкеКомплектующихПослеРазборки" id="64">
+													<DataPath>Объект.УказыватьПриПриемкеКомплектующихПослеРазборки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>комплектующих после разборки комплектов</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриПриемкеКомплектующихПослеРазборкиКонтекстноеМеню" id="65"/>
+													<ExtendedTooltip name="УказыватьПриПриемкеКомплектующихПослеРазборкиExtendedTooltip" id="112"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриПриемкеПоПрочемуОприходованию" id="82">
+													<DataPath>Объект.УказыватьПриПриемкеПоПрочемуОприходованию</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>по прочему оприходованию</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриПриемкеПоПрочемуОприходованиюКонтекстноеМеню" id="83"/>
+													<ExtendedTooltip name="УказыватьПриПриемкеПоПрочемуОприходованиюExtendedTooltip" id="113"/>
+												</CheckBoxField>
+												<LabelDecoration name="Декорация2" id="86">
+													<ContextMenu name="Декорация2КонтекстноеМеню" id="87"/>
+													<ExtendedTooltip name="Декорация2ExtendedTooltip" id="114"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаУказанияСерийПриОтгрузке" id="44">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа указания серий при отгрузке</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа указания серий при отгрузке</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУказанияСерийПриОтгрузкеExtendedTooltip" id="115"/>
+							<ChildItems>
+								<CheckBoxField name="УказыватьПриОтгрузке" id="5">
+									<DataPath>Объект.УказыватьПриОтгрузке</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>при отгрузке</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="УказыватьПриОтгрузкеКонтекстноеМеню" id="6"/>
+									<ExtendedTooltip name="УказыватьПриОтгрузкеExtendedTooltip" id="116"/>
+									<Events>
+										<Event name="OnChange">УказыватьПриОтгрузкеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаНастройкаУказанияСерийПриОтгрузкеКолонка" id="12">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройка указания серий при отгрузке колонка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настройка указания серий при отгрузке колонка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаНастройкаУказанияСерийПриОтгрузкеКолонкаExtendedTooltip" id="117"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияОтступ" id="13">
+											<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="14"/>
+											<ExtendedTooltip name="ДекорацияОтступExtendedTooltip" id="118"/>
+										</LabelDecoration>
+										<UsualGroup name="ГруппаНастройкаУказанияСерийПриОтгрузке" id="47">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа настройка указания серий при отгрузке</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа настройка указания серий при отгрузке</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНастройкаУказанияСерийПриОтгрузкеExtendedTooltip" id="119"/>
+											<ChildItems>
+												<CheckBoxField name="УказыватьПриОтгрузкеКлиенту" id="45">
+													<DataPath>Объект.УказыватьПриОтгрузкеКлиенту</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>клиенту</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеКлиентуКонтекстноеМеню" id="46"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеКлиентуExtendedTooltip" id="120"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриОтгрузкеВРозницу" id="84">
+													<DataPath>Объект.УказыватьПриОтгрузкеВРозницу</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>в розницу</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеВРозницуКонтекстноеМеню" id="85"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеВРозницуExtendedTooltip" id="121"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриОтгрузкеПоВозвратуПоставщику" id="48">
+													<DataPath>Объект.УказыватьПриОтгрузкеПоВозвратуПоставщику</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>по возврату поставщику</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеПоВозвратуПоставщикуКонтекстноеМеню" id="49"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеПоВозвратуПоставщикуExtendedTooltip" id="122"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриОтгрузкеПоПеремещению" id="54">
+													<DataPath>Объект.УказыватьПриОтгрузкеПоПеремещению</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>по перемещению</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеПоПеремещениюКонтекстноеМеню" id="55"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеПоПеремещениюExtendedTooltip" id="123"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриОтгрузкеКомплектующихДляСборки" id="50">
+													<DataPath>Объект.УказыватьПриОтгрузкеКомплектующихДляСборки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>комлектующих для сборки</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеКомплектующихДляСборкиКонтекстноеМеню" id="51"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеКомплектующихДляСборкиExtendedTooltip" id="124"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриОтгрузкеКомплектовДляРазборки" id="66">
+													<DataPath>Объект.УказыватьПриОтгрузкеКомплектовДляРазборки</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>комплектов для разборки на комплектующие</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеКомплектовДляРазборкиКонтекстноеМеню" id="67"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеКомплектовДляРазборкиExtendedTooltip" id="125"/>
+												</CheckBoxField>
+												<CheckBoxField name="УказыватьПриОтгрузкеНаВнутренниеНужды" id="52">
+													<DataPath>Объект.УказыватьПриОтгрузкеНаВнутренниеНужды</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>на внутренние нужды</v8:content>
+														</v8:item>
+													</Title>
+													<TitleLocation>Right</TitleLocation>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="УказыватьПриОтгрузкеНаВнутренниеНуждыКонтекстноеМеню" id="53"/>
+													<ExtendedTooltip name="УказыватьПриОтгрузкеНаВнутренниеНуждыExtendedTooltip" id="126"/>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
+										<RadioButtonField name="НастройкаУказанияСерийПриОтгрузке" id="93">
+											<DataPath>НастройкаУказанияСерийПриОтгрузке</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<RadioButtonType>Auto</RadioButtonType>
+											<ColumnsCount>1</ColumnsCount>
+											<ChoiceList>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>при планировании отгрузки</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">1</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>при планировании отбора</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">2</Value>
+													</xr:Value>
+												</xr:Item>
+												<xr:Item>
+													<xr:Presentation/>
+													<xr:CheckState>0</xr:CheckState>
+													<xr:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>по факту отбора</v8:content>
+															</v8:item>
+														</Presentation>
+														<Value xsi:type="xs:decimal">3</Value>
+													</xr:Value>
+												</xr:Item>
+											</ChoiceList>
+											<ContextMenu name="НастройкаУказанияСерийПриОтгрузкеКонтекстноеМеню" id="94"/>
+											<ExtendedTooltip name="НастройкаУказанияСерийПриОтгрузкеExtendedTooltip" id="127"/>
+										</RadioButtonField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<CheckBoxField name="УказыватьПриПересчетеТоваров" id="95">
+					<DataPath>Объект.УказыватьПриПересчетеТоваров</DataPath>
+					<Enabled>false</Enabled>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>при пересчете товаров</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УказыватьПриПересчетеТоваровКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="УказыватьПриПересчетеТоваровExtendedTooltip" id="128"/>
+				</CheckBoxField>
+				<CheckBoxField name="УказыватьПриОтраженииИзлишковНедостачПорчи" id="28">
+					<DataPath>Объект.УказыватьПриОтраженииИзлишковНедостачПорчи</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>при отражении излишков, недостач и порчи товаров</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УказыватьПриОтраженииИзлишковНедостачПорчиКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="УказыватьПриОтраженииИзлишковНедостачПорчиExtendedTooltip" id="129"/>
+				</CheckBoxField>
+				<CheckBoxField name="УказыватьПриПеремещенииМеждуПомещениями" id="58">
+					<DataPath>Объект.УказыватьПриПеремещенииМеждуПомещениями</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>при перемещении между помещениями</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УказыватьПриПеремещенииМеждуПомещениямиКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="УказыватьПриПеремещенииМеждуПомещениямиExtendedTooltip" id="130"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ПолитикиУчетаСерий</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НастройкаУказанияСерийПриОтгрузке" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка указания серий при отгрузке</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="СтатусОтбор" id="15">
+			<DataPath>Статус</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</Title>
+			<Width>18</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ClearButton>true</ClearButton>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СтатусыДействияСкидок.EnumValue.Действует</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СтатусыДействияСкидок.EnumValue.Отменена</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Все</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xr:DesignTimeRef">Enum.СтатусыДействияСкидок.EmptyRef</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="СтатусОтборКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="СтатусОтборExtendedTooltip" id="26"/>
+			<Events>
+				<Event name="OnChange">СтатусОтборПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="Список" id="1">
+			<Representation>Tree</Representation>
+			<SkipOnInput>false</SkipOnInput>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.Картинка</RowPictureDataPath>
+			<RowsPicture>
+				<xr:Ref>CommonPicture.СостояниеСкидкиНаценки</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</RowsPicture>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+				<ChildItems>
+					<ButtonGroup name="ГруппаКомманднаяПанель" id="21">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа командная панель</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Командная панель</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомманднаяПанельExtendedTooltip" id="27"/>
+						<ChildItems>
+							<ButtonGroup name="ГруппаИзменениеПорядкаПримерения" id="17">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа изменение порядка примерения</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа изменение порядка примерения</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ExtendedTooltip name="ГруппаИзменениеПорядкаПримеренияExtendedTooltip" id="28"/>
+								<ChildItems>
+									<Button name="ПереместитьЭлементВверх" id="18">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.ПереместитьЭлементВверх</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПереместитьЭлементВверхExtendedTooltip" id="29"/>
+									</Button>
+									<Button name="ПереместитьЭлементВниз" id="19">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.ПереместитьЭлементВниз</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ПереместитьЭлементВнизExtendedTooltip" id="30"/>
+									</Button>
+								</ChildItems>
+							</ButtonGroup>
+						</ChildItems>
+					</ButtonGroup>
+					<Button name="СписокСправка" id="25">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СписокСправкаExtendedTooltip" id="31"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="32"/>
+			<SearchStringAddition name="СписокSearchString" id="33">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="34"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="35"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="36">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="37"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="38"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="39">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="40"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="41"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<ColumnGroup name="ГруппаНаименование" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="ГруппаНаименованиеExtendedTooltip" id="42"/>
+					<ChildItems>
+						<LabelField name="Наименование" id="4">
+							<DataPath>Список.Description</DataPath>
+							<DefaultItem>true</DefaultItem>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="43"/>
+						</LabelField>
+						<LabelField name="СсылкаВариантСовместногоПрименения" id="23">
+							<DataPath>Список.Ref.ВариантСовместногоПрименения</DataPath>
+							<ContextMenu name="СсылкаВариантСовместногоПримененияКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="СсылкаВариантСовместногоПримененияExtendedTooltip" id="44"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<CheckBoxField name="СсылкаУправляемая" id="13">
+					<DataPath>Список.Управляемая</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СсылкаУправляемаяКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="СсылкаУправляемаяExtendedTooltip" id="45"/>
+				</CheckBoxField>
+				<LabelField name="ПорядокПрименения" id="9">
+					<DataPath>Список.РеквизитДопУпорядочивания</DataPath>
+					<ContextMenu name="ПорядокПримененияКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="ПорядокПримененияExtendedTooltip" id="46"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+				<Field>1/5</Field>
+				<Field>Список.Parent</Field>
+				<Field>1/8</Field>
+				<Field>Список.РеквизитДопУпорядочивания</Field>
+			</UseAlways>
+			<Columns>
+				<AdditionalColumns table="1/27">
+					<Column name="Колонка1" id="1">
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникСкидкиНаценки.Наименование,
+	СправочникСкидкиНаценки.ЭтоГруппа,
+	ВЫБОР
+		КОГДА СправочникСкидкиНаценки.ЭтоГруппа
+			ТОГДА ВЫБОР
+					КОГДА СправочникСкидкиНаценки.ВариантСовместногоПрименения = ЗНАЧЕНИЕ(Перечисление.ВариантыСовместногоПримененияСкидокНаценок.Максимум)
+						ТОГДА 8
+					КОГДА СправочникСкидкиНаценки.ВариантСовместногоПрименения = ЗНАЧЕНИЕ(Перечисление.ВариантыСовместногоПримененияСкидокНаценок.Минимум)
+						ТОГДА 16
+					КОГДА СправочникСкидкиНаценки.ВариантСовместногоПрименения = ЗНАЧЕНИЕ(Перечисление.ВариантыСовместногоПримененияСкидокНаценок.Сложение)
+						ТОГДА 0
+					КОГДА СправочникСкидкиНаценки.ВариантСовместногоПрименения = ЗНАЧЕНИЕ(Перечисление.ВариантыСовместногоПримененияСкидокНаценок.Умножение)
+						ТОГДА 4
+					КОГДА СправочникСкидкиНаценки.ВариантСовместногоПрименения = ЗНАЧЕНИЕ(Перечисление.ВариантыСовместногоПримененияСкидокНаценок.Вытеснение)
+						ТОГДА 12
+				КОНЕЦ + ВЫБОР КОГДА СправочникСкидкиНаценки.ПометкаУдаления ТОГДА 3 ИНАЧЕ 0 КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.Процент)
+					ТОГДА ВЫБОР
+							КОГДА СправочникСкидкиНаценки.ЗначениеСкидкиНаценки &lt; 0
+								ТОГДА 32
+							ИНАЧЕ 28
+						КОНЕЦ
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.Подарок) ИЛИ СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.Количество)
+					ТОГДА 36
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.Сумма)
+					ТОГДА ВЫБОР
+							КОГДА СправочникСкидкиНаценки.ЗначениеСкидкиНаценки &lt; 0
+								ТОГДА 40
+							ИНАЧЕ 44
+						КОНЕЦ
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.ОкруглениеСуммы)
+					ТОГДА ВЫБОР
+							КОГДА СправочникСкидкиНаценки.ЗначениеСкидкиНаценки &lt; 0
+								ТОГДА 40
+							ИНАЧЕ 44
+						КОНЕЦ
+						
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.СуммаДляКаждойСтроки)
+					ТОГДА ВЫБОР
+							КОГДА СправочникСкидкиНаценки.ЗначениеСкидкиНаценки &lt; 0
+								ТОГДА 40
+							ИНАЧЕ 44
+						КОНЕЦ
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.ВидЦены)
+					ТОГДА 48
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.Сообщение)
+					ТОГДА 52
+				КОГДА СправочникСкидкиНаценки.СпособПредоставления = ЗНАЧЕНИЕ(Перечисление.СпособыПредоставленияСкидокНаценок.КартаЛояльности)
+					ТОГДА 52
+			КОНЕЦ + ВЫБОР КОГДА СправочникСкидкиНаценки.ПометкаУдаления ТОГДА 3 ИНАЧЕ 0 КОНЕЦ
+	КОНЕЦ КАК Картинка,
+	СправочникСкидкиНаценки.РеквизитДопУпорядочивания КАК РеквизитДопУпорядочивания,
+	СправочникСкидкиНаценки.Управляемая,
+	СправочникСкидкиНаценки.ПометкаУдаления,
+	СправочникСкидкиНаценки.Статус,
+	СправочникСкидкиНаценки.Ссылка,
+	СправочникСкидкиНаценки.Родитель
+ИЗ
+	Справочник.СкидкиНаценки КАК СправочникСкидкиНаценки</QueryText>
+				<MainTable>Catalog.СкидкиНаценки</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыДействияСкидок.Действует</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>РеквизитДопУпорядочивания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыДействияСкидок.Отменена</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">web:DarkGray</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Статус" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус действия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СтатусыДействияСкидок</v8:Type>
+			</Type>
+			<Save>
+				<Field>Статус</Field>
+			</Save>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Список</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.Управляемая</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#008000</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СсылкаВариантСовместногоПрименения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.ЭтоГруппа</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Show</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПереместитьЭлементВверх" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить элемент вверх</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить элемент вверх</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveUp</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПереместитьЭлементВверх</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ПереместитьЭлементВниз" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить элемент вниз</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Переместить элемент вниз</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveDown</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПереместитьЭлементВниз</Action>
+			<Representation>Picture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>

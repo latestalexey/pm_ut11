@@ -1,0 +1,1101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Customizable>false</Customizable>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="047d4d09-961c-4bdc-8519-eef10674c35b">ПослеЗаписи</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="bf0ac0e1-bcbb-4dfe-8fc4-0b1923b461a6">ПередЗаписьюНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ОписаниеРаздела" id="1549">
+			<Width>86</Width>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Управление настройками номенклатуры, такими как единицы измерения и коэффициенты их пересчета, использование номенклатуры поставщиков, а также характеристики, упаковки, серии и качество товаров.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1550"/>
+			<ExtendedTooltip name="ОписаниеРазделаExtendedTooltip" id="2042"/>
+		</LabelDecoration>
+		<UsualGroup name="ГруппаНСИ" id="626">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа НСИ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа НСИ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНСИExtendedTooltip" id="2043"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЕдиницыИзмерения" id="891">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа единицы измерения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа единицы измерения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>43</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЕдиницыИзмеренияExtendedTooltip" id="2044"/>
+					<ChildItems>
+						<InputField name="ЕдиницаИзмеренияВеса" id="467">
+							<DataPath>НаборКонстант.ЕдиницаИзмеренияВеса</DataPath>
+							<Width>16</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ChoiceParameters>
+								<app:item name="Отбор.ТипЕдиницыИзмерения">
+									<app:value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.ТипыЕдиницИзмерения.EnumValue.Весовая</Value>
+									</app:value>
+								</app:item>
+							</ChoiceParameters>
+							<ContextMenu name="ЕдиницаИзмеренияВесаКонтекстноеМеню" id="468"/>
+							<ExtendedTooltip name="ЕдиницаИзмеренияВесаExtendedTooltip" id="2045"/>
+							<Events>
+								<Event name="OnChange">ЕдиницаИзмеренияВесаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="КоэффициентПересчетаВТонны" id="469">
+							<DataPath>НаборКонстант.КоэффициентПересчетаВТонны</DataPath>
+							<Width>16</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="КоэффициентПересчетаВТонныКонтекстноеМеню" id="470"/>
+							<ExtendedTooltip name="КоэффициентПересчетаВТонныExtendedTooltip" id="2046"/>
+							<Events>
+								<Event name="OnChange">КоэффициентПересчетаВТонныПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ПояснениеКоэффициентПересчетаВТонны" id="1666">
+							<Width>46</Width>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Коэффициент перерасчета в тонны из единиц измерения веса. 
+Если единица измерения веса - "кг", то коэффициент равен 0,001.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеКоэффициентПересчетаВТонныКонтекстноеМеню" id="1667"/>
+							<ExtendedTooltip name="ПояснениеКоэффициентПересчетаВТонныExtendedTooltip" id="2047"/>
+						</LabelDecoration>
+						<InputField name="ЕдиницаИзмеренияЛинейныхРазмеров" id="471">
+							<DataPath>НаборКонстант.ЕдиницаИзмеренияЛинейныхРазмеров</DataPath>
+							<Width>16</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ЕдиницаИзмеренияЛинейныхРазмеровКонтекстноеМеню" id="472"/>
+							<ExtendedTooltip name="ЕдиницаИзмеренияЛинейныхРазмеровExtendedTooltip" id="2048"/>
+							<Events>
+								<Event name="OnChange">ЕдиницаИзмеренияЛинейныхРазмеровПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ЕдиницаИзмеренияОбъема" id="473">
+							<DataPath>НаборКонстант.ЕдиницаИзмеренияОбъема</DataPath>
+							<Width>16</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ЕдиницаИзмеренияОбъемаКонтекстноеМеню" id="474"/>
+							<ExtendedTooltip name="ЕдиницаИзмеренияОбъемаExtendedTooltip" id="2049"/>
+							<Events>
+								<Event name="OnChange">ЕдиницаИзмеренияОбъемаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="КоэффициентПересчетаВКубическиеМетры" id="2030">
+							<DataPath>НаборКонстант.КоэффициентПересчетаВКубическиеМетры</DataPath>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="КоэффициентПересчетаВКубическиеМетрыКонтекстноеМеню" id="2031"/>
+							<ExtendedTooltip name="КоэффициентПересчетаВКубическиеМетрыExtendedTooltip" id="2050"/>
+							<Events>
+								<Event name="OnChange">КоэффициентПересчетаВКубическиеМетрыПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ПояснениеКоэффициентПересчетаВКубическиеМетры" id="2028">
+							<Width>46</Width>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Коэффициент перерасчета в кубические метры из единиц измерения объема. Если единица измерения объема - "л", то коэффициент равен 0,001.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеКоэффициентПересчетаВКубическиеМетрыКонтекстноеМеню" id="2029"/>
+							<ExtendedTooltip name="ПояснениеКоэффициентПересчетаВКубическиеМетрыExtendedTooltip" id="2051"/>
+						</LabelDecoration>
+						<InputField name="КоэффициентПересчетаВЕдиницыОбъема" id="475">
+							<DataPath>НаборКонстант.КоэффициентПересчетаВЕдиницыОбъема</DataPath>
+							<Width>16</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="КоэффициентПересчетаВЕдиницыОбъемаКонтекстноеМеню" id="476"/>
+							<ExtendedTooltip name="КоэффициентПересчетаВЕдиницыОбъемаExtendedTooltip" id="2052"/>
+							<Events>
+								<Event name="OnChange">КоэффициентПересчетаВЕдиницыОбъемаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ПояснениеКоэффициентПересчетаВЕдиницыОбъема" id="1898">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Используется для расчета объема упаковки и объема складской ячейки. Если единица измерения линейных размеров метр, а объема литр, то коэффициент будет равен 1000.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеКоэффициентПересчетаВЕдиницыОбъемаКонтекстноеМеню" id="1899"/>
+							<ExtendedTooltip name="ПояснениеКоэффициентПересчетаВЕдиницыОбъемаExtendedTooltip" id="2053"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристик" id="892">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контролировать уникальность рабочего наименования номенклатуры и характеристик</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контролировать уникальность рабочего наименования номенклатуры и характеристик</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристикExtendedTooltip" id="2054"/>
+					<ChildItems>
+						<CheckBoxField name="КонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристик" id="556">
+							<DataPath>НаборКонстант.КонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристик</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контроль уникальности рабочего наименования номенклатуры и характеристик</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</ToolTip>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="КонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристикКонтекстноеМеню" id="557"/>
+							<ExtendedTooltip name="КонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристикExtendedTooltip" id="2055"/>
+							<Events>
+								<Event name="OnChange">КонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристикПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеКонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристик" id="893">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запрет на создание номенклатуры, характеристик с одинаковыми наименованиями.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеКонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристикКонтекстноеМеню" id="894"/>
+							<ExtendedTooltip name="ПояснениеКонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристикExtendedTooltip" id="2056"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаРегистрироватьШтрихкодПриСозданииНоменклатуры" id="1946">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа регистрировать штрихкод при создании номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа регистрировать штрихкод при создании номенклатуры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРегистрироватьШтрихкодПриСозданииНоменклатурыExtendedTooltip" id="2057"/>
+					<ChildItems>
+						<CheckBoxField name="РегистрироватьШтрихкодПриСозданииНоменклатуры" id="1947">
+							<DataPath>НаборКонстант.РегистрироватьШтрихкодПриСозданииНоменклатуры</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Регистрация штрихкода при создании номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РегистрироватьШтрихкодПриСозданииНоменклатурыКонтекстноеМеню" id="1948"/>
+							<ExtendedTooltip name="РегистрироватьШтрихкодПриСозданииНоменклатурыExtendedTooltip" id="2058"/>
+							<Events>
+								<Event name="OnChange">РегистрироватьШтрихкодПриСозданииНоменклатурыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеРегистрироватьШтрихкодПриСозданииНоменклатуры" id="1949">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Возможность создавать штрихкод при добавлении новой номенклатуры с использованием помощника создания номенклатуры.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеРегистрироватьШтрихкодПриСозданииНоменклатурыКонтекстноеМеню" id="1950"/>
+							<ExtendedTooltip name="ПояснениеРегистрироватьШтрихкодПриСозданииНоменклатурыExtendedTooltip" id="2059"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаКонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитов" id="1951">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контролировать уникальность номенклатуры и характеристик по сочетанию значений реквизитов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа контролировать уникальность номенклатуры и характеристик по сочетанию значений реквизитов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитовExtendedTooltip" id="2060"/>
+					<ChildItems>
+						<CheckBoxField name="КонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитов" id="1952">
+							<DataPath>НаборКонстант.КонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитов</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контроль уникальности номенклатуры и характеристик по сочетанию значений реквизитов</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="КонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитовКонтекстноеМеню" id="1953"/>
+							<ExtendedTooltip name="КонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитовExtendedTooltip" id="2061"/>
+							<Events>
+								<Event name="OnChange">КонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитовПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ДекорацияКонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитов" id="1954">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Запрет на создание номенклатуры и характеристик с одинаковыми значениями реквизитов, дополнительных реквизитов.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияКонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитовКонтекстноеМеню" id="1955"/>
+							<ExtendedTooltip name="ДекорацияКонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитовExtendedTooltip" id="2062"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьХарактеристикиНоменклатуры" id="895">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать характеристики номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать характеристики номенклатуры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьХарактеристикиНоменклатурыExtendedTooltip" id="2063"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьХарактеристикиНоменклатуры" id="453">
+							<DataPath>НаборКонстант.ИспользоватьХарактеристикиНоменклатуры</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Характеристики номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</ToolTip>
+							<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+							<WarningOnEdit>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отключать характеристики номенклатуры после начала работы с системой не рекомендуется.</v8:content>
+								</v8:item>
+							</WarningOnEdit>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьХарактеристикиНоменклатурыКонтекстноеМеню" id="454"/>
+							<ExtendedTooltip name="ИспользоватьХарактеристикиНоменклатурыExtendedTooltip" id="2064"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьХарактеристикиНоменклатурыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИспользоватьХарактеристикиНоменклатуры" id="896">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Возможность учета части свойств номенклатуры в отдельном справочнике. 
+Например, обувь имеет общую линейку размеров. Размеры можно учитывать с помощью характеристик.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьХарактеристикиНоменклатурыКонтекстноеМеню" id="897"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьХарактеристикиНоменклатурыExtendedTooltip" id="2065"/>
+						</LabelDecoration>
+						<UsualGroup name="Группа12" id="1956">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа12ExtendedTooltip" id="2066"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация10" id="1957">
+									<ContextMenu name="Декорация10КонтекстноеМеню" id="1958"/>
+									<ExtendedTooltip name="Декорация10ExtendedTooltip" id="2067"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатуры" id="1959">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа добавлять индивидуальные характеристики при создании номенклатуры</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа добавлять индивидуальные характеристики при создании номенклатуры</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатурыExtendedTooltip" id="2068"/>
+									<ChildItems>
+										<CheckBoxField name="ДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатуры" id="1960">
+											<DataPath>НаборКонстант.ДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатуры</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Добавление индивидуальных характеристик при создании номенклатуры</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатурыКонтекстноеМеню" id="1961"/>
+											<ExtendedTooltip name="ДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатурыExtendedTooltip" id="2069"/>
+											<Events>
+												<Event name="OnChange">ДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатурыПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<LabelDecoration name="ПояснениеДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатуры" id="1962">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Открытие страницы для ввода индивидуальных характеристик, при создании новой номенклатуры с использованием 
+помощника.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатурыКонтекстноеМеню" id="1963"/>
+											<ExtendedTooltip name="ПояснениеДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатурыExtendedTooltip" id="2070"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьУпаковкиНоменклатуры" id="898">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать упаковки номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать упаковки номенклатуры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьУпаковкиНоменклатурыExtendedTooltip" id="2071"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьУпаковкиНоменклатуры" id="459">
+							<DataPath>НаборКонстант.ИспользоватьУпаковкиНоменклатуры</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Упаковки номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</ToolTip>
+							<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+							<WarningOnEdit>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отключать упаковки после начала работы с системой не рекомендуется</v8:content>
+								</v8:item>
+							</WarningOnEdit>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьУпаковкиНоменклатурыКонтекстноеМеню" id="460"/>
+							<ExtendedTooltip name="ИспользоватьУпаковкиНоменклатурыExtendedTooltip" id="2072"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьУпаковкиНоменклатурыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИспользоватьУпаковкиНоменклатуры" id="899">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Возможность указания количества одного и того же товара в разных единицах измерения (в коробках, паллетах и т.д.).</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьУпаковкиНоменклатурыКонтекстноеМеню" id="900"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьУпаковкиНоменклатурыExtendedTooltip" id="2073"/>
+						</LabelDecoration>
+						<UsualGroup name="Группа11" id="1964">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа11ExtendedTooltip" id="2074"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация4" id="1965">
+									<ContextMenu name="Декорация4КонтекстноеМеню" id="1966"/>
+									<ExtendedTooltip name="Декорация4ExtendedTooltip" id="2075"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатуры" id="1967">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа добавлять индивидуальные упаковки при создании номенклатуры</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа добавлять индивидуальные упаковки при создании номенклатуры</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатурыExtendedTooltip" id="2076"/>
+									<ChildItems>
+										<CheckBoxField name="ДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатуры" id="1968">
+											<DataPath>НаборКонстант.ДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатуры</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Добавление индивидуальных упаковок при создании номенклатуры</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатурыКонтекстноеМеню" id="1969"/>
+											<ExtendedTooltip name="ДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатурыExtendedTooltip" id="2077"/>
+											<Events>
+												<Event name="OnChange">ДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатурыПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<LabelDecoration name="ПояснениеДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатуры" id="1970">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Открытие страницы для ввода индивидуальных упаковок, при создании новой номенклатуры с использованием помощника.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатурыКонтекстноеМеню" id="1971"/>
+											<ExtendedTooltip name="ПояснениеДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатурыExtendedTooltip" id="2078"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьСерииНоменклатуры" id="901">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать серии номенклатуры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать серии номенклатуры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьСерииНоменклатурыExtendedTooltip" id="2079"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьСерииНоменклатуры" id="554">
+							<DataPath>НаборКонстант.ИспользоватьСерииНоменклатуры</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Серии товаров</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+							<WarningOnEdit>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отключать серии номенклатуры после начала работы с системой не рекомендуется</v8:content>
+								</v8:item>
+							</WarningOnEdit>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьСерииНоменклатурыКонтекстноеМеню" id="555"/>
+							<ExtendedTooltip name="ИспользоватьСерииНоменклатурыExtendedTooltip" id="2080"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьСерииНоменклатурыПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИспользоватьСерииНоменклатуры" id="902">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Учет номеров экземпляров товаров, номеров производственных партий, сроков годности и т.д.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьСерииНоменклатурыКонтекстноеМеню" id="903"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьСерииНоменклатурыExtendedTooltip" id="2081"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьКачествоТоваров" id="904">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать качество товаров</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать качество товаров</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьКачествоТоваровExtendedTooltip" id="2082"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьКачествоТоваров" id="456">
+							<DataPath>НаборКонстант.ИспользоватьКачествоТоваров</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Качество товаров</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+							<WarningOnEdit>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отключать использование качества товаров после начала работы с системой не рекомендуется</v8:content>
+								</v8:item>
+							</WarningOnEdit>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьКачествоТоваровКонтекстноеМеню" id="457"/>
+							<ExtendedTooltip name="ИспользоватьКачествоТоваровExtendedTooltip" id="2083"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьКачествоТоваровПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИспользоватьКачествоТоваров" id="905">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отражение выявленного брака и последующая работа с номенклатурой различного качества 
+(годный, ограниченно годный, не годный).</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьКачествоТоваровКонтекстноеМеню" id="906"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьКачествоТоваровExtendedTooltip" id="2084"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаИспользоватьОбобщенныйУчетНекачественныхТоваровОтступ" id="669">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать обобщенный учет некачественных товаров отступ</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать обобщенный учет некачественных товаров отступ</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>NormalSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьОбобщенныйУчетНекачественныхТоваровОтступExtendedTooltip" id="2085"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация3" id="670">
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="671"/>
+									<ExtendedTooltip name="Декорация3ExtendedTooltip" id="2086"/>
+								</LabelDecoration>
+								<UsualGroup name="ГруппаГруппаИспользоватьОбобщенныйУчетНекачественныхТоваров" id="909">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа группа использовать обобщенный учет некачественных товаров</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа группа использовать обобщенный учет некачественных товаров</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаГруппаИспользоватьОбобщенныйУчетНекачественныхТоваровExtendedTooltip" id="2087"/>
+									<ChildItems>
+										<CheckBoxField name="ИспользоватьОбобщенныйУчетНекачественныхТоваров" id="667">
+											<DataPath>НаборКонстант.ИспользоватьОбобщенныйУчетНекачественныхТоваров</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Обобщенный учет некачественных товаров</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ИспользоватьОбобщенныйУчетНекачественныхТоваровКонтекстноеМеню" id="668"/>
+											<ExtendedTooltip name="ИспользоватьОбобщенныйУчетНекачественныхТоваровExtendedTooltip" id="2088"/>
+											<Events>
+												<Event name="OnChange">ИспользоватьОбобщенныйУчетНекачественныхТоваровПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
+										<LabelDecoration name="ПояснениеИспользоватьОбобщенныйУчетНекачественныхТоваров" id="907">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Возможность учета нескольких некачественных товаров с помощью одной карточки номенклатуры. 
+Например, для товаров "Молоко, 0.3 л.", "Молоко, 0.5 л.", "Молоко, 1 л." можно ввести одну карточку испорченного товара - "Молоко прокисшее".</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеИспользоватьОбобщенныйУчетНекачественныхТоваровКонтекстноеМеню" id="908"/>
+											<ExtendedTooltip name="ПояснениеИспользоватьОбобщенныйУчетНекачественныхТоваровExtendedTooltip" id="2089"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаИспользоватьНоменклатуруПоставщиков" id="910">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать номенклатуру поставщиков</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использовать номенклатуру поставщиков</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИспользоватьНоменклатуруПоставщиковExtendedTooltip" id="2090"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьНоменклатуруПоставщиков" id="464">
+							<DataPath>НаборКонстант.ИспользоватьНоменклатуруПоставщиков</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Номенклатура поставщиков</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</ToolTip>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьНоменклатуруПоставщиковКонтекстноеМеню" id="465"/>
+							<ExtendedTooltip name="ИспользоватьНоменклатуруПоставщиковExtendedTooltip" id="2091"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьНоменклатуруПоставщиковПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИспользоватьНоменклатуруПоставщиков" id="911">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использование номенклатуры поставщиков при отражении операций, связанных с закупками товаров.
+Обязательно для автоматической загрузки номеклатуры из прайсов поставщиков.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьНоменклатуруПоставщиковКонтекстноеМеню" id="912"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьНоменклатуруПоставщиковExtendedTooltip" id="2092"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаНоменклатураПродаваемаяСовместно" id="1720">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа номенклатура продаваемая совместно</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа номенклатура продаваемая совместно</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНоменклатураПродаваемаяСовместноExtendedTooltip" id="2093"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНастройкиНоменклатурыПродававемойСовместно" id="1726">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки номенклатуры продававемой совместно</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки номенклатуры продававемой совместно</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНастройкиНоменклатурыПродававемойСовместноExtendedTooltip" id="2094"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьНоменклатуруПродаваемуюСовместно" id="1721">
+									<DataPath>НаборКонстант.ИспользоватьНоменклатуруПродаваемуюСовместно</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номенклатура, продаваемая совместно</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьНоменклатуруПродаваемуюСовместноКонтекстноеМеню" id="1722"/>
+									<ExtendedTooltip name="ИспользоватьНоменклатуруПродаваемуюСовместноExtendedTooltip" id="2095"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьНоменклатуруПродаваемуюСовместноПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<Button name="ОткрытьНастройкиНоменклатурыПродаваемойСовместно" id="2032">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОткрытьНастройкиНоменклатурыПродаваемойСовместно</CommandName>
+									<Parameter xsi:nil="true"/>
+									<ExtendedTooltip name="ОткрытьНастройкиНоменклатурыПродаваемойСовместноExtendedTooltip" id="2096"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="ПояснениеИспользоватьНоменклатуруПродаваемуюСовместно" id="1723">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Использование поиска ассоциаций номенклатуры, которая часто продается совместно при оптовых и розничных продажах.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьНоменклатуруПродаваемуюСовместноКонтекстноеМеню" id="1724"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьНоменклатуруПродаваемуюСовместноExtendedTooltip" id="2097"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаМногооборотнаяТара" id="2033">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа многооборотная тара</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа многооборотная тара</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаМногооборотнаяТараExtendedTooltip" id="2098"/>
+					<ChildItems>
+						<CheckBoxField name="ИспользоватьМногооборотнуюТару" id="2034">
+							<DataPath>НаборКонстант.ИспользоватьМногооборотнуюТару</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Многооборотная тара</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Right</TitleLocation>
+							<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+							<WarningOnEdit>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отключать использование многооборотной тары после начала работы с системой не рекомендуется</v8:content>
+								</v8:item>
+							</WarningOnEdit>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьМногооборотнуюТаруКонтекстноеМеню" id="2035"/>
+							<ExtendedTooltip name="ИспользоватьМногооборотнуюТаруExtendedTooltip" id="2099"/>
+							<Events>
+								<Event name="OnChange">ИспользоватьМногооборотнуюТаруПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеИспользоватьМногооборотнуюТару" id="2036">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Возможность учета многооборотной тары, приема возвратной тары от поставщиков и передачи возвратной тары клиентам, автоподстановки многооборотной тары в документы.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеИспользоватьМногооборотнуюТаруКонтекстноеМеню" id="2037"/>
+							<ExtendedTooltip name="ПояснениеИспользоватьМногооборотнуюТаруExtendedTooltip" id="2100"/>
+						</LabelDecoration>
+						<CheckBoxField name="ПредлагатьДополнитьДокументыМногооборотнойТарой" id="2038">
+							<DataPath>НаборКонстант.ПредлагатьДополнитьДокументыМногооборотнойТарой</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПредлагатьДополнитьДокументыМногооборотнойТаройКонтекстноеМеню" id="2039"/>
+							<ExtendedTooltip name="ПредлагатьДополнитьДокументыМногооборотнойТаройExtendedTooltip" id="2101"/>
+							<Events>
+								<Event name="OnChange">НаборКонстантПредлагатьДополнитьДокументыМногооборотнойТаройПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<LabelDecoration name="ПояснениеПредлагатьДополнитьДокументыМногооборотнойТарой" id="2040">
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Перед проведением товарных документов пользователю предлагается дозаполнить документ  многоборотной тарой, поставляемой с выбранными в документе товарами. Пользователь может отказаться от дозаполнения.</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПояснениеПредлагатьДополнитьДокументыМногооборотнойТаройКонтекстноеМеню" id="2041"/>
+							<ExtendedTooltip name="ПояснениеПредлагатьДополнитьДокументыМногооборотнойТаройExtendedTooltip" id="2102"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаборКонстант" id="1">
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>НаборКонстант.ИспользоватьЦеновыеГруппы</Field>
+				<Field>НаборКонстант.ОсновнойВариантКлассификацииЗадолженности</Field>
+				<Field>НаборКонстант.ИспользоватьКачествоТоваров</Field>
+				<Field>НаборКонстант.ШаблонЭтикеткиДляДоставки</Field>
+				<Field>НаборКонстант.ИспользоватьПочтовыйКлиент</Field>
+				<Field>НаборКонстант.ДатаУведомленияОНовыхЗадачах</Field>
+				<Field>НаборКонстант.ИспользоватьЭлектронныеЦифровыеПодписи</Field>
+				<Field>НаборКонстант.ИспользоватьОбобщенныйУчетНекачественныхТоваров</Field>
+				<Field>НаборКонстант.ИспользоватьКонкурентнуюРазведку</Field>
+				<Field>НаборКонстант.ЗапрещатьЗагрузкуФайловПоРасширению</Field>
+				<Field>НаборКонстант.КонтролироватьУникальностьНоменклатурыИХарактеристикПоСочетаниюЗначенийРеквизитов</Field>
+				<Field>НаборКонстант.РегистрироватьШтрихкодПриСозданииНоменклатуры</Field>
+				<Field>НаборКонстант.ИспользоватьОбособленныеПодразделенияВыделенныеНаБаланс</Field>
+				<Field>НаборКонстант.АдресаДоставкиТолькоРоссийские</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыСборокТоваров</Field>
+				<Field>НаборКонстант.ВалютаРегламентированногоУчета</Field>
+				<Field>НаборКонстант.ИспользоватьПризнакРассмотрено</Field>
+				<Field>НаборКонстант.ИспользоватьНоменклатуруПродаваемуюСовместно</Field>
+				<Field>НаборКонстант.СписокРасширенийФайловOpenDocumentОбластиДанных</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыПеремещенийТоваров</Field>
+				<Field>НаборКонстант.ИспользоватьРолиКонтактныхЛицПартнеров</Field>
+				<Field>НаборКонстант.ИспользоватьПартнеровКакКонтрагентов</Field>
+				<Field>НаборКонстант.ИспользоватьСерииНоменклатуры</Field>
+				<Field>НаборКонстант.ИдентификаторКорневойПапкиФайлов1СДокументооборот</Field>
+				<Field>НаборКонстант.КоэффициентПересчетаВКубическиеМетры</Field>
+				<Field>НаборКонстант.ИспользоватьДоверенностиНаПолучениеТоваров</Field>
+				<Field>НаборКонстант.ИспользоватьТиповыеИИндивидуальныеСоглашенияСКлиентами</Field>
+				<Field>НаборКонстант.ИспользоватьТиповыеСоглашенияСКлиентами</Field>
+				<Field>НаборКонстант.ИспользованиеСоглашенийСКлиентами</Field>
+				<Field>НаборКонстант.ИспользоватьОбменЭДМеждуОрганизациями</Field>
+				<Field>НаборКонстант.ИспользоватьСкидкиПоМаркетинговымМероприятиям</Field>
+				<Field>НаборКонстант.ИспользоватьТТН</Field>
+				<Field>НаборКонстант.ИспользоватьВидыСвязейМеждуФизическимиЛицами</Field>
+				<Field>НаборКонстант.СписокЗапрещенныхРасширенийОбластиДанных</Field>
+				<Field>НаборКонстант.ОтправлятьПисьмаВФорматеHTML</Field>
+				<Field>НаборКонстант.ИспользоватьШтрихкодированиеПечатныхФормОбъектов</Field>
+				<Field>НаборКонстант.КоличествоДнейХраненияОтложенныхЧеков</Field>
+				<Field>НаборКонстант.ИспользоватьОграниченияРучныхСкидокВПродажахПоСоглашениям</Field>
+				<Field>НаборКонстант.ИспользоватьВерсионированиеОбъектов</Field>
+				<Field>НаборКонстант.ИспользоватьПередачиТоваровМеждуОрганизациями</Field>
+				<Field>НаборКонстант.СписокРасширенийТекстовыхФайлов</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыВозвратовТоваровПоставщикам</Field>
+				<Field>НаборКонстант.ИспользоватьСогласованиеЗаказовКлиентов</Field>
+				<Field>НаборКонстант.ИспользоватьПервичныйСпрос</Field>
+				<Field>НаборКонстант.ИспользоватьИндивидуальныеСоглашенияСКлиентами</Field>
+				<Field>НаборКонстант.ИспользоватьУправлениеДоставкой</Field>
+				<Field>НаборКонстант.ИспользоватьСкладыВТабличнойЧастиДокументовЗакупки</Field>
+				<Field>НаборКонстант.ИспользоватьСогласованиеКоммерческихПредложений</Field>
+				<Field>НаборКонстант.ЕдиницаИзмеренияЛинейныхРазмеров</Field>
+				<Field>НаборКонстант.ИспользоватьСогласованиеЦенНоменклатуры</Field>
+				<Field>НаборКонстант.ИспользоватьГруппыДоступаПартнеров</Field>
+				<Field>НаборКонстант.ВестиОтдельнуюНумерациюСчетовФактурНаАвансы</Field>
+				<Field>НаборКонстант.ИспользоватьПодключаемоеОборудованиеИОплатуПлатежнымиКартами</Field>
+				<Field>НаборКонстант.ИспользоватьДополнительныеРеквизитыИСведения</Field>
+				<Field>НаборКонстант.ИспользоватьАктыВыполненныхРаботПоНесколькимЗаказам</Field>
+				<Field>НаборКонстант.ЕдиницаИзмеренияВеса</Field>
+				<Field>НаборКонстант.ИспользоватьИмпортныеЗакупки</Field>
+				<Field>НаборКонстант.ИспользоватьПодключаемоеОборудование</Field>
+				<Field>НаборКонстант.ИспользоватьОбменСПодключаемымОборудованиемOffline</Field>
+				<Field>НаборКонстант.ФиксироватьПретензииКлиентов</Field>
+				<Field>НаборКонстант.ИспользоватьСегментыПартнеров</Field>
+				<Field>НаборКонстант.ИспользоватьОплатуПлатежнымиКартами</Field>
+				<Field>НаборКонстант.ИспользоватьУправленческуюОрганизацию</Field>
+				<Field>НаборКонстант.КоэффициентПересчетаВЕдиницыОбъема</Field>
+				<Field>НаборКонстант.ИспользоватьСогласованиеСоглашенийСКлиентами</Field>
+				<Field>НаборКонстант.ИспользоватьРеализациюПоНесколькимЗаказам</Field>
+				<Field>НаборКонстант.ИспользоватьМаркетинговыеМероприятия</Field>
+				<Field>НаборКонстант.ВыводитьБазовыеЕдиницыИзмерения</Field>
+				<Field>НаборКонстант.ИспользоватьЗаявкиНаВозвратТоваровОтКлиентов</Field>
+				<Field>НаборКонстант.ИспользоватьАктыПриемкиТоваров</Field>
+				<Field>НаборКонстант.ФормироватьВидыЗапасовПоПоставщикам</Field>
+				<Field>НаборКонстант.ИспользоватьДатуИВремяВСрокахЗадач</Field>
+				<Field>НаборКонстант.ИспользоватьРаздельныйУчетПоНалогообложению</Field>
+				<Field>НаборКонстант.НаименованиеКорневойПапкиФайлов1СДокументооборот</Field>
+				<Field>НаборКонстант.ИспользоватьПрочееОприходованиеТоваров</Field>
+				<Field>НаборКонстант.ИспользоватьБизнесРегионы</Field>
+				<Field>НаборКонстант.АдресВебСервиса1СДокументооборот</Field>
+				<Field>НаборКонстант.ИспользоватьСборкуРазборку</Field>
+				<Field>НаборКонстант.НазначатьСкидкиПоКнопкеРасчетВЧекеККМ</Field>
+				<Field>НаборКонстант.ИспользоватьПартнеровИКонтрагентов</Field>
+				<Field>НаборКонстант.ИспользоватьПеремещениеПоНесколькимЗаказам</Field>
+				<Field>НаборКонстант.ИспользоватьНоменклатуруПоставщиков</Field>
+				<Field>НаборКонстант.КаталогВременныхФайловДляWindows</Field>
+				<Field>НаборКонстант.ЗапретитьПоступлениеТоваровБезНомеровГТД</Field>
+				<Field>НаборКонстант.ИспользоватьПоступлениеПоНесколькимЗаказам</Field>
+				<Field>НаборКонстант.ИспользоватьСегментыНоменклатуры</Field>
+				<Field>НаборКонстант.ИспользоватьГрафикиОплаты</Field>
+				<Field>НаборКонстант.ИспользоватьПеремещениеТоваров</Field>
+				<Field>НаборКонстант.КаталогВременныхФайловДляLinux</Field>
+				<Field>НаборКонстант.ЗаголовокСистемы</Field>
+				<Field>НаборКонстант.ИспользоватьБизнесПроцессыИЗадачи</Field>
+				<Field>НаборКонстант.ИспользоватьВнутреннееПотребление</Field>
+				<Field>НаборКонстант.МаксимальныйРазмерФайлаОбластиДанных</Field>
+				<Field>НаборКонстант.ИспользоватьГруппыФинансовогоУчета</Field>
+				<Field>НаборКонстант.ИспользоватьВнешнихПользователей</Field>
+				<Field>НаборКонстант.ИспользоватьВидыСвязейПартнеров</Field>
+				<Field>НаборКонстант.ДобавлятьИндивидуальныеХарактеристикиПриСозданииНоменклатуры</Field>
+				<Field>НаборКонстант.ИспользоватьГруппыПользователей</Field>
+				<Field>НаборКонстант.ИспользоватьСкладыВТабличнойЧастиДокументовПродажи</Field>
+				<Field>НаборКонстант.ИспользоватьОбособленноеОбеспечениеЗаказов</Field>
+				<Field>НаборКонстант.ВалютаУправленческогоУчета</Field>
+				<Field>НаборКонстант.ИспользоватьСогласованиеЗаявокНаВозвратТоваровОтКлиентов</Field>
+				<Field>НаборКонстант.ИспользоватьЗаданияТорговымПредставителямДляПланирования</Field>
+				<Field>НаборКонстант.КонтролироватьУникальностьРабочегоНаименованияНоменклатурыИХарактеристик</Field>
+				<Field>НаборКонстант.УчитыватьСебестоимостьТоваровПоВидамЗапасов</Field>
+				<Field>НаборКонстант.ИспользоватьСогласованиеЗаказовПоставщикам</Field>
+				<Field>НаборКонстант.ИспользоватьВнутреннееПотреблениеПоНесколькимЗаказам</Field>
+				<Field>НаборКонстант.ИспользоватьОграниченияРучныхСкидокВПродажахПоПользователям</Field>
+				<Field>НаборКонстант.ИспользоватьКартыЛояльности</Field>
+				<Field>НаборКонстант.ИспользоватьИнтеграциюС1СДокументооборот</Field>
+				<Field>НаборКонстант.ИспользоватьОбменЭД</Field>
+				<Field>НаборКонстант.ИспользоватьНапоминанияПользователя</Field>
+				<Field>НаборКонстант.ПрефиксУзлаРаспределеннойИнформационнойБазы</Field>
+				<Field>НаборКонстант.ИспользоватьЗаметки</Field>
+				<Field>НаборКонстант.КоэффициентПересчетаВТонны</Field>
+				<Field>НаборКонстант.ОграничиватьДоступНаУровнеЗаписей</Field>
+				<Field>НаборКонстант.ИспользоватьГруппыДоступаНоменклатуры</Field>
+				<Field>НаборКонстант.ФормироватьВидыЗапасовПоПодразделениямМенеджерам</Field>
+				<Field>НаборКонстант.ХранитьФайлыВТомахНаДиске</Field>
+				<Field>НаборКонстант.ИспользоватьОбменССайтами</Field>
+				<Field>НаборКонстант.ИспользоватьПрочиеВзаимодействия</Field>
+				<Field>НаборКонстант.ЗапретитьОформлениеОперацийСИмпортнымиТоварамиБезНомеровГТД</Field>
+				<Field>НаборКонстант.ЕдиницаИзмеренияОбъема</Field>
+				<Field>НаборКонстант.ФормироватьВидыЗапасовПоГруппамФинансовогоУчета</Field>
+				<Field>НаборКонстант.ДобавлятьИндивидуальныеУпаковкиПриСозданииНоменклатуры</Field>
+				<Field>НаборКонстант.ИспользоватьАктыОРасхожденияхПриПоступленииТоваров</Field>
+				<Field>НаборКонстант.МаксимальныйРазмерФайлаДляПередачиВ1СДокументооборот</Field>
+				<Field>НаборКонстант.РедактироватьАдресаДоставкиТолькоВДиалоге</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыРеализацийТоваровУслуг</Field>
+				<Field>НаборКонстант.ИспользоватьСинхронизациюДанных</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыВнутреннихПотребленийТоваров</Field>
+				<Field>НаборКонстант.ИзменятьЗаданияЗаднимЧислом</Field>
+				<Field>НаборКонстант.ИспользоватьПланированиеПродажИВнутреннегоПотребления</Field>
+				<Field>НаборКонстант.ФормироватьВидыЗапасовПоСделкам</Field>
+				<Field>НаборКонстант.ИспользоватьДатуНачалаЗадач</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ТребуетсяОбновлениеИнтерфейса" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требуется обновление интерфейса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьНастройкиНоменклатурыПродаваемойСовместно" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка поиска ассоциаций</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть настройки номенклатуры продаваемой совместно</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьНастройкиНоменклатурыПродаваемойСовместно</Action>
+		</Command>
+	</Commands>
+</Form>

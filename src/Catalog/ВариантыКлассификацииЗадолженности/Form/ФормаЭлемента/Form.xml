@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Width>40</Width>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<Wrap>false</Wrap>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеExtendedTooltip" id="16"/>
+		</InputField>
+		<InputField name="Календарь" id="3">
+			<DataPath>Объект.Календарь</DataPath>
+			<Wrap>false</Wrap>
+			<ContextMenu name="КалендарьКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="КалендарьExtendedTooltip" id="17"/>
+		</InputField>
+		<Table name="Интервалы" id="5">
+			<SkipOnInput>false</SkipOnInput>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Интервалы</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ИнтервалыКонтекстноеМеню" id="6"/>
+			<AutoCommandBar name="ИнтервалыКоманднаяПанель" id="7"/>
+			<ExtendedTooltip name="ИнтервалыExtendedTooltip" id="18"/>
+			<SearchStringAddition name="ИнтервалыSearchString" id="19">
+				<Source>
+					<lf:elementId>5</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="ИнтервалыSearchStringContextMenu" id="20"/>
+				<ExtendedTooltip name="ИнтервалыSearchStringExtendedTooltip" id="21"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ИнтервалыViewStatus" id="22">
+				<Source>
+					<lf:elementId>5</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="ИнтервалыViewStatusContextMenu" id="23"/>
+				<ExtendedTooltip name="ИнтервалыViewStatusExtendedTooltip" id="24"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ИнтервалыSearchControl" id="25">
+				<Source>
+					<lf:elementId>5</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="ИнтервалыSearchControlContextMenu" id="26"/>
+				<ExtendedTooltip name="ИнтервалыSearchControlExtendedTooltip" id="27"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnEditEnd">ИнтервалыПриОкончанииРедактирования</Event>
+				<Event name="OnChange">ИнтервалыПриИзменении</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ИнтервалыНомерСтроки" id="8">
+					<DataPath>Объект.Интервалы.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>3</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ContextMenu name="ИнтервалыНомерСтрокиКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ИнтервалыНомерСтрокиExtendedTooltip" id="28"/>
+				</InputField>
+				<InputField name="ИнтервалыНижняяГраницаИнтервала" id="10">
+					<DataPath>Объект.Интервалы.НижняяГраницаИнтервала</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нижняя граница</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИнтервалыНижняяГраницаИнтервалаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ИнтервалыНижняяГраницаИнтервалаExtendedTooltip" id="29"/>
+				</InputField>
+				<InputField name="ИнтервалыНаименованиеИнтервала" id="14">
+					<DataPath>Объект.Интервалы.НаименованиеИнтервала</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИнтервалыНаименованиеИнтервалаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ИнтервалыНаименованиеИнтервалаExtendedTooltip" id="30"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ВариантыКлассификацииЗадолженности</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,1140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Customizable>false</Customizable>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="047d4d09-961c-4bdc-8519-eef10674c35b">ПослеЗаписи</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="bf0ac0e1-bcbb-4dfe-8fc4-0b1923b461a6">ПередЗаписьюНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="ОписаниеРаздела" id="1547">
+			<Width>86</Width>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Управление параметрами работы со складами, доставкой.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="ОписаниеРазделаКонтекстноеМеню" id="1548"/>
+			<ExtendedTooltip name="ОписаниеРазделаExtendedTooltip" id="3000"/>
+		</LabelDecoration>
+		<UsualGroup name="ГруппаПрочееНастройкиСкладов" id="2888">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа управление складами</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Representation>NormalSeparation</Representation>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ExtendedTooltip name="ГруппаПрочееНастройкиСкладовExtendedTooltip" id="3001"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаНесколькоСкладов" id="2889">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа несколько складов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ордера инвентаризация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаНесколькоСкладовExtendedTooltip" id="3002"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаИспользоватьНесколькоСкладов" id="2890">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать несколько складов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать ордерные склады1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьНесколькоСкладовExtendedTooltip" id="3003"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьНесколькоСкладов" id="2891">
+									<DataPath>НаборКонстант.ИспользоватьНесколькоСкладов</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Несколько складов</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьНесколькоСкладовКонтекстноеМеню" id="2892"/>
+									<ExtendedTooltip name="ИспользоватьНесколькоСкладовExtendedTooltip" id="3004"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьНесколькоСкладовПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьНесколькоСкладов" id="2893">
+									<Height>1</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Возможность работы с несколькими складами и их настройками.</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="ПояснениеИспользоватьНесколькоСкладовКонтекстноеМеню" id="2894"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьНесколькоСкладовExtendedTooltip" id="3005"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<Pages name="ГруппаСтраницыСклады" id="2895">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страницы склады</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страницы склады</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаСтраницыСкладыExtendedTooltip" id="3006"/>
+							<ChildItems>
+								<Page name="ГруппаОткрытьСклады" id="2896">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа открыть склады</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа открыть склады</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаОткрытьСкладыExtendedTooltip" id="3007"/>
+									<ChildItems>
+										<Button name="ОткрытьСклады" id="2897">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ОткрытьСклады</CommandName>
+											<Parameter xsi:nil="true"/>
+											<ExtendedTooltip name="ОткрытьСкладыExtendedTooltip" id="3008"/>
+										</Button>
+										<LabelDecoration name="ПояснениеОткрытьСклады" id="2898">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Список складов, добавление, изменение.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеОткрытьСкладыКонтекстноеМеню" id="2899"/>
+											<ExtendedTooltip name="ПояснениеОткрытьСкладыExtendedTooltip" id="3009"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаПараметрыСклада" id="2900">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Параметры склада</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа открыть валюты</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаПараметрыСкладаExtendedTooltip" id="3010"/>
+									<ChildItems>
+										<Button name="НастройкаСкладскогоУчета" id="2901">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.НастройкаСкладскогоУчета</CommandName>
+											<Parameter xsi:nil="true"/>
+											<ExtendedTooltip name="НастройкаСкладскогоУчетаExtendedTooltip" id="3011"/>
+										</Button>
+										<LabelDecoration name="ПояснениеНастройкаСкладскогоУчета" id="2902">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Настройка материально-ответственных лиц, видов цен, контроля остатков, ордерной схемы.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеНастройкаСкладскогоУчетаКонтекстноеМеню" id="2903"/>
+											<ExtendedTooltip name="ПояснениеНастройкаСкладскогоУчетаExtendedTooltip" id="3012"/>
+										</LabelDecoration>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаУправлениеСкладами" id="1281">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа управление складами</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа управление складами</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Representation>NormalSeparation</Representation>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаУправлениеСкладамиExtendedTooltip" id="3013"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОрдераИнвентаризация" id="2887">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ордера инвентаризация</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа ордера инвентаризация</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОрдераИнвентаризацияExtendedTooltip" id="3014"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаИспользоватьОрдерныеСклады1" id="1282">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать ордерные склады</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать ордерные склады1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьОрдерныеСклады1ExtendedTooltip" id="3015"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьОрдерныеСклады" id="127">
+									<DataPath>НаборКонстант.ИспользоватьОрдерныеСклады</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ордерные склады</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+									<WarningOnEdit>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отключать ордерную схему после начала работы с системой не рекомендуется</v8:content>
+										</v8:item>
+									</WarningOnEdit>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьОрдерныеСкладыКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="ИспользоватьОрдерныеСкладыExtendedTooltip" id="3016"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьОрдерныеСкладыПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьОрдерныеСклады" id="1283">
+									<Height>3</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Возможность применения ордерной схемы документооборота на складах. Настройки ордерной схемы указываются в карточке склада.</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="ПояснениеИспользоватьОрдерныеСкладыКонтекстноеМеню" id="1284"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьОрдерныеСкладыExtendedTooltip" id="3017"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаИспользоватьРаспоряженияНаИнвентаризацию" id="2878">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать бизнес регионы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать бизнес регионы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьРаспоряженияНаИнвентаризациюExtendedTooltip" id="3018"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьРаспоряженияНаИнвентаризацию" id="2880">
+									<DataPath>НаборКонстант.ИспользоватьРаспоряженияНаИнвентаризацию</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Распоряжения на инвентаризацию.</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<WarningOnEditRepresentation>Show</WarningOnEditRepresentation>
+									<WarningOnEdit>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отключать распоряжения на инвентаризацию после начала работы с системой не рекомендуется</v8:content>
+										</v8:item>
+									</WarningOnEdit>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьРаспоряженияНаИнвентаризациюКонтекстноеМеню" id="2881"/>
+									<ExtendedTooltip name="ИспользоватьРаспоряженияНаИнвентаризациюExtendedTooltip" id="3019"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьРаспоряженияНаИнвентаризациюПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьРаспоряженияНаИнвентаризацию" id="2883">
+									<Height>4</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ведение распоряжений на инвентаризацию - основание для пересчетов товаров и складских актов (списаний, оприходований, пересортиц, порчи). Отключается только при выключенном параметре "Ордерные склады".</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="ПояснениеИспользоватьРаспоряженияНаИнвентаризациюКонтекстноеМеню" id="2884"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьРаспоряженияНаИнвентаризациюExtendedTooltip" id="3020"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПеремещениеТоваров" id="2905">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перемещение товаров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перемещение товаров</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Representation>NormalSeparation</Representation>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПеремещениеТоваровExtendedTooltip" id="3021"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаПеремещениеТоваров1" id="2968">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>43</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПеремещениеТоваров1ExtendedTooltip" id="3022"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаГруппаИспользоватьПеремещениеТоваров1" id="2907">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа группа использовать перемещение товаров1</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа группа использовать перемещение товаров1</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГруппаИспользоватьПеремещениеТоваров1ExtendedTooltip" id="3023"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьПеремещениеТоваров" id="2908">
+									<DataPath>НаборКонстант.ИспользоватьПеремещениеТоваров</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Перемещение товаров</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content> </v8:content>
+										</v8:item>
+									</ToolTip>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьПеремещениеТоваровКонтекстноеМеню" id="2909"/>
+									<ExtendedTooltip name="ИспользоватьПеремещениеТоваровExtendedTooltip" id="3024"/>
+									<Events>
+										<Event name="OnChange">ПеремещениеТоваровПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеПеремещениеТоваров" id="2910">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Оформление документов перемещения товаров между складами торгового предприятия.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеПеремещениеТоваровКонтекстноеМеню" id="2911"/>
+									<ExtendedTooltip name="ПояснениеПеремещениеТоваровExtendedTooltip" id="3025"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаИспользоватьЗаказыНаПеремещение" id="2914">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать заказы на перемещение</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать заказы на перемещение</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьЗаказыНаПеремещениеExtendedTooltip" id="3026"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьЗаказыНаПеремещение" id="2915">
+									<DataPath>НаборКонстант.ИспользоватьЗаказыНаПеремещение</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Заказы на перемещение</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content> </v8:content>
+										</v8:item>
+									</ToolTip>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьЗаказыНаПеремещениеКонтекстноеМеню" id="2916"/>
+									<ExtendedTooltip name="ИспользоватьЗаказыНаПеремещениеExtendedTooltip" id="3027"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьЗаказыНаПеремещениеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьЗаказыНаПеремещение" id="2917">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Учет заказов в случае необходимости осуществления перемещений товаров между складами.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользоватьЗаказыНаПеремещениеКонтекстноеМеню" id="2918"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьЗаказыНаПеремещениеExtendedTooltip" id="3028"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПеремещениеТоваров2" id="2969">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>43</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПеремещениеТоваров2ExtendedTooltip" id="3029"/>
+					<ChildItems>
+						<PictureDecoration name="ОтступВертикальный" id="2970">
+							<Height>3</Height>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отступ вертикальный</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ОтступВертикальныйКонтекстноеМеню" id="2971"/>
+							<ExtendedTooltip name="ОтступВертикальныйExtendedTooltip" id="3030"/>
+						</PictureDecoration>
+						<UsualGroup name="ГруппаИспользоватьПеремещениеПоНесколькимЗаказам" id="2920">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать перемещение по нескольким заказам</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать перемещение по нескольким заказам</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьПеремещениеПоНесколькимЗаказамExtendedTooltip" id="3031"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьПеремещениеПоНесколькимЗаказам" id="2921">
+									<DataPath>НаборКонстант.ИспользоватьПеремещениеПоНесколькимЗаказам</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Перемещение по нескольким заказам</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьПеремещениеПоНесколькимЗаказамКонтекстноеМеню" id="2922"/>
+									<ExtendedTooltip name="ИспользоватьПеремещениеПоНесколькимЗаказамExtendedTooltip" id="3032"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьПеремещениеПоНесколькимЗаказамПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьПеремещениеПоНесколькимЗаказам" id="2923">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Оформление документов перемещения товаров на основании нескольких заказов.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользоватьПеремещениеПоНесколькимЗаказамКонтекстноеМеню" id="2924"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьПеремещениеПоНесколькимЗаказамExtendedTooltip" id="3033"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСтатусыДокументов" id="2972">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перемещение товаров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перемещение товаров</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Representation>NormalSeparation</Representation>
+			<ChildItemsWidth>Equal</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСтатусыДокументовExtendedTooltip" id="3034"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаСтатусыДокументов1" id="2973">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>43</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСтатусыДокументов1ExtendedTooltip" id="3035"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаГруппаИспользоватьСтатусыПеремещенийТоваров" id="2963">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа группа использовать статусы перемещений товаров</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа группа использовать статусы перемещений товаров</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаГруппаИспользоватьСтатусыПеремещенийТоваровExtendedTooltip" id="3036"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьСтатусыПеремещенийТоваров" id="2964">
+									<DataPath>НаборКонстант.ИспользоватьСтатусыПеремещенийТоваров</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статусы перемещений товаров</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьСтатусыПеремещенийТоваровКонтекстноеМеню" id="2965"/>
+									<ExtendedTooltip name="ИспользоватьСтатусыПеремещенийТоваровExtendedTooltip" id="3037"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьСтатусыПеремещенийТоваровПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьСтатусыПеремещенийТоваров" id="2966">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Более детальный контроль процесса перемещения товаров.
+Статусы: "К отгрузке", "Отгружено", "Принято".
+Не рекомендуется отключать статусы при использовании ордерной схемы совместно с сериями номенклатуры.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользоватьСтатусыПеремещенийТоваровКонтекстноеМеню" id="2967"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьСтатусыПеремещенийТоваровExtendedTooltip" id="3038"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаСтатусыДокументов2" id="2989">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа перемещение товаров1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>43</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСтатусыДокументов2ExtendedTooltip" id="3039"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаИспользоватьСтатусыЗаказовНаПеремещение" id="2942">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать статусы заказов на перемещение</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа использовать статусы реализаций товаров услуг</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаИспользоватьСтатусыЗаказовНаПеремещениеExtendedTooltip" id="3040"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьСтатусыЗаказовНаПеремещение" id="2943">
+									<DataPath>НаборКонстант.ИспользоватьСтатусыЗаказовНаПеремещение</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статусы заказов на перемещение</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьСтатусыЗаказовНаПеремещениеКонтекстноеМеню" id="2944"/>
+									<ExtendedTooltip name="ИспользоватьСтатусыЗаказовНаПеремещениеExtendedTooltip" id="3041"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьСтатусыЗаказовНаПеремещениеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьСтатусыЗаказовНаПеремещение" id="2945">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Более детальный контроль процесса обработки заказов на перемещение. </v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="ПояснениеИспользоватьСтатусыЗаказовНаПеремещениеКонтекстноеМеню" id="2946"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьСтатусыЗаказовНаПеремещениеExtendedTooltip" id="3042"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаПеремещатьТоварыДругихОрганизаций" id="2990">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перемещать товары других организаций</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа перемещать товары других организаций</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПеремещатьТоварыДругихОрганизацийExtendedTooltip" id="3043"/>
+			<ChildItems>
+				<CheckBoxField name="ПеремещатьТоварыДругихОрганизаций" id="2991">
+					<DataPath>НаборКонстант.ПеремещатьТоварыДругихОрганизаций</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПеремещатьТоварыДругихОрганизацийКонтекстноеМеню" id="2992"/>
+					<ExtendedTooltip name="ПеремещатьТоварыДругихОрганизацийExtendedTooltip" id="3044"/>
+					<Events>
+						<Event name="OnChange">ПеремещатьТоварыДругихОрганизацийПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelDecoration name="ПояснениеПеремещатьТоварыДругихОрганизаций" id="2993">
+					<Height>3</Height>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>При нехватке товаров организации будут использованы запасы других организаций с регистрацией необходимости оформления передач товаров между организациями</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ПояснениеПеремещатьТоварыДругихОрганизацийКонтекстноеМеню" id="2994"/>
+					<ExtendedTooltip name="ПояснениеПеремещатьТоварыДругихОрганизацийExtendedTooltip" id="3045"/>
+				</LabelDecoration>
+				<UsualGroup name="ГруппаКомментарийПеремещатьТоварыДругихОрганизаций" id="2995">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа комментарий перемещать товары других организаций</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа комментарий дополнительные реквизиты и сведения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>86</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>StrongSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаКомментарийПеремещатьТоварыДругихОрганизацийExtendedTooltip" id="3046"/>
+					<ChildItems>
+						<PictureDecoration name="Декорация35" id="2996">
+							<Width>2</Width>
+							<Height>1</Height>
+							<Picture>
+								<xr:Ref>CommonPicture.Информация02</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="Декорация35КонтекстноеМеню" id="2997"/>
+							<ExtendedTooltip name="Декорация35ExtendedTooltip" id="3047"/>
+						</PictureDecoration>
+						<LabelDecoration name="КомментарийПеремещатьТоварыДругихОрганизаций" id="2998">
+							<Width>86</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Для использования перемещений товаров других организаций необходимое включить опцию "Передачи товаров между организациями" в разделе "Организации и финансы"</v8:content>
+								</v8:item>
+							</Title>
+							<VerticalAlign>Top</VerticalAlign>
+							<ContextMenu name="КомментарийПеремещатьТоварыДругихОрганизацийКонтекстноеМеню" id="2999"/>
+							<ExtendedTooltip name="КомментарийПеремещатьТоварыДругихОрганизацийExtendedTooltip" id="3048"/>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаУправлениеДоставкой" id="612">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доставка</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа управление доставкой</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>86</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Representation>NormalSeparation</Representation>
+			<ExtendedTooltip name="ГруппаУправлениеДоставкойExtendedTooltip" id="3049"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаУправлениеДоставкойВерх" id="2006">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа управление доставкой верх</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа управление доставкой верх</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>86</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаУправлениеДоставкойВерхExtendedTooltip" id="3050"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаУправлениеДоставкойВерхЛево" id="2007">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой верх лево</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой верх лево</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУправлениеДоставкойВерхЛевоExtendedTooltip" id="3051"/>
+							<ChildItems>
+								<CheckBoxField name="ИспользоватьУправлениеДоставкой" id="2008">
+									<DataPath>НаборКонстант.ИспользоватьУправлениеДоставкой</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Управление доставкой</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИспользоватьУправлениеДоставкойКонтекстноеМеню" id="2009"/>
+									<ExtendedTooltip name="ИспользоватьУправлениеДоставкойExtendedTooltip" id="3052"/>
+									<Events>
+										<Event name="OnChange">ИспользоватьУправлениеДоставкойПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьУправлениеДоставкой" id="2010">
+									<Height>2</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Возможность указывать реквизиты доставки, использовать зоны доставки, формировать задания на перевозку.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользоватьУправлениеДоставкойКонтекстноеМеню" id="2011"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьУправлениеДоставкойExtendedTooltip" id="3053"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаУправлениеДоставкойВерхПраво" id="2012">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой верх право</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой верх право</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУправлениеДоставкойВерхПравоExtendedTooltip" id="3054"/>
+							<ChildItems>
+								<CheckBoxField name="РедактироватьАдресаДоставкиТолькоВДиалоге" id="2013">
+									<DataPath>НаборКонстант.РедактироватьАдресаДоставкиТолькоВДиалоге</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РедактироватьАдресаДоставкиТолькоВДиалогеКонтекстноеМеню" id="2014"/>
+									<ExtendedTooltip name="РедактироватьАдресаДоставкиТолькоВДиалогеExtendedTooltip" id="3055"/>
+									<Events>
+										<Event name="OnChange">РедактироватьАдресаДоставкиТолькоВДиалогеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьУправлениеДоставкой1" id="2015">
+									<Height>2</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Части адреса доставки заполняются только в форме ввода адреса (заполнение произвольной строкой невозможно).</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеИспользоватьУправлениеДоставкой1КонтекстноеМеню" id="2016"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьУправлениеДоставкой1ExtendedTooltip" id="3056"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаУправлениеДоставкойНиз" id="2017">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа управление доставкой низ</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа управление доставкой низ</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Width>86</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ChildItemsWidth>Equal</ChildItemsWidth>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаУправлениеДоставкойНизExtendedTooltip" id="3057"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаУправлениеДоставкойНизЛево" id="2018">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой низ лево</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой низ лево</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУправлениеДоставкойНизЛевоExtendedTooltip" id="3058"/>
+							<ChildItems>
+								<InputField name="ШаблонЭтикеткиДляДоставки" id="2019">
+									<DataPath>НаборКонстант.ШаблонЭтикеткиДляДоставки</DataPath>
+									<ContextMenu name="ШаблонЭтикеткиДляДоставкиКонтекстноеМеню" id="2020"/>
+									<ExtendedTooltip name="ШаблонЭтикеткиДляДоставкиExtendedTooltip" id="3059"/>
+									<Events>
+										<Event name="OnChange">ШаблонЭтикеткиДляДоставкиПриИзменении</Event>
+										<Event name="StartChoice">ШаблонЭтикеткиДляДоставкиНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="ПояснениеШаблонЭтикеткиДляДоставки" id="2021">
+									<Height>2</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Используется по умолчанию для печати по распоряжениям на доставку.</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="ПояснениеШаблонЭтикеткиДляДоставкиКонтекстноеМеню" id="2022"/>
+									<ExtendedTooltip name="ПояснениеШаблонЭтикеткиДляДоставкиExtendedTooltip" id="3060"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаУправлениеДоставкойНизПраво" id="2023">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой низ право</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа управление доставкой низ право</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУправлениеДоставкойНизПравоExtendedTooltip" id="3061"/>
+							<ChildItems>
+								<CheckBoxField name="АдресаДоставкиТолькоРоссийские" id="2024">
+									<DataPath>НаборКонстант.АдресаДоставкиТолькоРоссийские</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="АдресаДоставкиТолькоРоссийскиеКонтекстноеМеню" id="2025"/>
+									<ExtendedTooltip name="АдресаДоставкиТолькоРоссийскиеExtendedTooltip" id="3062"/>
+									<Events>
+										<Event name="OnChange">АдресаДоставкиТолькоРоссийскиеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<LabelDecoration name="ПояснениеИспользоватьУправлениеДоставкой2" id="2026">
+									<Height>1</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ограничивать ввод страны адреса доставки.</v8:content>
+										</v8:item>
+									</Title>
+									<VerticalAlign>Top</VerticalAlign>
+									<ContextMenu name="ПояснениеИспользоватьУправлениеДоставкой2КонтекстноеМеню" id="2027"/>
+									<ExtendedTooltip name="ПояснениеИспользоватьУправлениеДоставкой2ExtendedTooltip" id="3063"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="НаборКонстант" id="1">
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>НаборКонстант.ШаблонЭтикеткиДляДоставки</Field>
+				<Field>НаборКонстант.АдресаДоставкиТолькоРоссийские</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыПеремещенийТоваров</Field>
+				<Field>НаборКонстант.ИспользоватьТТН</Field>
+				<Field>НаборКонстант.ИспользоватьПередачиТоваровМеждуОрганизациями</Field>
+				<Field>НаборКонстант.ИспользоватьУправлениеДоставкой</Field>
+				<Field>НаборКонстант.ИспользоватьСкладыВТабличнойЧастиДокументовЗакупки</Field>
+				<Field>НаборКонстант.ИспользоватьПеремещениеПоНесколькимЗаказам</Field>
+				<Field>НаборКонстант.ИспользоватьСтатусыЗаказовНаПеремещение</Field>
+				<Field>НаборКонстант.ИспользоватьРаспоряженияНаИнвентаризацию</Field>
+				<Field>НаборКонстант.ИспользоватьОрдерныеСклады</Field>
+				<Field>НаборКонстант.НеИспользоватьНесколькоСкладов</Field>
+				<Field>НаборКонстант.ИспользоватьНесколькоСкладов</Field>
+				<Field>НаборКонстант.ИспользоватьПеремещениеТоваров</Field>
+				<Field>НаборКонстант.ИспользоватьСкладыВТабличнойЧастиДокументовПродажи</Field>
+				<Field>НаборКонстант.НеИспользоватьРаспоряженияНаИнвентаризацию</Field>
+				<Field>НаборКонстант.РедактироватьАдресаДоставкиТолькоВДиалоге</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ТребуетсяОбновлениеИнтерфейса" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Требуется обновление интерфейса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьСклады" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склады</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть склады</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьСклады</Action>
+		</Command>
+		<Command name="НастройкаСкладскогоУчета" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка складского учета</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка складского учета</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкаСкладскогоУчета</Action>
+		</Command>
+	</Commands>
+</Form>

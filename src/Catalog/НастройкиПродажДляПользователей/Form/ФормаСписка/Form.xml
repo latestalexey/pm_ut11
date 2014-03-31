@@ -1,0 +1,848 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Настройки продаж для пользователей</v8:content>
+		</v8:item>
+	</Title>
+	<Width>90</Width>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>Create</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаПоказыватьНедействительныхПользователей" id="71">
+				<Type>CommandBarButton</Type>
+				<OnlyInAllActions>false</OnlyInAllActions>
+				<CommandName>Form.Command.ПоказыватьНедействительныхПользователей</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаПоказыватьНедействительныхПользователейExtendedTooltip" id="82"/>
+			</Button>
+			<Button name="ФормаСправка" id="70">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="83"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ChildItemsWidth>LeftNarrow</ChildItemsWidth>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаExtendedTooltip" id="84"/>
+			<ChildItems>
+				<Table name="ГруппыПользователей" id="25">
+					<Representation>Tree</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<SkipOnInput>false</SkipOnInput>
+					<SelectionMode>SingleRow</SelectionMode>
+					<RowSelectionMode>Row</RowSelectionMode>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<InitialTreeView>ExpandTopLevel</InitialTreeView>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<DataPath>ГруппыПользователей</DataPath>
+					<RowPictureDataPath>ГруппыПользователей.НомерКартинки</RowPictureDataPath>
+					<RowsPicture>
+						<xr:Ref>CommonPicture.СостоянияПользователей</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</RowsPicture>
+					<CommandSet>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>false</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<ContextMenu name="ГруппыПользователейКонтекстноеМеню" id="26"/>
+					<AutoCommandBar name="ГруппыПользователейКоманднаяПанель" id="27"/>
+					<ExtendedTooltip name="ГруппыПользователейExtendedTooltip" id="85"/>
+					<SearchStringAddition name="ГруппыПользователейSearchString" id="86">
+						<Source>
+							<lf:elementId>25</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="ГруппыПользователейSearchStringContextMenu" id="87"/>
+						<ExtendedTooltip name="ГруппыПользователейSearchStringExtendedTooltip" id="88"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ГруппыПользователейViewStatus" id="89">
+						<Source>
+							<lf:elementId>25</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="ГруппыПользователейViewStatusContextMenu" id="90"/>
+						<ExtendedTooltip name="ГруппыПользователейViewStatusExtendedTooltip" id="91"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ГруппыПользователейSearchControl" id="92">
+						<Source>
+							<lf:elementId>25</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="ГруппыПользователейSearchControlContextMenu" id="93"/>
+						<ExtendedTooltip name="ГруппыПользователейSearchControlExtendedTooltip" id="94"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ГруппыПользователейВыбор</Event>
+						<Event name="OnActivateRow">ГруппыПользователейПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="НаименованиеГруппы" id="30">
+							<DataPath>ГруппыПользователей.Наименование</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа пользователей</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НаименованиеГруппыКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="НаименованиеГруппыExtendedTooltip" id="95"/>
+						</LabelField>
+						<ColumnGroup name="ГруппыПользователейМаксимальныйПроцент" id="80">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Максимальный процент</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группы пользователей максимальный процент</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ГруппыПользователейМаксимальныйПроцентExtendedTooltip" id="96"/>
+							<ChildItems>
+								<LabelField name="ГруппыПользователейПроцентРучнойСкидки" id="74">
+									<DataPath>ГруппыПользователей.ПроцентРучнойСкидки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ручной скидки</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ГруппыПользователейПроцентРучнойСкидкиКонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="ГруппыПользователейПроцентРучнойСкидкиExtendedTooltip" id="97"/>
+								</LabelField>
+								<LabelField name="ГруппыПользователейПроцентРучнойНаценки" id="72">
+									<DataPath>ГруппыПользователей.ПроцентРучнойНаценки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ручной наценки</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ГруппыПользователейПроцентРучнойНаценкиКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ГруппыПользователейПроцентРучнойНаценкиExtendedTooltip" id="98"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</Table>
+				<Table name="ПользователиСписок" id="48">
+					<Representation>List</Representation>
+					<CommandBarLocation>None</CommandBarLocation>
+					<SkipOnInput>false</SkipOnInput>
+					<SelectionMode>SingleRow</SelectionMode>
+					<UseAlternationRowColor>true</UseAlternationRowColor>
+					<DataPath>ПользователиСписок</DataPath>
+					<RowPictureDataPath>ПользователиСписок.НомерКартинки</RowPictureDataPath>
+					<RowsPicture>
+						<xr:Ref>CommonPicture.СостоянияПользователей</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</RowsPicture>
+					<CommandSet>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>Delete</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<AutoRefresh>false</AutoRefresh>
+					<AutoRefreshPeriod>60</AutoRefreshPeriod>
+					<Period xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</Period>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<RestoreCurrentRow>false</RestoreCurrentRow>
+					<TopLevelParent xsi:nil="true"/>
+					<ShowRoot>true</ShowRoot>
+					<AllowRootChoice>false</AllowRootChoice>
+					<UpdateOnDataChange>Auto</UpdateOnDataChange>
+					<ContextMenu name="ПользователиСписокКонтекстноеМеню" id="49"/>
+					<AutoCommandBar name="ПользователиСписокКоманднаяПанель" id="50"/>
+					<ExtendedTooltip name="ПользователиСписокExtendedTooltip" id="99"/>
+					<SearchStringAddition name="ПользователиСписокSearchString" id="100">
+						<Source>
+							<lf:elementId>48</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="ПользователиСписокSearchStringContextMenu" id="101"/>
+						<ExtendedTooltip name="ПользователиСписокSearchStringExtendedTooltip" id="102"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПользователиСписокViewStatus" id="103">
+						<Source>
+							<lf:elementId>48</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="ПользователиСписокViewStatusContextMenu" id="104"/>
+						<ExtendedTooltip name="ПользователиСписокViewStatusExtendedTooltip" id="105"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПользователиСписокSearchControl" id="106">
+						<Source>
+							<lf:elementId>48</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="ПользователиСписокSearchControlContextMenu" id="107"/>
+						<ExtendedTooltip name="ПользователиСписокSearchControlExtendedTooltip" id="108"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ПользователиСписокВыбор</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="Наименование" id="51">
+							<DataPath>ПользователиСписок.Description</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользователь</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="НаименованиеКонтекстноеМеню" id="52"/>
+							<ExtendedTooltip name="НаименованиеExtendedTooltip" id="109"/>
+						</LabelField>
+						<ColumnGroup name="ПользователиСписокМаксимальныйПроцент" id="81">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Максимальный процент</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пользователи список максимальный процент</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<ShowInHeader>true</ShowInHeader>
+							<ExtendedTooltip name="ПользователиСписокМаксимальныйПроцентExtendedTooltip" id="110"/>
+							<ChildItems>
+								<LabelField name="ПроцентРучнойСкидки" id="78">
+									<DataPath>ПользователиСписок.ПроцентРучнойСкидки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ручной скидки</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПроцентРучнойСкидкиКонтекстноеМеню" id="79"/>
+									<ExtendedTooltip name="ПроцентРучнойСкидкиExtendedTooltip" id="111"/>
+								</LabelField>
+								<LabelField name="ПроцентРучнойНаценки" id="76">
+									<DataPath>ПользователиСписок.ПроцентРучнойНаценки</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ручной наценки</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПроцентРучнойНаценкиКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="ПроцентРучнойНаценкиExtendedTooltip" id="112"/>
+								</LabelField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаПоказыватьПользователейДочернихГрупп" id="58">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа показывать пользователей дочерних групп</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа показывать пользователей дочерних групп</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаПоказыватьПользователейДочернихГруппExtendedTooltip" id="113"/>
+			<ChildItems>
+				<Page name="ГруппаНельзяУстановитьСвойство" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа нельзя установить свойство</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа нельзя установить свойство</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаНельзяУстановитьСвойствоExtendedTooltip" id="114"/>
+					<ChildItems>
+						<LabelDecoration name="ПоказыватьВсехПользователей" id="61">
+							<SkipOnInput>false</SkipOnInput>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Все пользователи</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПоказыватьВсехПользователейКонтекстноеМеню" id="62"/>
+							<ExtendedTooltip name="ПоказыватьВсехПользователейExtendedTooltip" id="115"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаУстановитьСвойство" id="59">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа установить свойство</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа установить свойство</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаУстановитьСвойствоExtendedTooltip" id="116"/>
+					<ChildItems>
+						<CheckBoxField name="ВыбиратьИерархически" id="56">
+							<DataPath>ВыбиратьИерархически</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВыбиратьИерархическиКонтекстноеМеню" id="57"/>
+							<ExtendedTooltip name="ВыбиратьИерархическиExtendedTooltip" id="117"/>
+							<Events>
+								<Event name="OnChange">ВыбиратьИерархическиПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПользователиСписок" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>ПользователиСписок.Ref</Field>
+				<Field>ПользователиСписок.ЕстьУточненияПоЦеновымГруппам</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Пользователи.Ссылка,
+	Пользователи.ПометкаУдаления,
+	Пользователи.Предопределенный,
+	Пользователи.Наименование,
+	ВЫБОР
+		КОГДА Пользователи.ПометкаУдаления
+			ТОГДА 0
+		КОГДА Пользователи.ИдентификаторПользователяИБ = &amp;ПустойУникальныйИдентификатор
+			ТОГДА 4
+		ИНАЧЕ 1
+	КОНЕЦ КАК НомерКартинки,
+	ЕСТЬNULL(НастройкиПродажДляПользователей.ЕстьУточненияПоЦеновымГруппам, 0) КАК ЕстьУточненияПоЦеновымГруппам,
+	ЕСТЬNULL(Ограничения.ПроцентРучнойСкидки, 0) КАК ПроцентРучнойСкидки,
+	ЕСТЬNULL(Ограничения.ПроцентРучнойНаценки, 0) КАК ПроцентРучнойНаценки
+ИЗ
+	Справочник.Пользователи КАК Пользователи
+	
+		ЛЕВОЕ СОЕДИНЕНИЕ (
+		
+			ВЫБРАТЬ
+				Ограничения.Пользователь КАК Пользователь,
+				Ограничения.ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+				Ограничения.ПроцентРучнойНаценки КАК ПроцентРучнойНаценки
+			ИЗ
+				(ВЫБРАТЬ
+					МИНИМУМ(ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамИПользователям.Приоритет) КАК Приоритет,
+					ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамИПользователям.Пользователь КАК Пользователь,
+					ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамИПользователям.ЦеноваяГруппа КАК ЦеноваяГруппа
+				ИЗ
+					(ВЫБРАТЬ
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.Пользователь КАК Пользователь,
+						2 КАК Приоритет,
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ЦеноваяГруппа КАК ЦеноваяГруппа,
+						МАКСИМУМ(ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ПроцентРучнойСкидки) КАК ПроцентРучнойСкидки,
+						МАКСИМУМ(ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ПроцентРучнойНаценки) КАК ПроцентРучнойНаценки
+					ИЗ
+						(ВЫБРАТЬ
+							ГруппыИПользователи.Пользователь КАК Пользователь,
+							ГруппыИПользователи.Ссылка КАК ГруппаПользователей,
+							Т.ЦеноваяГруппа КАК ЦеноваяГруппа,
+							Т.ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+							Т.ПроцентРучнойНаценки КАК ПроцентРучнойНаценки
+						ИЗ
+							Справочник.ГруппыПользователей.Состав КАК ГруппыИПользователи
+								ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+									ВременнаяТаблицаОграничениеРучныхСкидокГруппыПользователей.ГруппаПользователей КАК ГруппаПользователей,
+									ЗНАЧЕНИЕ(Справочник.ЦеновыеГруппы.ПустаяСсылка) КАК ЦеноваяГруппа,
+									НастройкиПродажДляПользователей.ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+									НастройкиПродажДляПользователей.ПроцентРучнойНаценки КАК ПроцентРучнойНаценки
+								ИЗ
+									(ВЫБРАТЬ РАЗЛИЧНЫЕ
+										ГруппыПользователейСостав.Ссылка КАК ГруппаПользователей
+									ИЗ
+										Справочник.Пользователи КАК Пользователи
+											ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.ГруппыПользователей.Состав КАК ГруппыПользователейСостав
+											ПО (ГруппыПользователейСостав.Пользователь = Пользователи.Ссылка)) КАК ВременнаяТаблицаОграничениеРучныхСкидокГруппыПользователей
+										ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.НастройкиПродажДляПользователей КАК НастройкиПродажДляПользователей
+										ПО ВременнаяТаблицаОграничениеРучныхСкидокГруппыПользователей.ГруппаПользователей = НастройкиПродажДляПользователей.Владелец
+											И (НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки)) КАК Т
+								ПО ГруппыИПользователи.Ссылка = Т.ГруппаПользователей) КАК ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей
+					
+					СГРУППИРОВАТЬ ПО
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.Пользователь,
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ЦеноваяГруппа
+					
+					ОБЪЕДИНИТЬ ВСЕ
+					
+					ВЫБРАТЬ
+						НастройкиПродажДляПользователей.Владелец,
+						1,
+						ЗНАЧЕНИЕ(Справочник.ЦеновыеГруппы.ПустаяСсылка),
+						НастройкиПродажДляПользователей.ПроцентРучнойСкидки,
+						НастройкиПродажДляПользователей.ПроцентРучнойНаценки
+					ИЗ
+						Справочник.НастройкиПродажДляПользователей КАК НастройкиПродажДляПользователей
+					ГДЕ
+						НастройкиПродажДляПользователей.Владелец ССЫЛКА Справочник.Пользователи
+						И НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки) КАК ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамИПользователям
+				
+				СГРУППИРОВАТЬ ПО
+					ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамИПользователям.Пользователь,
+					ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамИПользователям.ЦеноваяГруппа) КАК Т
+					ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.Пользователь КАК Пользователь,
+						2 КАК Приоритет,
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ЦеноваяГруппа КАК ЦеноваяГруппа,
+						МАКСИМУМ(ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ПроцентРучнойСкидки) КАК ПроцентРучнойСкидки,
+						МАКСИМУМ(ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ПроцентРучнойНаценки) КАК ПроцентРучнойНаценки
+					ИЗ
+						(ВЫБРАТЬ
+							ГруппыИПользователи.Пользователь КАК Пользователь,
+							ГруппыИПользователи.Ссылка КАК ГруппаПользователей,
+							Т.ЦеноваяГруппа КАК ЦеноваяГруппа,
+							Т.ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+							Т.ПроцентРучнойНаценки КАК ПроцентРучнойНаценки
+						ИЗ
+							Справочник.ГруппыПользователей.Состав КАК ГруппыИПользователи
+								ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+									ВременнаяТаблицаОграничениеРучныхСкидокГруппыПользователей.ГруппаПользователей КАК ГруппаПользователей,
+									ЗНАЧЕНИЕ(Справочник.ЦеновыеГруппы.ПустаяСсылка) КАК ЦеноваяГруппа,
+									НастройкиПродажДляПользователей.ПроцентРучнойСкидки КАК ПроцентРучнойСкидки,
+									НастройкиПродажДляПользователей.ПроцентРучнойНаценки КАК ПроцентРучнойНаценки
+								ИЗ
+									(ВЫБРАТЬ РАЗЛИЧНЫЕ
+										ГруппыПользователейСостав.Ссылка КАК ГруппаПользователей
+									ИЗ
+										Справочник.Пользователи КАК Пользователи
+											ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.ГруппыПользователей.Состав КАК ГруппыПользователейСостав
+											ПО (ГруппыПользователейСостав.Пользователь = Пользователи.Ссылка)) КАК ВременнаяТаблицаОграничениеРучныхСкидокГруппыПользователей
+										ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.НастройкиПродажДляПользователей КАК НастройкиПродажДляПользователей
+										ПО ВременнаяТаблицаОграничениеРучныхСкидокГруппыПользователей.ГруппаПользователей = НастройкиПродажДляПользователей.Владелец
+											И (НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки)) КАК Т
+								ПО ГруппыИПользователи.Ссылка = Т.ГруппаПользователей) КАК ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей
+					
+					СГРУППИРОВАТЬ ПО
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.Пользователь,
+						ВременнаяТаблицаОграничениеРучныхСкидокОграниченияПоГруппамПользователей.ЦеноваяГруппа
+					
+					ОБЪЕДИНИТЬ ВСЕ
+					
+					ВЫБРАТЬ
+						НастройкиПродажДляПользователей.Владелец,
+						1,
+						ЗНАЧЕНИЕ(Справочник.ЦеновыеГруппы.ПустаяСсылка),
+						НастройкиПродажДляПользователей.ПроцентРучнойСкидки,
+						НастройкиПродажДляПользователей.ПроцентРучнойНаценки
+					ИЗ
+						Справочник.НастройкиПродажДляПользователей КАК НастройкиПродажДляПользователей
+					ГДЕ
+						НастройкиПродажДляПользователей.Владелец ССЫЛКА Справочник.Пользователи
+						И НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки) КАК Ограничения
+					ПО (Ограничения.ЦеноваяГруппа = Т.ЦеноваяГруппа)
+						И (Ограничения.Пользователь = Т.Пользователь)
+						И (Ограничения.Приоритет = Т.Приоритет)
+
+		) КАК Ограничения
+		ПО Пользователи.Ссылка = Ограничения.Пользователь
+
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.НастройкиПродажДляПользователей КАК НастройкиПродажДляПользователей
+		ПО (НастройкиПродажДляПользователей.Владелец = Пользователи.Ссылка
+				И НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки)
+	
+ГДЕ
+	(&amp;ВыбиратьИерархически
+				И ИСТИНА В
+					(ВЫБРАТЬ
+						ИСТИНА
+					ИЗ
+						РегистрСведений.СоставыГруппПользователей КАК СоставыГруппПользователей
+					ГДЕ
+						СоставыГруппПользователей.Пользователь = Пользователи.Ссылка
+						И СоставыГруппПользователей.ГруппаПользователей = &amp;ГруппаПользователей)
+			ИЛИ (НЕ &amp;ВыбиратьИерархически)
+				И ИСТИНА В
+					(ВЫБРАТЬ
+						ИСТИНА
+					ИЗ
+						Справочник.ГруппыПользователей.Состав КАК ГруппыПользователейСостав
+					ГДЕ
+						ГруппыПользователейСостав.Пользователь = Пользователи.Ссылка
+						И ГруппыПользователейСостав.Ссылка = &amp;ГруппаПользователей))</QueryText>
+				<MainTable>Catalog.Пользователи</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ПометкаУдаления</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Ссылка.Недействителен</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ТекстЗапрещеннойЯчейкиЦвет</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ГруппыПользователей" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группы пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>2/3</Field>
+				<Field>ГруппыПользователей.Ссылка</Field>
+				<Field>ГруппыПользователей.ЕстьУточненияПоЦеновымГруппам</Field>
+				<Field>ГруппыПользователей.ОграничиватьРучныеСкидки</Field>
+			</UseAlways>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьГруппыПользователей</Item>
+			</FunctionalOptions>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СправочникГруппыПользователей.Ссылка КАК Ссылка,
+	СправочникГруппыПользователей.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникГруппыПользователей.Предопределенный КАК Предопределенный,
+	СправочникГруппыПользователей.Родитель КАК Родитель,
+	СправочникГруппыПользователей.Наименование КАК Наименование,
+	ВЫБОР
+		КОГДА СправочникГруппыПользователей.ПометкаУдаления
+			ТОГДА 2
+		ИНАЧЕ 3
+	КОНЕЦ КАК НомерКартинки,
+	ЕСТЬNULL(НастройкиПродажДляПользователей.ЕстьУточненияПоЦеновымГруппам, ЛОЖЬ) КАК ЕстьУточненияПоЦеновымГруппам,
+	ЕСТЬNULL(НастройкиПродажДляПользователей.ПроцентРучнойСкидки, 0) КАК ПроцентРучнойСкидки,
+	ЕСТЬNULL(НастройкиПродажДляПользователей.ПроцентРучнойНаценки, 0) КАК ПроцентРучнойНаценки,
+	НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки КАК ОграничиватьРучныеСкидки
+ИЗ
+	Справочник.ГруппыПользователей КАК СправочникГруппыПользователей
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.НастройкиПродажДляПользователей КАК НастройкиПродажДляПользователей
+		ПО (НастройкиПродажДляПользователей.Владелец = СправочникГруппыПользователей.Ссылка)
+			И (НастройкиПродажДляПользователей.ОграничиватьРучныеСкидки)</QueryText>
+				<MainTable>Catalog.ГруппыПользователей</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Предопределенный</dcsset:field>
+							<dcsset:orderType>Desc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Наименование</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВыбиратьИерархически" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать пользователей дочерних групп</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>ВыбиратьИерархически</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ГруппаПользователейВсеПользователи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользователей все пользователи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ГруппыПользователей</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьГруппы" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать группы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказыватьНедействительныхПользователей" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать недействительных пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПроцентРучнойСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПроцентРучнойНаценки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПользователиСписок.ЕстьУточненияПоЦеновымГруппам</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ИндивидуальнаяЦена</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГруппыПользователейПроцентРучнойСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГруппыПользователейПроцентРучнойНаценки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ГруппыПользователей.ЕстьУточненияПоЦеновымГруппам</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ИндивидуальнаяЦена</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГруппыПользователейПроцентРучнойСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГруппыПользователейПроцентРучнойНаценки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ГруппыПользователей.ОграничиватьРучныеСкидки</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">Нет ограничений</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПроцентРучнойСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ПроцентРучнойНаценки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГруппыПользователейПроцентРучнойСкидки</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГруппыПользователейПроцентРучнойНаценки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="xs:boolean">true</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Font</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="false" italic="false" underline="true" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Format</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧН=0,00</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ПоказыватьНедействительныхПользователей" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать недействительных пользователей</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показывать недействительных пользователей</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказыватьНедействительныхПользователей</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="ВыборГруппПользователей">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ЗакрыватьПриВыборе">
+			<Type/>
+		</Parameter>
+	</Parameters>
+</Form>

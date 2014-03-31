@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Заказы клиентов</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="32">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="35"/>
+			</Button>
+			<ButtonGroup name="ГруппаСтандартрыхКнопок" id="33">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа стандартрых кнопок</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа стандартрых кнопок</v8:content>
+					</v8:item>
+				</ToolTip>
+				<CommandSource>Item.Список</CommandSource>
+				<ExtendedTooltip name="ГруппаСтандартрыхКнопокExtendedTooltip" id="36"/>
+			</ButtonGroup>
+			<Button name="ФормаСправка" id="34">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="37"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<SkipOnInput>false</SkipOnInput>
+			<DefaultItem>true</DefaultItem>
+			<SelectionMode>SingleRow</SelectionMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>false</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="38"/>
+			<SearchStringAddition name="СписокSearchString" id="39">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="40"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="41"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="42">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="43"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="44"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="45">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="46"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="47"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Ссылка" id="22">
+					<DataPath>Список.Ссылка</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="48"/>
+				</LabelField>
+				<LabelField name="ТипРаспоряжения" id="30">
+					<DataPath>Список.ТипРаспоряжения</DataPath>
+					<ContextMenu name="ТипРаспоряженияКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ТипРаспоряженияExtendedTooltip" id="49"/>
+				</LabelField>
+				<InputField name="СписокНомер" id="6">
+					<DataPath>Список.Номер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер</v8:content>
+						</v8:item>
+					</Title>
+					<Width>10</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокНомерКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="СписокНомерExtendedTooltip" id="50"/>
+				</InputField>
+				<InputField name="СписокДата" id="4">
+					<DataPath>Список.Дата</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Width>14</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СписокДатаExtendedTooltip" id="51"/>
+				</InputField>
+				<InputField name="СписокСуммаДокумента" id="20">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма</v8:content>
+						</v8:item>
+					</Title>
+					<Width>9</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокСуммаДокументаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокСуммаДокументаExtendedTooltip" id="52"/>
+				</InputField>
+				<InputField name="СписокВалюта" id="14">
+					<DataPath>Список.Валюта</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Title>
+					<Width>6</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокВалютаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="СписокВалютаExtendedTooltip" id="53"/>
+				</InputField>
+				<InputField name="СписокПартнер" id="8">
+					<DataPath>Список.Партнер</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Партнер</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокПартнерКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="СписокПартнерExtendedTooltip" id="54"/>
+				</InputField>
+				<LabelField name="СписокСоглашение" id="28">
+					<DataPath>Список.Соглашение</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокСоглашениеКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СписокСоглашениеExtendedTooltip" id="55"/>
+				</LabelField>
+				<LabelField name="СписокСклад" id="26">
+					<DataPath>Список.Склад</DataPath>
+					<Width>16</Width>
+					<ContextMenu name="СписокСкладКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СписокСкладExtendedTooltip" id="56"/>
+				</LabelField>
+				<LabelField name="СписокСтатус" id="24">
+					<DataPath>Список.Статус</DataPath>
+					<ContextMenu name="СписокСтатусКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="СписокСтатусExtendedTooltip" id="57"/>
+				</LabelField>
+				<InputField name="СписокКонтрагент" id="10">
+					<DataPath>Список.Контрагент</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокКонтрагентКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="СписокКонтрагентExtendedTooltip" id="58"/>
+				</InputField>
+				<InputField name="СписокОрганизация" id="12">
+					<DataPath>Список.Организация</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Width>16</Width>
+					<Wrap>false</Wrap>
+					<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="СписокОрганизацияExtendedTooltip" id="59"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Заказы.Ссылка КАК Ссылка,
+	ТИПЗНАЧЕНИЯ(Заказы.Ссылка) КАК ТипРаспоряжения,
+	Заказы.Дата КАК Дата,
+	Заказы.Номер КАК Номер,
+	Заказы.Партнер КАК Партнер,
+	Заказы.Контрагент КАК Контрагент,
+	Заказы.Договор КАК Договор,
+	Заказы.Соглашение КАК Соглашение,
+	Заказы.Организация КАК Организация,
+	Заказы.Склад КАК Склад,
+	Заказы.Валюта КАК Валюта,
+	Заказы.Менеджер КАК Менеджер,
+	Заказы.Статус КАК Статус,
+	Заказы.СуммаДокумента КАК СуммаДокумента,
+	Заказы.Приоритет КАК Приоритет,
+	Заказы.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	Заказы.НалогообложениеНДС КАК НалогообложениеНДС,
+	Заказы.ЦенаВключаетНДС КАК ЦенаВключаетНДС,
+	Заказы.Комментарий КАК Комментарий,
+	ВЫБОР
+		КОГДА Заказы.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Высокий)
+			ТОГДА 0
+		КОГДА Заказы.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Средний)
+			ТОГДА 1
+		КОГДА Заказы.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Низкий)
+			ТОГДА 2
+	КОНЕЦ КАК КартинкаПриоритета
+ИЗ
+	Документ.ЗаказКлиента КАК Заказы
+ЛЕВОЕ СОЕДИНЕНИЕ
+		(ВЫБРАТЬ
+			ТаблицаЗаказы.ЗаказКлиента,
+			СУММА(ТаблицаЗаказы.КОформлению) 
+			ИЗ
+				(ВЫБРАТЬ
+					ЗаказыОстатки.ЗаказКлиента КАК ЗаказКлиента,
+					ЗаказыОстатки.КОформлениюОстаток КАК КОформлению
+				ИЗ
+					РегистрНакопления.ЗаказыКлиентов.Остатки(,
+					ЗаказКлиента.Организация = &amp;Организация
+					И ЗаказКлиента.Валюта = &amp;Валюта
+					И ЗаказКлиента.Контрагент = &amp;Контрагент
+					И ЗаказКлиента.Договор = &amp;Договор
+					И ЗаказКлиента.НалогообложениеНДС = &amp;НалогообложениеНДС
+					И ЗаказКлиента.Партнер = &amp;Партнер
+					И ЗаказКлиента.Соглашение = &amp;Соглашение
+					И ЗаказКлиента.ЦенаВключаетНДС = &amp;ЦенаВключаетНДС
+					И ЗаказКлиента.Сделка = &amp;Сделка
+					И ЗаказКлиента.ВернутьМногооборотнуюТару = &amp;ВернутьМногооборотнуюТару
+					И Номенклатура.ВариантОформленияПродажи = ЗНАЧЕНИЕ(Перечисление.ВариантыОформленияПродажи.РеализацияТоваровУслуг)
+					И (Склад = &amp;Склад
+						ИЛИ Склад В ИЕРАРХИИ (&amp;Склад)
+						ИЛИ Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка))
+					) КАК ЗаказыОстатки
+				
+				ОБЪЕДИНИТЬ ВСЕ
+				
+				ВЫБРАТЬ
+					ЗаказыДвижения.ЗаказКлиента,
+					ВЫБОР
+						КОГДА ЗаказыДвижения.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+							ТОГДА -ЗаказыДвижения.КОформлению
+						ИНАЧЕ ЗаказыДвижения.КОформлению
+					КОНЕЦ
+				ИЗ
+					РегистрНакопления.ЗаказыКлиентов КАК ЗаказыДвижения
+				ГДЕ
+					ЗаказыДвижения.Регистратор = &amp;Регистратор
+					И ЗаказыДвижения.Активность
+					И ЗаказыДвижения.ЗаказКлиента.Организация = &amp;Организация
+					И ЗаказыДвижения.ЗаказКлиента.Валюта = &amp;Валюта
+					И ЗаказыДвижения.ЗаказКлиента.Контрагент = &amp;Контрагент
+					И ЗаказыДвижения.ЗаказКлиента.Договор = &amp;Договор
+					И ЗаказыДвижения.ЗаказКлиента.НалогообложениеНДС = &amp;НалогообложениеНДС
+					И ЗаказыДвижения.ЗаказКлиента.Партнер = &amp;Партнер
+					И ЗаказыДвижения.ЗаказКлиента.Соглашение = &amp;Соглашение
+					И ЗаказыДвижения.ЗаказКлиента.ЦенаВключаетНДС = &amp;ЦенаВключаетНДС
+					И ЗаказыДвижения.ЗаказКлиента.Сделка = &amp;Сделка
+					И ЗаказыДвижения.ЗаказКлиента.ВернутьМногооборотнуюТару = &amp;ВернутьМногооборотнуюТару
+					И Номенклатура.ВариантОформленияПродажи = ЗНАЧЕНИЕ(Перечисление.ВариантыОформленияПродажи.РеализацияТоваровУслуг)
+					И (Склад = &amp;Склад
+						ИЛИ Склад В ИЕРАРХИИ (&amp;Склад)
+						ИЛИ Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка))
+					) КАК ТаблицаЗаказы
+			
+			СГРУППИРОВАТЬ ПО
+				ТаблицаЗаказы.ЗаказКлиента
+	) КАК ТаблицаЗаказы
+	
+	ПО
+		Заказы.Ссылка = ТаблицаЗаказы.ЗаказКлиента
+	ГДЕ
+		ТаблицаЗаказы.КОформлению &gt; 0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Заявки.Ссылка,
+	ТИПЗНАЧЕНИЯ(Заявки.Ссылка),
+	Заявки.Дата,
+	Заявки.Номер,
+	Заявки.Партнер,
+	Заявки.Контрагент,
+	Заявки.Договор,
+	Заявки.Соглашение,
+	Заявки.Организация,
+	Заявки.Склад,
+	Заявки.Валюта,
+	Заявки.Менеджер,
+	Заявки.Статус,
+	Заявки.СуммаДокумента,
+	Заявки.Приоритет,
+	Заявки.ХозяйственнаяОперация,
+	Заявки.НалогообложениеНДС,
+	Заявки.ЦенаВключаетНДС,
+	Заявки.Комментарий,
+	ВЫБОР
+		КОГДА Заявки.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Высокий)
+			ТОГДА 0
+		КОГДА Заявки.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Средний)
+			ТОГДА 1
+		КОГДА Заявки.Приоритет = ЗНАЧЕНИЕ(Перечисление.Приоритеты.Низкий)
+			ТОГДА 2
+	КОНЕЦ
+ИЗ
+	Документ.ЗаявкаНаВозвратТоваровОтКлиента КАК Заявки
+ЛЕВОЕ СОЕДИНЕНИЕ
+		(ВЫБРАТЬ
+			ТаблицаЗаказы.ЗаказКлиента,
+			СУММА(ТаблицаЗаказы.КОформлению) 
+			ИЗ
+				(ВЫБРАТЬ
+					ЗаказыОстатки.ЗаказКлиента КАК ЗаказКлиента,
+					ЗаказыОстатки.КОформлениюОстаток КАК КОформлению
+				ИЗ
+					РегистрНакопления.ЗаказыКлиентов.Остатки(,
+					ЗаказКлиента.Организация = &amp;Организация
+					И ЗаказКлиента.Валюта = &amp;Валюта
+					И ЗаказКлиента.Контрагент = &amp;Контрагент
+					И ЗаказКлиента.Договор = &amp;Договор
+					И ЗаказКлиента.НалогообложениеНДС = &amp;НалогообложениеНДС
+					И ЗаказКлиента.Партнер = &amp;Партнер
+					И ЗаказКлиента.Соглашение = &amp;Соглашение
+					И ЗаказКлиента.ЦенаВключаетНДС = &amp;ЦенаВключаетНДС
+					И ЗаказКлиента.Сделка = &amp;Сделка
+					И ЗаказКлиента.ВернутьМногооборотнуюТару = &amp;ВернутьМногооборотнуюТару
+					И Номенклатура.ВариантОформленияПродажи = ЗНАЧЕНИЕ(Перечисление.ВариантыОформленияПродажи.РеализацияТоваровУслуг)
+					И (Склад = &amp;Склад
+						ИЛИ Склад В ИЕРАРХИИ (&amp;Склад)
+						ИЛИ Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка))
+					) КАК ЗаказыОстатки
+				
+				ОБЪЕДИНИТЬ ВСЕ
+				
+				ВЫБРАТЬ
+					ЗаказыДвижения.ЗаказКлиента,
+					ВЫБОР
+						КОГДА ЗаказыДвижения.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+							ТОГДА -ЗаказыДвижения.КОформлению
+						ИНАЧЕ ЗаказыДвижения.КОформлению
+					КОНЕЦ
+				ИЗ
+					РегистрНакопления.ЗаказыКлиентов КАК ЗаказыДвижения
+				ГДЕ
+					ЗаказыДвижения.Регистратор = &amp;Регистратор
+					И ЗаказыДвижения.Активность
+					И ЗаказыДвижения.ЗаказКлиента.Организация = &amp;Организация
+					И ЗаказыДвижения.ЗаказКлиента.Валюта = &amp;Валюта
+					И ЗаказыДвижения.ЗаказКлиента.Контрагент = &amp;Контрагент
+					И ЗаказыДвижения.ЗаказКлиента.Договор = &amp;Договор
+					И ЗаказыДвижения.ЗаказКлиента.НалогообложениеНДС = &amp;НалогообложениеНДС
+					И ЗаказыДвижения.ЗаказКлиента.Партнер = &amp;Партнер
+					И ЗаказыДвижения.ЗаказКлиента.Соглашение = &amp;Соглашение
+					И ЗаказыДвижения.ЗаказКлиента.ЦенаВключаетНДС = &amp;ЦенаВключаетНДС
+					И ЗаказыДвижения.ЗаказКлиента.Сделка = &amp;Сделка
+					И ЗаказыДвижения.ЗаказКлиента.ВернутьМногооборотнуюТару = &amp;ВернутьМногооборотнуюТару
+					И Номенклатура.ВариантОформленияПродажи = ЗНАЧЕНИЕ(Перечисление.ВариантыОформленияПродажи.РеализацияТоваровУслуг)
+					И (Склад = &amp;Склад
+						ИЛИ Склад В ИЕРАРХИИ (&amp;Склад)
+						ИЛИ Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка))
+					) КАК ТаблицаЗаказы
+			
+			СГРУППИРОВАТЬ ПО
+				ТаблицаЗаказы.ЗаказКлиента
+	) КАК ТаблицаЗаказы
+	
+	ПО
+		Заявки.Ссылка = ТаблицаЗаказы.ЗаказКлиента
+	ГДЕ
+		ТаблицаЗаказы.КОформлению &gt; 0
+</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Склад">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>Document.ЗаявкаНаРасходованиеДенежныхСредств.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>4</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ПоступлениеТоваровУслуг.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>3</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>2:6a90e124-5af0-4a37-8ff7-14481b8cb2dd</Command>
+				<Type>Auto</Type>
+				<Index>2</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.РасходныйКассовыйОрдер.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>6</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<Index>7</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.СписаниеБезналичныхДенежныхСредств.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>BusinessProcess.Задание.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ВозвратТоваровПоставщику.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>5</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

@@ -1,0 +1,1652 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Регламентные операции по закрытию месяца</v8:content>
+		</v8:item>
+	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаВыполнитьЗакрытие" id="151">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыполнитьОперацииПоЗакрытиюМесяца</CommandName>
+				<Parameter xsi:nil="true"/>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выполнить операции</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаВыполнитьЗакрытиеExtendedTooltip" id="186"/>
+			</Button>
+			<Button name="ФормаОбновитьСостоянияОпераций" id="69">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.ОбновитьСостояниеОпераций</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаОбновитьСостоянияОперацийExtendedTooltip" id="187"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="159">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаExtendedTooltip" id="188"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаПараметры" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Параметры</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа параметры</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Group>Horizontal</Group>
+					<Representation>StrongSeparation</Representation>
+					<ExtendedTooltip name="ГруппаПараметрыExtendedTooltip" id="189"/>
+					<ChildItems>
+						<InputField name="ПредставлениеПериодаРегистрации" id="6">
+							<DataPath>ПредставлениеПериодаРегистрации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Месяц</v8:content>
+								</v8:item>
+							</Title>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ClearButton>false</ClearButton>
+							<SpinButton>true</SpinButton>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ChoiceListButton>true</ChoiceListButton>
+							<ContextMenu name="ПредставлениеПериодаРегистрацииКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="ПредставлениеПериодаРегистрацииExtendedTooltip" id="190"/>
+							<Events>
+								<Event name="Tuning">ПредставлениеПериодаРегистрацииРегулирование</Event>
+								<Event name="StartListChoice">ПредставлениеПериодаРегистрацииНачалоВыбораИзСписка</Event>
+								<Event name="Clearing">ПредставлениеПериодаРегистрацииОчистка</Event>
+							</Events>
+						</InputField>
+						<InputField name="Организация" id="1">
+							<DataPath>Объект.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>37</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="191"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<PictureDecoration name="ДекорацияПустая" id="164">
+							<Width>2</Width>
+							<Height>1</Height>
+							<ContextMenu name="ДекорацияПустаяКонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="ДекорацияПустаяExtendedTooltip" id="192"/>
+						</PictureDecoration>
+						<PictureDecoration name="ДекорацияВыполнено" id="160">
+							<Width>3</Width>
+							<Height>1</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<PictureSize>Proportionally</PictureSize>
+							<Picture>
+								<xr:Ref>CommonPicture.ЗеленаяГалка</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="ДекорацияВыполненоКонтекстноеМеню" id="161"/>
+							<ExtendedTooltip name="ДекорацияВыполненоExtendedTooltip" id="193"/>
+						</PictureDecoration>
+						<PictureDecoration name="ДекорацияНеВыполнено" id="166">
+							<Width>3</Width>
+							<Height>1</Height>
+							<HorizontalStretch>false</HorizontalStretch>
+							<VerticalStretch>false</VerticalStretch>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Декорация не выполнено</v8:content>
+								</v8:item>
+							</Title>
+							<Picture>
+								<xr:Ref>CommonPicture.Внимание</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</Picture>
+							<ContextMenu name="ДекорацияНеВыполненоКонтекстноеМеню" id="167"/>
+							<ExtendedTooltip name="ДекорацияНеВыполненоExtendedTooltip" id="194"/>
+						</PictureDecoration>
+						<LabelField name="Статус" id="168">
+							<DataPath>Статус</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="СтатусКонтекстноеМеню" id="169"/>
+							<ExtendedTooltip name="СтатусExtendedTooltip" id="195"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаИсправлениеОтрицательныхОстатковТоваровОбщая" id="178">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа формирование движений по расчету с партнерами общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаИсправлениеОтрицательныхОстатковТоваровОбщаяExtendedTooltip" id="196"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаИсправлениеОтрицательныхОстатковТоваров" id="179">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа формирование движений по расчету с партнерами</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаИсправлениеОтрицательныхОстатковТоваровExtendedTooltip" id="197"/>
+					<ChildItems>
+						<LabelField name="ИсправлениеОтрицательныхОстатковТоваров" id="180">
+							<DataPath>ИсправлениеОтрицательныхОстатковТоваров</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>1.   Исправление отрицательных остатков товаров организаций</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>49</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ИсправлениеОтрицательныхОстатковТоваровКонтекстноеМеню" id="181"/>
+							<ExtendedTooltip name="ИсправлениеОтрицательныхОстатковТоваровExtendedTooltip" id="198"/>
+						</LabelField>
+						<LabelDecoration name="ДействиеИсправлениеОтрицательныхОстатковТоваров" id="182">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Исправить</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеИсправлениеОтрицательныхОстатковТоваровКонтекстноеМеню" id="183"/>
+							<ExtendedTooltip name="ДействиеИсправлениеОтрицательныхОстатковТоваровExtendedTooltip" id="199"/>
+							<Events>
+								<Event name="Click">ДействиеИсправлениеОтрицательныхОстатковТоваровНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеИсправлениеОтрицательныхОстатковТоваров" id="184">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеИсправлениеОтрицательныхОстатковТоваровКонтекстноеМеню" id="185"/>
+					<ExtendedTooltip name="ПояснениеИсправлениеОтрицательныхОстатковТоваровExtendedTooltip" id="200"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаФормированиеДвиженийПоРасчетуСПартнерамиОбщая" id="105">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа формирование движений по расчету с партнерами общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаФормированиеДвиженийПоРасчетуСПартнерамиОбщаяExtendedTooltip" id="201"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаФормированиеДвиженийПоРасчетуСПартнерами" id="106">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа формирование движений по расчету с партнерами</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа формирование движений по расчету с партнерами</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаФормированиеДвиженийПоРасчетуСПартнерамиExtendedTooltip" id="202"/>
+					<ChildItems>
+						<LabelField name="ФормированиеДвиженийПоРасчетуСПартнерами" id="15">
+							<DataPath>ФормированиеДвиженийПоРасчетуСПартнерами</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>2.   Формирование движений по расчетам с партнерами</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>54</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ФормированиеДвиженийПоРасчетуСПартнерамиКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="ФормированиеДвиженийПоРасчетуСПартнерамиExtendedTooltip" id="203"/>
+						</LabelField>
+						<LabelDecoration name="ДействиеФормированиеДвиженийПоРасчетуСПартнерами" id="135">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сформировать</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеФормированиеДвиженийПоРасчетуСПартнерамиКонтекстноеМеню" id="136"/>
+							<ExtendedTooltip name="ДействиеФормированиеДвиженийПоРасчетуСПартнерамиExtendedTooltip" id="204"/>
+							<Events>
+								<Event name="Click">ДействиеФормированиеДвиженийПоРасчетуСПартнерамиНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеФормированиеДвиженийПоРасчетуСПартнерами" id="107">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеФормированиеДвиженийПоРасчетуСПартнерамиКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="ПояснениеФормированиеДвиженийПоРасчетуСПартнерамиExtendedTooltip" id="205"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаФормированиеДвиженийПоПартиямТоваровОбщая" id="109">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа формирование движений по партиям товаров общая</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа формирование движений по партиям товаров общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаФормированиеДвиженийПоПартиямТоваровОбщаяExtendedTooltip" id="206"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаФормированиеДвиженийПоПартиямТоваров" id="110">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа формирование движений по партиям товаров</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа формирование движений по партиям товаров</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаФормированиеДвиженийПоПартиямТоваровExtendedTooltip" id="207"/>
+					<ChildItems>
+						<LabelField name="ФормированиеДвиженийПоПартиямТоваров" id="20">
+							<DataPath>ФормированиеДвиженийПоПартиямТоваров</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>3.   Формирование движений по партиям товаров и НДС</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>54</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ФормированиеДвиженийПоПартиямТоваровКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ФормированиеДвиженийПоПартиямТоваровExtendedTooltip" id="208"/>
+							<Events>
+								<Event name="Click">ФормированиеДвиженийПоПартиямТоваровНажатие</Event>
+							</Events>
+						</LabelField>
+						<LabelDecoration name="ДействиеФормированиеДвиженийПоПартиямТоваров" id="137">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сформировать</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеФормированиеДвиженийПоПартиямТоваровКонтекстноеМеню" id="138"/>
+							<ExtendedTooltip name="ДействиеФормированиеДвиженийПоПартиямТоваровExtendedTooltip" id="209"/>
+							<Events>
+								<Event name="Click">ДействиеФормированиеДвиженийПоПартиямТоваровНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеФормированиеДвиженийПоПартиямТоваров" id="111">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеФормированиеДвиженийПоПартиямТоваровКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="ПояснениеФормированиеДвиженийПоПартиямТоваровExtendedTooltip" id="210"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРаспределениеРБПОбщая" id="113">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа распределение РБПОбщая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРаспределениеРБПОбщаяExtendedTooltip" id="211"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРаспределениеРБП" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распределение РБП</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распределение РБП</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспределениеРБПExtendedTooltip" id="212"/>
+					<ChildItems>
+						<LabelField name="РаспределениеРБП" id="25">
+							<DataPath>РаспределениеРБП</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>4.   Распределение расходов будущих периодов</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>60</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РаспределениеРБПКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="РаспределениеРБПExtendedTooltip" id="213"/>
+						</LabelField>
+						<LabelDecoration name="ДействиеРаспределениеРБП" id="139">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Распределить</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеРаспределениеРБПКонтекстноеМеню" id="140"/>
+							<ExtendedTooltip name="ДействиеРаспределениеРБПExtendedTooltip" id="214"/>
+							<Events>
+								<Event name="Click">ДействиеРаспределениеРБПНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеРаспределениеРБП" id="115">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеРаспределениеРБПКонтекстноеМеню" id="116"/>
+					<ExtendedTooltip name="ПояснениеРаспределениеРБПExtendedTooltip" id="215"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДействиеРаспределениеНДСОбщая" id="170">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа действие расчет себестоимости общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДействиеРаспределениеНДСОбщаяExtendedTooltip" id="216"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаДействиеРаспределениеНДС" id="171">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа действие расчет себестоимости</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДействиеРаспределениеНДСExtendedTooltip" id="217"/>
+					<ChildItems>
+						<LabelField name="РаспределениеНДС" id="172">
+							<DataPath>РаспределениеНДС</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>5.   Распределение НДС</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>75</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РаспределениеНДСКонтекстноеМеню" id="173"/>
+							<ExtendedTooltip name="РаспределениеНДСExtendedTooltip" id="218"/>
+							<Events>
+								<Event name="Click">РаспределениеНДСНажатие</Event>
+							</Events>
+						</LabelField>
+						<LabelDecoration name="ДействиеРаспределениеНДС" id="174">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Распределить</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеРаспределениеНДСКонтекстноеМеню" id="175"/>
+							<ExtendedTooltip name="ДействиеРаспределениеНДСExtendedTooltip" id="219"/>
+							<Events>
+								<Event name="Click">ДействиеРаспределениеНДСНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеРаспределениеНДС" id="176">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеРаспределениеНДСКонтекстноеМеню" id="177"/>
+					<ExtendedTooltip name="ПояснениеРаспределениеНДСExtendedTooltip" id="220"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДействиеРасчетСебестоимостиОбщая" id="97">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа действие расчет себестоимости общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДействиеРасчетСебестоимостиОбщаяExtendedTooltip" id="221"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаДействиеРасчетСебестоимости" id="98">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа действие расчет себестоимости</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа действие расчет себестоимости</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаДействиеРасчетСебестоимостиExtendedTooltip" id="222"/>
+					<ChildItems>
+						<LabelField name="РасчетСебестоимости" id="74">
+							<DataPath>РасчетСебестоимости</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>6.   Расчет себестоимости</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>73</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РасчетСебестоимостиКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="РасчетСебестоимостиExtendedTooltip" id="223"/>
+							<Events>
+								<Event name="Click">РасчетСебестоимостиНажатие</Event>
+							</Events>
+						</LabelField>
+						<LabelDecoration name="ДействиеРасчетСебестоимости" id="147">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Рассчитать</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеРасчетСебестоимостиКонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ДействиеРасчетСебестоимостиExtendedTooltip" id="224"/>
+							<Events>
+								<Event name="Click">ДействиеРасчетСебестоимостиНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеРасчетСебестоимости" id="99">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеРасчетСебестоимостиКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="ПояснениеРасчетСебестоимостиExtendedTooltip" id="225"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаРаспределениеДоходовИРасходовПоНаправлениямОбщая" id="129">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа распределение доходов и расходов по направлениям общая</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРаспределениеДоходовИРасходовПоНаправлениямОбщаяExtendedTooltip" id="226"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаРаспределениеДоходовИРасходовПоНаправлениям" id="130">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа распределение доходов и расходов по направлениям</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаРаспределениеДоходовИРасходовПоНаправлениямExtendedTooltip" id="227"/>
+					<ChildItems>
+						<LabelField name="РаспределениеДоходовИРасходовПоНаправлениям" id="62">
+							<DataPath>РаспределениеДоходовИРасходовПоНаправлениям</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>7. Распределение доходов и расходов по направлениям деятельности</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalAlign>Right</HorizontalAlign>
+							<Width>45</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="РаспределениеДоходовИРасходовПоНаправлениямКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="РаспределениеДоходовИРасходовПоНаправлениямExtendedTooltip" id="228"/>
+							<Events>
+								<Event name="Click">РаспределениеДоходовИРасходовПоНаправлениямНажатие</Event>
+							</Events>
+						</LabelField>
+						<LabelDecoration name="ДействиеРаспределениеДоходовИРасходовПоНаправлениям" id="149">
+							<Width>10</Width>
+							<TextColor>style:ЦветГиперссылки</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Распределить</v8:content>
+								</v8:item>
+							</Title>
+							<Hyperlink>true</Hyperlink>
+							<ContextMenu name="ДействиеРаспределениеДоходовИРасходовПоНаправлениямКонтекстноеМеню" id="150"/>
+							<ExtendedTooltip name="ДействиеРаспределениеДоходовИРасходовПоНаправлениямExtendedTooltip" id="229"/>
+							<Events>
+								<Event name="Click">ДействиеРаспределениеДоходовИРасходовПоНаправлениямНажатие</Event>
+							</Events>
+						</LabelDecoration>
+					</ChildItems>
+				</UsualGroup>
+				<LabelDecoration name="ПояснениеРаспределениеДоходовИРасходовПоНаправлениям" id="131">
+					<Width>55</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="ПояснениеРаспределениеДоходовИРасходовПоНаправлениямКонтекстноеМеню" id="132"/>
+					<ExtendedTooltip name="ПояснениеРаспределениеДоходовИРасходовПоНаправлениямExtendedTooltip" id="230"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВыполнениеОпераций" id="64">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнение операций</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа выполнение операций</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаВыполнениеОперацийExtendedTooltip" id="231"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаАвтоматическоеВыполнение" id="156">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа автоматическое выполнение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа автоматическое выполнение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаАвтоматическоеВыполнениеExtendedTooltip" id="232"/>
+					<ChildItems>
+						<CheckBoxField name="АвтоматическиВыполнятьОперацииПоЗакрытиюМесяца" id="66">
+							<DataPath>АвтоматическиВыполнятьОперацииПоЗакрытиюМесяца</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="АвтоматическиВыполнятьОперацииПоЗакрытиюМесяцаКонтекстноеМеню" id="67"/>
+							<ExtendedTooltip name="АвтоматическиВыполнятьОперацииПоЗакрытиюМесяцаExtendedTooltip" id="233"/>
+							<Events>
+								<Event name="OnChange">АвтоматическиВыполнятьОперацииПоЗакрытиюМесяцаПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<InputField name="ПредставлениеПериодРегистрацииРегламентный" id="157">
+							<DataPath>ПредставлениеПериодРегистрацииРегламентный</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<Width>15</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<SpinButton>true</SpinButton>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ChoiceListButton>true</ChoiceListButton>
+							<ContextMenu name="ПредставлениеПериодРегистрацииРегламентныйКонтекстноеМеню" id="158"/>
+							<ExtendedTooltip name="ПредставлениеПериодРегистрацииРегламентныйExtendedTooltip" id="234"/>
+							<Events>
+								<Event name="Tuning">ПредставлениеПериодРегистрацииРегламентныйРегулирование</Event>
+								<Event name="StartListChoice">ПредставлениеПериодРегистрацииРегламентныйНачалоВыбораИзСписка</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<Button name="НастроитьРасписаниеРегламентногоЗадания" id="68">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.НастроитьРасписаниеРегламентногоЗадания</CommandName>
+					<Parameter xsi:nil="true"/>
+					<ExtendedTooltip name="НастроитьРасписаниеРегламентногоЗаданияExtendedTooltip" id="235"/>
+				</Button>
+				<LabelField name="СостояниеАвтоматическогоВыполненияОпераций" id="152">
+					<DataPath>СостояниеАвтоматическогоВыполненияОпераций</DataPath>
+					<TextColor>style:ПоясняющийТекст</TextColor>
+					<ContextMenu name="СостояниеАвтоматическогоВыполненияОперацийКонтекстноеМеню" id="153"/>
+					<ExtendedTooltip name="СостояниеАвтоматическогоВыполненияОперацийExtendedTooltip" id="236"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ОперацииЗакрытияМесяца</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Save>
+				<Field>Объект.Организация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПредставлениеПериодаРегистрации" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление периода регистрации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="РаспределениеМатериаловИРаботНаПродукцию" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение материалов и работ на себестоимость</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормированиеДвиженийПоРасчетуСПартнерами" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование движений по расчету с партнерами</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормированиеДвиженийПоПартиямТоваров" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формирование движений по партиям товаров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределениеРБП" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение расходов будущих периодов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределениеРасходовНаПродукциюВручную" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение расходов на продукцию вручную</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаПоказателейДляРаспределенияРасходовНаПродукцию" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка показателей для распределения расходов на продукцию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределениеРасходовНаПродукциюАвтоматически" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение расходов на продукцию автоматически</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределениеРасходовНаТовары" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение расходов на товары</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РасчетСебестоимости" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчет себестоимости</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределениеДоходовИРасходовПоНаправлениям" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение доходов и расходов по направлениям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АвтоматическиВыполнятьОперацииПоЗакрытиюМесяца" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автоматически выполнять операции по закрытию месяца</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокПоказателейДляНастройки" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список показателей для настройки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Settings xsi:type="v8:TypeDescription"/>
+		</Attribute>
+		<Attribute name="СостояниеАвтоматическогоВыполненияОпераций" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РасписаниеРегламентногоЗадания" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание регламентного задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ВремяНачалаФормированияДвиженияПоПартиям" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время начала формирования движения по партиям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ВремяНачалаФормированияДвиженияПоПартиям</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВремяОкончанияФормированияДвиженияПоПартиям" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время окончания формирования движения по партиям</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ВремяОкончанияФормированияДвиженияПоПартиям</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="РегламентноеЗадание" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регламентное задание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПериодРегистрацииРегламентный" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период регистрации регламентный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеПериодРегистрацииРегламентный" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление период регистрации регламентный</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Статус" id="17">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РаспределениеНДС" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределение НДС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсправлениеОтрицательныхОстатковТоваров" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исправление отрицательных остатков товаров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияОперацийЗакрытияМесяца</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВремяНачалаРасчетаСебестоимости" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время начала расчета себестоимости</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ВремяНачалаРасчетаСебестоимости</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ВремяОкончанияРасчетаСебестоимости" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время окончания расчета себестоимости</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+			<Save>
+				<Field>ВремяОкончанияРасчетаСебестоимости</Field>
+			</Save>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ИсправлениеОтрицательныхОстатковТоваров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИсправлениеОтрицательныхОстатковТоваров</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ФормированиеДвиженийПоПартиямТоваров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоПартиямТоваров</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеРБП</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеРБП</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеРасходовНаТовары</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеРасходовНаТовары</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РасчетСебестоимости</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РасчетСебестоимости</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеНДС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеДоходовИРасходовПоНаправлениям</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеДоходовИРасходовПоНаправлениям</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ВыполненоУспешно</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ИсправлениеОтрицательныхОстатковТоваров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИсправлениеОтрицательныхОстатковТоваров</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ФормированиеДвиженийПоПартиямТоваров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоПартиямТоваров</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеРБП</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеРБП</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеРасходовНаТовары</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеРасходовНаТовары</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РасчетСебестоимости</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РасчетСебестоимости</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеНДС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеДоходовИРасходовПоНаправлениям</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">РаспределениеДоходовИРасходовПоНаправлениям</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеВыполнено</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоРасчетуСПартнерами</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ИсправлениеОтрицательныхОстатковТоваров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИсправлениеОтрицательныхОстатковТоваров</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИсправлениеОтрицательныхОстатковТоваров</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ФормированиеДвиженийПоПартиямТоваров</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоПартиямТоваров</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ФормированиеДвиженийПоПартиямТоваров</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеРБП</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеРБП</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеРБП</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеРасходовНаТовары</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеРасходовНаТовары</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеРасходовНаТовары</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РасчетСебестоимости</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РасчетСебестоимости</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РасчетСебестоимости</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеНДС</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеНДС</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РаспределениеДоходовИРасходовПоНаправлениям</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеДоходовИРасходовПоНаправлениям</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.ОжидаетВыполненияПредыдущихОпераций</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспределениеДоходовИРасходовПоНаправлениям</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияОперацийЗакрытияМесяца.НеТребуется</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаНеактуальногоСписка</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ВыполнитьОперацииПоЗакрытиюМесяца" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить операции по закрытию месяца</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнить операции по закрытию месяца</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыполнитьОперацииПоЗакрытиюМесяцаНажатие</Action>
+		</Command>
+		<Command name="НастроитьРасписаниеРегламентногоЗадания" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание автоматического выполнения операций по закрытию месяца</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настроить расписание регламентного задания</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.SetTime</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>НастроитьРасписаниеРегламентногоЗадания</Action>
+		</Command>
+		<Command name="ОбновитьСостояниеОпераций" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить состояние операций</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьСостояниеОпераций</Action>
+		</Command>
+	</Commands>
+</Form>

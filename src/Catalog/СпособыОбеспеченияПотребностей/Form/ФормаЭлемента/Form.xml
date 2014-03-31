@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<RadioButtonField name="ТипОбеспечения" id="3">
+			<DataPath>Объект.ТипОбеспечения</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ContextMenu name="ТипОбеспеченияКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="ТипОбеспеченияExtendedTooltip" id="64"/>
+			<Events>
+				<Event name="OnChange">ТипОбеспеченияПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<Pages name="СтраницыПараметры" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы параметры</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыПараметрыExtendedTooltip" id="65"/>
+			<ChildItems>
+				<Page name="СтраницаПокупка" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Покупка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница покупка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПокупкаExtendedTooltip" id="66"/>
+					<ChildItems>
+						<InputField name="ПокупкаНаименование" id="1">
+							<DataPath>Объект.Description</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПокупкаНаименованиеКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ПокупкаНаименованиеExtendedTooltip" id="67"/>
+						</InputField>
+						<InputField name="ПокупкаИсточникОбеспеченияПотребностей" id="16">
+							<DataPath>Объект.ИсточникОбеспеченияПотребностей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Поставщик</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПокупкаИсточникОбеспеченияПотребностейКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ПокупкаИсточникОбеспеченияПотребностейExtendedTooltip" id="68"/>
+						</InputField>
+						<InputField name="ПокупкаСоглашение" id="18">
+							<DataPath>Объект.Соглашение</DataPath>
+							<ContextMenu name="ПокупкаСоглашениеКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ПокупкаСоглашениеExtendedTooltip" id="69"/>
+						</InputField>
+						<InputField name="ПокупкаУсловиеЦеныПоставщика" id="38">
+							<DataPath>Объект.УсловиеЦеныПоставщика</DataPath>
+							<ContextMenu name="ПокупкаУсловиеЦеныПоставщикаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ПокупкаУсловиеЦеныПоставщикаExtendedTooltip" id="70"/>
+						</InputField>
+						<InputField name="ПокупкаОрганизация" id="20">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ПокупкаОрганизацияКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="ПокупкаОрганизацияExtendedTooltip" id="71"/>
+						</InputField>
+						<UsualGroup name="ГруппаПокупкаЦиклыОбеспечения" id="40">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа покупка циклы обеспечения</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПокупкаЦиклыОбеспеченияExtendedTooltip" id="72"/>
+							<ChildItems>
+								<InputField name="ПокупкаСрокИсполненияЗаказа" id="41">
+									<DataPath>Объект.СрокИсполненияЗаказа</DataPath>
+									<ContextMenu name="ПокупкаСрокИсполненияЗаказаКонтекстноеМеню" id="42"/>
+									<ExtendedTooltip name="ПокупкаСрокИсполненияЗаказаExtendedTooltip" id="73"/>
+								</InputField>
+								<InputField name="ПокупкаКалендарь" id="43">
+									<DataPath>Объект.Календарь</DataPath>
+									<ContextMenu name="ПокупкаКалендарьКонтекстноеМеню" id="44"/>
+									<ExtendedTooltip name="ПокупкаКалендарьExtendedTooltip" id="74"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПеремещение" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перемещение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница перемещение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПеремещениеExtendedTooltip" id="75"/>
+					<ChildItems>
+						<InputField name="ПеремещениеНаименование" id="32">
+							<DataPath>Объект.Description</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПеремещениеНаименованиеКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ПеремещениеНаименованиеExtendedTooltip" id="76"/>
+						</InputField>
+						<InputField name="ПеремещениеИсточникОбеспеченияПотребностей" id="22">
+							<DataPath>Объект.ИсточникОбеспеченияПотребностей</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Склад</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПеремещениеИсточникОбеспеченияПотребностейКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ПеремещениеИсточникОбеспеченияПотребностейExtendedTooltip" id="77"/>
+						</InputField>
+						<InputField name="ПеремещениеОрганизация" id="24">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ПеремещениеОрганизацияКонтекстноеМеню" id="25"/>
+							<ExtendedTooltip name="ПеремещениеОрганизацияExtendedTooltip" id="78"/>
+						</InputField>
+						<UsualGroup name="ГруппаПеремещениеЦиклыОбеспечения" id="45">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа перемещение циклы обеспечения</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПеремещениеЦиклыОбеспеченияExtendedTooltip" id="79"/>
+							<ChildItems>
+								<InputField name="ПеремещениеСрокИсполненияЗаказа" id="46">
+									<DataPath>Объект.СрокИсполненияЗаказа</DataPath>
+									<ContextMenu name="ПеремещениеСрокИсполненияЗаказаКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ПеремещениеСрокИсполненияЗаказаExtendedTooltip" id="80"/>
+								</InputField>
+								<InputField name="ПеремещениеКалендарь" id="48">
+									<DataPath>Объект.Календарь</DataPath>
+									<ContextMenu name="ПеремещениеКалендарьКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="ПеремещениеКалендарьExtendedTooltip" id="81"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ПеремещениеДлительностьВДнях" id="60">
+							<DataPath>Объект.ДлительностьВДнях</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Длительность перемещения (дней)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПеремещениеДлительностьВДняхКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="ПеремещениеДлительностьВДняхExtendedTooltip" id="82"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаСборкаРазборка" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сборка/разборка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница сборка разборка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСборкаРазборкаExtendedTooltip" id="83"/>
+					<ChildItems>
+						<InputField name="СборкаРазборкаНаименование" id="34">
+							<DataPath>Объект.Description</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СборкаРазборкаНаименованиеКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="СборкаРазборкаНаименованиеExtendedTooltip" id="84"/>
+						</InputField>
+						<InputField name="СборкаРазборкаОрганизация" id="26">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="СборкаРазборкаОрганизацияКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="СборкаРазборкаОрганизацияExtendedTooltip" id="85"/>
+						</InputField>
+						<UsualGroup name="ГруппаСборкаРазборкаЦиклыОбеспечения" id="50">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа сборка разборка циклы обеспечения</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСборкаРазборкаЦиклыОбеспеченияExtendedTooltip" id="86"/>
+							<ChildItems>
+								<InputField name="СборкаРазборкаСрокИсполненияЗаказа" id="51">
+									<DataPath>Объект.СрокИсполненияЗаказа</DataPath>
+									<ContextMenu name="СборкаРазборкаСрокИсполненияЗаказаКонтекстноеМеню" id="52"/>
+									<ExtendedTooltip name="СборкаРазборкаСрокИсполненияЗаказаExtendedTooltip" id="87"/>
+								</InputField>
+								<InputField name="СборкаРазборкаКалендарь" id="53">
+									<DataPath>Объект.Календарь</DataPath>
+									<ContextMenu name="СборкаРазборкаКалендарьКонтекстноеМеню" id="54"/>
+									<ExtendedTooltip name="СборкаРазборкаКалендарьExtendedTooltip" id="88"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СборкаДлительностьВДнях" id="62">
+							<DataPath>Объект.ДлительностьВДнях</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Длительность сборки (дней)</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="СборкаДлительностьВДняхКонтекстноеМеню" id="63"/>
+							<ExtendedTooltip name="СборкаДлительностьВДняхExtendedTooltip" id="89"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.СпособыОбеспеченияПотребностей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,1082 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаНаименованиеКод" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование код</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="90"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<DataPath>Объект.Description</DataPath>
+					<Wrap>false</Wrap>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="91"/>
+				</InputField>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<Wrap>false</Wrap>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодExtendedTooltip" id="92"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Описание" id="52">
+			<DataPath>Объект.Описание</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<Height>2</Height>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="53"/>
+			<ExtendedTooltip name="ОписаниеExtendedTooltip" id="93"/>
+		</InputField>
+		<InputField name="Родитель" id="5">
+			<DataPath>Объект.Parent</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа статей</v8:content>
+				</v8:item>
+			</Title>
+			<Wrap>false</Wrap>
+			<ContextMenu name="РодительКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="РодительExtendedTooltip" id="94"/>
+		</InputField>
+		<RadioButtonField name="ВариантРаспределенияРасходов" id="9">
+			<DataPath>Объект.ВариантРаспределенияРасходов</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вариант распределения</v8:content>
+				</v8:item>
+			</Title>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыРаспределенияРасходов.EnumValue.НаСебестоимостьТоваров</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыРаспределенияРасходов.EnumValue.НаНаправленияДеятельности</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыРаспределенияРасходов.EnumValue.НаРасходыБудущихПериодов</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыРаспределенияРасходов.EnumValue.НаПроизводственныеЗатраты</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ВариантРаспределенияРасходовКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ВариантРаспределенияРасходовExtendedTooltip" id="95"/>
+			<Events>
+				<Event name="OnChange">ВариантРаспределенияРасходовПриИзменении</Event>
+			</Events>
+		</RadioButtonField>
+		<Pages name="ГруппаСтраницы" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="ГруппаСтраницыExtendedTooltip" id="96"/>
+			<ChildItems>
+				<Page name="СтраницаНаНаправленияДеятельности" id="19">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на направления деятельности</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на направления деятельности</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНаНаправленияДеятельностиExtendedTooltip" id="97"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСпособРаспределения" id="48">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа способ распределения</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа способ распределения</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСпособРаспределенияExtendedTooltip" id="98"/>
+							<ChildItems>
+								<InputField name="СпособРаспределенияПоНаправлениямДеятельности" id="11">
+									<DataPath>Объект.СпособРаспределенияПоНаправлениямДеятельности</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Способ распределения</v8:content>
+										</v8:item>
+									</Title>
+									<Wrap>false</Wrap>
+									<AvailableTypes>
+										<v8:Type>cfg:CatalogRef.МаркетинговыеМероприятия</v8:Type>
+										<v8:Type>cfg:CatalogRef.СделкиСКлиентами</v8:Type>
+										<v8:Type>cfg:CatalogRef.НаправленияДеятельности</v8:Type>
+										<v8:Type>cfg:DocumentRef.ЗаказКлиента</v8:Type>
+										<v8:Type>cfg:CatalogRef.Проекты</v8:Type>
+									</AvailableTypes>
+									<ContextMenu name="СпособРаспределенияПоНаправлениямДеятельностиКонтекстноеМеню" id="12"/>
+									<ExtendedTooltip name="СпособРаспределенияПоНаправлениямДеятельностиExtendedTooltip" id="99"/>
+								</InputField>
+								<InputField name="КорреспондирующийСчет" id="49">
+									<DataPath>Объект.КорреспондирующийСчет</DataPath>
+									<ChoiceListButton>true</ChoiceListButton>
+									<ContextMenu name="КорреспондирующийСчетКонтекстноеМеню" id="50"/>
+									<ExtendedTooltip name="КорреспондирующийСчетExtendedTooltip" id="100"/>
+									<Events>
+										<Event name="StartListChoice">КорреспондирующийСчетНачалоВыбораИзСписка</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаАналитикаНаНаправленияДеятельности" id="34">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика расходов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа аналитика на направления деятельности</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ExtendedTooltip name="ГруппаАналитикаНаНаправленияДеятельностиExtendedTooltip" id="101"/>
+							<ChildItems>
+								<RadioButtonField name="ТипЗначенияНаНаправленияДеятельности" id="35">
+									<DataPath>ТипЗначения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>5</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Организация</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Организации</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Подразделение</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.СтруктураПредприятия</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Направление деятельности</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.НаправленияДеятельности</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Маркетинговое мероприятие</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.МаркетинговыеМероприятия</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Сделка</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.СделкиСКлиентами</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ клиента</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказКлиента</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Партнер</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Партнеры</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Претензия клиента</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ПретензииКлиентов</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Физическое лицо</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ФизическиеЛица</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Склад</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Склады</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Номенклатура</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Номенклатура</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ поставщику</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказПоставщику</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Договор эквайринга</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ДоговорыЭквайринга</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Проект</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Проекты</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Прочие расходы</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ПрочиеРасходы</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Договоры кредитов (депозитов)</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ДоговорыКредитовИДепозитов</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ТипЗначенияНаНаправленияДеятельностиКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="ТипЗначенияНаНаправленияДеятельностиExtendedTooltip" id="102"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаРаздельныйУчетНДС" id="87">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Раздельный учет НДС по расходам</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Раздельный учет НДС по расходам</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ExtendedTooltip name="ГруппаРаздельныйУчетНДСExtendedTooltip" id="103"/>
+							<ChildItems>
+								<RadioButtonField name="ВариантРаздельногоУчетаНДС" id="88">
+									<DataPath>Объект.ВариантРаздельногоУчетаНДС</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>2</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>НДС относится на вид налогообложения, указанный в документе закупки</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыРаздельногоУчетаНДС.EnumValue.ИзДокумента</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>НДС распределяется по видам налогообложения пропорционально выручке</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыРаздельногоУчетаНДС.EnumValue.Распределение</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ВариантРаздельногоУчетаНДСКонтекстноеМеню" id="89"/>
+									<ExtendedTooltip name="ВариантРаздельногоУчетаНДСExtendedTooltip" id="104"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНаСебестоимостьТоваров" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на себестоимость товаров</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на себестоимость товаров</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНаСебестоимостьТоваровExtendedTooltip" id="105"/>
+					<ChildItems>
+						<InputField name="ПравилоРаспределенияНаСебестоимость" id="13">
+							<DataPath>Объект.ПравилоРаспределенияНаСебестоимость</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Правило распределения</v8:content>
+								</v8:item>
+							</Title>
+							<Wrap>false</Wrap>
+							<ContextMenu name="ПравилоРаспределенияНаСебестоимостьКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПравилоРаспределенияНаСебестоимостьExtendedTooltip" id="106"/>
+						</InputField>
+						<UsualGroup name="ГруппаАналитика" id="25">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика расходов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа аналитика</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ExtendedTooltip name="ГруппаАналитикаExtendedTooltip" id="107"/>
+							<ChildItems>
+								<RadioButtonField name="ТипЗначенияНаСебестоимостьТоваров" id="32">
+									<DataPath>ТипЗначения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>2</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Склад</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Склады</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Номенклатура</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Номенклатура</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ поставщику</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказПоставщику</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Поступление товаров и услуг</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ПоступлениеТоваровУслуг</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ на перемещение</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказНаПеремещение</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Перемещение товаров</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ПеремещениеТоваров</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Передача товаров между организациями</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ПередачаТоваровМеждуОрганизациями</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ТипЗначенияНаСебестоимостьТоваровКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="ТипЗначенияНаСебестоимостьТоваровExtendedTooltip" id="108"/>
+									<Events>
+										<Event name="OnChange">ТипЗначенияНаСебестоимостьТоваровПриИзменении</Event>
+									</Events>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНаРасходыБудущихПериодов" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на расходы будущих периодов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на расходы будущих периодов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНаРасходыБудущихПериодовExtendedTooltip" id="109"/>
+					<ChildItems>
+						<InputField name="СтатьяРасходов" id="43">
+							<DataPath>Объект.СтатьяРасходов</DataPath>
+							<ContextMenu name="СтатьяРасходовКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="СтатьяРасходовExtendedTooltip" id="110"/>
+							<Events>
+								<Event name="OnChange">СтатьяРасходовПриИзменении</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаАналитикаНаРасходыБудущихПериодов" id="45">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика расходов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа аналитика</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ExtendedTooltip name="ГруппаАналитикаНаРасходыБудущихПериодовExtendedTooltip" id="111"/>
+							<ChildItems>
+								<RadioButtonField name="ТипЗначенияНаРасходыБудущихПериодов" id="46">
+									<DataPath>ТипЗначения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>4</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Организация</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Организации</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Подразделение</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.СтруктураПредприятия</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Направление деятельности</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.НаправленияДеятельности</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Маркетинговое мероприятие</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.МаркетинговыеМероприятия</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Сделка</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.СделкиСКлиентами</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ клиента</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказКлиента</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Партнер</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Партнеры</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Претензия клиента</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ПретензииКлиентов</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Физическое лицо</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ФизическиеЛица</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Склад</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Склады</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Номенклатура</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Номенклатура</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ поставщику</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказПоставщику</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Договор эквайринга</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ДоговорыЭквайринга</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Проект</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.Проекты</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Прочие расходы</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ПрочиеРасходы</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ТипЗначенияНаРасходыБудущихПериодовКонтекстноеМеню" id="47"/>
+									<ExtendedTooltip name="ТипЗначенияНаРасходыБудущихПериодовExtendedTooltip" id="112"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНаПроизводственныеЗатраты" id="60">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на производственные затраты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница на производственные затраты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНаПроизводственныеЗатратыExtendedTooltip" id="113"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаАналитикаНаПроизводственныеЗатраты" id="70">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Аналитика расходов</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа аналитика на производственные затраты</v8:content>
+								</v8:item>
+							</ToolTip>
+							<HorizontalStretch>true</HorizontalStretch>
+							<ExtendedTooltip name="ГруппаАналитикаНаПроизводственныеЗатратыExtendedTooltip" id="114"/>
+							<ChildItems>
+								<RadioButtonField name="ТипЗначенияНаПроизводственныеЗатраты" id="66">
+									<DataPath>ТипЗначения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<RadioButtonType>Auto</RadioButtonType>
+									<ColumnsCount>4</ColumnsCount>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Прочие расходы</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.ПрочиеРасходы</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Подразделения</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">СправочникСсылка.СтруктураПредприятия</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Заказ на производство</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">ДокументСсылка.ЗаказНаПроизводство</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ТипЗначенияНаПроизводственныеЗатратыКонтекстноеМеню" id="67"/>
+									<ExtendedTooltip name="ТипЗначенияНаПроизводственныеЗатратыExtendedTooltip" id="115"/>
+								</RadioButtonField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительно</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные реквизиты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="116"/>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДоступностьДляВыбораВДокументах" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничение использования статьи расходов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа доступность для выбора в документах</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ExtendedTooltip name="ГруппаДоступностьДляВыбораВДокументахExtendedTooltip" id="117"/>
+			<ChildItems>
+				<CheckBoxField name="ОграничитьИспользование" id="55">
+					<DataPath>Объект.ОграничитьИспользование</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОграничитьИспользованиеКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="ОграничитьИспользованиеExtendedTooltip" id="118"/>
+					<Events>
+						<Event name="OnChange">ОграничитьИспользованиеПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<LabelField name="ДоступныеОперации" id="58">
+					<DataPath>ДоступныеОперации</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<Height>2</Height>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="ДоступныеОперацииКонтекстноеМеню" id="59"/>
+					<ExtendedTooltip name="ДоступныеОперацииExtendedTooltip" id="119"/>
+					<Events>
+						<Event name="Click">ДоступныеОперацииНажатие</Event>
+					</Events>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:ChartOfCharacteristicTypesObject.СтатьиРасходов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ТипЗначения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип значения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ДоступныеОперации" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступные операции</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>250</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>Catalog.ПрочиеРасходы.StandardCommand.OpenByValue</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

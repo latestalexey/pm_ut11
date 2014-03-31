@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Распоряжения на внесение денежных средств в кассу ККМ</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ПринятьВКассу" id="40">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПринятьВКассу</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ПринятьВКассуExtendedTooltip" id="41"/>
+			</Button>
+			<Button name="Обновить" id="38">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Refresh</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ОбновитьExtendedTooltip" id="42"/>
+			</Button>
+			<Button name="УстановитьИнтервал" id="39">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.SetDateInterval</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="УстановитьИнтервалExtendedTooltip" id="43"/>
+			</Button>
+			<Button name="Найти" id="36">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Find</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="НайтиExtendedTooltip" id="44"/>
+			</Button>
+			<Button name="ОтменитьПоиск" id="37">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CancelSearch</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ОтменитьПоискExtendedTooltip" id="45"/>
+			</Button>
+			<Button name="НастройкаСписка" id="35">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.ListSettings</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="НастройкаСпискаExtendedTooltip" id="46"/>
+			</Button>
+			<Button name="ИзменитьФорму" id="33">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ИзменитьФормуExtendedTooltip" id="47"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>UndoPosting</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Create</ExcludedCommand>
+				<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Post</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="48"/>
+			<SearchStringAddition name="СписокSearchString" id="49">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="50"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="51"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="52">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="53"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="54"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="55">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="56"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="57"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Номер" id="6">
+					<DataPath>Список.Номер</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="58"/>
+				</LabelField>
+				<LabelField name="ДатаВыдачи" id="12">
+					<DataPath>Список.ДатаВыдачи</DataPath>
+					<Width>8</Width>
+					<ContextMenu name="ДатаВыдачиКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ДатаВыдачиExtendedTooltip" id="59"/>
+				</LabelField>
+				<LabelField name="Касса" id="14">
+					<DataPath>Список.Касса</DataPath>
+					<ContextMenu name="КассаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="КассаExtendedTooltip" id="60"/>
+				</LabelField>
+				<LabelField name="СуммаВнесения" id="28">
+					<DataPath>Список.СуммаВнесения</DataPath>
+					<Width>9</Width>
+					<ContextMenu name="СуммаВнесенияКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="СуммаВнесенияExtendedTooltip" id="61"/>
+				</LabelField>
+				<LabelField name="Валюта" id="8">
+					<DataPath>Список.Валюта</DataPath>
+					<ContextMenu name="ВалютаКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ВалютаExtendedTooltip" id="62"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="24">
+					<DataPath>Список.Ссылка</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основание</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="63"/>
+				</LabelField>
+				<CheckBoxField name="РаспоряжениеВыполнено" id="22">
+					<DataPath>Список.РаспоряжениеВыполнено</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РаспоряжениеВыполненоКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="РаспоряжениеВыполненоExtendedTooltip" id="64"/>
+				</CheckBoxField>
+				<LabelField name="Организация" id="18">
+					<DataPath>Список.Организация</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="65"/>
+				</LabelField>
+				<LabelField name="СуммаДокумента" id="26">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<Width>9</Width>
+					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СуммаДокументаExtendedTooltip" id="66"/>
+				</LabelField>
+				<LabelField name="ХозяйственнаяОперация" id="30">
+					<DataPath>Список.ХозяйственнаяОперация</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ХозяйственнаяОперацияКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ХозяйственнаяОперацияExtendedTooltip" id="67"/>
+				</LabelField>
+				<CheckBoxField name="Проведен" id="20">
+					<DataPath>Список.Проведен</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПроведенКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ПроведенExtendedTooltip" id="68"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Валюта</Field>
+				<Field>Список.Касса</Field>
+				<Field>Список.Организация</Field>
+				<Field>Список.Ссылка</Field>
+				<Field>Список.СуммаВнесения</Field>
+				<Field>Список.КассаККМ</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Распоряжение.Ссылка                         КАК Ссылка,
+	Распоряжение.Номер                          КАК Номер,
+	Распоряжение.Дата                           КАК ДатаВыдачи,
+	Распоряжение.КассаККМ.ВалютаДенежныхСредств КАК Валюта,
+	Распоряжение.Проведен                       КАК Проведен,
+	
+	Распоряжение.Организация           КАК Организация,
+	Распоряжение.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	Распоряжение.КассаККМ              КАК КассаККМ,
+	Распоряжение.Касса                 КАК Касса,
+	Распоряжение.СуммаДокумента        КАК СуммаДокумента,
+	
+	ВЫБОР КОГДА ЕСТЬNULL(ДенежныеСредстваКПоступлению.СуммаОстаток, 0) &lt;= 0 
+		И Распоряжение.Проведен
+	ТОГДА
+		ИСТИНА
+	ИНАЧЕ
+		ЛОЖЬ
+	КОНЕЦ КАК РаспоряжениеВыполнено,
+	
+	ВЫБОР КОГДА ЕСТЬNULL(ДенежныеСредстваКПоступлению.СуммаОстаток, 0) &gt; 0 ТОГДА 
+		ЕСТЬNULL(ДенежныеСредстваКПоступлению.СуммаОстаток, 0)
+	ИНАЧЕ
+		0
+	КОНЕЦ КАК СуммаВнесения
+	
+ИЗ
+	Документ.РасходныйКассовыйОрдер КАК Распоряжение
+	
+	ЛЕВОЕ СОЕДИНЕНИЕ
+		РегистрНакопления.ДенежныеСредстваКПоступлениюНаличные.Остатки КАК ДенежныеСредстваКПоступлению
+	ПО
+		ДенежныеСредстваКПоступлению.Документ = Распоряжение.Ссылка
+		
+ГДЕ
+	Распоряжение.Проведен
+	И Распоряжение.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыдачаДенежныхСредствВКассуККМ)
+</QueryText>
+				<MainTable>Document.РасходныйКассовыйОрдер</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">РаспоряжениеВыполнено</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПринятьВКассу" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять в кассу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять в кассу</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПринятьВКассу</Action>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="КассаККМ">
+			<Type>
+				<v8:Type>cfg:CatalogRef.КассыККМ</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>Document.АвансовыйОтчет.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ВыпискаПоРасчетномуСчету.Command.СоздатьВыпискуПоРасчетномуСчетуВходящиеПлатежи</Command>
+				<Type>Auto</Type>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ПриходныйКассовыйОрдер.StandardCommand.CreateBasedOn</Command>
+				<Type>Auto</Type>
+				<Index>3</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.ВыпискаПоРасчетномуСчету.Command.ДобавитьВВыпискуПоРасчетномуСчетуВходящиеПлатежи</Command>
+				<Type>Auto</Type>
+				<Index>2</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>Document.РасходныйКассовыйОрдер.Command.ПечатьРКО</Command>
+				<Type>Auto</Type>
+				<CommandGroup>CommandGroup.Печать</CommandGroup>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

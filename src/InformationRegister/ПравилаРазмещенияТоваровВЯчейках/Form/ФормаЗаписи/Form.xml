@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Склад" id="11">
+			<DataPath>Запись.Склад</DataPath>
+			<ContextMenu name="СкладКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="СкладExtendedTooltip" id="15"/>
+			<Events>
+				<Event name="OnChange">СкладПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Помещение" id="9">
+			<DataPath>Запись.Помещение</DataPath>
+			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ContextMenu name="ПомещениеКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ПомещениеExtendedTooltip" id="16"/>
+		</InputField>
+		<InputField name="ОбластьХранения" id="13">
+			<DataPath>Запись.ОбластьХранения</DataPath>
+			<ContextMenu name="ОбластьХраненияКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ОбластьХраненияExtendedTooltip" id="17"/>
+		</InputField>
+		<InputField name="СкладскаяГруппаНоменклатуры" id="1">
+			<DataPath>Запись.СкладскаяГруппаНоменклатуры</DataPath>
+			<ContextMenu name="СкладскаяГруппаНоменклатурыКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="СкладскаяГруппаНоменклатурыExtendedTooltip" id="18"/>
+		</InputField>
+		<InputField name="СкладскаяГруппаУпаковок" id="3">
+			<DataPath>Запись.СкладскаяГруппаУпаковок</DataPath>
+			<ContextMenu name="СкладскаяГруппаУпаковокКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="СкладскаяГруппаУпаковокExtendedTooltip" id="19"/>
+		</InputField>
+		<InputField name="Приоритет" id="7">
+			<DataPath>Запись.Приоритет</DataPath>
+			<Width>8</Width>
+			<ContextMenu name="ПриоритетКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПриоритетExtendedTooltip" id="20"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ПравилаРазмещенияТоваровВЯчейках</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СкладскаяГруппаУпаковок</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Запись.СкладскаяГруппаУпаковок</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;Любая упаковка&gt;</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СкладскаяГруппаНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Запись.СкладскаяГруппаНоменклатуры</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;Любая номенклатура&gt;</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+</Form>

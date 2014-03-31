@@ -1,0 +1,1468 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<SaveDataInSettings>UseList</SaveDataInSettings>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>ListSettings</ExcludedCommand>
+		<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>Create</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Change</ExcludedCommand>
+		<ExcludedCommand>CancelSearch</ExcludedCommand>
+		<ExcludedCommand>OutputList</ExcludedCommand>
+		<ExcludedCommand>Find</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>SetDateInterval</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Refresh</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="БанковскийСчетОтбор" id="52">
+			<DataPath>БанковскийСчет</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Банковский счет</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Банковский счет, по которому отражаются операции</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Width>30</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Wrap>false</Wrap>
+			<ClearButton>true</ClearButton>
+			<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+			<ContextMenu name="БанковскийСчетОтборКонтекстноеМеню" id="53"/>
+			<ExtendedTooltip name="БанковскийСчетОтборExtendedTooltip" id="219"/>
+			<Events>
+				<Event name="OnChange">БанковскийСчетОтборПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Pages name="ГруппаСтраницы" id="78">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыExtendedTooltip" id="220"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="СтраницаВыписки" id="43">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выписки из банка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница выписки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="СтраницаВыпискиExtendedTooltip" id="221"/>
+					<ChildItems>
+						<Table name="ВыпискиИзБанка" id="28">
+							<SkipOnInput>false</SkipOnInput>
+							<Height>1</Height>
+							<HeightInTableRows>2</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<DataPath>ВыпискиИзБанка</DataPath>
+							<RowPictureDataPath>ВыпискиИзБанка.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>false</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ВыпискиИзБанкаКонтекстноеМеню" id="29"/>
+							<AutoCommandBar name="ВыпискиИзБанкаКоманднаяПанель" id="30">
+								<ChildItems>
+									<ButtonGroup name="ГруппаГлобальныеКоманды" id="212">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команды формы</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команды формы</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>FormCommandPanelGlobalCommands</CommandSource>
+										<ExtendedTooltip name="ГруппаГлобальныеКомандыExtendedTooltip" id="222"/>
+									</ButtonGroup>
+									<ButtonGroup name="ГруппаВыпискиБанкаКоманднаяПанельФормы" id="181">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Командная панель формы</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа выписки банка командная панель формы</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>Form</CommandSource>
+										<ExtendedTooltip name="ГруппаВыпискиБанкаКоманднаяПанельФормыExtendedTooltip" id="223"/>
+									</ButtonGroup>
+									<Button name="ВыпискиИзБанкаСправка" id="217">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ВыпискиИзБанкаСправкаExtendedTooltip" id="224"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ВыпискиИзБанкаExtendedTooltip" id="225"/>
+							<SearchStringAddition name="ВыпискиИзБанкаSearchString" id="226">
+								<Source>
+									<lf:elementId>28</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ВыпискиИзБанкаSearchStringContextMenu" id="227"/>
+								<ExtendedTooltip name="ВыпискиИзБанкаSearchStringExtendedTooltip" id="228"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВыпискиИзБанкаViewStatus" id="229">
+								<Source>
+									<lf:elementId>28</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ВыпискиИзБанкаViewStatusContextMenu" id="230"/>
+								<ExtendedTooltip name="ВыпискиИзБанкаViewStatusExtendedTooltip" id="231"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВыпискиИзБанкаSearchControl" id="232">
+								<Source>
+									<lf:elementId>28</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ВыпискиИзБанкаSearchControlContextMenu" id="233"/>
+								<ExtendedTooltip name="ВыпискиИзБанкаSearchControlExtendedTooltip" id="234"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="НомерВыпискаИзБанка" id="33">
+									<DataPath>ВыпискиИзБанка.Number</DataPath>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="НомерВыпискаИзБанкаКонтекстноеМеню" id="34"/>
+									<ExtendedTooltip name="НомерВыпискаИзБанкаExtendedTooltip" id="235"/>
+								</InputField>
+								<InputField name="ДатаВыпискаИзБанка" id="31">
+									<DataPath>ВыпискиИзБанка.Date</DataPath>
+									<Width>14</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ДатаВыпискаИзБанкаКонтекстноеМеню" id="32"/>
+									<ExtendedTooltip name="ДатаВыпискаИзБанкаExtendedTooltip" id="236"/>
+								</InputField>
+								<InputField name="СуммаПоступленияВсего" id="39">
+									<DataPath>ВыпискиИзБанка.СуммаПоступленияВсего</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма поступления</v8:content>
+										</v8:item>
+									</Title>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<MarkNegatives>true</MarkNegatives>
+									<ContextMenu name="СуммаПоступленияВсегоКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="СуммаПоступленияВсегоExtendedTooltip" id="237"/>
+								</InputField>
+								<InputField name="СуммаСписанияВсего" id="41">
+									<DataPath>ВыпискиИзБанка.СуммаСписанияВсего</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма списания</v8:content>
+										</v8:item>
+									</Title>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<MarkNegatives>true</MarkNegatives>
+									<ContextMenu name="СуммаСписанияВсегоКонтекстноеМеню" id="42"/>
+									<ExtendedTooltip name="СуммаСписанияВсегоExtendedTooltip" id="238"/>
+								</InputField>
+								<InputField name="СуммаКонечныйОстаток" id="48">
+									<DataPath>ВыпискиИзБанка.СуммаКонечныйОстаток</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Остаток</v8:content>
+										</v8:item>
+									</Title>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<MarkNegatives>true</MarkNegatives>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ЧЦ=15; ЧДЦ=2</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="СуммаКонечныйОстатокКонтекстноеМеню" id="49"/>
+									<ExtendedTooltip name="СуммаКонечныйОстатокExtendedTooltip" id="239"/>
+								</InputField>
+								<LabelField name="ВыпискиИзБанкаБанковскийСчет" id="162">
+									<DataPath>ВыпискиИзБанка.БанковскийСчет</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="ВыпискиИзБанкаБанковскийСчетКонтекстноеМеню" id="163"/>
+									<ExtendedTooltip name="ВыпискиИзБанкаБанковскийСчетExtendedTooltip" id="240"/>
+								</LabelField>
+								<LabelField name="ВыпискиИзБанкаОрганизация" id="164">
+									<DataPath>ВыпискиИзБанка.Организация</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="ВыпискиИзБанкаОрганизацияКонтекстноеМеню" id="165"/>
+									<ExtendedTooltip name="ВыпискиИзБанкаОрганизацияExtendedTooltip" id="241"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаВходящиеПлатежи" id="79">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Входящие платежи</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница входящие платежи</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаВходящиеПлатежиExtendedTooltip" id="242"/>
+					<ChildItems>
+						<Table name="ПоступленияДенежныхСредств" id="1">
+							<Representation>List</Representation>
+							<SkipOnInput>false</SkipOnInput>
+							<Height>1</Height>
+							<HeightInTableRows>2</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<DataPath>ПоступленияДенежныхСредств</DataPath>
+							<RowPictureDataPath>ПоступленияДенежныхСредств.СостояниеДокумента</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>false</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ПоступленияДенежныхСредствКонтекстноеМеню" id="2"/>
+							<AutoCommandBar name="ПоступленияДенежныхСредствКоманднаяПанель" id="3">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Popup name="СоздатьПоступление" id="107">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать поступление</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="СоздатьПоступлениеExtendedTooltip" id="243"/>
+										<ChildItems>
+											<Button name="ПоступленияДенежныхСредствСоздатьПоступлениеОплатыОтКлиента" id="200">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПоступлениеОплатыОтКлиента</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="ПоступленияДенежныхСредствСоздатьПоступлениеОплатыОтКлиентаExtendedTooltip" id="244"/>
+											</Button>
+											<Button name="ПоступленияДенежныхСредствСоздатьВозвратДенежныхСредствОтПоставщика" id="116">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьВозвратДенежныхСредствОтПоставщика</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="ПоступленияДенежныхСредствСоздатьВозвратДенежныхСредствОтПоставщикаExtendedTooltip" id="245"/>
+											</Button>
+											<Button name="ПоступленияДенежныхСредствСоздатьПрочиеДоходы" id="215">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПрочиеДоходы</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="ПоступленияДенежныхСредствСоздатьПрочиеДоходыExtendedTooltip" id="246"/>
+											</Button>
+											<Button name="ПоступленияДенежныхСредствСоздатьПрочееПоступлениеДенежныхСредств" id="117">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПрочееПоступлениеДенежныхСредств</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="ПоступленияДенежныхСредствСоздатьПрочееПоступлениеДенежныхСредствExtendedTooltip" id="247"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<ButtonGroup name="ГруппаПоступленияДенежныхСредств" id="177">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа поступления денежных средств</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа поступления денежных средств</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>Item.ПоступленияДенежныхСредств</CommandSource>
+										<ExtendedTooltip name="ГруппаПоступленияДенежныхСредствExtendedTooltip" id="248"/>
+									</ButtonGroup>
+									<Popup name="ГруппаСоздатьНаОснованииПоступленияДенежныхСредств" id="185">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать на основании</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа создать на основании поступления денежных средств</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ГруппаСоздатьНаОснованииПоступленияДенежныхСредствExtendedTooltip" id="249"/>
+										<ChildItems>
+											<Button name="ПоступленияДенежныхСредствДокументВыпискаПоРасчетномуСчетуСоздатьВыпискуПоРасчетномуСчетуВходящиеПлатежи" id="210">
+												<Type>CommandBarButton</Type>
+												<CommandName>Document.ВыпискаПоРасчетномуСчету.Command.СоздатьВыпискуПоРасчетномуСчетуВходящиеПлатежи</CommandName>
+												<Parameter xsi:nil="true"/>
+												<DataPath>Items.ПоступленияДенежныхСредств.CurrentData.Ссылка</DataPath>
+												<ExtendedTooltip name="ПоступленияДенежныхСредствДокументВыпискаПоРасчетномуСчетуСоздатьВыпискуПоРасчетномуСчетуВходящиеПлатежиExtendedTooltip" id="250"/>
+											</Button>
+											<Button name="ПоступленияДенежныхСредствДокументВыпискаПоРасчетномуСчетуДобавитьВВыпискуПоРасчетномуСчетуВходящиеПлатежи" id="211">
+												<Type>CommandBarButton</Type>
+												<CommandName>Document.ВыпискаПоРасчетномуСчету.Command.ДобавитьВВыпискуПоРасчетномуСчетуВходящиеПлатежи</CommandName>
+												<Parameter xsi:nil="true"/>
+												<DataPath>Items.ПоступленияДенежныхСредств.CurrentData.Ссылка</DataPath>
+												<ExtendedTooltip name="ПоступленияДенежныхСредствДокументВыпискаПоРасчетномуСчетуДобавитьВВыпискуПоРасчетномуСчетуВходящиеПлатежиExtendedTooltip" id="251"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ПоступленияДенежныхСредствExtendedTooltip" id="252"/>
+							<SearchStringAddition name="ПоступленияДенежныхСредствSearchString" id="253">
+								<Source>
+									<lf:elementId>1</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ПоступленияДенежныхСредствSearchStringContextMenu" id="254"/>
+								<ExtendedTooltip name="ПоступленияДенежныхСредствSearchStringExtendedTooltip" id="255"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ПоступленияДенежныхСредствViewStatus" id="256">
+								<Source>
+									<lf:elementId>1</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ПоступленияДенежныхСредствViewStatusContextMenu" id="257"/>
+								<ExtendedTooltip name="ПоступленияДенежныхСредствViewStatusExtendedTooltip" id="258"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ПоступленияДенежныхСредствSearchControl" id="259">
+								<Source>
+									<lf:elementId>1</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ПоступленияДенежныхСредствSearchControlContextMenu" id="260"/>
+								<ExtendedTooltip name="ПоступленияДенежныхСредствSearchControlExtendedTooltip" id="261"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ПоступленияДенежныхСредствВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ПоступленияДенежныхСредствНомер" id="6">
+									<DataPath>ПоступленияДенежныхСредств.Номер</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Номер</v8:content>
+										</v8:item>
+									</Title>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ПоступленияДенежныхСредствНомерКонтекстноеМеню" id="7"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствНомерExtendedTooltip" id="262"/>
+								</InputField>
+								<InputField name="ПоступленияДенежныхСредствДата" id="4">
+									<DataPath>ПоступленияДенежныхСредств.Дата</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Дата</v8:content>
+										</v8:item>
+									</Title>
+									<Width>14</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ПоступленияДенежныхСредствДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствДатаExtendedTooltip" id="263"/>
+								</InputField>
+								<InputField name="ПоступленияДенежныхСредствСумма" id="18">
+									<DataPath>ПоступленияДенежныхСредств.Сумма</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма</v8:content>
+										</v8:item>
+									</Title>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ПоступленияДенежныхСредствСуммаКонтекстноеМеню" id="19"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствСуммаExtendedTooltip" id="264"/>
+								</InputField>
+								<CheckBoxField name="ПоступленияДенежныхСредствПроведеноБанком" id="140">
+									<DataPath>ПоступленияДенежныхСредств.ПроведеноБанком</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Проведено банком</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПоступленияДенежныхСредствПроведеноБанкомКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствПроведеноБанкомExtendedTooltip" id="265"/>
+								</CheckBoxField>
+								<InputField name="ПоступленияДенежныхСредствХозяйственнаяОперация" id="14">
+									<DataPath>ПоступленияДенежныхСредств.ХозяйственнаяОперация</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Хозяйственная операция</v8:content>
+										</v8:item>
+									</Title>
+									<Width>30</Width>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ПоступленияДенежныхСредствХозяйственнаяОперацияКонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствХозяйственнаяОперацияExtendedTooltip" id="266"/>
+								</InputField>
+								<InputField name="ПоступленияДенежныхСредствПлательщик" id="44">
+									<DataPath>ПоступленияДенежныхСредств.Плательщик</DataPath>
+									<Width>30</Width>
+									<Wrap>false</Wrap>
+									<ContextMenu name="ПоступленияДенежныхСредствПлательщикКонтекстноеМеню" id="45"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствПлательщикExtendedTooltip" id="267"/>
+								</InputField>
+								<LabelField name="ПоступленияДенежныхСредствТипПлатежногоДокумента" id="190">
+									<DataPath>ПоступленияДенежныхСредств.ТипПлатежногоДокумента</DataPath>
+									<ContextMenu name="ПоступленияДенежныхСредствТипПлатежногоДокументаКонтекстноеМеню" id="191"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствТипПлатежногоДокументаExtendedTooltip" id="268"/>
+								</LabelField>
+								<LabelField name="ПоступленияДенежныхСредствБанковскийСчет" id="170">
+									<DataPath>ПоступленияДенежныхСредств.БанковскийСчет</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="ПоступленияДенежныхСредствБанковскийСчетКонтекстноеМеню" id="171"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствБанковскийСчетExtendedTooltip" id="269"/>
+								</LabelField>
+								<LabelField name="ПоступленияДенежныхСредствОрганизация" id="172">
+									<DataPath>ПоступленияДенежныхСредств.Организация</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="ПоступленияДенежныхСредствОрганизацияКонтекстноеМеню" id="173"/>
+									<ExtendedTooltip name="ПоступленияДенежныхСредствОрганизацияExtendedTooltip" id="270"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаИсходящиеПлатежи" id="81">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходящие платежи</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница исходящие платежи</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаИсходящиеПлатежиExtendedTooltip" id="271"/>
+					<ChildItems>
+						<Table name="СписанияДенежныхСредств" id="82">
+							<SkipOnInput>false</SkipOnInput>
+							<Height>1</Height>
+							<HeightInTableRows>2</HeightInTableRows>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<InitialTreeView>ExpandAllLevels</InitialTreeView>
+							<DataPath>СписанияДенежныхСредств</DataPath>
+							<RowPictureDataPath>СписанияДенежныхСредств.СостояниеДокумента</RowPictureDataPath>
+							<RowsPicture>
+								<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+								<xr:LoadTransparent>false</xr:LoadTransparent>
+							</RowsPicture>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>false</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписанияДенежныхСредствКонтекстноеМеню" id="83"/>
+							<AutoCommandBar name="СписанияДенежныхСредствКоманднаяПанель" id="84">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Popup name="ГруппаСоздатьСписание" id="118">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа создать списание</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ГруппаСоздатьСписаниеExtendedTooltip" id="272"/>
+										<ChildItems>
+											<Button name="СписанияДенежныхСредствСоздатьОплатаПоставщику" id="201">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьОплатаПоставщику</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьОплатаПоставщикуExtendedTooltip" id="273"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьВозвратОплатыКлиенту" id="120">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьВозвратОплатыКлиенту</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьВозвратОплатыКлиентуExtendedTooltip" id="274"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьПеречислениеНаДругойСчет" id="127">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПеречислениеНаДругойСчет</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьПеречислениеНаДругойСчетExtendedTooltip" id="275"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьПеречислениеВДругуюОрганизацию" id="199">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПеречислениеВДругуюОрганизацию</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьПеречислениеВДругуюОрганизациюExtendedTooltip" id="276"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьВыдачаПодотчетнику" id="128">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьВыдачаПодотчетнику</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьВыдачаПодотчетникуExtendedTooltip" id="277"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьПрочиеРасходы" id="216">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПрочиеРасходы</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьПрочиеРасходыExtendedTooltip" id="278"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьПеречислениеТаможне" id="218">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПеречислениеТаможне</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьПеречислениеТаможнеExtendedTooltip" id="279"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьПеречислениеВБюджет" id="189">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПеречислениеВБюджет</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьПеречислениеВБюджетExtendedTooltip" id="280"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствСоздатьПрочаяВыдачаДенежныхСредств" id="129">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.СоздатьПрочаяВыдачаДенежныхСредств</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписанияДенежныхСредствСоздатьПрочаяВыдачаДенежныхСредствExtendedTooltip" id="281"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<ButtonGroup name="ГруппаСписанияДенежныхСредств" id="179">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа списания денежных средств</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа списания денежных средств</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>Item.СписанияДенежныхСредств</CommandSource>
+										<ExtendedTooltip name="ГруппаСписанияДенежныхСредствExtendedTooltip" id="282"/>
+									</ButtonGroup>
+									<Popup name="ГруппаСоздатьНаОснованииСписаниеДенежныхСредств" id="182">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать на основании</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа создать на основании списание денежных средств</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ГруппаСоздатьНаОснованииСписаниеДенежныхСредствExtendedTooltip" id="283"/>
+										<ChildItems>
+											<Button name="СписанияДенежныхСредствДокументВыпискаПоРасчетномуСчетуСоздатьВыпискуПоРасчетномуСчетуИсходящиеПлатежи" id="208">
+												<Type>CommandBarButton</Type>
+												<CommandName>Document.ВыпискаПоРасчетномуСчету.Command.СоздатьВыпискуПоРасчетномуСчетуИсходящиеПлатежи</CommandName>
+												<Parameter xsi:nil="true"/>
+												<DataPath>Items.СписанияДенежныхСредств.CurrentData.Ссылка</DataPath>
+												<ExtendedTooltip name="СписанияДенежныхСредствДокументВыпискаПоРасчетномуСчетуСоздатьВыпискуПоРасчетномуСчетуИсходящиеПлатежиExtendedTooltip" id="284"/>
+											</Button>
+											<Button name="СписанияДенежныхСредствДокументВыпискаПоРасчетномуСчетуДобавитьВВыпискуПоРасчетномуСчетуИсходящиеПлатежи" id="209">
+												<Type>CommandBarButton</Type>
+												<CommandName>Document.ВыпискаПоРасчетномуСчету.Command.ДобавитьВВыпискуПоРасчетномуСчетуИсходящиеПлатежи</CommandName>
+												<Parameter xsi:nil="true"/>
+												<DataPath>Items.СписанияДенежныхСредств.CurrentData.Ссылка</DataPath>
+												<ExtendedTooltip name="СписанияДенежныхСредствДокументВыпискаПоРасчетномуСчетуДобавитьВВыпискуПоРасчетномуСчетуИсходящиеПлатежиExtendedTooltip" id="285"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Popup name="ГруппаПечать" id="188">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Печать</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа печать</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ГруппаПечатьExtendedTooltip" id="286"/>
+										<ChildItems>
+											<Button name="СписанияДенежныхСредствДокументСписаниеБезналичныхДенежныхСредствКомандаПечатьПлатежногоПоручения" id="187">
+												<Type>CommandBarButton</Type>
+												<SkipOnInput>false</SkipOnInput>
+												<CommandName>Document.СписаниеБезналичныхДенежныхСредств.Command.ПечатьПлатежногоПоручения</CommandName>
+												<Parameter xsi:nil="true"/>
+												<DataPath>Items.СписанияДенежныхСредств.CurrentData.Ссылка</DataPath>
+												<ExtendedTooltip name="СписанияДенежныхСредствДокументСписаниеБезналичныхДенежныхСредствКомандаПечатьПлатежногоПорученияExtendedTooltip" id="287"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписанияДенежныхСредствExtendedTooltip" id="288"/>
+							<SearchStringAddition name="СписанияДенежныхСредствSearchString" id="289">
+								<Source>
+									<lf:elementId>82</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="СписанияДенежныхСредствSearchStringContextMenu" id="290"/>
+								<ExtendedTooltip name="СписанияДенежныхСредствSearchStringExtendedTooltip" id="291"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписанияДенежныхСредствViewStatus" id="292">
+								<Source>
+									<lf:elementId>82</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="СписанияДенежныхСредствViewStatusContextMenu" id="293"/>
+								<ExtendedTooltip name="СписанияДенежныхСредствViewStatusExtendedTooltip" id="294"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписанияДенежныхСредствSearchControl" id="295">
+								<Source>
+									<lf:elementId>82</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="СписанияДенежныхСредствSearchControlContextMenu" id="296"/>
+								<ExtendedTooltip name="СписанияДенежныхСредствSearchControlExtendedTooltip" id="297"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписанияДенежныхСредствВыбор</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СписанияДенежныхСредствНомер" id="89">
+									<DataPath>СписанияДенежныхСредств.Номер</DataPath>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="СписанияДенежныхСредствНомерКонтекстноеМеню" id="90"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствНомерExtendedTooltip" id="298"/>
+								</InputField>
+								<InputField name="СписанияДенежныхСредствДата" id="85">
+									<DataPath>СписанияДенежныхСредств.Дата</DataPath>
+									<Width>14</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="СписанияДенежныхСредствДатаКонтекстноеМеню" id="86"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствДатаExtendedTooltip" id="299"/>
+								</InputField>
+								<InputField name="СписанияДенежныхСредствСумма" id="101">
+									<DataPath>СписанияДенежныхСредств.Сумма</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сумма</v8:content>
+										</v8:item>
+									</Title>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Wrap>false</Wrap>
+									<ContextMenu name="СписанияДенежныхСредствСуммаКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствСуммаExtendedTooltip" id="300"/>
+								</InputField>
+								<CheckBoxField name="СписанияДенежныхСредствПроведеноБанком" id="142">
+									<DataPath>СписанияДенежныхСредств.ПроведеноБанком</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Проведено банком</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СписанияДенежныхСредствПроведеноБанкомКонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствПроведеноБанкомExtendedTooltip" id="301"/>
+								</CheckBoxField>
+								<InputField name="СписанияДенежныхСредствХозяйственнаяОперация" id="105">
+									<DataPath>СписанияДенежныхСредств.ХозяйственнаяОперация</DataPath>
+									<Width>30</Width>
+									<Wrap>false</Wrap>
+									<ContextMenu name="СписанияДенежныхСредствХозяйственнаяОперацияКонтекстноеМеню" id="106"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствХозяйственнаяОперацияExtendedTooltip" id="302"/>
+								</InputField>
+								<InputField name="СписанияДенежныхСредствПолучатель" id="95">
+									<DataPath>СписанияДенежныхСредств.Получатель</DataPath>
+									<Width>30</Width>
+									<Wrap>false</Wrap>
+									<ContextMenu name="СписанияДенежныхСредствПолучательКонтекстноеМеню" id="96"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствПолучательExtendedTooltip" id="303"/>
+								</InputField>
+								<LabelField name="СписанияДенежныхСредствТипПлатежногоДокумента" id="192">
+									<DataPath>СписанияДенежныхСредств.ТипПлатежногоДокумента</DataPath>
+									<ContextMenu name="СписанияДенежныхСредствТипПлатежногоДокументаКонтекстноеМеню" id="193"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствТипПлатежногоДокументаExtendedTooltip" id="304"/>
+								</LabelField>
+								<LabelField name="СписанияДенежныхСредствБанковскийСчет" id="166">
+									<DataPath>СписанияДенежныхСредств.БанковскийСчет</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="СписанияДенежныхСредствБанковскийСчетКонтекстноеМеню" id="167"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствБанковскийСчетExtendedTooltip" id="305"/>
+								</LabelField>
+								<LabelField name="СписанияДенежныхСредствОрганизация" id="168">
+									<DataPath>СписанияДенежныхСредств.Организация</DataPath>
+									<Width>30</Width>
+									<ContextMenu name="СписанияДенежныхСредствОрганизацияКонтекстноеМеню" id="169"/>
+									<ExtendedTooltip name="СписанияДенежныхСредствОрганизацияExtendedTooltip" id="306"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<Button name="ОткрытьОтчетОстаткиИДвиженияДенежныхСредств" id="176">
+			<Type>Hyperlink</Type>
+			<SkipOnInput>false</SkipOnInput>
+			<CommandName>Form.Command.ОткрытьОтчетОстаткиИДвиженияДенежныхСредств</CommandName>
+			<Parameter xsi:nil="true"/>
+			<ExtendedTooltip name="ОткрытьОтчетОстаткиИДвиженияДенежныхСредствExtendedTooltip" id="307"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПоступленияДенежныхСредств" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступления денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ПоступленияДенежныхСредств.БанковскийСчет</Field>
+				<Field>ПоступленияДенежныхСредств.Организация</Field>
+				<Field>ПоступленияДенежныхСредств.Ссылка</Field>
+				<Field>ПоступленияДенежныхСредств.Period</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДенежныеСредства.Период,
+	ДенежныеСредства.Регистратор КАК Ссылка,
+	ДенежныеСредства.Регистратор.ПометкаУдаления КАК ПометкаУдаления,
+	ДенежныеСредства.Регистратор.Номер КАК Номер,
+	ДенежныеСредства.Регистратор.Дата КАК Дата,
+	ДенежныеСредства.Регистратор.Проведен КАК Проведен,
+	ДенежныеСредства.Организация КАК Организация,
+	ДенежныеСредства.СуммаПриход КАК Сумма,
+	0 КАК СостояниеДокумента,
+	
+	ВЫБОР КОГДА ДенежныеСредства.Регистратор ССЫЛКА Документ.ОтчетБанкаПоОперациямЭквайринга ТОГДА
+		ДенежныеСредства.Регистратор.ДоговорЭквайринга.БанковскийСчет
+	ИНАЧЕ
+		ДенежныеСредства.БанковскийСчет
+	КОНЕЦ КАК БанковскийСчет,
+	
+	ВЫБОР КОГДА ДенежныеСредства.Регистратор ССЫЛКА Документ.ОтчетБанкаПоОперациямЭквайринга ТОГДА
+		ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ОтчетБанкаПоОперациямЭквайринга)
+	ИНАЧЕ
+		ДенежныеСредства.Регистратор.ХозяйственнаяОперация
+	КОНЕЦ КАК ХозяйственнаяОперация,
+	
+	ДенежныеСредства.Регистратор.ТипПлатежногоДокумента КАК ТипПлатежногоДокумента,
+	
+	ВЫБОР КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПоступлениеОплатыОтКлиента)
+		ИЛИ ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВозвратДенежныхСредствОтПоставщика)
+	ТОГДА 
+		ДенежныеСредства.Регистратор.Контрагент
+	
+	КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.СдачаДенежныхСредствВБанк) ТОГДА
+		ДенежныеСредства.Регистратор.Касса
+		
+	КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПеречислениеДенежныхСредствНаДругойСчет)
+		ИЛИ ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ОплатаДенежныхСредствВДругуюОрганизацию)
+	ТОГДА
+		ДенежныеСредства.Регистратор.БанковскийСчет
+		
+	КОГДА ДенежныеСредства.Регистратор ССЫЛКА Документ.ОтчетБанкаПоОперациямЭквайринга ТОГДА
+		 ДенежныеСредства.Регистратор.ДоговорЭквайринга
+		 
+	КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПрочиеДоходы)
+		ИЛИ ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПрочееПоступлениеДенежныхСредств)
+		ИЛИ ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.КонвертацияВалюты)
+	ТОГДА 
+		ДенежныеСредства.Регистратор.Контрагент
+	
+	ИНАЧЕ 
+		НЕОПРЕДЕЛЕНО
+	КОНЕЦ КАК Плательщик,
+	
+	ВЫБОР КОГДА ЕСТЬNULL(ДенежныеСредстваОстатки.СуммаОстаток, 0) &lt;= 0 ТОГДА 
+		ИСТИНА
+	ИНАЧЕ 
+		ЛОЖЬ
+	КОНЕЦ КАК ПроведеноБанком
+ИЗ
+	РегистрНакопления.ДенежныеСредстваКПоступлениюБезналичные.Обороты(,,Регистратор,
+		ТипДенежныхСредств &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыДенежныхСредствКПоступлению.КонвертацияВалюты)
+	) КАК ДенежныеСредства
+	
+	ЛЕВОЕ СОЕДИНЕНИЕ
+		РегистрНакопления.ДенежныеСредстваКПоступлениюБезналичные.Остатки() КАК ДенежныеСредстваОстатки
+	ПО
+		ДенежныеСредства.Документ = ДенежныеСредстваОстатки.Документ
+	
+ГДЕ
+	ДенежныеСредства.СуммаПриход &lt;&gt; 0</QueryText>
+				<MainTable>AccumulationRegister.ДенежныеСредстваКПоступлениюБезналичные.Turnovers</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПроведеноБанком</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									<dcsset:presentation xsi:type="xs:string">Проведено банком</dcsset:presentation>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ЗакрытыйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ВыпискиИзБанка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выписки из банка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	Выписка.Ссылка,
+	Выписка.ПометкаУдаления,
+	Выписка.Номер,
+	Выписка.Дата,
+	Выписка.Проведен,
+	Выписка.Организация,
+	Выписка.БанковскийСчет,
+	Выписка.СуммаПоступленияВсего,
+	Выписка.СуммаСписанияВсего,
+	ВЫБОР
+		КОГДА Выписка.Проведен
+			ТОГДА ДенежныеСредства.СуммаКонечныйОстаток
+		ИНАЧЕ ДенежныеСредстваПоДням.СуммаКонечныйОстаток
+	КОНЕЦ КАК СуммаКонечныйОстаток
+ИЗ
+	Документ.ВыпискаПоРасчетномуСчету КАК Выписка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ДенежныеСредстваБезналичные.ОстаткиИОбороты(, , Регистратор, , ) КАК ДенежныеСредства
+		ПО Выписка.Организация = ДенежныеСредства.Организация
+			И Выписка.БанковскийСчет = ДенежныеСредства.БанковскийСчет
+			И Выписка.Ссылка = ДенежныеСредства.Регистратор
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ДенежныеСредстваБезналичные.ОстаткиИОбороты(, , Секунда, ДвиженияИГраницыПериода, ) КАК ДенежныеСредстваПоДням
+		ПО Выписка.Организация = ДенежныеСредстваПоДням.Организация
+			И Выписка.БанковскийСчет = ДенежныеСредстваПоДням.БанковскийСчет
+			И Выписка.Дата = ДенежныеСредстваПоДням.Период</QueryText>
+				<MainTable>Document.ВыпискаПоРасчетномуСчету</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">БанковскийСчет</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.БанковскиеСчетаОрганизаций.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>Организация</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="БанковскийСчет" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Банковский счет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.БанковскиеСчетаОрганизаций</v8:Type>
+			</Type>
+			<Save>
+				<Field>БанковскийСчет</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="СписанияДенежныхСредств" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списания денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>СписанияДенежныхСредств.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДенежныеСредства.Регистратор КАК Ссылка,
+	ДенежныеСредства.Регистратор.ПометкаУдаления КАК ПометкаУдаления,
+	ДенежныеСредства.Регистратор.Номер КАК Номер,
+	ДенежныеСредства.Регистратор.Дата КАК Дата,
+	ДенежныеСредства.Регистратор.Проведен КАК Проведен,
+	ДенежныеСредства.Организация КАК Организация,
+	ДенежныеСредства.СуммаРасход КАК Сумма,
+	0 КАК СостояниеДокумента,
+	
+	ВЫБОР КОГДА ДенежныеСредства.Регистратор ССЫЛКА Документ.ОтчетБанкаПоОперациямЭквайринга ТОГДА
+		ДенежныеСредства.Регистратор.ДоговорЭквайринга.БанковскийСчет
+	ИНАЧЕ
+		ДенежныеСредства.БанковскийСчет
+	КОНЕЦ КАК БанковскийСчет,
+	
+	ВЫБОР КОГДА ДенежныеСредства.Регистратор ССЫЛКА Документ.ОтчетБанкаПоОперациямЭквайринга ТОГДА
+		ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ОтчетБанкаПоОперациямЭквайринга)
+	ИНАЧЕ
+		ДенежныеСредства.Регистратор.ХозяйственнаяОперация
+	КОНЕЦ КАК ХозяйственнаяОперация,
+	
+	ДенежныеСредства.Регистратор.ТипПлатежногоДокумента КАК ТипПлатежногоДокумента,
+	
+	ВЫБОР КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыдачаДенежныхСредствПодотчетнику) Тогда
+		ДенежныеСредства.Регистратор.ПодотчетноеЛицо
+		
+	КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПеречислениеДенежныхСредствНаДругойСчет)
+	 ИЛИ ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ОплатаДенежныхСредствВДругуюОрганизацию)
+	ТОГДА
+		ДенежныеСредства.Регистратор.БанковскийСчетПолучатель
+		
+	КОГДА ДенежныеСредства.Регистратор.ХозяйственнаяОперация = ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ПоступлениеДенежныхСредствИзБанка) ТОГДА
+		ДенежныеСредства.Регистратор.Касса
+		
+	КОГДА ДенежныеСредства.Регистратор ССЫЛКА Документ.ОтчетБанкаПоОперациямЭквайринга ТОГДА
+		ДенежныеСредства.Регистратор.ДоговорЭквайринга
+		
+	ИНАЧЕ 
+		ДенежныеСредства.Регистратор.Контрагент
+		
+	КОНЕЦ КАК Получатель,
+	
+	ВЫБОР КОГДА ЕСТЬNULL(ДенежныеСредстваОстатки.СуммаОстаток, 0) &gt;= 0 ТОГДА 
+		ИСТИНА
+	ИНАЧЕ 
+		ЛОЖЬ
+	КОНЕЦ КАК ПроведеноБанком
+ИЗ
+	РегистрНакопления.ДенежныеСредстваКСписаниюБезналичные.Обороты(,,Регистратор) КАК ДенежныеСредства
+	
+	ЛЕВОЕ СОЕДИНЕНИЕ
+		РегистрНакопления.ДенежныеСредстваКСписаниюБезналичные.Остатки() КАК ДенежныеСредстваОстатки
+	ПО
+		ДенежныеСредства.Документ = ДенежныеСредстваОстатки.Документ
+	
+ГДЕ
+	ДенежныеСредства.СуммаРасход &lt;&gt; 0</QueryText>
+				<MainTable>AccumulationRegister.ДенежныеСредстваКСписаниюБезналичные.Turnovers</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ПроведеноБанком</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									<dcsset:presentation xsi:type="xs:string">Проведено банком</dcsset:presentation>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ЗакрытыйДокумент</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокХозяйственныхОперацийПриход" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список хозяйственных операций приход</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокХозяйственныхОперацийРасход" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список хозяйственных операций расход</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьПодключаемоеОборудование" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать подключаемое оборудование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоддерживаемыеТипыПодключаемогоОбрудования" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поддерживаемые типы подключаемого обрудования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СоздатьВозвратДенежныхСредствОтПоставщика" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат от поставщика</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать возврат денежных средств от поставщика</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВозвратДенежныхСредствОтПоставщика</Action>
+		</Command>
+		<Command name="СоздатьПрочееПоступлениеДенежныхСредств" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочее поступление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прочее поступление денежных средств</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрочееПоступлениеДенежныхСредств</Action>
+		</Command>
+		<Command name="СоздатьВозвратОплатыКлиенту" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат оплаты клиенту</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать возврат оплаты клиенту</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВозвратОплатыКлиенту</Action>
+		</Command>
+		<Command name="СоздатьПеречислениеНаДругойСчет" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечисление на другой счет</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перечисление на другой счет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПеречислениеНаДругойСчет</Action>
+		</Command>
+		<Command name="СоздатьВыдачаПодотчетнику" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выдачу подотчетнику</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать выдача подотчетнику</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьВыдачаПодотчетнику</Action>
+		</Command>
+		<Command name="СоздатьПрочаяВыдачаДенежныхСредств" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочую выдачу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прочая выдача денежных средств</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрочаяВыдачаДенежныхСредств</Action>
+		</Command>
+		<Command name="ОткрытьОтчетОстаткиИДвиженияДенежныхСредств" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки денежных средств</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть отчет остатки и движения денежных средств</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Report</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОткрытьОтчетОстаткиИДвиженияДенежныхСредств</Action>
+		</Command>
+		<Command name="СоздатьПеречислениеВБюджет" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечисление налога</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перечисление в бюджет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПеречислениеВБюджет</Action>
+		</Command>
+		<Command name="СоздатьПеречислениеВДругуюОрганизацию" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перечисление в другую организацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перечисление в другую организацию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПеречислениеВДругуюОрганизацию</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьПередачиТоваровМеждуОрганизациями</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="СоздатьПоступлениеОплатыОтКлиента" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление оплаты от клиента</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать поступление оплаты от клиента</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПоступлениеОплатыОтКлиента</Action>
+		</Command>
+		<Command name="СоздатьОплатаПоставщику" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплату поставщику</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать оплата поставщику</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьОплатаПоставщику</Action>
+		</Command>
+		<Command name="СоздатьПрочиеДоходы" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие доходы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прочие доходы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрочиеДоходы</Action>
+		</Command>
+		<Command name="СоздатьПрочиеРасходы" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие расходы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать прочие расходы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПрочиеРасходы</Action>
+		</Command>
+		<Command name="СоздатьПеречислениеТаможне" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таможенный платеж</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать перечисление таможне</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьПеречислениеТаможне</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьИмпортныеЗакупки</Item>
+			</FunctionalOptions>
+		</Command>
+	</Commands>
+	<Parameters>
+		<Parameter name="Организация">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="БанковскийСчет">
+			<Type>
+				<v8:Type>cfg:CatalogRef.БанковскиеСчетаОрганизаций</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

@@ -1,0 +1,3141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<nestedSchema>
+		<name>ЗапасыПредприятия</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Запасы предприятия</v8:content>
+			</v8:item>
+		</title>
+		<schema>
+			<dataSource>
+				<name>ИсточникДанных1</name>
+				<dataSourceType>Local</dataSourceType>
+			</dataSource>
+			<dataSet xsi:type="DataSetQuery">
+				<name>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Номенклатура</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Характеристика</dataPath>
+					<field>Характеристика</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ABC</dataPath>
+					<field>ABC</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ABC</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.ABCКлассификация</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>XYZ</dataPath>
+					<field>XYZ</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>XYZ</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.XYZКлассификация</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СегментНоменклатуры</dataPath>
+					<field>СегментНоменклатуры</field>
+					<inputParameters>
+						<dcscor:item>
+							<dcscor:parameter>ChoiceParameters</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:ChoiceParameters">
+								<dcscor:item>
+									<dcscor:choiceParameter>Отбор.СпособФормирования</dcscor:choiceParameter>
+									<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыФормированияСегментов.ФормироватьВручную</dcscor:value>
+									<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыФормированияСегментов.ПериодическиОбновлять</dcscor:value>
+								</dcscor:item>
+							</dcscor:value>
+						</dcscor:item>
+					</inputParameters>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Номенклатура.Ссылка КАК Номенклатура,
+	ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка) КАК Характеристика
+ПОМЕСТИТЬ НоменклатураХарактеристика
+ИЗ
+	Справочник.Номенклатура КАК Номенклатура
+ГДЕ
+	Номенклатура.ВидНоменклатуры.ТипНоменклатуры В
+		(ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар),
+		ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.МногооборотнаяТара))
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	Номенклатура.Ссылка,
+	ЕСТЬNULL(Характеристики.Ссылка, ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+ИЗ
+	Справочник.Номенклатура КАК Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ХарактеристикиНоменклатуры КАК Характеристики
+		ПО (Характеристики.Владелец = ВЫБОР
+				КОГДА Номенклатура.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыИспользованияХарактеристикНоменклатуры.ОбщиеДляВидаНоменклатуры)
+					ТОГДА Номенклатура.ВидНоменклатуры
+				КОГДА Номенклатура.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыИспользованияХарактеристикНоменклатуры.ИндивидуальныеДляНоменклатуры)
+					ТОГДА Номенклатура.Ссылка
+				ИНАЧЕ ЛОЖЬ
+			КОНЕЦ)
+ГДЕ
+	Номенклатура.ВидНоменклатуры.ТипНоменклатуры В
+		(ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар),
+		ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.МногооборотнаяТара))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ABCКлассификация.Номенклатура КАК Номенклатура,
+	ABCКлассификация.Характеристика КАК Характеристика,
+	ABCКлассификация.Класс КАК Класс
+ПОМЕСТИТЬ ABCКлассификация
+ИЗ
+	РегистрСведений.ABCXYZКлассификацияНоменклатуры.СрезПоследних КАК ABCКлассификация
+ГДЕ
+	ABCКлассификация.РазделКлассификации = НЕОПРЕДЕЛЕНО
+	И ABCКлассификация.ТипПараметраКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыПараметровКлассификации.Выручка)
+	И ABCКлассификация.ТипКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыКлассификации.ABC)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	XYZКлассификация.Номенклатура КАК Номенклатура,
+	XYZКлассификация.Характеристика КАК Характеристика,
+	XYZКлассификация.Класс КАК Класс
+ПОМЕСТИТЬ XYZКлассификация
+ИЗ
+	РегистрСведений.ABCXYZКлассификацияНоменклатуры.СрезПоследних КАК XYZКлассификация
+ГДЕ
+	XYZКлассификация.РазделКлассификации = НЕОПРЕДЕЛЕНО
+	И XYZКлассификация.ТипПараметраКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыПараметровКлассификации.Количество)
+	И XYZКлассификация.ТипКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыКлассификации.XYZ)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	НоменклатураХарактеристика.Номенклатура КАК Номенклатура,
+	НоменклатураХарактеристика.Характеристика КАК Характеристика,
+	ЕСТЬNULL(ABCКлассификацияХарактеристика.Класс, ЕСТЬNULL(ABCКлассификацияНоменклатура.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))) КАК ABC,
+	ЕСТЬNULL(XYZКлассификацияХарактеристика.Класс, ЕСТЬNULL(XYZКлассификацияНоменклатура.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован))) КАК XYZ
+ИЗ
+	НоменклатураХарактеристика КАК НоменклатураХарактеристика
+		{ЛЕВОЕ СОЕДИНЕНИЕ ABCКлассификация КАК ABCКлассификацияХарактеристика
+		ПО НоменклатураХарактеристика.Номенклатура = ABCКлассификацияХарактеристика.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = ABCКлассификацияХарактеристика.Характеристика}
+		{ЛЕВОЕ СОЕДИНЕНИЕ ABCКлассификация КАК ABCКлассификацияНоменклатура
+		ПО (ABCКлассификацияХарактеристика.Класс ЕСТЬ NULL )
+			И НоменклатураХарактеристика.Номенклатура = ABCКлассификацияНоменклатура.Номенклатура
+			И (ABCКлассификацияНоменклатура.Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))}
+		{ЛЕВОЕ СОЕДИНЕНИЕ XYZКлассификация КАК XYZКлассификацияХарактеристика
+		ПО НоменклатураХарактеристика.Номенклатура = XYZКлассификацияХарактеристика.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = XYZКлассификацияХарактеристика.Характеристика}
+		{ЛЕВОЕ СОЕДИНЕНИЕ XYZКлассификация КАК XYZКлассификацияНоменклатура
+		ПО (XYZКлассификацияХарактеристика.Класс ЕСТЬ NULL )
+			И НоменклатураХарактеристика.Номенклатура = XYZКлассификацияНоменклатура.Номенклатура
+			И (XYZКлассификацияНоменклатура.Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НоменклатураСегмента КАК НоменклатураСегмента
+		ПО НоменклатураХарактеристика.Номенклатура = НоменклатураСегмента.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = НоменклатураСегмента.Характеристика}
+{ГДЕ
+	(ЕСТЬNULL(НоменклатураСегмента.Сегмент, ЗНАЧЕНИЕ(Справочник.СегментыНоменклатуры.ПустаяСсылка))) КАК СегментНоменклатуры}</query>
+			</dataSet>
+			<dataSet xsi:type="DataSetQuery">
+				<name>Свободные остатки</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Номенклатура</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Склад</dataPath>
+					<field>Склад</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<condition>true</condition>
+					</useRestriction>
+					<attributeUseRestriction>
+						<condition>true</condition>
+					</attributeUseRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Характеристика</dataPath>
+					<field>Характеристика</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Остатки.ВНаличии</dataPath>
+					<field>ВНаличии</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В наличии</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>MarkNegatives</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>MinimumWidth</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Остатки.ВРезерве</dataPath>
+					<field>ВРезерве</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>В резерве</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>MarkNegatives</dcscor:parameter>
+							<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>MinimumWidth</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СвободныеОстатки.Номенклатура КАК Номенклатура,
+	СвободныеОстатки.Характеристика КАК Характеристика,
+	СвободныеОстатки.ВНаличииОстаток КАК ВНаличии,
+	СвободныеОстатки.ВРезервеОстаток КАК ВРезерве
+ИЗ
+	РегистрНакопления.СвободныеОстатки.Остатки КАК СвободныеОстатки</query>
+			</dataSet>
+			<dataSet xsi:type="DataSetQuery">
+				<name>Товарные ограничения</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса</dataPath>
+					<field>МаксимальноеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Максимальный</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dataPath>
+					<field>МинимальноеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Минимальный</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dataPath>
+					<field>МинимальноеКоличествоЗапасаРекомендуемое</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Минимальный</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Номенклатура</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dataPath>
+					<field>НормативноеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормативный</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dataPath>
+					<field>НормативноеКоличествоЗапасаРекомендуемое</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Нормативный</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СреднедневноеПотребление</dataPath>
+					<field>СреднедневноеПотребление</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Среднедневное потребление</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dataPath>
+					<field>СтраховоеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страховой</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dataPath>
+					<field>СтраховоеКоличествоЗапасаРекомендуемое</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страховой</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Характеристика</dataPath>
+					<field>Характеристика</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ТоварныеОграничения.Номенклатура КАК Номенклатура,
+	ТоварныеОграничения.Характеристика КАК Характеристика,
+	СУММА(ТоварныеОграничения.СтраховоеКоличествоЗапаса) КАК СтраховоеКоличествоЗапаса,
+	СУММА(ТоварныеОграничения.СтраховоеКоличествоЗапасаРекомендуемое) КАК СтраховоеКоличествоЗапасаРекомендуемое,
+	СУММА(ТоварныеОграничения.МинимальноеКоличествоЗапаса) КАК МинимальноеКоличествоЗапаса,
+	СУММА(ТоварныеОграничения.МинимальноеКоличествоЗапасаРекомендуемое) КАК МинимальноеКоличествоЗапасаРекомендуемое,
+	СУММА(ТоварныеОграничения.НормативноеКоличествоЗапаса) КАК НормативноеКоличествоЗапаса,
+	СУММА(ТоварныеОграничения.НормативноеКоличествоЗапасаРекомендуемое) КАК НормативноеКоличествоЗапасаРекомендуемое,
+	СУММА(ТоварныеОграничения.МаксимальноеКоличествоЗапаса) КАК МаксимальноеКоличествоЗапаса,
+	СУММА(ТоварныеОграничения.СреднедневноеПотребление) КАК СреднедневноеПотребление
+ИЗ
+	РегистрСведений.ТоварныеОграничения КАК ТоварныеОграничения
+
+СГРУППИРОВАТЬ ПО
+	ТоварныеОграничения.Номенклатура,
+	ТоварныеОграничения.Характеристика</query>
+			</dataSet>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация</sourceDataSet>
+				<destinationDataSet>Свободные остатки</destinationDataSet>
+				<sourceExpression>Номенклатура</sourceExpression>
+				<destinationExpression>Номенклатура</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация</sourceDataSet>
+				<destinationDataSet>Свободные остатки</destinationDataSet>
+				<sourceExpression>Характеристика</sourceExpression>
+				<destinationExpression>Характеристика</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация</sourceDataSet>
+				<destinationDataSet>Товарные ограничения</destinationDataSet>
+				<sourceExpression>Номенклатура</sourceExpression>
+				<destinationExpression>Номенклатура</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация</sourceDataSet>
+				<destinationDataSet>Товарные ограничения</destinationDataSet>
+				<sourceExpression>Характеристика</sourceExpression>
+				<destinationExpression>Характеристика</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<totalField>
+				<dataPath>Остатки.ВНаличии</dataPath>
+				<expression>Сумма(Остатки.ВНаличии)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Остатки.ВРезерве</dataPath>
+				<expression>Сумма(Остатки.ВРезерве)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса</dataPath>
+				<expression>Сумма(ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dataPath>
+				<expression>Сумма(ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dataPath>
+				<expression>Сумма(ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dataPath>
+				<expression>Сумма(ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dataPath>
+				<expression>Сумма(ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>СреднедневноеПотребление</dataPath>
+				<expression>Сумма(СреднедневноеПотребление)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dataPath>
+				<expression>Сумма(ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dataPath>
+				<expression>Сумма(ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<parameter>
+				<name>Период</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Период</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>true</useRestriction>
+				<availableAsField>false</availableAsField>
+			</parameter>
+			<settingsVariant>
+				<dcsset:name>Основной</dcsset:name>
+				<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+				<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>Остатки</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Остатки.ВНаличии</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Остатки.ВРезерве</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СреднедневноеПотребление</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>ТоварныеОграниченияИспользуемые</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>ТоварныеОграниченияРекомендуемые</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</dcsset:right>
+							<dcsset:userSettingID>cd9ec805-facd-4c5e-9e1f-cea98584c88b</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">СегментНоменклатуры</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СегментыНоменклатуры.ПустаяСсылка</dcsset:right>
+							<dcsset:userSettingID>70d39f1f-1cff-4ae2-9382-aa0099e4dce9</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ABCКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.XYZКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Остатки.ВНаличии</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Остатки.ВРезерве</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:userSettingID>ab62487b-1573-4646-ae6a-1c4f39f0b604</dcsset:userSettingID>
+							<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Только классифицированные или в наличии</v8:content>
+								</v8:item>
+							</dcsset:userSettingPresentation>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>c36f77fb-5460-4f64-9377-c737e63f59cc</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>ad150029-034a-45f6-b090-125fcba0735e</dcsset:userSettingID>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>AttributePlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Together</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>FilterOutput</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ABC</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>XYZ</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ABC</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>XYZ</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Together</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Остатки</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Остатки.ВНаличии</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Остатки.ВРезерве</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СреднедневноеПотребление</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>ТоварныеОграниченияИспользуемые</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection/>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Font</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Характеристика</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:conditionalAppearance>
+								<dcsset:item>
+									<dcsset:selection>
+										<dcsset:item>
+											<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+										</dcsset:item>
+									</dcsset:selection>
+									<dcsset:filter>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dcsset:right>
+										</dcsset:item>
+									</dcsset:filter>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>TextColor</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+										</dcscor:item>
+									</dcsset:appearance>
+									<dcsset:presentation xsi:type="v8:LocalStringType">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Используемый минимальный запас не соответствует рекомендуемому</v8:content>
+										</v8:item>
+									</dcsset:presentation>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:selection>
+										<dcsset:item>
+											<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+										</dcsset:item>
+									</dcsset:selection>
+									<dcsset:filter>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dcsset:right>
+										</dcsset:item>
+									</dcsset:filter>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>TextColor</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+										</dcscor:item>
+									</dcsset:appearance>
+									<dcsset:presentation xsi:type="v8:LocalStringType">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Используемый нормативный запас не соответствует рекомендуемому</v8:content>
+										</v8:item>
+									</dcsset:presentation>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:selection>
+										<dcsset:item>
+											<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+										</dcsset:item>
+									</dcsset:selection>
+									<dcsset:filter>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dcsset:right>
+										</dcsset:item>
+									</dcsset:filter>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>TextColor</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+										</dcscor:item>
+									</dcsset:appearance>
+									<dcsset:presentation xsi:type="v8:LocalStringType">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Используемый страховой запас не соответствует рекомендуемому</v8:content>
+										</v8:item>
+									</dcsset:presentation>
+								</dcsset:item>
+							</dcsset:conditionalAppearance>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>AttributePlacement</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:settings>
+			</settingsVariant>
+		</schema>
+		<settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</settings>
+	</nestedSchema>
+	<nestedSchema>
+		<name>ЗапасыПоСкладам</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Запасы по складам</v8:content>
+			</v8:item>
+		</title>
+		<schema>
+			<dataSource>
+				<name>ИсточникДанных1</name>
+				<dataSourceType>Local</dataSourceType>
+			</dataSource>
+			<dataSet xsi:type="DataSetQuery">
+				<name>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация, товарные ограничения</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Номенклатура</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Характеристика</dataPath>
+					<field>Характеристика</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ABC</dataPath>
+					<field>ABC</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ABC</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.ABCКлассификация</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>XYZ</dataPath>
+					<field>XYZ</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>XYZ</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.XYZКлассификация</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Склад</dataPath>
+					<field>Склад</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Склад</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Склады</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>РекомендуемыйМетодУправленияЗапасами</dataPath>
+					<field>РекомендуемыйМетодУправленияЗапасами</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Метод управления запасами (рекомендуемый)</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<attributeUseRestriction>
+						<group>true</group>
+					</attributeUseRestriction>
+					<role>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.МетодыУправленияЗапасами</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ИспользуемыйМетодУправленияЗапасами</dataPath>
+					<field>ИспользуемыйМетодУправленияЗапасами</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Метод управления запасами</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<attributeUseRestriction>
+						<group>true</group>
+					</attributeUseRestriction>
+					<role>
+						<dcscom:required>true</dcscom:required>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.МетодыУправленияЗапасами</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗначениеПараметраКлассификации.Выручка</dataPath>
+					<field>Выручка</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выручка (%ВалютаУпр%)</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<valueType>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</valueType>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Format</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗначениеПараметраКлассификации.КоэффициентВариации</dataPath>
+					<field>КоэффициентВариации</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Коэффициент вариации</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<valueType>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</valueType>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Format</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Максимальный.Используемый</dataPath>
+					<field>МаксимальноеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Минимальный.Используемый</dataPath>
+					<field>МинимальноеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Минимальный.Рекомендуемый</dataPath>
+					<field>МинимальноеКоличествоЗапасаРекомендуемое</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рекомендуемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Нормативный.Используемый</dataPath>
+					<field>НормативноеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Нормативный.Рекомендуемый</dataPath>
+					<field>НормативноеКоличествоЗапасаРекомендуемое</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рекомендуемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.СреднедневноеПотребление</dataPath>
+					<field>СреднедневноеПотребление</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Среднедневное потребление</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Страховой.Используемый</dataPath>
+					<field>СтраховоеКоличествоЗапаса</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Используемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Страховой.Рекомендуемый</dataPath>
+					<field>СтраховоеКоличествоЗапасаРекомендуемое</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Рекомендуемый</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Запас.Количество</dataPath>
+					<field>Количество</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</title>
+					<useRestriction>
+						<group>true</group>
+					</useRestriction>
+					<appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Format</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3; ЧН=</dcscor:value>
+						</dcscor:item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СегментНоменклатуры</dataPath>
+					<field>СегментНоменклатуры</field>
+					<inputParameters>
+						<dcscor:item>
+							<dcscor:parameter>ChoiceParameters</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:ChoiceParameters">
+								<dcscor:item>
+									<dcscor:choiceParameter>Отбор.СпособФормирования</dcscor:choiceParameter>
+									<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыФормированияСегментов.ФормироватьВручную</dcscor:value>
+									<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.СпособыФормированияСегментов.ПериодическиОбновлять</dcscor:value>
+								</dcscor:item>
+							</dcscor:value>
+						</dcscor:item>
+					</inputParameters>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Склады.Ссылка КАК Склад,
+	Номенклатура.Ссылка КАК Номенклатура,
+	ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка) КАК Характеристика
+ПОМЕСТИТЬ НоменклатураХарактеристика
+ИЗ
+	Справочник.Номенклатура КАК Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Склады КАК Склады
+		ПО (НЕ Склады.Ссылка.ЭтоГруппа)
+ГДЕ
+	Номенклатура.ВидНоменклатуры.ТипНоменклатуры В
+		(ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар),
+		ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.МногооборотнаяТара))
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	Склады.Ссылка,
+	Номенклатура.Ссылка,
+	ЕСТЬNULL(Характеристики.Ссылка, ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+ИЗ
+	Справочник.Номенклатура КАК Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ХарактеристикиНоменклатуры КАК Характеристики
+		ПО (Характеристики.Владелец = ВЫБОР
+				КОГДА Номенклатура.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыИспользованияХарактеристикНоменклатуры.ОбщиеДляВидаНоменклатуры)
+					ТОГДА Номенклатура.ВидНоменклатуры
+				КОГДА Номенклатура.ИспользованиеХарактеристик = ЗНАЧЕНИЕ(Перечисление.ВариантыИспользованияХарактеристикНоменклатуры.ИндивидуальныеДляНоменклатуры)
+					ТОГДА Номенклатура.Ссылка
+				ИНАЧЕ ЛОЖЬ
+			КОНЕЦ)
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Склады КАК Склады
+		ПО (НЕ Склады.Ссылка.ЭтоГруппа)
+ГДЕ
+	Номенклатура.ВидНоменклатуры.ТипНоменклатуры В
+		(ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Товар),
+		ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.МногооборотнаяТара))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	НоменклатураХарактеристика.Склад КАК Склад,
+	НоменклатураХарактеристика.Номенклатура КАК Номенклатура,
+	НоменклатураХарактеристика.Характеристика КАК Характеристика,
+	ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) КАК ABC,
+	ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) КАК XYZ,
+	ЕСТЬNULL(ABCКлассификация.ЗначениеПараметраКлассификации, 0) КАК Выручка,
+	ЕСТЬNULL(XYZКлассификация.ЗначениеПараметраКлассификации, 0) КАК КоэффициентВариации,
+	ЕСТЬNULL(СвободныеОстатки.ВНаличииОстаток, 0) КАК Количество,
+	ЕСТЬNULL(МетодыУправленияЗапасамиХарактеристика.МетодУправления, ЕСТЬNULL(МетодыУправленияЗапасамиНоменклатура.МетодУправления, ЕСТЬNULL(МетодыУправленияЗапасамиСклад.МетодУправления, ВЫБОР
+					КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.AКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.BКласс))
+							И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.XКласс), ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.YКласс))
+						ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ОбъемноКалендарноеПланирование)
+					КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.CКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))
+							И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) = ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.XКласс)
+						ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал)
+					КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.CКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))
+							И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) = ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.YКласс)
+						ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер)
+					КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.AКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.BКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.CКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))
+							И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.ZКласс), ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован))
+						ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ЗаказПодЗаказ)
+				КОНЕЦ))) КАК ИспользуемыйМетодУправленияЗапасами,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.AКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.BКласс))
+				И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.XКласс), ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.YКласс))
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ОбъемноКалендарноеПланирование)
+		КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.CКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))
+				И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) = ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.XКласс)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал)
+		КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.CКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))
+				И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) = ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.YКласс)
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер)
+		КОГДА ЕСТЬNULL(ABCКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.AКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.BКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.CКласс), ЗНАЧЕНИЕ(Перечисление.ABCКлассификация.НеКлассифицирован))
+				И ЕСТЬNULL(XYZКлассификация.Класс, ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован)) В (ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.ZКласс), ЗНАЧЕНИЕ(Перечисление.XYZКлассификация.НеКлассифицирован))
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ЗаказПодЗаказ)
+	КОНЕЦ КАК РекомендуемыйМетодУправленияЗапасами,
+	ТоварныеОграничения.СтраховоеКоличествоЗапаса КАК СтраховоеКоличествоЗапаса,
+	ТоварныеОграничения.СтраховоеКоличествоЗапасаРекомендуемое КАК СтраховоеКоличествоЗапасаРекомендуемое,
+	ТоварныеОграничения.МинимальноеКоличествоЗапаса КАК МинимальноеКоличествоЗапаса,
+	ТоварныеОграничения.МинимальноеКоличествоЗапасаРекомендуемое КАК МинимальноеКоличествоЗапасаРекомендуемое,
+	ТоварныеОграничения.НормативноеКоличествоЗапаса КАК НормативноеКоличествоЗапаса,
+	ТоварныеОграничения.НормативноеКоличествоЗапасаРекомендуемое КАК НормативноеКоличествоЗапасаРекомендуемое,
+	ТоварныеОграничения.МаксимальноеКоличествоЗапаса КАК МаксимальноеКоличествоЗапаса,
+	ТоварныеОграничения.СреднедневноеПотребление КАК СреднедневноеПотребление
+ИЗ
+	НоменклатураХарактеристика КАК НоменклатураХарактеристика
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.СвободныеОстатки.Остатки КАК СвободныеОстатки
+		ПО НоменклатураХарактеристика.Склад = СвободныеОстатки.Склад
+			И НоменклатураХарактеристика.Номенклатура = СвободныеОстатки.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = СвободныеОстатки.Характеристика}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ABCXYZКлассификацияНоменклатуры.СрезПоследних КАК ABCКлассификация
+		ПО (ABCКлассификация.ТипПараметраКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыПараметровКлассификации.Выручка))
+			И (ABCКлассификация.ТипКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыКлассификации.ABC))
+			И НоменклатураХарактеристика.Склад = ABCКлассификация.РазделКлассификации
+			И НоменклатураХарактеристика.Номенклатура = ABCКлассификация.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = ABCКлассификация.Характеристика}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ABCXYZКлассификацияНоменклатуры.СрезПоследних КАК XYZКлассификация
+		ПО (XYZКлассификация.ТипПараметраКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыПараметровКлассификации.Количество))
+			И (XYZКлассификация.ТипКлассификации = ЗНАЧЕНИЕ(Перечисление.ТипыКлассификации.XYZ))
+			И НоменклатураХарактеристика.Склад = XYZКлассификация.РазделКлассификации
+			И НоменклатураХарактеристика.Номенклатура = XYZКлассификация.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = XYZКлассификация.Характеристика}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ТоварныеОграничения КАК ТоварныеОграничения
+		ПО НоменклатураХарактеристика.Склад = ТоварныеОграничения.Склад
+			И НоменклатураХарактеристика.Номенклатура = ТоварныеОграничения.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = ТоварныеОграничения.Характеристика}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПараметрыОбеспеченияТоварами КАК МетодыУправленияЗапасамиХарактеристика
+		ПО НоменклатураХарактеристика.Склад = МетодыУправленияЗапасамиХарактеристика.Склад
+			И НоменклатураХарактеристика.Номенклатура = МетодыУправленияЗапасамиХарактеристика.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = МетодыУправленияЗапасамиХарактеристика.Характеристика
+			И МетодыУправленияЗапасамиХарактеристика.МетодУправления &lt;&gt; ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ПустаяСсылка)}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПараметрыОбеспеченияТоварами КАК МетодыУправленияЗапасамиНоменклатура
+		ПО (МетодыУправленияЗапасамиХарактеристика.МетодУправления ЕСТЬ NULL )
+			И НоменклатураХарактеристика.Склад = МетодыУправленияЗапасамиНоменклатура.Склад
+			И НоменклатураХарактеристика.Номенклатура = МетодыУправленияЗапасамиНоменклатура.Номенклатура
+			И (МетодыУправленияЗапасамиНоменклатура.Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+			И МетодыУправленияЗапасамиНоменклатура.МетодУправления &lt;&gt; ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ПустаяСсылка)}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПараметрыОбеспеченияТоварами КАК МетодыУправленияЗапасамиСклад
+		ПО (МетодыУправленияЗапасамиХарактеристика.МетодУправления ЕСТЬ NULL )
+			И (МетодыУправленияЗапасамиНоменклатура.МетодУправления ЕСТЬ NULL )
+			И НоменклатураХарактеристика.Склад = МетодыУправленияЗапасамиСклад.Склад
+			И (МетодыУправленияЗапасамиСклад.Номенклатура = ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка))
+			И (МетодыУправленияЗапасамиСклад.Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+			И МетодыУправленияЗапасамиСклад.МетодУправления &lt;&gt; ЗНАЧЕНИЕ(Перечисление.МетодыУправленияЗапасами.ПустаяСсылка)}
+		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НоменклатураСегмента КАК НоменклатураСегмента
+		ПО НоменклатураХарактеристика.Номенклатура = НоменклатураСегмента.Номенклатура
+			И НоменклатураХарактеристика.Характеристика = НоменклатураСегмента.Характеристика}
+{ГДЕ
+	(ЕСТЬNULL(НоменклатураСегмента.Сегмент, ЗНАЧЕНИЕ(Справочник.СегментыНоменклатуры.ПустаяСсылка))) КАК СегментНоменклатуры}</query>
+			</dataSet>
+			<dataSet xsi:type="DataSetQuery">
+				<name>Себестоимость товаров</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>АналитикаУчетаНоменклатуры</dataPath>
+					<field>АналитикаУчетаНоменклатуры</field>
+					<useRestriction>
+						<condition>true</condition>
+					</useRestriction>
+					<attributeUseRestriction>
+						<condition>true</condition>
+					</attributeUseRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<useRestriction>
+						<condition>true</condition>
+					</useRestriction>
+					<attributeUseRestriction>
+						<condition>true</condition>
+					</attributeUseRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>РазделУчета</dataPath>
+					<field>РазделУчета</field>
+					<useRestriction>
+						<condition>true</condition>
+					</useRestriction>
+					<attributeUseRestriction>
+						<condition>true</condition>
+					</attributeUseRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Номенклатура</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Склад</dataPath>
+					<field>Склад</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Склады</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Характеристика</dataPath>
+					<field>Характеристика</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СебестоимостьЕдиницы</dataPath>
+					<field>СебестоимостьЕдиницы</field>
+					<useRestriction>
+						<field>true</field>
+						<condition>true</condition>
+						<group>true</group>
+						<order>true</order>
+					</useRestriction>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ВидЗапасов</dataPath>
+					<field>ВидЗапасов</field>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	КлючиАналитикиУчетаНоменклатуры.Склад КАК Склад,
+	КлючиАналитикиУчетаНоменклатуры.Номенклатура КАК Номенклатура,
+	КлючиАналитикиУчетаНоменклатуры.Характеристика КАК Характеристика,
+	(СУММА(СебестоимостьТоваров.СтоимостьОстаток) + СУММА(СебестоимостьТоваров.СуммаДопРасходовОстаток)) / СУММА(СебестоимостьТоваров.КоличествоОстаток) КАК СебестоимостьЕдиницы
+ИЗ
+	РегистрНакопления.СебестоимостьТоваров.Остатки КАК СебестоимостьТоваров
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК КлючиАналитикиУчетаНоменклатуры
+		ПО СебестоимостьТоваров.АналитикаУчетаНоменклатуры = КлючиАналитикиУчетаНоменклатуры.КлючАналитики
+ГДЕ
+	ТИПЗНАЧЕНИЯ(КлючиАналитикиУчетаНоменклатуры.Склад) = ТИП(Справочник.Склады)
+
+СГРУППИРОВАТЬ ПО
+	КлючиАналитикиУчетаНоменклатуры.Склад,
+	КлючиАналитикиУчетаНоменклатуры.Номенклатура,
+	КлючиАналитикиУчетаНоменклатуры.Характеристика
+
+ИМЕЮЩИЕ
+	СУММА(СебестоимостьТоваров.КоличествоОстаток) &gt; 0</query>
+			</dataSet>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация, товарные ограничения</sourceDataSet>
+				<destinationDataSet>Себестоимость товаров</destinationDataSet>
+				<sourceExpression>Склад</sourceExpression>
+				<destinationExpression>Склад</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация, товарные ограничения</sourceDataSet>
+				<destinationDataSet>Себестоимость товаров</destinationDataSet>
+				<sourceExpression>Номенклатура</sourceExpression>
+				<destinationExpression>Номенклатура</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<dataSetLink>
+				<sourceDataSet>Номенклатура, характеристика, сегмент, ABC/XYZ - классификация, товарные ограничения</sourceDataSet>
+				<destinationDataSet>Себестоимость товаров</destinationDataSet>
+				<sourceExpression>Характеристика</sourceExpression>
+				<destinationExpression>Характеристика</destinationExpression>
+				<required>false</required>
+			</dataSetLink>
+			<calculatedField>
+				<dataPath>Запас.Стоимость</dataPath>
+				<expression>Запас.Количество * СебестоимостьЕдиницы</expression>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Стоимость (%ВалютаУпр%)</v8:content>
+					</v8:item>
+				</title>
+				<useRestriction>
+					<group>true</group>
+				</useRestriction>
+				<appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Format</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+					</dcscor:item>
+				</appearance>
+			</calculatedField>
+			<totalField>
+				<dataPath>Запас.Максимальный.Используемый</dataPath>
+				<expression>Сумма(Запас.Максимальный.Используемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Минимальный.Используемый</dataPath>
+				<expression>Сумма(Запас.Минимальный.Используемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Минимальный.Рекомендуемый</dataPath>
+				<expression>Сумма(Запас.Минимальный.Рекомендуемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Нормативный.Используемый</dataPath>
+				<expression>Сумма(Запас.Нормативный.Используемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Нормативный.Рекомендуемый</dataPath>
+				<expression>Сумма(Запас.Нормативный.Рекомендуемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.СреднедневноеПотребление</dataPath>
+				<expression>Сумма(Запас.СреднедневноеПотребление)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Страховой.Используемый</dataPath>
+				<expression>Сумма(Запас.Страховой.Используемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Страховой.Рекомендуемый</dataPath>
+				<expression>Сумма(Запас.Страховой.Рекомендуемый)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ИспользуемыйМетодУправленияЗапасами</dataPath>
+				<expression>Максимум(ИспользуемыйМетодУправленияЗапасами)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ИспользуемыйМетодУправленияЗапасами</dataPath>
+				<expression>Максимум(РекомендуемыйМетодУправленияЗапасами)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>РекомендуемыйМетодУправленияЗапасами</dataPath>
+				<expression>Максимум(РекомендуемыйМетодУправленияЗапасами)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Количество</dataPath>
+				<expression>Сумма(Запас.Количество)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>Запас.Стоимость</dataPath>
+				<expression>Сумма(Запас.Стоимость)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>ЗначениеПараметраКлассификации.Выручка</dataPath>
+				<expression>Сумма(ЗначениеПараметраКлассификации.Выручка)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<totalField>
+				<dataPath>ЗначениеПараметраКлассификации.КоэффициентВариации</dataPath>
+				<expression>Сумма(ЗначениеПараметраКлассификации.КоэффициентВариации)</expression>
+				<group>Номенклатура</group>
+				<group>Характеристика</group>
+			</totalField>
+			<parameter>
+				<name>Период</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Период</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>true</useRestriction>
+				<availableAsField>false</availableAsField>
+			</parameter>
+			<settingsVariant>
+				<dcsset:name>Основной</dcsset:name>
+				<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+				<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>ЗначениеПараметраКлассификации</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ЗначениеПараметраКлассификации.Выручка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ЗначениеПараметраКлассификации.КоэффициентВариации</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИспользуемыйМетодУправленияЗапасами</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>Запас</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.Количество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.Стоимость</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.Стоимость.ПроцентВГруппе</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.СреднедневноеПотребление</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Страховой</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Страховой.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Страховой.Рекомендуемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Минимальный</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Минимальный.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Минимальный.Рекомендуемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Нормативный</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Нормативный.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Нормативный.Рекомендуемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Максимальный</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Максимальный.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>a8e74c03-8aa2-482c-b76e-cc7ee68dd946</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</dcsset:right>
+							<dcsset:userSettingID>02d4389d-7ab7-42be-b1d5-dccf45528752</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">СегментНоменклатуры</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>ff7350e4-5e2b-47db-bc9f-a779ff1c502d</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ABCКлассификация.ПустаяСсылка</dcsset:right>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>49826140-8bfc-4c28-8389-39d8846874c7</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.XYZКлассификация.ПустаяСсылка</dcsset:right>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>8380ba29-8917-488e-b4f9-63ec786a96d2</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ABCКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.XYZКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Запас.СреднедневноеПотребление</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:userSettingID>df8a76ea-84ae-45cf-bfd9-967a48ae0880</dcsset:userSettingID>
+							<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Только классифицированные или в наличии</v8:content>
+								</v8:item>
+							</dcsset:userSettingPresentation>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:groupType>AndGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+									<dcsset:comparisonType>InList</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ОбъемноКалендарноеПланирование</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:left>
+									<dcsset:comparisonType>Filled</dcsset:comparisonType>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+									<dcsset:comparisonType>Less</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+								</dcsset:item>
+								<dcsset:userSettingID>865ac187-bd13-4b9a-bfe2-701697bdbc8e</dcsset:userSettingID>
+								<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только недостаточный запас</v8:content>
+									</v8:item>
+								</dcsset:userSettingPresentation>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:groupType>AndGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+									<dcsset:comparisonType>InList</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ЗаказПодЗаказ</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>OrGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemGroup">
+										<dcsset:groupType>AndGroup</dcsset:groupType>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+											<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+											<dcsset:comparisonType>Greater</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+										</dcsset:item>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemGroup">
+										<dcsset:groupType>AndGroup</dcsset:groupType>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+											<dcsset:comparisonType>Filled</dcsset:comparisonType>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+											<dcsset:comparisonType>Greater</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:right>
+										</dcsset:item>
+									</dcsset:item>
+								</dcsset:item>
+								<dcsset:userSettingID>4c03c482-e148-42d3-9ff9-10bca1353f9d</dcsset:userSettingID>
+								<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Только избыточный запас</v8:content>
+									</v8:item>
+								</dcsset:userSettingPresentation>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>FilterOutput</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Склад</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection/>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Font</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>FilterOutput</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ABC</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>XYZ</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>ABC</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>XYZ</dcsset:field>
+									</dcsset:item>
+									<dcsset:placement>Together</dcsset:placement>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ИспользуемыйМетодУправленияЗапасами</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+									<dcsset:field>Запас</dcsset:field>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.Количество</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.Стоимость</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.Стоимость.ПроцентВГруппе</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.СреднедневноеПотребление</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Страховой</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Страховой.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Страховой.Рекомендуемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Минимальный</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Минимальный.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Минимальный.Рекомендуемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Нормативный</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Нормативный.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Нормативный.Рекомендуемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Максимальный</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Максимальный.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:placement>Auto</dcsset:placement>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:conditionalAppearance>
+								<dcsset:item>
+									<dcsset:selection/>
+									<dcsset:filter/>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>Font</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+										</dcscor:item>
+									</dcsset:appearance>
+								</dcsset:item>
+							</dcsset:conditionalAppearance>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>FilterOutput</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
+							<dcsset:item xsi:type="dcsset:StructureItemGroup">
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Номенклатура</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Характеристика</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:conditionalAppearance>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>ИспользуемыйМетодУправленияЗапасами</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">РекомендуемыйМетодУправленияЗапасами</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+											</dcscor:item>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>Font</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Используемый метод управления запасами не соответствует рекомендуемому</v8:content>
+											</v8:item>
+										</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Минимальный.Используемый</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Минимальный.Используемый</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Минимальный.Рекомендуемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Используемый минимальный запас не соответствует рекомендуемому</v8:content>
+											</v8:item>
+										</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Нормативный.Используемый</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Рекомендуемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Используемый нормативный запас не соответствует рекомендуемому</v8:content>
+											</v8:item>
+										</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Страховой.Используемый</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Страховой.Используемый</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Страховой.Рекомендуемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Используемый страховой запас не соответствует рекомендуемому</v8:content>
+											</v8:item>
+										</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Количество</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+												<dcsset:comparisonType>InList</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ОбъемноКалендарноеПланирование</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:left>
+												<dcsset:comparisonType>Filled</dcsset:comparisonType>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+												<dcsset:comparisonType>Less</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+											</dcscor:item>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>Font</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Недостаточный запас</v8:content>
+											</v8:item>
+										</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Количество</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+												<dcsset:comparisonType>InList</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ЗаказПодЗаказ</dcsset:right>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemGroup">
+												<dcsset:groupType>OrGroup</dcsset:groupType>
+												<dcsset:item xsi:type="dcsset:FilterItemGroup">
+													<dcsset:groupType>AndGroup</dcsset:groupType>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+														<dcsset:comparisonType>Filled</dcsset:comparisonType>
+													</dcsset:item>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+														<dcsset:comparisonType>Greater</dcsset:comparisonType>
+														<dcsset:right xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:right>
+													</dcsset:item>
+												</dcsset:item>
+												<dcsset:item xsi:type="dcsset:FilterItemGroup">
+													<dcsset:groupType>AndGroup</dcsset:groupType>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+														<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+													</dcsset:item>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+														<dcsset:comparisonType>Greater</dcsset:comparisonType>
+														<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+													</dcsset:item>
+												</dcsset:item>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+											</dcscor:item>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>Font</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="v8:LocalStringType">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Избыточный запас</v8:content>
+											</v8:item>
+										</dcsset:presentation>
+									</dcsset:item>
+								</dcsset:conditionalAppearance>
+								<dcsset:outputParameters>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>AttributePlacement</dcscor:parameter>
+										<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+									</dcscor:item>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>FilterOutput</dcscor:parameter>
+										<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+									</dcscor:item>
+								</dcsset:outputParameters>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:settings>
+			</settingsVariant>
+		</schema>
+		<settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</settings>
+	</nestedSchema>
+	<settingsVariant>
+		<dcsset:name>ЗапасыПоСкладам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ABC/XYZ - анализ номенклатуры (запасы по складам)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemNestedObject">
+				<dcsset:objectID>ЗапасыПоСкладам</dcsset:objectID>
+				<dcsset:settings>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>ЗначениеПараметраКлассификации</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ЗначениеПараметраКлассификации.Выручка</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ЗначениеПараметраКлассификации.КоэффициентВариации</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ИспользуемыйМетодУправленияЗапасами</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>Запас</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.Количество</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.Стоимость</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.Стоимость.ПроцентВГруппе</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Запас.СреднедневноеПотребление</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Страховой</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Страховой.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Страховой.Рекомендуемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Минимальный</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Минимальный.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Минимальный.Рекомендуемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Нормативный</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Нормативный.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Нормативный.Рекомендуемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Запас.Максимальный</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Запас.Максимальный.Используемый</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+							<dcsset:comparisonType>InList</dcsset:comparisonType>
+							<dcsset:userSettingID>a8e74c03-8aa2-482c-b76e-cc7ee68dd946</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">СегментНоменклатуры</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>ff7350e4-5e2b-47db-bc9f-a779ff1c502d</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+							<dcsset:comparisonType>InList</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</dcsset:right>
+							<dcsset:userSettingID>02d4389d-7ab7-42be-b1d5-dccf45528752</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ABCКлассификация.ПустаяСсылка</dcsset:right>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>49826140-8bfc-4c28-8389-39d8846874c7</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.XYZКлассификация.ПустаяСсылка</dcsset:right>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>8380ba29-8917-488e-b4f9-63ec786a96d2</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ABCКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.XYZКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Запас.СреднедневноеПотребление</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:presentation xsi:type="xs:string">Только классифицированные или в наличии</dcsset:presentation>
+							<dcsset:userSettingID>df8a76ea-84ae-45cf-bfd9-967a48ae0880</dcsset:userSettingID>
+							<dcsset:userSettingPresentation xsi:type="xs:string">Только классифицированные или в наличии</dcsset:userSettingPresentation>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:groupType>AndGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+									<dcsset:comparisonType>InList</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ОбъемноКалендарноеПланирование</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:left>
+									<dcsset:comparisonType>Filled</dcsset:comparisonType>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+									<dcsset:comparisonType>Less</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+								</dcsset:item>
+								<dcsset:presentation xsi:type="xs:string">Только недостаточный запас</dcsset:presentation>
+								<dcsset:userSettingID>865ac187-bd13-4b9a-bfe2-701697bdbc8e</dcsset:userSettingID>
+								<dcsset:userSettingPresentation xsi:type="xs:string">Только недостаточный запас</dcsset:userSettingPresentation>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:use>false</dcsset:use>
+								<dcsset:groupType>AndGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+									<dcsset:comparisonType>InList</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ЗаказПодЗаказ</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>OrGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemGroup">
+										<dcsset:groupType>AndGroup</dcsset:groupType>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+											<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+											<dcsset:comparisonType>Greater</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+										</dcsset:item>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemGroup">
+										<dcsset:groupType>AndGroup</dcsset:groupType>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+											<dcsset:comparisonType>Filled</dcsset:comparisonType>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+											<dcsset:comparisonType>Greater</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:right>
+										</dcsset:item>
+									</dcsset:item>
+								</dcsset:item>
+								<dcsset:presentation xsi:type="xs:string">Только избыточный запас</dcsset:presentation>
+								<dcsset:userSettingID>4c03c482-e148-42d3-9ff9-10bca1353f9d</dcsset:userSettingID>
+								<dcsset:userSettingPresentation xsi:type="xs:string">Только избыточный запас</dcsset:userSettingPresentation>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>FilterOutput</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Auto</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Склад</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection/>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Font</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>FilterOutput</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ABC</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>XYZ</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>ABC</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>XYZ</dcsset:field>
+									</dcsset:item>
+									<dcsset:placement>Together</dcsset:placement>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ИспользуемыйМетодУправленияЗапасами</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+									<dcsset:field>Запас</dcsset:field>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.Количество</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.Стоимость</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.Стоимость.ПроцентВГруппе</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Запас.СреднедневноеПотребление</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Страховой</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Страховой.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Страховой.Рекомендуемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Минимальный</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Минимальный.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Минимальный.Рекомендуемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Нормативный</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Нормативный.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Нормативный.Рекомендуемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:field>Запас.Максимальный</dcsset:field>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Запас.Максимальный.Используемый</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:placement>Auto</dcsset:placement>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:conditionalAppearance>
+								<dcsset:item>
+									<dcsset:selection/>
+									<dcsset:filter/>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>Font</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+										</dcscor:item>
+									</dcsset:appearance>
+								</dcsset:item>
+							</dcsset:conditionalAppearance>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>FilterOutput</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
+							<dcsset:item xsi:type="dcsset:StructureItemGroup">
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Номенклатура</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Характеристика</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:conditionalAppearance>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>ИспользуемыйМетодУправленияЗапасами</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">РекомендуемыйМетодУправленияЗапасами</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+											</dcscor:item>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>Font</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="xs:string">Используемый метод управления запасами не соответствует рекомендуемому</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Минимальный.Используемый</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Минимальный.Используемый</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Минимальный.Рекомендуемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="xs:string">Используемый минимальный запас не соответствует рекомендуемому</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Нормативный.Используемый</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Рекомендуемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="xs:string">Используемый нормативный запас не соответствует рекомендуемому</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Страховой.Используемый</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Страховой.Используемый</dcsset:left>
+												<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Страховой.Рекомендуемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="xs:string">Используемый страховой запас не соответствует рекомендуемому</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Количество</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+												<dcsset:comparisonType>InList</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ОбъемноКалендарноеПланирование</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:left>
+												<dcsset:comparisonType>Filled</dcsset:comparisonType>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+												<dcsset:comparisonType>Less</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+											</dcscor:item>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>Font</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="xs:string">Недостаточный запас</dcsset:presentation>
+									</dcsset:item>
+									<dcsset:item>
+										<dcsset:selection>
+											<dcsset:item>
+												<dcsset:field>Запас.Количество</dcsset:field>
+											</dcsset:item>
+										</dcsset:selection>
+										<dcsset:filter>
+											<dcsset:item xsi:type="dcsset:FilterItemComparison">
+												<dcsset:left xsi:type="dcscor:Field">ИспользуемыйМетодУправленияЗапасами</dcsset:left>
+												<dcsset:comparisonType>InList</dcsset:comparisonType>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйИнтервал</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ТочкаПерезаказаФиксированныйРазмер</dcsset:right>
+												<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.МетодыУправленияЗапасами.ЗаказПодЗаказ</dcsset:right>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:FilterItemGroup">
+												<dcsset:groupType>OrGroup</dcsset:groupType>
+												<dcsset:item xsi:type="dcsset:FilterItemGroup">
+													<dcsset:groupType>AndGroup</dcsset:groupType>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+														<dcsset:comparisonType>Filled</dcsset:comparisonType>
+													</dcsset:item>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+														<dcsset:comparisonType>Greater</dcsset:comparisonType>
+														<dcsset:right xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:right>
+													</dcsset:item>
+												</dcsset:item>
+												<dcsset:item xsi:type="dcsset:FilterItemGroup">
+													<dcsset:groupType>AndGroup</dcsset:groupType>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Максимальный.Используемый</dcsset:left>
+														<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+													</dcsset:item>
+													<dcsset:item xsi:type="dcsset:FilterItemComparison">
+														<dcsset:left xsi:type="dcscor:Field">Запас.Количество</dcsset:left>
+														<dcsset:comparisonType>Greater</dcsset:comparisonType>
+														<dcsset:right xsi:type="dcscor:Field">Запас.Нормативный.Используемый</dcsset:right>
+													</dcsset:item>
+												</dcsset:item>
+											</dcsset:item>
+										</dcsset:filter>
+										<dcsset:appearance>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>TextColor</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Color">web:FireBrick</dcscor:value>
+											</dcscor:item>
+											<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+												<dcscor:parameter>Font</dcscor:parameter>
+												<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											</dcscor:item>
+										</dcsset:appearance>
+										<dcsset:presentation xsi:type="xs:string">Избыточный запас</dcsset:presentation>
+									</dcsset:item>
+								</dcsset:conditionalAppearance>
+								<dcsset:outputParameters>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>AttributePlacement</dcscor:parameter>
+										<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+									</dcscor:item>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>FilterOutput</dcscor:parameter>
+										<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+									</dcscor:item>
+								</dcsset:outputParameters>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:settings>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗапасыПредприятия</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ABC/XYZ - анализ номенклатуры (запасы предприятия)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemNestedObject">
+				<dcsset:objectID>ЗапасыПредприятия</dcsset:objectID>
+				<dcsset:settings>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>Остатки</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Остатки.ВНаличии</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Остатки.ВРезерве</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СреднедневноеПотребление</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>ТоварныеОграниченияИспользуемые</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:field>ТоварныеОграниченияРекомендуемые</dcsset:field>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</dcsset:right>
+							<dcsset:userSettingID>cd9ec805-facd-4c5e-9e1f-cea98584c88b</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">СегментНоменклатуры</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СегментыНоменклатуры.ПустаяСсылка</dcsset:right>
+							<dcsset:userSettingID>70d39f1f-1cff-4ae2-9382-aa0099e4dce9</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>OrGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ABCКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.XYZКлассификация.НеКлассифицирован</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Остатки.ВНаличии</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Остатки.ВРезерве</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
+							</dcsset:item>
+							<dcsset:userSettingID>ab62487b-1573-4646-ae6a-1c4f39f0b604</dcsset:userSettingID>
+							<dcsset:userSettingPresentation xsi:type="xs:string">Только классифицированные или в наличии</dcsset:userSettingPresentation>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ABC</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>c36f77fb-5460-4f64-9377-c737e63f59cc</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">XYZ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+							<dcsset:userSettingID>ad150029-034a-45f6-b090-125fcba0735e</dcsset:userSettingID>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>Период</dcscor:parameter>
+							<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>AttributePlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Together</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>HorizontalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>VerticalOverallPlacement</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>FilterOutput</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ABC</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>XYZ</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ABC</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>XYZ</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Together</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>Остатки</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Остатки.ВНаличии</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Остатки.ВРезерве</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СреднедневноеПотребление</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>ТоварныеОграниченияИспользуемые</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияИспользуемые.МаксимальноеКоличествоЗапаса</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+								<dcsset:field>ТоварныеОграниченияРекомендуемые</dcsset:field>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dcsset:field>
+								</dcsset:item>
+								<dcsset:placement>Auto</dcsset:placement>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection/>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Font</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Характеристика</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:conditionalAppearance>
+								<dcsset:item>
+									<dcsset:selection>
+										<dcsset:item>
+											<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+										</dcsset:item>
+									</dcsset:selection>
+									<dcsset:filter>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">ТоварныеОграниченияРекомендуемые.МинимальноеКоличествоЗапасаРекомендуемое</dcsset:right>
+										</dcsset:item>
+									</dcsset:filter>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>TextColor</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+										</dcscor:item>
+									</dcsset:appearance>
+									<dcsset:presentation xsi:type="xs:string">Используемый минимальный запас не соответствует рекомендуемому</dcsset:presentation>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:selection>
+										<dcsset:item>
+											<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+										</dcsset:item>
+									</dcsset:selection>
+									<dcsset:filter>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ТоварныеОграниченияИспользуемые.НормативноеКоличествоЗапаса</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">ТоварныеОграниченияРекомендуемые.НормативноеКоличествоЗапасаРекомендуемое</dcsset:right>
+										</dcsset:item>
+									</dcsset:filter>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>TextColor</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+										</dcscor:item>
+									</dcsset:appearance>
+									<dcsset:presentation xsi:type="xs:string">Используемый нормативный запас не соответствует рекомендуемому</dcsset:presentation>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:selection>
+										<dcsset:item>
+											<dcsset:field>ТоварныеОграниченияИспользуемые.МинимальноеКоличествоЗапаса</dcsset:field>
+										</dcsset:item>
+									</dcsset:selection>
+									<dcsset:filter>
+										<dcsset:item xsi:type="dcsset:FilterItemComparison">
+											<dcsset:left xsi:type="dcscor:Field">ТоварныеОграниченияИспользуемые.СтраховоеКоличествоЗапаса</dcsset:left>
+											<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+											<dcsset:right xsi:type="dcscor:Field">ТоварныеОграниченияРекомендуемые.СтраховоеКоличествоЗапасаРекомендуемое</dcsset:right>
+										</dcsset:item>
+									</dcsset:filter>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>TextColor</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Color">web:Blue</dcscor:value>
+										</dcscor:item>
+									</dcsset:appearance>
+									<dcsset:presentation xsi:type="xs:string">Используемый страховой запас не соответствует рекомендуемому</dcsset:presentation>
+								</dcsset:item>
+							</dcsset:conditionalAppearance>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>AttributePlacement</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:settings>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

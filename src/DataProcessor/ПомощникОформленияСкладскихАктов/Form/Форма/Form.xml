@@ -1,0 +1,2625 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ЗаполнитьКОформлению" id="166">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.ЗаполнитьКОформлению</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ЗаполнитьКОформлениюExtendedTooltip" id="537"/>
+			</Button>
+			<Button name="ОбновитьОстаткиОрганизаций" id="238">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.ОбновитьОстаткиОрганизаций</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ОбновитьОстаткиОрганизацийExtendedTooltip" id="538"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeLoadDataFromSettingsAtServer">ПриЗагрузкеДанныхИзНастроекНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Шапка" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ШапкаExtendedTooltip" id="539"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОсновныеДанные" id="428">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основные данные</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основные данные</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОсновныеДанныеExtendedTooltip" id="540"/>
+					<ChildItems>
+						<LabelField name="Основание" id="53">
+							<DataPath>Объект.ДокументОснование</DataPath>
+							<Width>52</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ОснованиеКонтекстноеМеню" id="54"/>
+							<ExtendedTooltip name="ОснованиеExtendedTooltip" id="541"/>
+						</LabelField>
+						<InputField name="Склад" id="236">
+							<DataPath>Объект.Склад</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СкладКонтекстноеМеню" id="237"/>
+							<ExtendedTooltip name="СкладExtendedTooltip" id="542"/>
+						</InputField>
+						<InputField name="ДоступныеОрганизации" id="419">
+							<DataPath>ДоступныеОрганизации</DataPath>
+							<Width>52</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ДоступныеОрганизацииКонтекстноеМеню" id="420"/>
+							<ExtendedTooltip name="ДоступныеОрганизацииExtendedTooltip" id="543"/>
+							<Events>
+								<Event name="OnChange">ДоступныеОрганизацииПриИзменении</Event>
+								<Event name="Clearing">ДоступныеОрганизацииОчистка</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОтборПоНоменклатуре" id="427">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа отбор по номенклатуре</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОтборПоНоменклатуреExtendedTooltip" id="544"/>
+					<ChildItems>
+						<InputField name="ОтборНоменклатурыНастройкиОтбор" id="417">
+							<DataPath>ОтборНоменклатуры.Settings.Filter</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отбор по номенклатуре</v8:content>
+								</v8:item>
+							</Title>
+							<VerticalStretch>false</VerticalStretch>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ОтборНоменклатурыНастройкиОтборКонтекстноеМеню" id="418"/>
+							<ExtendedTooltip name="ОтборНоменклатурыНастройкиОтборExtendedTooltip" id="545"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="ГруппаСтраницы" id="137">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыExtendedTooltip" id="546"/>
+			<Events>
+				<Event name="OnCurrentPageChange">ГруппаСтраницыПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="СтраницаТовары" id="138">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>К оформлению</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница товары</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаТоварыExtendedTooltip" id="547"/>
+					<ChildItems>
+						<UsualGroup name="СтраницаТоварыОтборСтрок" id="505">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница товары отбор строк</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Страница товары отбор строк</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="СтраницаТоварыОтборСтрокExtendedTooltip" id="548"/>
+							<ChildItems>
+								<Button name="ФормаОтразитьПорчуТоваров" id="526">
+									<Type>UsualButton</Type>
+									<CommandName>Form.Command.ОтразитьПорчуТоваров</CommandName>
+									<Parameter xsi:nil="true"/>
+									<ExtendedTooltip name="ФормаОтразитьПорчуТоваровExtendedTooltip" id="549"/>
+								</Button>
+								<InputField name="ОтборСтрокНоменклатуры" id="351">
+									<DataPath>ОтборСтрокНоменклатуры</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Показать пересортицы товаров</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Показать строки, по которым есть пересортицы между разными характеристиками одной номенклатуры</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ChoiceButton>true</ChoiceButton>
+									<ClearButton>true</ClearButton>
+									<OpenButton>false</OpenButton>
+									<TextEdit>false</TextEdit>
+									<ChoiceListButton>false</ChoiceListButton>
+									<ContextMenu name="ОтборСтрокНоменклатурыКонтекстноеМеню" id="352"/>
+									<ExtendedTooltip name="ОтборСтрокНоменклатурыExtendedTooltip" id="550"/>
+									<Events>
+										<Event name="OnChange">ОтборСтрокНоменклатурыПриИзменении</Event>
+										<Event name="StartChoice">ОтборСтрокНоменклатурыНачалоВыбора</Event>
+										<Event name="Clearing">ОтборСтрокНоменклатурыОчистка</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаТоварыТаблицы" id="167">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа товары таблицы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа товары таблицы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаТоварыТаблицыExtendedTooltip" id="551"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаТоварыКСписанию" id="141">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары к списанию</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа товары к списанию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>StrongSeparation</Representation>
+									<ExtendedTooltip name="ГруппаТоварыКСписаниюExtendedTooltip" id="552"/>
+									<ChildItems>
+										<Table name="ТоварыКСписанию" id="61">
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>false</SkipOnInput>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>Объект.ТоварыКСписанию</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+											</CommandSet>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТоварыКСписаниюКонтекстноеМеню" id="62">
+												<ChildItems>
+													<Button name="КонтекстноеМенюТоварыКСписаниюРаспределитьПоОрганизациям" id="234">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.РаспределитьСписанияПоОрганизациям</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="КонтекстноеМенюТоварыКСписаниюРаспределитьПоОрганизациямExtendedTooltip" id="553"/>
+													</Button>
+													<Button name="КонтекстноеМенюТоварыКСписаниюЗачестьПоПересортице" id="235">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.ЗачестьПоПересортице</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="КонтекстноеМенюТоварыКСписаниюЗачестьПоПересортицеExtendedTooltip" id="554"/>
+													</Button>
+													<Button name="ТоварыКСписаниюКонтекстноеМенюЗачестьПоПорче" id="536">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ЗачестьПоПорче</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКСписаниюКонтекстноеМенюЗачестьПоПорчеExtendedTooltip" id="555"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="ТоварыКСписаниюКоманднаяПанель" id="63">
+												<ChildItems>
+													<Button name="ТоварыКСписаниюРаспределитьПоОрганизациям" id="114">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.РаспределитьСписанияПоОрганизациям</CommandName>
+														<Parameter xsi:nil="true"/>
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Распределить по организациям</v8:content>
+															</v8:item>
+														</Title>
+														<ExtendedTooltip name="ТоварыКСписаниюРаспределитьПоОрганизациямExtendedTooltip" id="556"/>
+													</Button>
+													<Button name="ТоварыКСписаниюЗачестьПоПересортице" id="233">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.ЗачестьПоПересортице</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКСписаниюЗачестьПоПересортицеExtendedTooltip" id="557"/>
+													</Button>
+													<Button name="ТоварыКСписаниюЗачестьПоПорче" id="531">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ЗачестьПоПорче</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКСписаниюЗачестьПоПорчеExtendedTooltip" id="558"/>
+													</Button>
+													<Popup name="ТоварыКСписаниюЗачестьПоПересортицеПорче" id="529">
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Зачесть</v8:content>
+															</v8:item>
+														</Title>
+														<ToolTip>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Товары к списанию зачесть по пересортице порче</v8:content>
+															</v8:item>
+														</ToolTip>
+														<ExtendedTooltip name="ТоварыКСписаниюЗачестьПоПересортицеПорчеExtendedTooltip" id="559"/>
+														<ChildItems>
+															<Button name="ТоварыКСписаниюЗачестьПоПересортице1" id="530">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ЗачестьПоПересортице</CommandName>
+																<Parameter xsi:nil="true"/>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>По пересортице</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ТоварыКСписаниюЗачестьПоПересортице1ExtendedTooltip" id="560"/>
+															</Button>
+															<Button name="ТоварыКСписаниюЗачестьПоПорче1" id="534">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ЗачестьПоПорче</CommandName>
+																<Parameter xsi:nil="true"/>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>По порче</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ТоварыКСписаниюЗачестьПоПорче1ExtendedTooltip" id="561"/>
+															</Button>
+														</ChildItems>
+													</Popup>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ТоварыКСписаниюExtendedTooltip" id="562"/>
+											<SearchStringAddition name="ТоварыКСписаниюSearchString" id="563">
+												<Source>
+													<lf:elementId>61</lf:elementId>
+													<lf:additionId>0</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыКСписаниюSearchStringContextMenu" id="564"/>
+												<ExtendedTooltip name="ТоварыКСписаниюSearchStringExtendedTooltip" id="565"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТоварыКСписаниюViewStatus" id="566">
+												<Source>
+													<lf:elementId>61</lf:elementId>
+													<lf:additionId>1</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыКСписаниюViewStatusContextMenu" id="567"/>
+												<ExtendedTooltip name="ТоварыКСписаниюViewStatusExtendedTooltip" id="568"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТоварыКСписаниюSearchControl" id="569">
+												<Source>
+													<lf:elementId>61</lf:elementId>
+													<lf:additionId>2</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыКСписаниюSearchControlContextMenu" id="570"/>
+												<ExtendedTooltip name="ТоварыКСписаниюSearchControlExtendedTooltip" id="571"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeAddRow">ТоварыКСписаниюПередНачаломДобавления</Event>
+												<Event name="BeforeDeleteRow">ТоварыКСписаниюПередУдалением</Event>
+												<Event name="OnActivateRow">ТоварыКСписаниюПриАктивизацииСтроки</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ТоварыКСписаниюНоменклатура" id="76">
+													<DataPath>Объект.ТоварыКСписанию.Номенклатура</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<ContextMenu name="ТоварыКСписаниюНоменклатураКонтекстноеМеню" id="77"/>
+													<ExtendedTooltip name="ТоварыКСписаниюНоменклатураExtendedTooltip" id="572"/>
+												</InputField>
+												<InputField name="ТоварыКСписаниюХарактеристика" id="80">
+													<DataPath>Объект.ТоварыКСписанию.Характеристика</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<ContextMenu name="ТоварыКСписаниюХарактеристикаКонтекстноеМеню" id="81"/>
+													<ExtendedTooltip name="ТоварыКСписаниюХарактеристикаExtendedTooltip" id="573"/>
+												</InputField>
+												<InputField name="ТоварыКСписаниюКоличествоНеРаспределено" id="70">
+													<DataPath>Объект.ТоварыКСписанию.КоличествоНеРаспределено</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыКСписаниюКоличествоНеРаспределеноКонтекстноеМеню" id="71"/>
+													<ExtendedTooltip name="ТоварыКСписаниюКоличествоНеРаспределеноExtendedTooltip" id="574"/>
+												</InputField>
+												<InputField name="ТоварыКСписаниюКоличествоРаспределено" id="162">
+													<DataPath>Объект.ТоварыКСписанию.КоличествоРаспределено</DataPath>
+													<Enabled>false</Enabled>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыКСписаниюКоличествоРаспределеноКонтекстноеМеню" id="163"/>
+													<ExtendedTooltip name="ТоварыКСписаниюКоличествоРаспределеноExtendedTooltip" id="575"/>
+												</InputField>
+												<InputField name="ТоварыКСписаниюКоличество" id="72">
+													<DataPath>Объект.ТоварыКСписанию.Количество</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыКСписаниюКоличествоКонтекстноеМеню" id="73"/>
+													<ExtendedTooltip name="ТоварыКСписаниюКоличествоExtendedTooltip" id="576"/>
+												</InputField>
+												<InputField name="ТоварыКСписаниюЦена" id="506">
+													<DataPath>Объект.ТоварыКСписанию.Цена</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>9</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ТоварыКСписаниюЦенаКонтекстноеМеню" id="507"/>
+													<ExtendedTooltip name="ТоварыКСписаниюЦенаExtendedTooltip" id="577"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+										<Table name="ТоварыРаспределениеСписание" id="25">
+											<SkipOnInput>false</SkipOnInput>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<SelectionMode>SingleRow</SelectionMode>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>Объект.ТоварыРаспределениеСписание</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+											</CommandSet>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТоварыРаспределениеСписаниеКонтекстноеМеню" id="26"/>
+											<AutoCommandBar name="ТоварыРаспределениеСписаниеКоманднаяПанель" id="27">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ТоварыРаспределениеСписаниеExtendedTooltip" id="578"/>
+											<SearchStringAddition name="ТоварыРаспределениеСписаниеSearchString" id="579">
+												<Source>
+													<lf:elementId>25</lf:elementId>
+													<lf:additionId>0</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыРаспределениеСписаниеSearchStringContextMenu" id="580"/>
+												<ExtendedTooltip name="ТоварыРаспределениеСписаниеSearchStringExtendedTooltip" id="581"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТоварыРаспределениеСписаниеViewStatus" id="582">
+												<Source>
+													<lf:elementId>25</lf:elementId>
+													<lf:additionId>1</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыРаспределениеСписаниеViewStatusContextMenu" id="583"/>
+												<ExtendedTooltip name="ТоварыРаспределениеСписаниеViewStatusExtendedTooltip" id="584"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТоварыРаспределениеСписаниеSearchControl" id="585">
+												<Source>
+													<lf:elementId>25</lf:elementId>
+													<lf:additionId>2</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыРаспределениеСписаниеSearchControlContextMenu" id="586"/>
+												<ExtendedTooltip name="ТоварыРаспределениеСписаниеSearchControlExtendedTooltip" id="587"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeAddRow">ТоварыРаспределениеСписаниеПередНачаломДобавления</Event>
+												<Event name="BeforeDeleteRow">ТоварыРаспределениеСписаниеПередУдалением</Event>
+												<Event name="OnStartEdit">ТоварыРаспределениеСписаниеПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ТоварыРаспределениеСписаниеОрганизация" id="44">
+													<DataPath>Объект.ТоварыРаспределениеСписание.Организация</DataPath>
+													<Enabled>false</Enabled>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыРаспределениеСписаниеОрганизацияКонтекстноеМеню" id="45"/>
+													<ExtendedTooltip name="ТоварыРаспределениеСписаниеОрганизацияExtendedTooltip" id="588"/>
+												</InputField>
+												<InputField name="ТоварыРаспределениеСписаниеКоличество" id="110">
+													<DataPath>Объект.ТоварыРаспределениеСписание.Количество</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыРаспределениеСписаниеКоличествоКонтекстноеМеню" id="111"/>
+													<ExtendedTooltip name="ТоварыРаспределениеСписаниеКоличествоExtendedTooltip" id="589"/>
+													<Events>
+														<Event name="OnChange">ТоварыРаспределениеСписаниеКоличествоПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ТоварыРаспределениеСписаниеОстатокОрганизации" id="46">
+													<DataPath>Объект.ТоварыРаспределениеСписание.Остаток</DataPath>
+													<Enabled>false</Enabled>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<BackColor>style:FormBackColor</BackColor>
+													<ContextMenu name="ТоварыРаспределениеСписаниеОстатокОрганизацииКонтекстноеМеню" id="47"/>
+													<ExtendedTooltip name="ТоварыРаспределениеСписаниеОстатокОрганизацииExtendedTooltip" id="590"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаТоварыКОприходованию" id="161">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары к оприходованию</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа товары к оприходованию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>StrongSeparation</Representation>
+									<ExtendedTooltip name="ГруппаТоварыКОприходованиюExtendedTooltip" id="591"/>
+									<ChildItems>
+										<Table name="ТоварыКОприходованию" id="86">
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>false</SkipOnInput>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>Объект.ТоварыКОприходованию</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+											</CommandSet>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТоварыКОприходованиюКонтекстноеМеню" id="87">
+												<ChildItems>
+													<Button name="ТоварыКОприходованиюКонтекстноеМенюРаспределитьОприходованияПоОрганизациям" id="426">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.РаспределитьОприходованияПоОрганизациям</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКОприходованиюКонтекстноеМенюРаспределитьОприходованияПоОрганизациямExtendedTooltip" id="592"/>
+													</Button>
+													<Button name="КонтекстноеМенюТоварыКОприходованиюЗачестьПоПересортице" id="232">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.ЗачестьПоПересортице</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="КонтекстноеМенюТоварыКОприходованиюЗачестьПоПересортицеExtendedTooltip" id="593"/>
+													</Button>
+													<Button name="ТоварыКОприходованиюКонтекстноеМенюОтразитьПорчу" id="502">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ЗачестьПоПорче</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКОприходованиюКонтекстноеМенюОтразитьПорчуExtendedTooltip" id="594"/>
+													</Button>
+												</ChildItems>
+											</ContextMenu>
+											<AutoCommandBar name="ТоварыКОприходованиюКоманднаяПанель" id="88">
+												<ChildItems>
+													<Button name="ТоварыКОприходованиюРаспределитьОприходованияПоОрганизациям" id="421">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.РаспределитьОприходованияПоОрганизациям</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКОприходованиюРаспределитьОприходованияПоОрганизациямExtendedTooltip" id="595"/>
+													</Button>
+													<Button name="ТоварыКОприходованиюЗачестьПоПересортице" id="230">
+														<Type>CommandBarButton</Type>
+														<SkipOnInput>false</SkipOnInput>
+														<CommandName>Form.Command.ЗачестьПоПересортице</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКОприходованиюЗачестьПоПересортицеExtendedTooltip" id="596"/>
+													</Button>
+													<Button name="ТоварыКОприходованиюЗачестьПоПорче" id="528">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ЗачестьПоПорче</CommandName>
+														<Parameter xsi:nil="true"/>
+														<ExtendedTooltip name="ТоварыКОприходованиюЗачестьПоПорчеExtendedTooltip" id="597"/>
+													</Button>
+													<Popup name="ТоварыКОприходованиюЗачестьПоПересортицеПорче" id="532">
+														<Title>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Зачесть</v8:content>
+															</v8:item>
+														</Title>
+														<ToolTip>
+															<v8:item>
+																<v8:lang>ru</v8:lang>
+																<v8:content>Зачесть по пересортице порче</v8:content>
+															</v8:item>
+														</ToolTip>
+														<ExtendedTooltip name="ТоварыКОприходованиюЗачестьПоПересортицеПорчеExtendedTooltip" id="598"/>
+														<ChildItems>
+															<Button name="ТоварыКОприходованиюЗачестьПоПересортице1" id="533">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ЗачестьПоПересортице</CommandName>
+																<Parameter xsi:nil="true"/>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>По пересортице</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ТоварыКОприходованиюЗачестьПоПересортице1ExtendedTooltip" id="599"/>
+															</Button>
+															<Button name="ТоварыКОприходованиюЗачестьПоПорче1" id="535">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ЗачестьПоПорче</CommandName>
+																<Parameter xsi:nil="true"/>
+																<Title>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>По порче</v8:content>
+																	</v8:item>
+																</Title>
+																<ExtendedTooltip name="ТоварыКОприходованиюЗачестьПоПорче1ExtendedTooltip" id="600"/>
+															</Button>
+														</ChildItems>
+													</Popup>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ТоварыКОприходованиюExtendedTooltip" id="601"/>
+											<SearchStringAddition name="ТоварыКОприходованиюSearchString" id="602">
+												<Source>
+													<lf:elementId>86</lf:elementId>
+													<lf:additionId>0</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыКОприходованиюSearchStringContextMenu" id="603"/>
+												<ExtendedTooltip name="ТоварыКОприходованиюSearchStringExtendedTooltip" id="604"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТоварыКОприходованиюViewStatus" id="605">
+												<Source>
+													<lf:elementId>86</lf:elementId>
+													<lf:additionId>1</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыКОприходованиюViewStatusContextMenu" id="606"/>
+												<ExtendedTooltip name="ТоварыКОприходованиюViewStatusExtendedTooltip" id="607"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТоварыКОприходованиюSearchControl" id="608">
+												<Source>
+													<lf:elementId>86</lf:elementId>
+													<lf:additionId>2</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыКОприходованиюSearchControlContextMenu" id="609"/>
+												<ExtendedTooltip name="ТоварыКОприходованиюSearchControlExtendedTooltip" id="610"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeAddRow">ТоварыКОприходованиюПередНачаломДобавления</Event>
+												<Event name="BeforeDeleteRow">ТоварыКОприходованиюПередУдалением</Event>
+												<Event name="OnActivateRow">ТоварыКОприходованиюПриАктивизацииСтроки</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ТоварыКОприходованиюНоменклатура" id="329">
+													<DataPath>Объект.ТоварыКОприходованию.Номенклатура</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<ContextMenu name="ТоварыКОприходованиюНоменклатураКонтекстноеМеню" id="330"/>
+													<ExtendedTooltip name="ТоварыКОприходованиюНоменклатураExtendedTooltip" id="611"/>
+												</InputField>
+												<InputField name="ТоварыКОприходованиюХарактеристика" id="331">
+													<DataPath>Объект.ТоварыКОприходованию.Характеристика</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>16</Width>
+													<ContextMenu name="ТоварыКОприходованиюХарактеристикаКонтекстноеМеню" id="332"/>
+													<ExtendedTooltip name="ТоварыКОприходованиюХарактеристикаExtendedTooltip" id="612"/>
+												</InputField>
+												<InputField name="ТоварыКОприходованиюКоличествоНеРаспределено" id="325">
+													<DataPath>Объект.ТоварыКОприходованию.КоличествоНеРаспределено</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыКОприходованиюКоличествоНеРаспределеноКонтекстноеМеню" id="326"/>
+													<ExtendedTooltip name="ТоварыКОприходованиюКоличествоНеРаспределеноExtendedTooltip" id="613"/>
+												</InputField>
+												<InputField name="ТоварыКОприходованиюКоличествоРаспределено" id="327">
+													<DataPath>Объект.ТоварыКОприходованию.КоличествоРаспределено</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыКОприходованиюКоличествоРаспределеноКонтекстноеМеню" id="328"/>
+													<ExtendedTooltip name="ТоварыКОприходованиюКоличествоРаспределеноExtendedTooltip" id="614"/>
+												</InputField>
+												<InputField name="ТоварыКОприходованиюКоличество" id="323">
+													<DataPath>Объект.ТоварыКОприходованию.Количество</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыКОприходованиюКоличествоКонтекстноеМеню" id="324"/>
+													<ExtendedTooltip name="ТоварыКОприходованиюКоличествоExtendedTooltip" id="615"/>
+												</InputField>
+												<InputField name="ТоварыКОприходованиюЦена" id="508">
+													<DataPath>Объект.ТоварыКОприходованию.Цена</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>9</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="ТоварыКОприходованиюЦенаКонтекстноеМеню" id="509"/>
+													<ExtendedTooltip name="ТоварыКОприходованиюЦенаExtendedTooltip" id="616"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+										<Table name="ТоварыРаспределениеОприходование" id="142">
+											<SkipOnInput>false</SkipOnInput>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<SelectionMode>SingleRow</SelectionMode>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<DataPath>Объект.ТоварыРаспределениеОприходование</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>SortListAsc</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+												<ExcludedCommand>SortListDesc</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+											</CommandSet>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ТоварыРаспределениеОприходованиеКонтекстноеМеню" id="143"/>
+											<AutoCommandBar name="ТоварыРаспределениеОприходованиеКоманднаяПанель" id="144">
+												<Autofill>false</Autofill>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ТоварыРаспределениеОприходованиеExtendedTooltip" id="617"/>
+											<SearchStringAddition name="ТоварыРаспределениеОприходованиеSearchString" id="618">
+												<Source>
+													<lf:elementId>142</lf:elementId>
+													<lf:additionId>0</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыРаспределениеОприходованиеSearchStringContextMenu" id="619"/>
+												<ExtendedTooltip name="ТоварыРаспределениеОприходованиеSearchStringExtendedTooltip" id="620"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ТоварыРаспределениеОприходованиеViewStatus" id="621">
+												<Source>
+													<lf:elementId>142</lf:elementId>
+													<lf:additionId>1</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыРаспределениеОприходованиеViewStatusContextMenu" id="622"/>
+												<ExtendedTooltip name="ТоварыРаспределениеОприходованиеViewStatusExtendedTooltip" id="623"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ТоварыРаспределениеОприходованиеSearchControl" id="624">
+												<Source>
+													<lf:elementId>142</lf:elementId>
+													<lf:additionId>2</lf:additionId>
+												</Source>
+												<ContextMenu name="ТоварыРаспределениеОприходованиеSearchControlContextMenu" id="625"/>
+												<ExtendedTooltip name="ТоварыРаспределениеОприходованиеSearchControlExtendedTooltip" id="626"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="BeforeAddRow">ТоварыРаспределениеОприходованиеПередНачаломДобавления</Event>
+												<Event name="BeforeDeleteRow">ТоварыРаспределениеОприходованиеПередУдалением</Event>
+												<Event name="OnStartEdit">ТоварыРаспределениеОприходованиеПриНачалеРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="ТоварыРаспределениеОприходованиеОрганизация" id="341">
+													<DataPath>Объект.ТоварыРаспределениеОприходование.Организация</DataPath>
+													<Enabled>false</Enabled>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыРаспределениеОприходованиеОрганизацияКонтекстноеМеню" id="342"/>
+													<ExtendedTooltip name="ТоварыРаспределениеОприходованиеОрганизацияExtendedTooltip" id="627"/>
+												</InputField>
+												<InputField name="ТоварыРаспределениеОприходованиеКоличество" id="337">
+													<DataPath>Объект.ТоварыРаспределениеОприходование.Количество</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="ТоварыРаспределениеОприходованиеКоличествоКонтекстноеМеню" id="338"/>
+													<ExtendedTooltip name="ТоварыРаспределениеОприходованиеКоличествоExtendedTooltip" id="628"/>
+													<Events>
+														<Event name="OnChange">ТоварыРаспределениеОприходованиеКоличествоПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ТоварыРаспределениеОприходованиеОстаток" id="343">
+													<DataPath>Объект.ТоварыРаспределениеОприходование.Остаток</DataPath>
+													<Enabled>false</Enabled>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<BackColor>style:FormBackColor</BackColor>
+													<ContextMenu name="ТоварыРаспределениеОприходованиеОстатокКонтекстноеМеню" id="344"/>
+													<ExtendedTooltip name="ТоварыРаспределениеОприходованиеОстатокExtendedTooltip" id="629"/>
+												</InputField>
+												<InputField name="ТоварыРаспределениеОприходованиеЦена" id="355">
+													<Enabled>false</Enabled>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<BackColor>style:FormBackColor</BackColor>
+													<ContextMenu name="ТоварыРаспределениеОприходованиеЦенаКонтекстноеМеню" id="356"/>
+													<ExtendedTooltip name="ТоварыРаспределениеОприходованиеЦенаExtendedTooltip" id="630"/>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПересортица" id="170">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пересортица</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница пересортица</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПересортицаExtendedTooltip" id="631"/>
+					<ChildItems>
+						<Table name="ТоварыПересортица" id="202">
+							<SkipOnInput>false</SkipOnInput>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТоварыПересортица</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТоварыПересортицаКонтекстноеМеню" id="203">
+								<ChildItems>
+									<Button name="КонтекстноеМенюТоварыПересортицаРаспределитьПересортицыПоОрганизациям" id="242">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.РаспределитьПересортицыПоОрганизациям</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="КонтекстноеМенюТоварыПересортицаРаспределитьПересортицыПоОрганизациямExtendedTooltip" id="632"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="ТоварыПересортицаКоманднаяПанель" id="204">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ТоварыПересортицаУдалить" id="424">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Item.ТоварыПересортица.StandardCommand.Delete</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ТоварыПересортицаУдалитьExtendedTooltip" id="633"/>
+									</Button>
+									<Button name="ТоварыПересортицаРаспределитьПересортицыПоОрганизациям" id="241">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.РаспределитьПересортицыПоОрганизациям</CommandName>
+										<Parameter xsi:nil="true"/>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Распределить по организациям</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ТоварыПересортицаРаспределитьПересортицыПоОрганизациямExtendedTooltip" id="634"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТоварыПересортицаExtendedTooltip" id="635"/>
+							<SearchStringAddition name="ТоварыПересортицаSearchString" id="636">
+								<Source>
+									<lf:elementId>202</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыПересортицаSearchStringContextMenu" id="637"/>
+								<ExtendedTooltip name="ТоварыПересортицаSearchStringExtendedTooltip" id="638"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТоварыПересортицаViewStatus" id="639">
+								<Source>
+									<lf:elementId>202</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыПересортицаViewStatusContextMenu" id="640"/>
+								<ExtendedTooltip name="ТоварыПересортицаViewStatusExtendedTooltip" id="641"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТоварыПересортицаSearchControl" id="642">
+								<Source>
+									<lf:elementId>202</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыПересортицаSearchControlContextMenu" id="643"/>
+								<ExtendedTooltip name="ТоварыПересортицаSearchControlExtendedTooltip" id="644"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ТоварыПересортицаВыбор</Event>
+								<Event name="BeforeAddRow">ТоварыПересортицаПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">ТоварыПересортицаПередУдалением</Event>
+								<Event name="OnActivateRow">ТоварыПересортицаПриАктивизацииСтроки</Event>
+								<Event name="BeforeRowChange">ТоварыПересортицаПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<ColumnGroup name="ГруппаКолонокТоварКСписанию" id="227">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Списываемый товар</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа колонок товар к списанию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаКолонокТоварКСписаниюExtendedTooltip" id="645"/>
+									<ChildItems>
+										<InputField name="ТоварыПересортицаНоменклатураСписание" id="221">
+											<DataPath>Объект.ТоварыПересортица.НоменклатураСписание</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатура</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПересортицаНоменклатураСписаниеКонтекстноеМеню" id="222"/>
+											<ExtendedTooltip name="ТоварыПересортицаНоменклатураСписаниеExtendedTooltip" id="646"/>
+										</InputField>
+										<InputField name="ТоварыПересортицаХарактеристикаСписание" id="225">
+											<DataPath>Объект.ТоварыПересортица.ХарактеристикаСписание</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Характеристика</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПересортицаХарактеристикаСписаниеКонтекстноеМеню" id="226"/>
+											<ExtendedTooltip name="ТоварыПересортицаХарактеристикаСписаниеExtendedTooltip" id="647"/>
+										</InputField>
+										<LabelField name="ТоварыПересортицаНоменклатураСписаниеЕдиницаИзмерения" id="510">
+											<DataPath>Объект.ТоварыПересортица.НоменклатураСписание.ЕдиницаИзмерения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед. изм.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<ContextMenu name="ТоварыПересортицаНоменклатураСписаниеЕдиницаИзмеренияКонтекстноеМеню" id="511"/>
+											<ExtendedTooltip name="ТоварыПересортицаНоменклатураСписаниеЕдиницаИзмеренияExtendedTooltip" id="648"/>
+										</LabelField>
+										<InputField name="ТоварыПересортицаЦенаСписание" id="512">
+											<DataPath>Объект.ТоварыПересортица.ЦенаСписание</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ТоварыПересортицаЦенаСписаниеКонтекстноеМеню" id="513"/>
+											<ExtendedTooltip name="ТоварыПересортицаЦенаСписаниеExtendedTooltip" id="649"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаКолонокТоварКОприходованию" id="229">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Приходуемый товар</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа колонок товар к оприходованию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаКолонокТоварКОприходованиюExtendedTooltip" id="650"/>
+									<ChildItems>
+										<InputField name="ТоварыПересортицаНоменклатураОприходование" id="219">
+											<DataPath>Объект.ТоварыПересортица.НоменклатураОприходование</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатура</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПересортицаНоменклатураОприходованиеКонтекстноеМеню" id="220"/>
+											<ExtendedTooltip name="ТоварыПересортицаНоменклатураОприходованиеExtendedTooltip" id="651"/>
+										</InputField>
+										<InputField name="ТоварыПересортицаХарактеристикаОприходование" id="223">
+											<DataPath>Объект.ТоварыПересортица.ХарактеристикаОприходование</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Характеристика</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПересортицаХарактеристикаОприходованиеКонтекстноеМеню" id="224"/>
+											<ExtendedTooltip name="ТоварыПересортицаХарактеристикаОприходованиеExtendedTooltip" id="652"/>
+										</InputField>
+										<LabelField name="ТоварыПересортицаНоменклатураОприходованиеЕдиницаИзмерения" id="514">
+											<DataPath>Объект.ТоварыПересортица.НоменклатураОприходование.ЕдиницаИзмерения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед. изм.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<ContextMenu name="ТоварыПересортицаНоменклатураОприходованиеЕдиницаИзмеренияКонтекстноеМеню" id="515"/>
+											<ExtendedTooltip name="ТоварыПересортицаНоменклатураОприходованиеЕдиницаИзмеренияExtendedTooltip" id="653"/>
+										</LabelField>
+										<InputField name="ТоварыПересортицаЦенаОприходование" id="516">
+											<DataPath>Объект.ТоварыПересортица.ЦенаОприходование</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ТоварыПересортицаЦенаОприходованиеКонтекстноеМеню" id="517"/>
+											<ExtendedTooltip name="ТоварыПересортицаЦенаОприходованиеExtendedTooltip" id="654"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="ТоварыПересортицаКоличествоНеРаспределено" id="215">
+									<DataPath>Объект.ТоварыПересортица.КоличествоНеРаспределено</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыПересортицаКоличествоНеРаспределеноКонтекстноеМеню" id="216"/>
+									<ExtendedTooltip name="ТоварыПересортицаКоличествоНеРаспределеноExtendedTooltip" id="655"/>
+								</InputField>
+								<InputField name="ТоварыПересортицаКоличествоРаспределено" id="217">
+									<DataPath>Объект.ТоварыПересортица.КоличествоРаспределено</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыПересортицаКоличествоРаспределеноКонтекстноеМеню" id="218"/>
+									<ExtendedTooltip name="ТоварыПересортицаКоличествоРаспределеноExtendedTooltip" id="656"/>
+								</InputField>
+								<InputField name="ТоварыПересортицаКоличество" id="213">
+									<DataPath>Объект.ТоварыПересортица.Количество</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыПересортицаКоличествоКонтекстноеМеню" id="214"/>
+									<ExtendedTooltip name="ТоварыПересортицаКоличествоExtendedTooltip" id="657"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="ТоварыРаспределениеПересортица" id="171">
+							<SkipOnInput>false</SkipOnInput>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТоварыРаспределениеПересортица</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТоварыРаспределениеПересортицаКонтекстноеМеню" id="172"/>
+							<AutoCommandBar name="ТоварыРаспределениеПересортицаКоманднаяПанель" id="173">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТоварыРаспределениеПересортицаExtendedTooltip" id="658"/>
+							<SearchStringAddition name="ТоварыРаспределениеПересортицаSearchString" id="659">
+								<Source>
+									<lf:elementId>171</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыРаспределениеПересортицаSearchStringContextMenu" id="660"/>
+								<ExtendedTooltip name="ТоварыРаспределениеПересортицаSearchStringExtendedTooltip" id="661"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТоварыРаспределениеПересортицаViewStatus" id="662">
+								<Source>
+									<lf:elementId>171</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыРаспределениеПересортицаViewStatusContextMenu" id="663"/>
+								<ExtendedTooltip name="ТоварыРаспределениеПересортицаViewStatusExtendedTooltip" id="664"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТоварыРаспределениеПересортицаSearchControl" id="665">
+								<Source>
+									<lf:elementId>171</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыРаспределениеПересортицаSearchControlContextMenu" id="666"/>
+								<ExtendedTooltip name="ТоварыРаспределениеПересортицаSearchControlExtendedTooltip" id="667"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">ТоварыРаспределениеПересортицаПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">ТоварыРаспределениеПересортицаПередУдалением</Event>
+								<Event name="OnStartEdit">ТоварыРаспределениеПересортицаПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ТоварыРаспределениеПересортицаОрганизация" id="190">
+									<DataPath>Объект.ТоварыРаспределениеПересортица.Организация</DataPath>
+									<Enabled>false</Enabled>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыРаспределениеПересортицаОрганизацияКонтекстноеМеню" id="191"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПересортицаОрганизацияExtendedTooltip" id="668"/>
+								</InputField>
+								<InputField name="ТоварыРаспределениеПересортицаКоличество" id="182">
+									<DataPath>Объект.ТоварыРаспределениеПересортица.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыРаспределениеПересортицаКоличествоКонтекстноеМеню" id="183"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПересортицаКоличествоExtendedTooltip" id="669"/>
+									<Events>
+										<Event name="OnChange">ТоварыРаспределениеПересортицаКоличествоПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ТоварыРаспределениеПересортицаОстатокСписание" id="194">
+									<DataPath>Объект.ТоварыРаспределениеПересортица.ОстатокСписание</DataPath>
+									<Enabled>false</Enabled>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<BackColor>style:FormBackColor</BackColor>
+									<ContextMenu name="ТоварыРаспределениеПересортицаОстатокСписаниеКонтекстноеМеню" id="195"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПересортицаОстатокСписаниеExtendedTooltip" id="670"/>
+								</InputField>
+								<InputField name="ТоварыРаспределениеПересортицаОстатокОприходование" id="192">
+									<DataPath>Объект.ТоварыРаспределениеПересортица.ОстатокОприходование</DataPath>
+									<Enabled>false</Enabled>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<BackColor>style:FormBackColor</BackColor>
+									<ContextMenu name="ТоварыРаспределениеПересортицаОстатокОприходованиеКонтекстноеМеню" id="193"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПересортицаОстатокОприходованиеExtendedTooltip" id="671"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПорча" id="429">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Порча</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница порча</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПорчаExtendedTooltip" id="672"/>
+					<ChildItems>
+						<Table name="ТоварыПорча" id="430">
+							<SkipOnInput>false</SkipOnInput>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТоварыПорча</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТоварыПорчаКонтекстноеМеню" id="431">
+								<ChildItems>
+									<Button name="КонтекстноеМенюТоварыПорчаРаспределитьПорчиПоОрганизациям" id="449">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.РаспределитьПорчиПоОрганизациям</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="КонтекстноеМенюТоварыПорчаРаспределитьПорчиПоОрганизациямExtendedTooltip" id="673"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
+							<AutoCommandBar name="ТоварыПорчаКоманднаяПанель" id="432">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="ТоварыПорчаУдалить" id="450">
+										<Type>CommandBarButton</Type>
+										<Representation>PictureAndText</Representation>
+										<CommandName>Form.Item.ТоварыПорча.StandardCommand.Delete</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ТоварыПорчаУдалитьExtendedTooltip" id="674"/>
+									</Button>
+									<Button name="ТоварыПорчаРаспределитьПорчиПоОрганизациям" id="451">
+										<Type>CommandBarButton</Type>
+										<SkipOnInput>false</SkipOnInput>
+										<CommandName>Form.Command.РаспределитьПорчиПоОрганизациям</CommandName>
+										<Parameter xsi:nil="true"/>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Распределить по организациям</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="ТоварыПорчаРаспределитьПорчиПоОрганизациямExtendedTooltip" id="675"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТоварыПорчаExtendedTooltip" id="676"/>
+							<SearchStringAddition name="ТоварыПорчаSearchString" id="677">
+								<Source>
+									<lf:elementId>430</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыПорчаSearchStringContextMenu" id="678"/>
+								<ExtendedTooltip name="ТоварыПорчаSearchStringExtendedTooltip" id="679"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТоварыПорчаViewStatus" id="680">
+								<Source>
+									<lf:elementId>430</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыПорчаViewStatusContextMenu" id="681"/>
+								<ExtendedTooltip name="ТоварыПорчаViewStatusExtendedTooltip" id="682"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТоварыПорчаSearchControl" id="683">
+								<Source>
+									<lf:elementId>430</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыПорчаSearchControlContextMenu" id="684"/>
+								<ExtendedTooltip name="ТоварыПорчаSearchControlExtendedTooltip" id="685"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ТоварыПорчаВыбор</Event>
+								<Event name="BeforeAddRow">ТоварыПересортицаПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">ТоварыПорчаПередУдалением</Event>
+								<Event name="OnActivateRow">ТоварыПорчаПриАктивизацииСтроки</Event>
+								<Event name="BeforeRowChange">ТоварыПересортицаПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<ColumnGroup name="ГруппаКолонокИсходныйТовар" id="433">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товар исходного качества</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа колонок товар к списанию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаКолонокИсходныйТоварExtendedTooltip" id="686"/>
+									<ChildItems>
+										<InputField name="ТоварыПорчаНоменклатураСписание" id="475">
+											<DataPath>Объект.ТоварыПорча.НоменклатураСписание</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатура</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПорчаНоменклатураСписаниеКонтекстноеМеню" id="476"/>
+											<ExtendedTooltip name="ТоварыПорчаНоменклатураСписаниеExtendedTooltip" id="687"/>
+										</InputField>
+										<InputField name="ТоварыПорчаХарактеристикаСписание" id="479">
+											<DataPath>Объект.ТоварыПорча.ХарактеристикаСписание</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Характеристика</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПорчаХарактеристикаСписаниеКонтекстноеМеню" id="480"/>
+											<ExtendedTooltip name="ТоварыПорчаХарактеристикаСписаниеExtendedTooltip" id="688"/>
+										</InputField>
+										<LabelField name="ТоварыПорчаНоменклатураСписаниеЕдиницаИзмерения" id="518">
+											<DataPath>Объект.ТоварыПорча.НоменклатураСписание.ЕдиницаИзмерения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед. изм.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ТоварыПорчаНоменклатураСписаниеЕдиницаИзмеренияКонтекстноеМеню" id="519"/>
+											<ExtendedTooltip name="ТоварыПорчаНоменклатураСписаниеЕдиницаИзмеренияExtendedTooltip" id="689"/>
+										</LabelField>
+										<InputField name="ТоварыПорчаЦенаСписание" id="520">
+											<DataPath>Объект.ТоварыПорча.ЦенаСписание</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ТоварыПорчаЦенаСписаниеКонтекстноеМеню" id="521"/>
+											<ExtendedTooltip name="ТоварыПорчаЦенаСписаниеExtendedTooltip" id="690"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ГруппаКолонокНекачественныйТовар" id="438">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Испорченный товар</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа колонок товар к оприходованию</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ГруппаКолонокНекачественныйТоварExtendedTooltip" id="691"/>
+									<ChildItems>
+										<InputField name="ТоварыПорчаНоменклатураОприходование" id="473">
+											<DataPath>Объект.ТоварыПорча.НоменклатураОприходование</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Номенклатура</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПорчаНоменклатураОприходованиеКонтекстноеМеню" id="474"/>
+											<ExtendedTooltip name="ТоварыПорчаНоменклатураОприходованиеExtendedTooltip" id="692"/>
+										</InputField>
+										<InputField name="ТоварыПорчаХарактеристикаОприходование" id="477">
+											<DataPath>Объект.ТоварыПорча.ХарактеристикаОприходование</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Характеристика</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>16</Width>
+											<ContextMenu name="ТоварыПорчаХарактеристикаОприходованиеКонтекстноеМеню" id="478"/>
+											<ExtendedTooltip name="ТоварыПорчаХарактеристикаОприходованиеExtendedTooltip" id="693"/>
+										</InputField>
+										<LabelField name="ТоварыПорчаНоменклатураОприходованиеЕдиницаИзмерения" id="522">
+											<DataPath>Объект.ТоварыПорча.НоменклатураОприходование.ЕдиницаИзмерения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед. изм.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<ContextMenu name="ТоварыПорчаНоменклатураОприходованиеЕдиницаИзмеренияКонтекстноеМеню" id="523"/>
+											<ExtendedTooltip name="ТоварыПорчаНоменклатураОприходованиеЕдиницаИзмеренияExtendedTooltip" id="694"/>
+										</LabelField>
+										<InputField name="ТоварыПорчаЦенаОприходование" id="524">
+											<DataPath>Объект.ТоварыПорча.ЦенаОприходование</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>9</Width>
+											<ContextMenu name="ТоварыПорчаЦенаОприходованиеКонтекстноеМеню" id="525"/>
+											<ExtendedTooltip name="ТоварыПорчаЦенаОприходованиеExtendedTooltip" id="695"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<InputField name="ТоварыПорчаКоличествоНеРаспределено" id="469">
+									<DataPath>Объект.ТоварыПорча.КоличествоНеРаспределено</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыПорчаКоличествоНеРаспределеноКонтекстноеМеню" id="470"/>
+									<ExtendedTooltip name="ТоварыПорчаКоличествоНеРаспределеноExtendedTooltip" id="696"/>
+								</InputField>
+								<InputField name="ТоварыПорчаКоличествоРаспределено" id="471">
+									<DataPath>Объект.ТоварыПорча.КоличествоРаспределено</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыПорчаКоличествоРаспределеноКонтекстноеМеню" id="472"/>
+									<ExtendedTooltip name="ТоварыПорчаКоличествоРаспределеноExtendedTooltip" id="697"/>
+								</InputField>
+								<InputField name="ТоварыПорчаКоличество" id="467">
+									<DataPath>Объект.ТоварыПорча.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыПорчаКоличествоКонтекстноеМеню" id="468"/>
+									<ExtendedTooltip name="ТоварыПорчаКоличествоExtendedTooltip" id="698"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="ТоварыРаспределениеПорча" id="452">
+							<SkipOnInput>false</SkipOnInput>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТоварыРаспределениеПорча</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>SortListAsc</ExcludedCommand>
+								<ExcludedCommand>MoveUp</ExcludedCommand>
+								<ExcludedCommand>SelectAll</ExcludedCommand>
+								<ExcludedCommand>SortListDesc</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+								<ExcludedCommand>EndEdit</ExcludedCommand>
+								<ExcludedCommand>Add</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+								<ExcludedCommand>MoveDown</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТоварыРаспределениеПорчаКонтекстноеМеню" id="453"/>
+							<AutoCommandBar name="ТоварыРаспределениеПорчаКоманднаяПанель" id="454">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ТоварыРаспределениеПорчаExtendedTooltip" id="699"/>
+							<SearchStringAddition name="ТоварыРаспределениеПорчаSearchString" id="700">
+								<Source>
+									<lf:elementId>452</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыРаспределениеПорчаSearchStringContextMenu" id="701"/>
+								<ExtendedTooltip name="ТоварыРаспределениеПорчаSearchStringExtendedTooltip" id="702"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТоварыРаспределениеПорчаViewStatus" id="703">
+								<Source>
+									<lf:elementId>452</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыРаспределениеПорчаViewStatusContextMenu" id="704"/>
+								<ExtendedTooltip name="ТоварыРаспределениеПорчаViewStatusExtendedTooltip" id="705"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТоварыРаспределениеПорчаSearchControl" id="706">
+								<Source>
+									<lf:elementId>452</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ТоварыРаспределениеПорчаSearchControlContextMenu" id="707"/>
+								<ExtendedTooltip name="ТоварыРаспределениеПорчаSearchControlExtendedTooltip" id="708"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">ТоварыРаспределениеПересортицаПередНачаломДобавления</Event>
+								<Event name="BeforeDeleteRow">ТоварыРаспределениеПересортицаПередУдалением</Event>
+								<Event name="OnStartEdit">ТоварыРаспределениеПересортицаПриНачалеРедактирования</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ТоварыРаспределениеПорчаОрганизация" id="493">
+									<DataPath>Объект.ТоварыРаспределениеПорча.Организация</DataPath>
+									<Enabled>false</Enabled>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТоварыРаспределениеПорчаОрганизацияКонтекстноеМеню" id="494"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПорчаОрганизацияExtendedTooltip" id="709"/>
+								</InputField>
+								<InputField name="ТоварыРаспределениеПорчаКоличество" id="487">
+									<DataPath>Объект.ТоварыРаспределениеПорча.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<ContextMenu name="ТоварыРаспределениеПорчаКоличествоКонтекстноеМеню" id="488"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПорчаКоличествоExtendedTooltip" id="710"/>
+									<Events>
+										<Event name="OnChange">ТоварыРаспределениеПорчаКоличествоПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ТоварыРаспределениеПорчаОстатокСписание" id="497">
+									<DataPath>Объект.ТоварыРаспределениеПорча.ОстатокСписание</DataPath>
+									<Enabled>false</Enabled>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<BackColor>style:FormBackColor</BackColor>
+									<ContextMenu name="ТоварыРаспределениеПорчаОстатокСписаниеКонтекстноеМеню" id="498"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПорчаОстатокСписаниеExtendedTooltip" id="711"/>
+								</InputField>
+								<InputField name="ТоварыРаспределениеПорчаОстатокОприходование" id="495">
+									<DataPath>Объект.ТоварыРаспределениеПорча.ОстатокОприходование</DataPath>
+									<Enabled>false</Enabled>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<BackColor>style:FormBackColor</BackColor>
+									<ContextMenu name="ТоварыРаспределениеПорчаОстатокОприходованиеКонтекстноеМеню" id="496"/>
+									<ExtendedTooltip name="ТоварыРаспределениеПорчаОстатокОприходованиеExtendedTooltip" id="712"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаДокументы" id="129">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница документы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаДокументыExtendedTooltip" id="713"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаОформлениеОпераций" id="392">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа оформление операций</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа оформление операций</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОформлениеОперацийExtendedTooltip" id="714"/>
+							<ChildItems>
+								<Table name="ОперацииКОформлению" id="357">
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<SelectionMode>SingleRow</SelectionMode>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.ОперацииКОформлению</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>MoveUp</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>MoveDown</ExcludedCommand>
+									</CommandSet>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="ОперацииКОформлениюКонтекстноеМеню" id="358"/>
+									<AutoCommandBar name="ОперацииКОформлениюКоманднаяПанель" id="359">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="ОперацииКОформлениюУдалить" id="422">
+												<Type>CommandBarButton</Type>
+												<Representation>PictureAndText</Representation>
+												<CommandName>Form.Item.ОперацииКОформлению.StandardCommand.Delete</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="ОперацииКОформлениюУдалитьExtendedTooltip" id="715"/>
+											</Button>
+											<Button name="ОперацииКОформлениюОформитьОперацию" id="391">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОформитьОперацию</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="ОперацииКОформлениюОформитьОперациюExtendedTooltip" id="716"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="ОперацииКОформлениюExtendedTooltip" id="717"/>
+									<SearchStringAddition name="ОперацииКОформлениюSearchString" id="718">
+										<Source>
+											<lf:elementId>357</lf:elementId>
+											<lf:additionId>0</lf:additionId>
+										</Source>
+										<ContextMenu name="ОперацииКОформлениюSearchStringContextMenu" id="719"/>
+										<ExtendedTooltip name="ОперацииКОформлениюSearchStringExtendedTooltip" id="720"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="ОперацииКОформлениюViewStatus" id="721">
+										<Source>
+											<lf:elementId>357</lf:elementId>
+											<lf:additionId>1</lf:additionId>
+										</Source>
+										<ContextMenu name="ОперацииКОформлениюViewStatusContextMenu" id="722"/>
+										<ExtendedTooltip name="ОперацииКОформлениюViewStatusExtendedTooltip" id="723"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="ОперацииКОформлениюSearchControl" id="724">
+										<Source>
+											<lf:elementId>357</lf:elementId>
+											<lf:additionId>2</lf:additionId>
+										</Source>
+										<ContextMenu name="ОперацииКОформлениюSearchControlContextMenu" id="725"/>
+										<ExtendedTooltip name="ОперацииКОформлениюSearchControlExtendedTooltip" id="726"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">ОперацииКОформлениюПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">ОперацииКОформлениюПередУдалением</Event>
+										<Event name="OnActivateRow">ОперацииКОформлениюПриАктивизацииСтроки</Event>
+										<Event name="BeforeRowChange">ОперацииКОформлениюПередНачаломИзменения</Event>
+									</Events>
+									<ChildItems>
+										<InputField name="ОперацииКОформлениюОрганизация" id="362">
+											<DataPath>Объект.ОперацииКОформлению.Организация</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОперацииКОформлениюОрганизацияКонтекстноеМеню" id="363"/>
+											<ExtendedTooltip name="ОперацииКОформлениюОрганизацияExtendedTooltip" id="727"/>
+										</InputField>
+										<InputField name="ОперацииКОформлениюТипОперации" id="364">
+											<DataPath>Объект.ОперацииКОформлению.ТипОперации</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОперацииКОформлениюТипОперацииКонтекстноеМеню" id="365"/>
+											<ExtendedTooltip name="ОперацииКОформлениюТипОперацииExtendedTooltip" id="728"/>
+										</InputField>
+										<InputField name="ОперацииКОформлениюКоличествоПозиций" id="366">
+											<DataPath>Объект.ОперацииКОформлению.КоличествоПозиций</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<ContextMenu name="ОперацииКОформлениюКоличествоПозицийКонтекстноеМеню" id="367"/>
+											<ExtendedTooltip name="ОперацииКОформлениюКоличествоПозицийExtendedTooltip" id="729"/>
+										</InputField>
+										<InputField name="ОперацииКОформлениюСтоимость" id="368">
+											<DataPath>Объект.ОперацииКОформлению.Стоимость</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ОперацииКОформлениюСтоимостьКонтекстноеМеню" id="369"/>
+											<ExtendedTooltip name="ОперацииКОформлениюСтоимостьExtendedTooltip" id="730"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+								<Table name="СоставОпераций" id="370">
+									<ChangeRowOrder>false</ChangeRowOrder>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.СоставОпераций</DataPath>
+									<CommandSet>
+										<ExcludedCommand>Copy</ExcludedCommand>
+										<ExcludedCommand>SortListAsc</ExcludedCommand>
+										<ExcludedCommand>MoveUp</ExcludedCommand>
+										<ExcludedCommand>SortListDesc</ExcludedCommand>
+										<ExcludedCommand>EndEdit</ExcludedCommand>
+										<ExcludedCommand>Add</ExcludedCommand>
+										<ExcludedCommand>Change</ExcludedCommand>
+										<ExcludedCommand>MoveDown</ExcludedCommand>
+									</CommandSet>
+									<SearchStringLocation>None</SearchStringLocation>
+									<ViewStatusLocation>None</ViewStatusLocation>
+									<SearchControlLocation>None</SearchControlLocation>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СоставОперацийКонтекстноеМеню" id="371"/>
+									<AutoCommandBar name="СоставОперацийКоманднаяПанель" id="372">
+										<Autofill>false</Autofill>
+										<ChildItems>
+											<Button name="СоставОперацийУдалить" id="423">
+												<Type>CommandBarButton</Type>
+												<Representation>PictureAndText</Representation>
+												<CommandName>Form.Item.СоставОпераций.StandardCommand.Delete</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СоставОперацийУдалитьExtendedTooltip" id="731"/>
+											</Button>
+										</ChildItems>
+									</AutoCommandBar>
+									<ExtendedTooltip name="СоставОперацийExtendedTooltip" id="732"/>
+									<SearchStringAddition name="СоставОперацийSearchString" id="733">
+										<Source>
+											<lf:elementId>370</lf:elementId>
+											<lf:additionId>0</lf:additionId>
+										</Source>
+										<ContextMenu name="СоставОперацийSearchStringContextMenu" id="734"/>
+										<ExtendedTooltip name="СоставОперацийSearchStringExtendedTooltip" id="735"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СоставОперацийViewStatus" id="736">
+										<Source>
+											<lf:elementId>370</lf:elementId>
+											<lf:additionId>1</lf:additionId>
+										</Source>
+										<ContextMenu name="СоставОперацийViewStatusContextMenu" id="737"/>
+										<ExtendedTooltip name="СоставОперацийViewStatusExtendedTooltip" id="738"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СоставОперацийSearchControl" id="739">
+										<Source>
+											<lf:elementId>370</lf:elementId>
+											<lf:additionId>2</lf:additionId>
+										</Source>
+										<ContextMenu name="СоставОперацийSearchControlContextMenu" id="740"/>
+										<ExtendedTooltip name="СоставОперацийSearchControlExtendedTooltip" id="741"/>
+									</SearchControlAddition>
+									<Events>
+										<Event name="BeforeAddRow">СоставОперацийПередНачаломДобавления</Event>
+										<Event name="BeforeDeleteRow">СоставОперацийПередУдалением</Event>
+										<Event name="BeforeRowChange">СоставОперацийПередНачаломИзменения</Event>
+									</Events>
+									<ChildItems>
+										<ColumnGroup name="ГруппаКолонокСоставОперацийТоварКСписанию" id="389">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа колонок состав операций товар к списанию</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа колонок состав операций товар к списанию</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="ГруппаКолонокСоставОперацийТоварКСписаниюExtendedTooltip" id="742"/>
+											<ChildItems>
+												<InputField name="СоставОперацийНоменклатураСписание" id="375">
+													<DataPath>Объект.СоставОпераций.НоменклатураСписание</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<ContextMenu name="СоставОперацийНоменклатураСписаниеКонтекстноеМеню" id="376"/>
+													<ExtendedTooltip name="СоставОперацийНоменклатураСписаниеExtendedTooltip" id="743"/>
+												</InputField>
+												<InputField name="СоставОперацийХарактеристикаСписание" id="379">
+													<DataPath>Объект.СоставОпераций.ХарактеристикаСписание</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ShowInHeader>false</ShowInHeader>
+													<Width>10</Width>
+													<ContextMenu name="СоставОперацийХарактеристикаСписаниеКонтекстноеМеню" id="380"/>
+													<ExtendedTooltip name="СоставОперацийХарактеристикаСписаниеExtendedTooltip" id="744"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<ColumnGroup name="ГруппаКолонокСоставОперацийТоварОприходованию" id="390">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа колонок состав операций товар к оприходованию</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа колонок состав операций товар к списанию</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>InCell</Group>
+											<ExtendedTooltip name="ГруппаКолонокСоставОперацийТоварОприходованиюExtendedTooltip" id="745"/>
+											<ChildItems>
+												<InputField name="СоставОперацийНоменклатураОприходование" id="377">
+													<DataPath>Объект.СоставОпераций.НоменклатураОприходование</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>10</Width>
+													<ContextMenu name="СоставОперацийНоменклатураОприходованиеКонтекстноеМеню" id="378"/>
+													<ExtendedTooltip name="СоставОперацийНоменклатураОприходованиеExtendedTooltip" id="746"/>
+												</InputField>
+												<InputField name="СоставОперацийХарактеристикаОприходование" id="381">
+													<DataPath>Объект.СоставОпераций.ХарактеристикаОприходование</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ShowInHeader>false</ShowInHeader>
+													<Width>10</Width>
+													<ContextMenu name="СоставОперацийХарактеристикаОприходованиеКонтекстноеМеню" id="382"/>
+													<ExtendedTooltip name="СоставОперацийХарактеристикаОприходованиеExtendedTooltip" id="747"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
+										<InputField name="СоставОперацийКоличество" id="383">
+											<DataPath>Объект.СоставОпераций.Количество</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>8</Width>
+											<ContextMenu name="СоставОперацийКоличествоКонтекстноеМеню" id="384"/>
+											<ExtendedTooltip name="СоставОперацийКоличествоExtendedTooltip" id="748"/>
+										</InputField>
+										<InputField name="СоставОперацийСтоимость" id="385">
+											<DataPath>Объект.СоставОпераций.Стоимость</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СоставОперацийСтоимостьКонтекстноеМеню" id="386"/>
+											<ExtendedTooltip name="СоставОперацийСтоимостьExtendedTooltip" id="749"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+						<Table name="ДокументыПоОснованию" id="393">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ДокументыПоОснованию</DataPath>
+							<RowPictureDataPath>ДокументыПоОснованию.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Create</ExcludedCommand>
+								<ExcludedCommand>Choose</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>true</AutoRefresh>
+							<AutoRefreshPeriod>120</AutoRefreshPeriod>
+							<Period xsi:type="v8:StandardPeriod">
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ДокументыПоОснованиюКонтекстноеМеню" id="394"/>
+							<AutoCommandBar name="ДокументыПоОснованиюКоманднаяПанель" id="395"/>
+							<ExtendedTooltip name="ДокументыПоОснованиюExtendedTooltip" id="750"/>
+							<SearchStringAddition name="ДокументыПоОснованиюSearchString" id="751">
+								<Source>
+									<lf:elementId>393</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ДокументыПоОснованиюSearchStringContextMenu" id="752"/>
+								<ExtendedTooltip name="ДокументыПоОснованиюSearchStringExtendedTooltip" id="753"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДокументыПоОснованиюViewStatus" id="754">
+								<Source>
+									<lf:elementId>393</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ДокументыПоОснованиюViewStatusContextMenu" id="755"/>
+								<ExtendedTooltip name="ДокументыПоОснованиюViewStatusExtendedTooltip" id="756"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДокументыПоОснованиюSearchControl" id="757">
+								<Source>
+									<lf:elementId>393</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ДокументыПоОснованиюSearchControlContextMenu" id="758"/>
+								<ExtendedTooltip name="ДокументыПоОснованиюSearchControlExtendedTooltip" id="759"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДокументыПоОснованиюНомер" id="398">
+									<DataPath>ДокументыПоОснованию.Number</DataPath>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ДокументыПоОснованиюНомерКонтекстноеМеню" id="399"/>
+									<ExtendedTooltip name="ДокументыПоОснованиюНомерExtendedTooltip" id="760"/>
+								</LabelField>
+								<LabelField name="ДокументыПоОснованиюДата" id="396">
+									<DataPath>ДокументыПоОснованию.Date</DataPath>
+									<Width>8</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Format>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДЛФ=DT</v8:content>
+										</v8:item>
+									</Format>
+									<ContextMenu name="ДокументыПоОснованиюДатаКонтекстноеМеню" id="397"/>
+									<ExtendedTooltip name="ДокументыПоОснованиюДатаExtendedTooltip" id="761"/>
+								</LabelField>
+								<LabelField name="ДокументыПоОснованиюТипДокумента" id="406">
+									<DataPath>ДокументыПоОснованию.Type</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Документ</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДокументыПоОснованиюТипДокументаКонтекстноеМеню" id="407"/>
+									<ExtendedTooltip name="ДокументыПоОснованиюТипДокументаExtendedTooltip" id="762"/>
+								</LabelField>
+								<LabelField name="ДокументыПоОснованиюОрганизация" id="410">
+									<DataPath>ДокументыПоОснованию.Организация</DataPath>
+									<ContextMenu name="ДокументыПоОснованиюОрганизацияКонтекстноеМеню" id="411"/>
+									<ExtendedTooltip name="ДокументыПоОснованиюОрганизацияExtendedTooltip" id="763"/>
+								</LabelField>
+								<LabelField name="ДокументыПоОснованиюПодразделение" id="408">
+									<DataPath>ДокументыПоОснованию.Подразделение</DataPath>
+									<ContextMenu name="ДокументыПоОснованиюПодразделениеКонтекстноеМеню" id="409"/>
+									<ExtendedTooltip name="ДокументыПоОснованиюПодразделениеExtendedTooltip" id="764"/>
+								</LabelField>
+								<LabelField name="ДокументыПоОснованиюКомментарий" id="412">
+									<DataPath>ДокументыПоОснованию.Комментарий</DataPath>
+									<ContextMenu name="ДокументыПоОснованиюКомментарийКонтекстноеМеню" id="413"/>
+									<ExtendedTooltip name="ДокументыПоОснованиюКомментарийExtendedTooltip" id="765"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ПомощникОформленияСкладскихАктов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Columns>
+				<AdditionalColumns table="Объект.ТоварыКСписанию">
+					<Column name="ХарактеристикиИспользуются" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Характеристики используются</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.ТоварыПересортица">
+					<Column name="ХарактеристикиИспользуютсяСписание" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Характеристики используются списание</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ХарактеристикиИспользуютсяОприходование" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Характеристики используются оприходование</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.ТоварыПорча">
+					<Column name="ХарактеристикиИспользуютсяСписание" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Характеристики используются списание</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ХарактеристикиИспользуютсяОприходование" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Характеристики используются оприходование</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+				<AdditionalColumns table="Объект.ТоварыКОприходованию">
+					<Column name="ХарактеристикиИспользуются" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Характеристики используются</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="ПустаяОрганизация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пустая организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументСписания" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ списания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.СписаниеНедостачТоваров</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ДокументСписания.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ДокументОприходования" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ оприходования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.ОприходованиеИзлишковТоваров</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ДокументОприходования.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ДокументПересортицы" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ пересортицы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.ПересортицаТоваров</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ДокументПересортицы.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="ОстаткиОрганизаций" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остатки организаций</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Организация" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Номенклатура" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Характеристика" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристика</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ХарактеристикиНоменклатуры</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Остаток" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Остаток</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Цена" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>23</v8:Digits>
+							<v8:FractionDigits>10</v8:FractionDigits>
+							<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОтборНоменклатуры" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>dcsset:SettingsComposer</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборСтрокНоменклатуры" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор строк номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьХарактеристикиНоменклатуры</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="СписокСовпадающейНоменклатуры" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список совпадающей номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументыПоОснованию" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы по основанию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ДокументыПоОснованию.Ref</Field>
+				<Field>10/5</Field>
+				<Field>10/6</Field>
+				<Field>10/15</Field>
+				<Field>10/16</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>DocumentJournal.СкладскиеАкты</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ДоступныеОрганизации" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+			<Save>
+				<Field>ДоступныеОрганизации</Field>
+			</Save>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Settings>
+		</Attribute>
+		<Attribute name="АдресДанныхДокументаВХранилище" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес данных документа в хранилище</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументПорчи" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ порчи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.ПорчаТоваров</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>ДокументПорчи.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="АктивнаяСтраница" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Активная страница</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыКСписаниюХарактеристика</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТоварыКСписанию.ХарактеристикиИспользуются</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаОтмененнойСтрокиДокумента</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;характеристики не используются&gt;</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыКОприходованиюХарактеристика</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТоварыКОприходованию.ХарактеристикиИспользуются</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаОтмененнойСтрокиДокумента</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;характеристики не используются&gt;</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыПересортицаХарактеристикаСписание</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТоварыПересортица.ХарактеристикиИспользуютсяСписание</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаОтмененнойСтрокиДокумента</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;характеристики не используются&gt;</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыПересортицаХарактеристикаОприходование</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТоварыПересортица.ХарактеристикиИспользуютсяОприходование</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаОтмененнойСтрокиДокумента</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;характеристики не используются&gt;</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыПорчаХарактеристикаСписание</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТоварыПорча.ХарактеристикиИспользуютсяСписание</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаОтмененнойСтрокиДокумента</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;характеристики не используются&gt;</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыПорчаХарактеристикаОприходование</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТоварыПорча.ХарактеристикиИспользуютсяОприходование</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ЦветТекстаОтмененнойСтрокиДокумента</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;характеристики не используются&gt;</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>ReadOnly</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьКОформлению" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить к оформлению</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьКОформлению</Action>
+		</Command>
+		<Command name="РаспределитьСписанияПоОрганизациям" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить на организацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить списания по организациям</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьСписанияПоОрганизациям</Action>
+		</Command>
+		<Command name="ЗачестьПоПересортице" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачесть по пересортице</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачесть по пересортице</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗачестьПоПересортице</Action>
+		</Command>
+		<Command name="ОбновитьОстаткиОрганизаций" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить остатки организаций</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить остатки организаций</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьОстаткиОрганизаций</Action>
+		</Command>
+		<Command name="РаспределитьПересортицыПоОрганизациям" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить пересортицы по организациям</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить списания по организациям</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьПересортицыПоОрганизациям</Action>
+		</Command>
+		<Command name="ОформитьОперацию" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформить операцию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оформить операцию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОформитьОперацию</Action>
+		</Command>
+		<Command name="РаспределитьОприходованияПоОрганизациям" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить на организацию</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить оприходования по организациям</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьОприходованияПоОрганизациям</Action>
+		</Command>
+		<Command name="ОтразитьПорчуТоваров" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачесть по порче (все)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачесть по порче все товары имеющие связь по градации качества</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтразитьПорчуТоваров</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьКачествоТоваров</Item>
+			</FunctionalOptions>
+		</Command>
+		<Command name="РаспределитьПорчиПоОрганизациям" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить испорченные товары по организациям</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Распределить порчи по организациям</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РаспределитьПорчиПоОрганизациям</Action>
+		</Command>
+		<Command name="ЗачестьПоПорче" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачесть по порче</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Зачесть по порче</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗачестьПоПорче</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьКачествоТоваров</Item>
+			</FunctionalOptions>
+		</Command>
+	</Commands>
+</Form>

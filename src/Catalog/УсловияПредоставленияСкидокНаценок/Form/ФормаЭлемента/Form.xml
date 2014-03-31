@@ -1,0 +1,904 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Width>93</Width>
+	<Height>16</Height>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<Customizable>false</Customizable>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Родитель" id="140">
+			<DataPath>Объект.Parent</DataPath>
+			<TitleLocation>Top</TitleLocation>
+			<Width>21</Width>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="РодительКонтекстноеМеню" id="141"/>
+			<ExtendedTooltip name="РодительExtendedTooltip" id="171"/>
+		</InputField>
+		<UsualGroup name="ГруппаУсловиеПредоставления" id="74">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условие предоставления</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Условие предоставления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаУсловиеПредоставленияExtendedTooltip" id="172"/>
+			<ChildItems>
+				<InputField name="УсловиеПредоставления" id="7">
+					<DataPath>Объект.УсловиеПредоставления</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условие предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>21</Width>
+					<HorizontalStretch>false</HorizontalStretch>
+					<ListChoiceMode>true</ListChoiceMode>
+					<BackColor>style:ЦветФонаВыделения</BackColor>
+					<ContextMenu name="УсловиеПредоставленияКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="УсловиеПредоставленияExtendedTooltip" id="173"/>
+					<Events>
+						<Event name="OnChange">УсловиеПредоставленияПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="39">
+			<EnableContentChange>true</EnableContentChange>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<Height>9</Height>
+			<VerticalStretch>false</VerticalStretch>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыExtendedTooltip" id="174"/>
+			<ChildItems>
+				<Page name="ЗаРазовыйОбъемПродаж" id="70">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за разовый объем продаж</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаРазовыйОбъемПродажExtendedTooltip" id="175"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация" id="130">
+							<SkipOnInput>false</SkipOnInput>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание условия:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияКонтекстноеМеню" id="131"/>
+							<ExtendedTooltip name="ДекорацияExtendedTooltip" id="176"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаПерваяСтрока" id="83">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа первая строка</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа первая строка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПерваяСтрокаExtendedTooltip" id="177"/>
+							<ChildItems>
+								<InputField name="КритерийОграниченияПримененияЗаОбъемПродаж" id="15">
+									<DataPath>Объект.КритерийОграниченияПримененияЗаОбъемПродаж</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="КритерийОграниченияПримененияЗаОбъемПродажКонтекстноеМеню" id="16"/>
+									<ExtendedTooltip name="КритерийОграниченияПримененияЗаОбъемПродажExtendedTooltip" id="178"/>
+									<Events>
+										<Event name="OnChange">КритерийПримененияЗаОбъемПродажПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ОбластьОграничения" id="25">
+									<DataPath>Объект.ОбластьОграничения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>12</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыОбластейОграниченияСкидокНаценок.EnumValue.ВДокументе</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>В строке</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВариантыОбластейОграниченияСкидокНаценок.EnumValue.ВСтроке</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ОбластьОграниченияКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="ОбластьОграниченияExtendedTooltip" id="179"/>
+									<Events>
+										<Event name="OnChange">ОбластьОграниченияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ТипСравнения" id="125">
+									<DataPath>Объект.ТипСравнения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ТипСравненияКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="ТипСравненияExtendedTooltip" id="180"/>
+									<Events>
+										<Event name="OnChange">ТипСравненияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ЗначениеУсловияПредоставления" id="35">
+									<DataPath>Объект.ЗначениеУсловияОграничения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>9</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ЗначениеУсловияПредоставленияКонтекстноеМеню" id="36"/>
+									<ExtendedTooltip name="ЗначениеУсловияПредоставленияExtendedTooltip" id="181"/>
+									<Events>
+										<Event name="OnChange">ЗначениеУсловияПредоставленияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ВалютаОграничения" id="27">
+									<DataPath>Объект.ВалютаОграничения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>6</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ВалютаОграниченияКонтекстноеМеню" id="28"/>
+									<ExtendedTooltip name="ВалютаОграниченияExtendedTooltip" id="182"/>
+									<Events>
+										<Event name="OnChange">ВалютаОграниченияПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаВтораяСтрока" id="84">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вторая строка</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа вторая строка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВтораяСтрокаExtendedTooltip" id="183"/>
+							<ChildItems>
+								<InputField name="СегментНоменклатуры" id="81">
+									<DataPath>Объект.СегментНоменклатурыОграничения</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сегмент номенклатуры</v8:content>
+										</v8:item>
+									</Title>
+									<Width>21</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="СегментНоменклатурыКонтекстноеМеню" id="82"/>
+									<ExtendedTooltip name="СегментНоменклатурыExtendedTooltip" id="184"/>
+									<Events>
+										<Event name="OnChange">СегментНоменклатурыПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="ДекорацияОтступ6" id="157">
+							<Height>6</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ6КонтекстноеМеню" id="158"/>
+							<ExtendedTooltip name="ДекорацияОтступ6ExtendedTooltip" id="185"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаНакопленныйОбъемПродаж" id="85">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за накопленный объем продаж</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаНакопленныйОбъемПродажExtendedTooltip" id="186"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияОписаниеУсловия" id="138">
+							<SkipOnInput>false</SkipOnInput>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Описание условия:</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияОписаниеУсловияКонтекстноеМеню" id="139"/>
+							<ExtendedTooltip name="ДекорацияОписаниеУсловияExtendedTooltip" id="187"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаУсловияНакопления" id="94">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа условия накопления</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа условия накопления</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаУсловияНакопленияExtendedTooltip" id="188"/>
+							<ChildItems>
+								<InputField name="КритерийПримененияЗаОбъемПродажЗаНакопленныйОбъемПродаж" id="96">
+									<DataPath>Объект.КритерийОграниченияПримененияЗаОбъемПродаж</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>8</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="КритерийПримененияЗаОбъемПродажЗаНакопленныйОбъемПродажКонтекстноеМеню" id="97"/>
+									<ExtendedTooltip name="КритерийПримененияЗаОбъемПродажЗаНакопленныйОбъемПродажExtendedTooltip" id="189"/>
+									<Events>
+										<Event name="OnChange">КритерийПримененияЗаОбъемПродажПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="ДекорацияПроданногоТовара" id="132">
+									<Width>14</Width>
+									<SkipOnInput>false</SkipOnInput>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>проданного товара</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияПроданногоТовараКонтекстноеМеню" id="133"/>
+									<ExtendedTooltip name="ДекорацияПроданногоТовараExtendedTooltip" id="190"/>
+								</LabelDecoration>
+								<InputField name="ВариантНакопления" id="13">
+									<DataPath>Объект.ВариантНакопления</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>14</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ВариантНакопленияКонтекстноеМеню" id="14"/>
+									<ExtendedTooltip name="ВариантНакопленияExtendedTooltip" id="191"/>
+									<Events>
+										<Event name="OnChange">ВариантНакопленияПриИзменении</Event>
+									</Events>
+								</InputField>
+								<UsualGroup name="ГруппаПериодНакопительнойСкидки" id="90">
+									<EnableContentChange>true</EnableContentChange>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Период накопительной скидки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа период накопительной скидки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПериодНакопительнойСкидкиExtendedTooltip" id="192"/>
+									<ChildItems>
+										<LabelDecoration name="ДекорацияЗа" id="134">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>за</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияЗаКонтекстноеМеню" id="135"/>
+											<ExtendedTooltip name="ДекорацияЗаExtendedTooltip" id="193"/>
+										</LabelDecoration>
+										<InputField name="ВариантОпределенияПериодаНакопительнойСкидки" id="11">
+											<DataPath>Объект.ВариантОпределенияПериодаНакопительнойСкидки</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ВариантОпределенияПериодаНакопительнойСкидкиКонтекстноеМеню" id="12"/>
+											<ExtendedTooltip name="ВариантОпределенияПериодаНакопительнойСкидкиExtendedTooltip" id="194"/>
+											<Events>
+												<Event name="OnChange">ВариантОпределенияПериодаНакопительнойСкидкиПриИзменении</Event>
+											</Events>
+										</InputField>
+										<LabelDecoration name="ДекорацияКратный" id="136">
+											<SkipOnInput>false</SkipOnInput>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>кратный</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ДекорацияКратныйКонтекстноеМеню" id="137"/>
+											<ExtendedTooltip name="ДекорацияКратныйExtendedTooltip" id="195"/>
+										</LabelDecoration>
+										<InputField name="ПериодНакопления" id="17">
+											<DataPath>Объект.ПериодНакопления</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>7</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ПериодНакопленияКонтекстноеМеню" id="18"/>
+											<ExtendedTooltip name="ПериодНакопленияExtendedTooltip" id="196"/>
+											<Events>
+												<Event name="OnChange">ПериодНакопленияПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОграничениеЗаНакопленныйОбъемПродаж01" id="95">
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа ограничение</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОграничениеЗаНакопленныйОбъемПродаж01ExtendedTooltip" id="197"/>
+							<ChildItems>
+								<InputField name="ТипСравненияЗаНакопленныйОбъемПродаж" id="127">
+									<DataPath>Объект.ТипСравнения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<Width>8</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ТипСравненияЗаНакопленныйОбъемПродажКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="ТипСравненияЗаНакопленныйОбъемПродажExtendedTooltip" id="198"/>
+									<Events>
+										<Event name="OnChange">ТипСравненияЗаНакопленныйОбъемПродажПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ЗначениеУсловияПредоставленияЗаНакопленныйОбъемПродаж" id="100">
+									<DataPath>Объект.ЗначениеУсловияОграничения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>9</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ЗначениеУсловияПредоставленияЗаНакопленныйОбъемПродажКонтекстноеМеню" id="101"/>
+									<ExtendedTooltip name="ЗначениеУсловияПредоставленияЗаНакопленныйОбъемПродажExtendedTooltip" id="199"/>
+									<Events>
+										<Event name="OnChange">ЗначениеУсловияПредоставленияЗаНакопленныйОбъемПродажПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ВалютаОграниченияЗаНакопленныйОбъемПродаж" id="102">
+									<DataPath>Объект.ВалютаОграничения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>10</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ВалютаОграниченияЗаНакопленныйОбъемПродажКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="ВалютаОграниченияЗаНакопленныйОбъемПродажExtendedTooltip" id="200"/>
+									<Events>
+										<Event name="OnChange">ВалютаОграниченияЗаНакопленныйОбъемПродажПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СегментНоменклатурыЗаНакопленныйОбъемПродаж" id="105">
+							<DataPath>Объект.СегментНоменклатурыОграничения</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сегмент номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СегментНоменклатурыЗаНакопленныйОбъемПродажКонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="СегментНоменклатурыЗаНакопленныйОбъемПродажExtendedTooltip" id="201"/>
+							<Events>
+								<Event name="OnChange">СегментНоменклатурыЗаНакопленныйОбъемПродажПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ5" id="155">
+							<Height>5</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ5КонтекстноеМеню" id="156"/>
+							<ExtendedTooltip name="ДекорацияОтступ5ExtendedTooltip" id="202"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаГрафикОплаты" id="78">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за график оплаты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаГрафикОплатыExtendedTooltip" id="203"/>
+					<ChildItems>
+						<InputField name="ГрафикОплаты" id="31">
+							<DataPath>Объект.ГрафикОплаты</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ГрафикОплатыКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ГрафикОплатыExtendedTooltip" id="204"/>
+							<Events>
+								<Event name="OnChange">ГрафикОплатыПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ4" id="153">
+							<Height>7</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ4КонтекстноеМеню" id="154"/>
+							<ExtendedTooltip name="ДекорацияОтступ4ExtendedTooltip" id="205"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаПробнуюПродажу" id="107">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за пробную продажу</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаПробнуюПродажуExtendedTooltip" id="206"/>
+					<ChildItems>
+						<InputField name="СегментНоменклатурыОграничения" id="108">
+							<DataPath>Объект.СегментНоменклатурыОграничения</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Сегмент номенклатуры</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СегментНоменклатурыОграниченияКонтекстноеМеню" id="109"/>
+							<ExtendedTooltip name="СегментНоменклатурыОграниченияExtendedTooltip" id="207"/>
+							<Events>
+								<Event name="OnChange">СегментНоменклатурыОграниченияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ3" id="151">
+							<Height>7</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ3КонтекстноеМеню" id="152"/>
+							<ExtendedTooltip name="ДекорацияОтступ3ExtendedTooltip" id="208"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаВремяДействия" id="40">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за время действия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<HorizontalStretch>true</HorizontalStretch>
+					<ExtendedTooltip name="ЗаВремяДействияExtendedTooltip" id="209"/>
+					<ChildItems>
+						<Table name="ВремяДействия" id="41">
+							<Representation>List</Representation>
+							<SkipOnInput>false</SkipOnInput>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ВремяДействия</DataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ВремяДействияКонтекстноеМеню" id="42"/>
+							<AutoCommandBar name="ВремяДействияКоманднаяПанель" id="43"/>
+							<ExtendedTooltip name="ВремяДействияExtendedTooltip" id="210"/>
+							<SearchStringAddition name="ВремяДействияSearchString" id="211">
+								<Source>
+									<lf:elementId>41</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="ВремяДействияSearchStringContextMenu" id="212"/>
+								<ExtendedTooltip name="ВремяДействияSearchStringExtendedTooltip" id="213"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ВремяДействияViewStatus" id="214">
+								<Source>
+									<lf:elementId>41</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="ВремяДействияViewStatusContextMenu" id="215"/>
+								<ExtendedTooltip name="ВремяДействияViewStatusExtendedTooltip" id="216"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ВремяДействияSearchControl" id="217">
+								<Source>
+									<lf:elementId>41</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="ВремяДействияSearchControlContextMenu" id="218"/>
+								<ExtendedTooltip name="ВремяДействияSearchControlExtendedTooltip" id="219"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="OnChange">ВремяДействияПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="ВремяДействияДеньНедели" id="118">
+									<DataPath>Объект.ВремяДействия.ДеньНедели</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВремяДействияДеньНеделиКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="ВремяДействияДеньНеделиExtendedTooltip" id="220"/>
+								</InputField>
+								<InputField name="ВремяДействияВремяНачала" id="120">
+									<DataPath>Объект.ВремяДействия.ВремяНачала</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВремяДействияВремяНачалаКонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="ВремяДействияВремяНачалаExtendedTooltip" id="221"/>
+								</InputField>
+								<InputField name="ВремяДействияВремяОкончания" id="122">
+									<DataPath>Объект.ВремяДействия.ВремяОкончания</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ВремяДействияВремяОкончанияКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="ВремяДействияВремяОкончанияExtendedTooltip" id="222"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаПервуюПродажуПартнеру" id="112">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за первую продажу партнеру</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаПервуюПродажуПартнеруExtendedTooltip" id="223"/>
+					<ChildItems>
+						<LabelDecoration name="ДекорацияОтступ" id="145">
+							<Height>9</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступКонтекстноеМеню" id="146"/>
+							<ExtendedTooltip name="ДекорацияОтступExtendedTooltip" id="224"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаФормуОплаты" id="113">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия предоставления</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за форму оплаты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаФормуОплатыExtendedTooltip" id="225"/>
+					<ChildItems>
+						<InputField name="ФормаОплаты" id="114">
+							<DataPath>Объект.ФормаОплаты</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.ФормыОплаты.EnumValue.Наличная</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.ФормыОплаты.EnumValue.Безналичная</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">Enum.ФормыОплаты.EnumValue.ПлатежнаяКарта</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ФормаОплатыКонтекстноеМеню" id="115"/>
+							<ExtendedTooltip name="ФормаОплатыExtendedTooltip" id="226"/>
+							<Events>
+								<Event name="OnChange">ФормаОплатыПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ2" id="149">
+							<Height>7</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ2КонтекстноеМеню" id="150"/>
+							<ExtendedTooltip name="ДекорацияОтступ2ExtendedTooltip" id="227"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ОграничениеПоГруппеПользователей" id="142">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ограничение по группе пользователей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ограничение по группе пользователей</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОграничениеПоГруппеПользователейExtendedTooltip" id="228"/>
+					<ChildItems>
+						<InputField name="ГруппаПользователей" id="143">
+							<DataPath>Объект.ГруппаПользователей</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ГруппаПользователейКонтекстноеМеню" id="144"/>
+							<ExtendedTooltip name="ГруппаПользователейExtendedTooltip" id="229"/>
+							<Events>
+								<Event name="OnChange">ГруппаПользователейПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ1" id="147">
+							<Height>7</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ1КонтекстноеМеню" id="148"/>
+							<ExtendedTooltip name="ДекорацияОтступ1ExtendedTooltip" id="230"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="КартаЛояльностиНеЗарегистрирована" id="159">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Карта лояльности не зарегистрирована</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница условия предоставления за форму оплаты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="КартаЛояльностиНеЗарегистрированаExtendedTooltip" id="231"/>
+					<ChildItems>
+						<InputField name="ВидКартыЛояльности" id="164">
+							<DataPath>Объект.ВидКартыЛояльности</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ВидКартыЛояльностиКонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="ВидКартыЛояльностиExtendedTooltip" id="232"/>
+							<Events>
+								<Event name="OnChange">ВидКартыЛояльностиПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ7" id="162">
+							<Height>7</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ7КонтекстноеМеню" id="163"/>
+							<ExtendedTooltip name="ДекорацияОтступ7ExtendedTooltip" id="233"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+				<Page name="ЗаНаличиеКартыЛояльности" id="166">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>За наличие карты лояльности</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>За наличие карты лояльности</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЗаНаличиеКартыЛояльностиExtendedTooltip" id="234"/>
+					<ChildItems>
+						<InputField name="ЗаНаличиеКартыЛояльностиВидКартыЛояльности" id="167">
+							<DataPath>Объект.ВидКартыЛояльности</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<Width>21</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="ЗаНаличиеКартыЛояльностиВидКартыЛояльностиКонтекстноеМеню" id="168"/>
+							<ExtendedTooltip name="ЗаНаличиеКартыЛояльностиВидКартыЛояльностиExtendedTooltip" id="235"/>
+							<Events>
+								<Event name="OnChange">ГрафикОплатыПриИзменении</Event>
+							</Events>
+						</InputField>
+						<LabelDecoration name="ДекорацияОтступ8" id="169">
+							<Height>7</Height>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="ДекорацияОтступ8КонтекстноеМеню" id="170"/>
+							<ExtendedTooltip name="ДекорацияОтступ8ExtendedTooltip" id="236"/>
+						</LabelDecoration>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="ГруппаНаименование" id="129">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа наименование</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаНаименованиеExtendedTooltip" id="237"/>
+			<ChildItems>
+				<InputField name="Наименование" id="1">
+					<DataPath>Объект.Description</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceListButton>true</ChoiceListButton>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="238"/>
+					<Events>
+						<Event name="OnChange">НаименованиеПриИзменении</Event>
+						<Event name="StartListChoice">НаименованиеНачалоВыбораИзСписка</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.УсловияПредоставленияСкидокНаценок</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="НаименованиеИзмененоПользователем" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование изменено пользователем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользуетсяАвтоНаименование" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Используется авто наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="УсловиеПредоставления">
+			<Type>
+				<v8:Type>cfg:EnumRef.УсловияПредоставленияСкидокНаценок</v8:Type>
+			</Type>
+		</Parameter>
+		<Parameter name="ДанныеДляЗаполненияРодителя">
+			<Type>
+				<v8:Type>cfg:CatalogRef.УсловияПредоставленияСкидокНаценок</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>
