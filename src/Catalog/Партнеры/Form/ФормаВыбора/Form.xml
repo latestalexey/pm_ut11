@@ -54,6 +54,7 @@
 					<ExtendedTooltip name="ГруппаСписокОтборПоКонтрагентуExtendedTooltip" id="257"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаФильтры" id="34">
+							<Visible>false</Visible>
 							<EnableContentChange>true</EnableContentChange>
 							<Title>
 								<v8:item>
@@ -130,6 +131,65 @@
 									<ContextMenu name="ДекорацияНайтиОтступКонтекстноеМеню" id="165"/>
 									<ExtendedTooltip name="ДекорацияНайтиОтступExtendedTooltip" id="262"/>
 								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаОтбора" id="321">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отбора</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтбораРасширеннаяПодсказка" id="322"/>
+							<ChildItems>
+								<InputField name="СтрокаОтбора" id="323">
+									<DataPath>СтрокаОтбора</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Поиск</v8:content>
+										</v8:item>
+									</Title>
+									<ClearButton>true</ClearButton>
+									<ChoiceListButton>true</ChoiceListButton>
+									<ContextMenu name="СтрокаОтбораКонтекстноеМеню" id="324"/>
+									<ExtendedTooltip name="СтрокаОтбораРасширеннаяПодсказка" id="325"/>
+									<Events>
+										<Event name="OnChange">СтрокаОтбораПриИзменении</Event>
+									</Events>
+								</InputField>
+								<CommandBar name="ГруппаПоиск" id="326">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа поиск</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа поиск</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаПоискРасширеннаяПодсказка" id="327"/>
+									<ChildItems>
+										<Button name="НайтиПартнера" id="328">
+											<Type>CommandBarButton</Type>
+											<CommandName>Form.Command.НайтиПартнера</CommandName>
+											<Parameter xsi:nil="true"/>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Найти</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="НайтиПартнераРасширеннаяПодсказка" id="329"/>
+										</Button>
+									</ChildItems>
+								</CommandBar>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаСписок" id="102">
@@ -222,29 +282,29 @@
 										</ChildItems>
 									</AutoCommandBar>
 									<ExtendedTooltip name="СписокExtendedTooltip" id="267"/>
-									<SearchStringAddition name="СписокSearchString" id="321">
+									<SearchStringAddition name="СписокSearchString" id="330">
 										<Source>
 											<lf:elementId>46</lf:elementId>
 											<lf:additionId>0</lf:additionId>
 										</Source>
-										<ContextMenu name="СписокSearchStringContextMenu" id="322"/>
-										<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="323"/>
+										<ContextMenu name="СписокSearchStringContextMenu" id="331"/>
+										<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="332"/>
 									</SearchStringAddition>
-									<ViewStatusAddition name="СписокViewStatus" id="324">
+									<ViewStatusAddition name="СписокViewStatus" id="333">
 										<Source>
 											<lf:elementId>46</lf:elementId>
 											<lf:additionId>1</lf:additionId>
 										</Source>
-										<ContextMenu name="СписокViewStatusContextMenu" id="325"/>
-										<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="326"/>
+										<ContextMenu name="СписокViewStatusContextMenu" id="334"/>
+										<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="335"/>
 									</ViewStatusAddition>
-									<SearchControlAddition name="СписокSearchControl" id="327">
+									<SearchControlAddition name="СписокSearchControl" id="336">
 										<Source>
 											<lf:elementId>46</lf:elementId>
 											<lf:additionId>2</lf:additionId>
 										</Source>
-										<ContextMenu name="СписокSearchControlContextMenu" id="328"/>
-										<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="329"/>
+										<ContextMenu name="СписокSearchControlContextMenu" id="337"/>
+										<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="338"/>
 									</SearchControlAddition>
 									<Events>
 										<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
@@ -627,29 +687,29 @@
 												<Autofill>false</Autofill>
 											</AutoCommandBar>
 											<ExtendedTooltip name="БизнесРегионыExtendedTooltip" id="300"/>
-											<SearchStringAddition name="БизнесРегионыSearchString" id="330">
+											<SearchStringAddition name="БизнесРегионыSearchString" id="339">
 												<Source>
 													<lf:elementId>183</lf:elementId>
 													<lf:additionId>0</lf:additionId>
 												</Source>
-												<ContextMenu name="БизнесРегионыSearchStringContextMenu" id="331"/>
-												<ExtendedTooltip name="БизнесРегионыSearchStringExtendedTooltip" id="332"/>
+												<ContextMenu name="БизнесРегионыSearchStringContextMenu" id="340"/>
+												<ExtendedTooltip name="БизнесРегионыSearchStringExtendedTooltip" id="341"/>
 											</SearchStringAddition>
-											<ViewStatusAddition name="БизнесРегионыViewStatus" id="333">
+											<ViewStatusAddition name="БизнесРегионыViewStatus" id="342">
 												<Source>
 													<lf:elementId>183</lf:elementId>
 													<lf:additionId>1</lf:additionId>
 												</Source>
-												<ContextMenu name="БизнесРегионыViewStatusContextMenu" id="334"/>
-												<ExtendedTooltip name="БизнесРегионыViewStatusExtendedTooltip" id="335"/>
+												<ContextMenu name="БизнесРегионыViewStatusContextMenu" id="343"/>
+												<ExtendedTooltip name="БизнесРегионыViewStatusExtendedTooltip" id="344"/>
 											</ViewStatusAddition>
-											<SearchControlAddition name="БизнесРегионыSearchControl" id="336">
+											<SearchControlAddition name="БизнесРегионыSearchControl" id="345">
 												<Source>
 													<lf:elementId>183</lf:elementId>
 													<lf:additionId>2</lf:additionId>
 												</Source>
-												<ContextMenu name="БизнесРегионыSearchControlContextMenu" id="337"/>
-												<ExtendedTooltip name="БизнесРегионыSearchControlExtendedTooltip" id="338"/>
+												<ContextMenu name="БизнесРегионыSearchControlContextMenu" id="346"/>
+												<ExtendedTooltip name="БизнесРегионыSearchControlExtendedTooltip" id="347"/>
 											</SearchControlAddition>
 											<Events>
 												<Event name="DragCheck">ФильтрыПроверкаПеретаскивания</Event>
@@ -718,29 +778,29 @@
 												<Autofill>false</Autofill>
 											</AutoCommandBar>
 											<ExtendedTooltip name="ГруппыДоступаПартнеровExtendedTooltip" id="303"/>
-											<SearchStringAddition name="ГруппыДоступаПартнеровSearchString" id="339">
+											<SearchStringAddition name="ГруппыДоступаПартнеровSearchString" id="348">
 												<Source>
 													<lf:elementId>190</lf:elementId>
 													<lf:additionId>0</lf:additionId>
 												</Source>
-												<ContextMenu name="ГруппыДоступаПартнеровSearchStringContextMenu" id="340"/>
-												<ExtendedTooltip name="ГруппыДоступаПартнеровSearchStringExtendedTooltip" id="341"/>
+												<ContextMenu name="ГруппыДоступаПартнеровSearchStringContextMenu" id="349"/>
+												<ExtendedTooltip name="ГруппыДоступаПартнеровSearchStringExtendedTooltip" id="350"/>
 											</SearchStringAddition>
-											<ViewStatusAddition name="ГруппыДоступаПартнеровViewStatus" id="342">
+											<ViewStatusAddition name="ГруппыДоступаПартнеровViewStatus" id="351">
 												<Source>
 													<lf:elementId>190</lf:elementId>
 													<lf:additionId>1</lf:additionId>
 												</Source>
-												<ContextMenu name="ГруппыДоступаПартнеровViewStatusContextMenu" id="343"/>
-												<ExtendedTooltip name="ГруппыДоступаПартнеровViewStatusExtendedTooltip" id="344"/>
+												<ContextMenu name="ГруппыДоступаПартнеровViewStatusContextMenu" id="352"/>
+												<ExtendedTooltip name="ГруппыДоступаПартнеровViewStatusExtendedTooltip" id="353"/>
 											</ViewStatusAddition>
-											<SearchControlAddition name="ГруппыДоступаПартнеровSearchControl" id="345">
+											<SearchControlAddition name="ГруппыДоступаПартнеровSearchControl" id="354">
 												<Source>
 													<lf:elementId>190</lf:elementId>
 													<lf:additionId>2</lf:additionId>
 												</Source>
-												<ContextMenu name="ГруппыДоступаПартнеровSearchControlContextMenu" id="346"/>
-												<ExtendedTooltip name="ГруппыДоступаПартнеровSearchControlExtendedTooltip" id="347"/>
+												<ContextMenu name="ГруппыДоступаПартнеровSearchControlContextMenu" id="355"/>
+												<ExtendedTooltip name="ГруппыДоступаПартнеровSearchControlExtendedTooltip" id="356"/>
 											</SearchControlAddition>
 											<Events>
 												<Event name="DragCheck">ФильтрыПроверкаПеретаскивания</Event>
@@ -809,29 +869,29 @@
 												<Autofill>false</Autofill>
 											</AutoCommandBar>
 											<ExtendedTooltip name="МенеджерыExtendedTooltip" id="306"/>
-											<SearchStringAddition name="МенеджерыSearchString" id="348">
+											<SearchStringAddition name="МенеджерыSearchString" id="357">
 												<Source>
 													<lf:elementId>196</lf:elementId>
 													<lf:additionId>0</lf:additionId>
 												</Source>
-												<ContextMenu name="МенеджерыSearchStringContextMenu" id="349"/>
-												<ExtendedTooltip name="МенеджерыSearchStringExtendedTooltip" id="350"/>
+												<ContextMenu name="МенеджерыSearchStringContextMenu" id="358"/>
+												<ExtendedTooltip name="МенеджерыSearchStringExtendedTooltip" id="359"/>
 											</SearchStringAddition>
-											<ViewStatusAddition name="МенеджерыViewStatus" id="351">
+											<ViewStatusAddition name="МенеджерыViewStatus" id="360">
 												<Source>
 													<lf:elementId>196</lf:elementId>
 													<lf:additionId>1</lf:additionId>
 												</Source>
-												<ContextMenu name="МенеджерыViewStatusContextMenu" id="352"/>
-												<ExtendedTooltip name="МенеджерыViewStatusExtendedTooltip" id="353"/>
+												<ContextMenu name="МенеджерыViewStatusContextMenu" id="361"/>
+												<ExtendedTooltip name="МенеджерыViewStatusExtendedTooltip" id="362"/>
 											</ViewStatusAddition>
-											<SearchControlAddition name="МенеджерыSearchControl" id="354">
+											<SearchControlAddition name="МенеджерыSearchControl" id="363">
 												<Source>
 													<lf:elementId>196</lf:elementId>
 													<lf:additionId>2</lf:additionId>
 												</Source>
-												<ContextMenu name="МенеджерыSearchControlContextMenu" id="355"/>
-												<ExtendedTooltip name="МенеджерыSearchControlExtendedTooltip" id="356"/>
+												<ContextMenu name="МенеджерыSearchControlContextMenu" id="364"/>
+												<ExtendedTooltip name="МенеджерыSearchControlExtendedTooltip" id="365"/>
 											</SearchControlAddition>
 											<Events>
 												<Event name="DragCheck">ФильтрыПроверкаПеретаскивания</Event>
@@ -902,29 +962,29 @@
 												<Autofill>false</Autofill>
 											</AutoCommandBar>
 											<ExtendedTooltip name="СвойстваExtendedTooltip" id="309"/>
-											<SearchStringAddition name="СвойстваSearchString" id="357">
+											<SearchStringAddition name="СвойстваSearchString" id="366">
 												<Source>
 													<lf:elementId>245</lf:elementId>
 													<lf:additionId>0</lf:additionId>
 												</Source>
-												<ContextMenu name="СвойстваSearchStringContextMenu" id="358"/>
-												<ExtendedTooltip name="СвойстваSearchStringExtendedTooltip" id="359"/>
+												<ContextMenu name="СвойстваSearchStringContextMenu" id="367"/>
+												<ExtendedTooltip name="СвойстваSearchStringExtendedTooltip" id="368"/>
 											</SearchStringAddition>
-											<ViewStatusAddition name="СвойстваViewStatus" id="360">
+											<ViewStatusAddition name="СвойстваViewStatus" id="369">
 												<Source>
 													<lf:elementId>245</lf:elementId>
 													<lf:additionId>1</lf:additionId>
 												</Source>
-												<ContextMenu name="СвойстваViewStatusContextMenu" id="361"/>
-												<ExtendedTooltip name="СвойстваViewStatusExtendedTooltip" id="362"/>
+												<ContextMenu name="СвойстваViewStatusContextMenu" id="370"/>
+												<ExtendedTooltip name="СвойстваViewStatusExtendedTooltip" id="371"/>
 											</ViewStatusAddition>
-											<SearchControlAddition name="СвойстваSearchControl" id="363">
+											<SearchControlAddition name="СвойстваSearchControl" id="372">
 												<Source>
 													<lf:elementId>245</lf:elementId>
 													<lf:additionId>2</lf:additionId>
 												</Source>
-												<ContextMenu name="СвойстваSearchControlContextMenu" id="364"/>
-												<ExtendedTooltip name="СвойстваSearchControlExtendedTooltip" id="365"/>
+												<ContextMenu name="СвойстваSearchControlContextMenu" id="373"/>
+												<ExtendedTooltip name="СвойстваSearchControlExtendedTooltip" id="374"/>
 											</SearchControlAddition>
 											<Events>
 												<Event name="OnActivateRow">ДинамическийСписокФильтрыПриАктивизацииСтроки</Event>
@@ -1017,29 +1077,29 @@
 												<Autofill>false</Autofill>
 											</AutoCommandBar>
 											<ExtendedTooltip name="КатегорииExtendedTooltip" id="314"/>
-											<SearchStringAddition name="КатегорииSearchString" id="366">
+											<SearchStringAddition name="КатегорииSearchString" id="375">
 												<Source>
 													<lf:elementId>234</lf:elementId>
 													<lf:additionId>0</lf:additionId>
 												</Source>
-												<ContextMenu name="КатегорииSearchStringContextMenu" id="367"/>
-												<ExtendedTooltip name="КатегорииSearchStringExtendedTooltip" id="368"/>
+												<ContextMenu name="КатегорииSearchStringContextMenu" id="376"/>
+												<ExtendedTooltip name="КатегорииSearchStringExtendedTooltip" id="377"/>
 											</SearchStringAddition>
-											<ViewStatusAddition name="КатегорииViewStatus" id="369">
+											<ViewStatusAddition name="КатегорииViewStatus" id="378">
 												<Source>
 													<lf:elementId>234</lf:elementId>
 													<lf:additionId>1</lf:additionId>
 												</Source>
-												<ContextMenu name="КатегорииViewStatusContextMenu" id="370"/>
-												<ExtendedTooltip name="КатегорииViewStatusExtendedTooltip" id="371"/>
+												<ContextMenu name="КатегорииViewStatusContextMenu" id="379"/>
+												<ExtendedTooltip name="КатегорииViewStatusExtendedTooltip" id="380"/>
 											</ViewStatusAddition>
-											<SearchControlAddition name="КатегорииSearchControl" id="372">
+											<SearchControlAddition name="КатегорииSearchControl" id="381">
 												<Source>
 													<lf:elementId>234</lf:elementId>
 													<lf:additionId>2</lf:additionId>
 												</Source>
-												<ContextMenu name="КатегорииSearchControlContextMenu" id="373"/>
-												<ExtendedTooltip name="КатегорииSearchControlExtendedTooltip" id="374"/>
+												<ContextMenu name="КатегорииSearchControlContextMenu" id="382"/>
+												<ExtendedTooltip name="КатегорииSearchControlExtendedTooltip" id="383"/>
 											</SearchControlAddition>
 											<Events>
 												<Event name="OnActivateRow">ДинамическийСписокФильтрыПриАктивизацииСтроки</Event>
@@ -2059,6 +2119,21 @@
 				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="СтрокаОтбора" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строка отбора</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -2153,6 +2228,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>НайтиПП</Action>
+		</Command>
+		<Command name="НайтиПартнера" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти партнера</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Найти партнера</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НайтиПартнера</Action>
 		</Command>
 	</Commands>
 	<Parameters>
