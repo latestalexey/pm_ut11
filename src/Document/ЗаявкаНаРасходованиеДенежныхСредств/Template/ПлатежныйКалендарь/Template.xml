@@ -71,10 +71,6 @@
 			<field>Категория</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Комментарий</dataPath>
-			<field>Комментарий</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Контрагент</dataPath>
 			<field>Контрагент</field>
 		</field>
@@ -184,6 +180,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Примечание</dataPath>
+			<field>Примечание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Примечание</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	СписаниеБезналичныхДенежныхСредств.ЗаявкаНаРасходованиеДенежныхСредств КАК Док,
@@ -241,7 +247,7 @@
 	ЗаявкаНаРасходованиеДенежныхСредствРасшифровкаПлатежа.Заказ.ДокументОснование,
 	ЗаявкаНаРасходованиеДенежныхСредствРасшифровкаПлатежа.Заказ.ДокументОснование.Номер КАК ЗаказКлиентаНомер,
 	ЕСТЬNULL(ЗаявкаНаРасходованиеДенежныхСредствРасшифровкаПлатежа.Заказ.ДокументОснование.Менеджер, ЗаявкаНаРасходованиеДенежныхСредствРасшифровкаПлатежа.Заказ.С_МенеджерЗаказчика) КАК ЗаказКлиентаМенеджер,
-	ВЫРАЗИТЬ(Заявка.ЗаявкаНаРасходованиеДенежныхСредств.Заметки КАК СТРОКА(1000)) КАК Комментарий,
+	ВЫРАЗИТЬ(Заявка.ЗаявкаНаРасходованиеДенежныхСредств.Заметки КАК СТРОКА(1000)) КАК Примечание,
 	ЕСТЬNULL(ЗаявкаНаРасходованиеДенежныхСредствРасшифровкаПлатежа.Заказ.ДокументОснование.Контрагент, ЗаявкаНаРасходованиеДенежныхСредствРасшифровкаПлатежа.Заказ.С_ЗаказчикПоставки) КАК Заказчик,
 	ЕСТЬNULL(КурсыВалютСрезПоследних.Курс, 0) КАК Курс,
 	ПОДСТРОКА(Заявка.ЗаявкаНаРасходованиеДенежныхСредств.СтатьяДвиженияДенежныхСредств.Родитель.Наименование, 1, 2) КАК НомерКатегории
@@ -389,7 +395,7 @@
 					<dcsset:field>Категория</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Комментарий</dcsset:field>
+					<dcsset:field>Примечание</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Контрагент</dcsset:field>
@@ -537,8 +543,8 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Комментарий</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:left xsi:type="dcscor:Field">Примечание</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:string"/>
 					<dcsset:userSettingID>4b8d688c-3636-4836-9c50-eed167d423cc</dcsset:userSettingID>
 				</dcsset:item>
