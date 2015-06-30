@@ -896,4 +896,54 @@
 	УстановитьПривилегированныйРежим(Ложь);
 	Возврат Габариты;
 КонецФункции
+// Доработка +
+&НаКлиенте
+Процедура УстановитьПараметрыПечатиExcel(ИмяФайла, Ориентация, ПолеСлева = 10, ПолеСправа = 10, ПолеСверху = 10, ПолеСнизу = 10, АвтоВысотаСтрок = Ложь) Экспорт
 
+    Попытка
+        Excel = Новый COMОбъект("Excel.Application");
+        Excel.Visible = False;//True;
+        Workbook = Excel.Workbooks.Open(ИмяФайла);
+        Лист = Workbook.Sheets(1);
+        Лист.PageSetup.Zoom = False;
+        Лист.PageSetup.FitToPagesWide = 1; // По ширине листа
+        Лист.PageSetup.FitToPagesTall = False;
+        Если Ориентация = ОриентацияСтраницы.Ландшафт Тогда
+            Лист.PageSetup.Orientation = 2; // xlLandscape
+        Иначе
+            Лист.PageSetup.Orientation = 1; // xlPortrait
+        КонецЕсли;
+        Лист.PageSetup.LeftMargin = Excel.Application.InchesToPoints(ПолеСлева / 25.4); // Поле слева
+        Лист.PageSetup.RightMargin = Excel.Application.InchesToPoints(ПолеСправа / 25.4); // Поле справа
+        Лист.PageSetup.TopMargin = Excel.Application.InchesToPoints(ПолеСверху / 25.4); // Поле сверху
+        Лист.PageSetup.BottomMargin = Excel.Application.InchesToPoints(ПолеСнизу / 25.4); // Поле снизу
+
+        Если АвтоВысотаСтрок Тогда
+            // Устанавливаем высоту строк
+            НомерСтроки = 1;
+            Пока НомерСтроки < 100000 Цикл
+
+                Ячейка = Лист.Cells(НомерСтроки, 1);
+                Строка = Ячейка.EntireRow();
+                Строка.AutoFit();
+                Если ПустаяСтрока(Ячейка.Value) Тогда
+                    Прервать;
+                КонецЕсли;
+                НомерСтроки = НомерСтроки + 1;
+
+            КонецЦикла;
+        КонецЕсли;
+
+        Excel.DisplayAlerts = False;
+        Workbook.Save();
+        Workbook.Close();
+        Workbook = Неопределено;
+        Excel.Quit();
+        Excel = Неопределено;
+
+    Исключение
+
+    КонецПопытки;
+
+КонецПроцедуры // УстановитьПараметрыПечатиExcel()
+// Доработка -
